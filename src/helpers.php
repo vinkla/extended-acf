@@ -122,6 +122,20 @@ if (!function_exists('acf_image')) {
     }
 }
 
+if (!function_exists('acf_page_link')) {
+    /**
+     * Get an acf page_link field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_page_link(array $settings): array
+    {
+        return acf_field('page_link', $settings);
+    }
+}
+
 if (!function_exists('acf_password')) {
     /**
      * Get an acf password field settings array.
@@ -133,6 +147,20 @@ if (!function_exists('acf_password')) {
     function acf_password(array $settings): array
     {
         return acf_field('password', $settings);
+    }
+}
+
+if (!function_exists('acf_post_object')) {
+    /**
+     * Get an acf post_object field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_post_object(array $settings): array
+    {
+        return acf_field('post_object', $settings);
     }
 }
 
@@ -150,6 +178,20 @@ if (!function_exists('acf_radio')) {
     }
 }
 
+if (!function_exists('acf_relationship')) {
+    /**
+     * Get an acf relationship field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_relationship(array $settings): array
+    {
+        return acf_field('relationship', $settings);
+    }
+}
+
 if (!function_exists('acf_select')) {
     /**
      * Get an acf select field settings array.
@@ -161,6 +203,20 @@ if (!function_exists('acf_select')) {
     function acf_select(array $settings): array
     {
         return acf_field('select', $settings);
+    }
+}
+
+if (!function_exists('acf_taxonomy')) {
+    /**
+     * Get an acf taxonomy field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_taxonomy(array $settings): array
+    {
+        return acf_field('taxonomy', $settings);
     }
 }
 
@@ -217,6 +273,20 @@ if (!function_exists('acf_url')) {
     function acf_url(array $settings): array
     {
         return acf_field('url', $settings);
+    }
+}
+
+if (!function_exists('acf_user')) {
+    /**
+     * Get an acf user field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_user(array $settings): array
+    {
+        return acf_field('user', $settings);
     }
 }
 

@@ -38,13 +38,18 @@ class HelpersTest extends TestCase
         $this->assertFieldType('image', acf_image($settings));
         $this->assertFieldType('number', acf_number($settings));
         $this->assertFieldType('oembed', acf_oembed($settings));
+        $this->assertFieldType('page_link', acf_page_link($settings));
         $this->assertFieldType('password', acf_password($settings));
+        $this->assertFieldType('post_object', acf_post_object($settings));
         $this->assertFieldType('radio', acf_radio($settings));
+        $this->assertFieldType('relationship', acf_relationship($settings));
         $this->assertFieldType('select', acf_select($settings));
+        $this->assertFieldType('taxonomy', acf_taxonomy($settings));
         $this->assertFieldType('text', acf_text($settings));
         $this->assertFieldType('textarea', acf_textarea($settings));
         $this->assertFieldType('true_false', acf_true_false($settings));
         $this->assertFieldType('url', acf_url($settings));
+        $this->assertFieldType('user', acf_user($settings));
         $this->assertFieldType('wysiwyg', acf_wysiwyg($settings));
     }
 
