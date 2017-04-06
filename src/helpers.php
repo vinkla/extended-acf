@@ -13,6 +13,20 @@ declare(strict_types=1);
 
 use InvalidArgumentException;
 
+if (!function_exists('acf_email')) {
+    /**
+     * Get an acf email field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_email(array $settings): array
+    {
+        return acf_field('email', $settings);
+    }
+}
+
 if (!function_exists('acf_field')) {
     /**
      * Get an acf field settings array.
@@ -38,17 +52,31 @@ if (!function_exists('acf_field')) {
     }
 }
 
-if (!function_exists('acf_email')) {
+if (!function_exists('acf_file')) {
     /**
-     * Get an acf email field settings array.
+     * Get an acf file field settings array.
      *
      * @param array $settings
      *
      * @return array
      */
-    function acf_email(array $settings): array
+    function acf_file(array $settings): array
     {
-        return acf_field('email', $settings);
+        return acf_field('file', $settings);
+    }
+}
+
+if (!function_exists('acf_gallery')) {
+    /**
+     * Get an acf gallery field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_gallery(array $settings): array
+    {
+        return acf_field('gallery', $settings);
     }
 }
 
@@ -63,6 +91,20 @@ if (!function_exists('acf_number')) {
     function acf_number(array $settings): array
     {
         return acf_field('number', $settings);
+    }
+}
+
+if (!function_exists('acf_image')) {
+    /**
+     * Get an acf image field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_image(array $settings): array
+    {
+        return acf_field('image', $settings);
     }
 }
 
@@ -119,5 +161,33 @@ if (!function_exists('acf_url')) {
     function acf_url(array $settings): array
     {
         return acf_field('url', $settings);
+    }
+}
+
+if (!function_exists('acf_wysiwyg')) {
+    /**
+     * Get an acf wysiwyg field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_wysiwyg(array $settings): array
+    {
+        return acf_field('wysiwyg', $settings);
+    }
+}
+
+if (!function_exists('acf_oembed')) {
+    /**
+     * Get an acf oembed field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_oembed(array $settings): array
+    {
+        return acf_field('oembed', $settings);
     }
 }
