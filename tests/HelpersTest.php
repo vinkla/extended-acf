@@ -30,7 +30,7 @@ class HelpersTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testAcfFieldMissingName()
+    public function testMissingSettingName()
     {
         acf_text(['label']);
     }
@@ -38,16 +38,20 @@ class HelpersTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testAcfFieldMissingLabel()
+    public function testMissingSettingLabel()
     {
         acf_text(['name']);
     }
 
-    public function testAcfText()
+    public function testFields()
     {
-        $this->assertFieldType('text', acf_text([
-            'name' => 'test',
-            'label' => 'test',
-        ]));
+        $settings = ['name' => 'test', 'label' => 'test'];
+
+        $this->assertFieldType('email', acf_email($settings));
+        $this->assertFieldType('number', acf_number($settings));
+        $this->assertFieldType('password', acf_password($settings));
+        $this->assertFieldType('text', acf_text($settings));
+        $this->assertFieldType('textarea', acf_textarea($settings));
+        $this->assertFieldType('url', acf_url($settings));
     }
 }

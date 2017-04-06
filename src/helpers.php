@@ -38,6 +38,48 @@ if (!function_exists('acf_field')) {
     }
 }
 
+if (!function_exists('acf_email')) {
+    /**
+     * Get an acf email field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_email(array $settings): array
+    {
+        return acf_field('email', $settings);
+    }
+}
+
+if (!function_exists('acf_number')) {
+    /**
+     * Get an acf number field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_number(array $settings): array
+    {
+        return acf_field('number', $settings);
+    }
+}
+
+if (!function_exists('acf_password')) {
+    /**
+     * Get an acf password field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_password(array $settings): array
+    {
+        return acf_field('password', $settings);
+    }
+}
+
 if (!function_exists('acf_text')) {
     /**
      * Get an acf text field settings array.
@@ -49,5 +91,33 @@ if (!function_exists('acf_text')) {
     function acf_text(array $settings): array
     {
         return acf_field('text', $settings);
+    }
+}
+
+if (!function_exists('acf_textarea')) {
+    /**
+     * Get an acf textarea field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_textarea(array $settings): array
+    {
+        return acf_field('textarea', $settings);
+    }
+}
+
+if (!function_exists('acf_url')) {
+    /**
+     * Get an acf url field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_url(array $settings): array
+    {
+        return acf_field('url', $settings);
     }
 }
