@@ -13,6 +13,20 @@ declare(strict_types=1);
 
 use InvalidArgumentException;
 
+if (!function_exists('acf_checkbox')) {
+    /**
+     * Get an acf checkbox field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_checkbox(array $settings): array
+    {
+        return acf_field('checkbox', $settings);
+    }
+}
+
 if (!function_exists('acf_email')) {
     /**
      * Get an acf email field settings array.
@@ -122,6 +136,34 @@ if (!function_exists('acf_password')) {
     }
 }
 
+if (!function_exists('acf_radio')) {
+    /**
+     * Get an acf radio field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_radio(array $settings): array
+    {
+        return acf_field('radio', $settings);
+    }
+}
+
+if (!function_exists('acf_select')) {
+    /**
+     * Get an acf select field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_select(array $settings): array
+    {
+        return acf_field('select', $settings);
+    }
+}
+
 if (!function_exists('acf_text')) {
     /**
      * Get an acf text field settings array.
@@ -147,6 +189,20 @@ if (!function_exists('acf_textarea')) {
     function acf_textarea(array $settings): array
     {
         return acf_field('textarea', $settings);
+    }
+}
+
+if (!function_exists('acf_true_false')) {
+    /**
+     * Get an acf true_false field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_true_false(array $settings): array
+    {
+        return acf_field('true_false', $settings);
     }
 }
 
