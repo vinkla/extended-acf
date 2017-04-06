@@ -122,6 +122,23 @@ if (!function_exists('acf_image')) {
     }
 }
 
+if (!function_exists('acf_location')) {
+    /**
+     * Get an acf location location array.
+     *
+     * @return array
+     */
+    function acf_location(string $param, string $operator, string $value = null): array
+    {
+        if (func_num_args() === 2) {
+            $value = $operator;
+            $operator = '==';
+        }
+
+        return compact('param', 'operator', 'value');
+    }
+}
+
 if (!function_exists('acf_page_link')) {
     /**
      * Get an acf page_link field settings array.
