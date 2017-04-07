@@ -115,7 +115,7 @@ if (!function_exists('acf_field_group')) {
             ]));
         }
 
-        register_field_group($settings);
+        acf_add_local_field_group($settings);
     }
 }
 

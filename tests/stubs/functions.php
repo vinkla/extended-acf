@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-function register_field_group()
+function acf_add_local_field_group()
 {
     //
 }
