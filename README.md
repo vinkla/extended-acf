@@ -1,29 +1,6 @@
 # ACF
 
-[![acf](https://cloud.githubusercontent.com/assets/499192/24789806/c0be3ea6-1b74-11e7-858f-f4515d52e297.png)](https://www.advancedcustomfields.com)
-
 > An [Advanced Custom Fields](https://www.advancedcustomfields.com) helper for [WordPlate](https://wordplate.github.io).
-
-```php
-$fields = [
-    acf_image(['name' => 'image', 'label' => 'Image']),
-    acf_text(['name' => 'title', 'label' => 'Title']),
-];
-
-$location = [
-    acf_location('post_type', 'post'),
-    acf_location('post_type', '!=', 'page'),
-];
-
-acf_field_group([
-    'title' => 'About',
-    'key' => 'group_about',
-    'fields' => $fields,
-    'location' => [
-        $location,
-    ]
-]);
-```
 
 [![Build Status](https://img.shields.io/travis/wordplate/acf/master.svg?style=flat)](https://travis-ci.org/wordplate/acf)
 [![StyleCI](https://styleci.io/repos/87427318/shield?style=flat)](https://styleci.io/repos/87427318)
