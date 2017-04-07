@@ -54,7 +54,9 @@ acf_text([
 ]);
 ```
 
-##### Basic Field Types
+[Visit the official documentation to read more about the field settings.](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings)
+
+#### Basic Field Types
 
 ```php
 acf_text($settings);
@@ -65,7 +67,7 @@ acf_url($settings);
 acf_password($settings);
 ```
 
-##### Content Field Types
+#### Content Field Types
 
 ```php
 acf_wysiwyg($settings);
@@ -75,7 +77,7 @@ acf_file($settings);
 acf_gallery($settings);
 ```
 
-##### Choice Field Types
+#### Choice Field Types
 
 ```php
 acf_select($settings);
@@ -84,7 +86,7 @@ acf_radio($settings);
 acf_true_false($settings);
 ```
 
-##### Relational Field Types
+#### Relational Field Types
 
 ```php
 acf_post_object($settings);
@@ -93,8 +95,6 @@ acf_relationship($settings);
 acf_taxonomy($settings);
 acf_user($settings);
 ```
-
-[Visit the official documentation to read more about the field settings.](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings)
 
 ## License
 
