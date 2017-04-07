@@ -1,6 +1,6 @@
 {
     "name": "wordplate/acf",
-    "description": "An ACF helper for WordPlate",
+    "description": "An Advanced Custom Fields helper for WordPlate",
     "keywords": ["wordplate", "acf", "wordpress", "advanced", "custom", "fields"],
     "license": "MIT",
     "authors": [
