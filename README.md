@@ -1,5 +1,7 @@
 # ACF
 
+[![acf](https://cloud.githubusercontent.com/assets/499192/24789806/c0be3ea6-1b74-11e7-858f-f4515d52e297.png)](https://www.advancedcustomfields.com)
+
 > An [Advanced Custom Fields](https://www.advancedcustomfields.com) helper for [WordPlate](https://wordplate.github.io).
 
 ```php
