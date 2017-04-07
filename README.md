@@ -43,38 +43,50 @@ acf_field_group([
 
 [Visit the official documentation to read more about the field group settings.](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings)
 
-### Fields
+## Fields
 
-Below you'll find a list of available field functions. All fields accepts an array of settings. All field settings arrays must have the keys `label` and `name`.
+All fields accepts an array of settings. All field settings arrays must have the keys `label` and `name`. Below the example you'll find a list of available field functions.
 
 ```php
-$settings = [
+acf_text([
     'label' => 'Field Label'
     'name' => 'unique-field-name'
-];
+]);
+```
 
-// Basic field types.
+##### Basic field types.
+
+```php
 acf_text($settings);
 acf_textarea($settings);
 acf_number($settings);
 acf_email($settings);
 acf_url($settings);
 acf_password($settings);
+```
 
-// Content field types.
+##### Content field types.
+
+```php
 acf_wysiwyg($settings);
 acf_image($settings);
 acf_oembed($settings);
 acf_file($settings);
 acf_gallery($settings);
+```
 
-// Choice field types.
+##### Choice field types.
+
+```php
 acf_select($settings);
 acf_checkbox($settings);
 acf_radio($settings);
 acf_true_false($settings);
+```
 
-// Relational field types.
+##### Relational field types.
+
+```php
 acf_post_object($settings);
 acf_page_link($settings);
 acf_relationship($settings);
