@@ -11,8 +11,6 @@
 
 declare(strict_types=1);
 
-use InvalidArgumentException;
-
 if (!function_exists('acf_checkbox')) {
     /**
      * Get an acf checkbox field settings array.
@@ -63,6 +61,61 @@ if (!function_exists('acf_field')) {
         }
 
         return array_merge(compact('type'), $settings);
+    }
+}
+
+if (!function_exists('acf_field_group')) {
+    /**
+     * Register an acf field group.
+     *
+     * @param array $settings
+     *
+     * @throws \InvalidArgumentException
+     *
+     * @return void
+     */
+    function acf_field_group(array $settings)
+    {
+        $keys = ['key', 'title', 'fields'];
+
+        foreach ($keys as $key) {
+            if (!array_key_exists($key, $settings)) {
+                throw new InvalidArgumentException("Missing field group setting key [$key].");
+            }
+        }
+
+        if (!starts_with($settings['key'], 'group_')) {
+            throw new InvalidArgumentException('Group setting [key] must begin with \'group_\'.');
+        }
+
+        $settings['key'] = snake_case($settings['key']);
+
+        foreach ($settings['fields'] as $i => $field) {
+            $settings['fields'][$i]['key'] = sprintf(
+                'field_%s_%s',
+                str_replace('group_', '', $settings['key']),
+                snake_case($field['name'])
+            );
+        }
+
+        if (!array_key_exists('hide_on_screen', $settings)) {
+            array_push($settings, 'hide_on_screen', acf_hide_on_screen([
+                'author',
+                'categories',
+                'comments',
+                'custom_fields',
+                'discussion',
+                'excerpt',
+                'format',
+                'page_attributes',
+                'revisions',
+                'send-trackbacks',
+                'slug',
+                'tags',
+            ]));
+        }
+
+        register_field_group($settings);
     }
 }
 

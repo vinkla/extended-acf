@@ -108,4 +108,42 @@ class HelpersTest extends TestCase
 
         $this->assertSame($elements, acf_hide_on_screen(['author', 'categories', 'comments', 'custom_fields', 'discussion', 'excerpt', 'format', 'page_attributes', 'revisions', 'send-trackbacks', 'slug', 'tags']));
     }
+
+    public function testAcfFieldGroup()
+    {
+        $fields = [
+            acf_image(['name' => 'image', 'label' => 'Image']),
+            acf_text(['name' => 'title', 'label' => 'Title']),
+        ];
+
+        $location = [
+            acf_location('post_type', 'post'),
+            acf_location('post_type', '!=', 'page'),
+        ];
+
+        $group = acf_field_group([
+            'title' => 'About',
+            'key' => 'group_about',
+            'fields' => $fields,
+            'location' => $location,
+        ]);
+
+        $this->assertNull($group);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testAcfFieldGroupPrefix()
+    {
+        acf_field_group(['key' => 'without_group_']);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testAcfFieldGroupMissingTitle()
+    {
+        acf_field_group(['key' => 'group_without_title']);
+    }
 }
