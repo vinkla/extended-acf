@@ -54,7 +54,7 @@ acf_text([
 ]);
 ```
 
-##### Basic field types.
+##### Basic Field Types
 
 ```php
 acf_text($settings);
@@ -65,7 +65,7 @@ acf_url($settings);
 acf_password($settings);
 ```
 
-##### Content field types.
+##### Content Field Types
 
 ```php
 acf_wysiwyg($settings);
@@ -75,7 +75,7 @@ acf_file($settings);
 acf_gallery($settings);
 ```
 
-##### Choice field types.
+##### Choice Field Types
 
 ```php
 acf_select($settings);
@@ -84,7 +84,7 @@ acf_radio($settings);
 acf_true_false($settings);
 ```
 
-##### Relational field types.
+##### Relational Field Types
 
 ```php
 acf_post_object($settings);
