@@ -121,11 +121,13 @@ class HelpersTest extends TestCase
             acf_location('post_type', '!=', 'page'),
         ];
 
-        $group = acf_add_local_field_group([
+        $group = acf_field_group([
             'title' => 'About',
             'key' => 'group_about',
             'fields' => $fields,
-            'location' => $location,
+            'location' => [
+                $location,
+            ],
         ]);
 
         $this->assertNull($group);
