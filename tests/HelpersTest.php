@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace WordPlate\Tests;
+namespace WordPlate\Tests\Acf;
 
 use PHPUnit\Framework\TestCase;
 
