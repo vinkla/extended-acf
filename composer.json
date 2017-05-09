@@ -28,9 +28,6 @@
         ]
     },
     "autoload-dev": {
-        "files": [
-            "tests/stubs/functions.php"
-        ],
         "psr-4": {
             "WordPlate\\Tests\\Acf\\": "tests/"
         }

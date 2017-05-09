@@ -72,10 +72,14 @@ if (!function_exists('acf_field_group')) {
      *
      * @throws \InvalidArgumentException
      *
-     * @return void
+     * @return void|null
      */
     function acf_field_group(array $settings)
     {
+        if (!function_exists('acf_add_local_field_group')) {
+            return;
+        }
+
         $keys = ['key', 'title', 'fields'];
 
         foreach ($keys as $key) {

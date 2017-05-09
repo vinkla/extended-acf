@@ -109,8 +109,15 @@ class HelpersTest extends TestCase
         $this->assertSame($elements, acf_hide_on_screen(['author', 'categories', 'comments', 'custom_fields', 'discussion', 'excerpt', 'format', 'page_attributes', 'revisions', 'send-trackbacks', 'slug', 'tags']));
     }
 
+    public function testMissingFunction()
+    {
+        $this->assertNull(acf_field_group([]));
+    }
+
     public function testAcfFieldGroup()
     {
+        require __DIR__.'/stubs/functions.php';
+
         $fields = [
             acf_image(['name' => 'image', 'label' => 'Image']),
             acf_text(['name' => 'title', 'label' => 'Title']),
@@ -138,6 +145,8 @@ class HelpersTest extends TestCase
      */
     public function testAcfFieldGroupPrefix()
     {
+        require __DIR__.'/stubs/functions.php';
+
         acf_field_group(['key' => 'without_group_']);
     }
 
@@ -146,6 +155,8 @@ class HelpersTest extends TestCase
      */
     public function testAcfFieldGroupMissingTitle()
     {
+        require __DIR__.'/stubs/functions.php';
+
         acf_field_group(['key' => 'group_without_title']);
     }
 }
