@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.2.0 (upcoming)
+## 0.2.0 (released 2017-05-12)
 
 - Added acf helper class
 - Added layout fields function
