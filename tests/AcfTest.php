@@ -42,16 +42,17 @@ class AcfTest extends TestCase
             acf_location('post_type', '!=', 'page'),
         ];
 
-        $group = Acf::group([
+        $group = [
             'title' => 'About',
             'key' => 'group_about',
             'fields' => $fields,
             'location' => [
                 $location,
             ],
-        ]);
+        ];
 
-        $this->assertNull($group);
+        $this->assertNull(Acf::group($group));
+        $this->assertNull(acf_field_group($group));
     }
 
     /**
