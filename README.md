@@ -56,69 +56,41 @@ acf_text([
 
 [Visit the official documentation to read more about the field settings.](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings)
 
-#### Basic Field Types
+#### Basic Fields
 
-```php
-acf_text($settings);
+- `acf_text()` - The text field creates a simple text input.
+- `acf_textarea()` - The textarea field creates a simple textarea.
+- `acf_number()` - The number field creates a simple number input.
+- `acf_email()` - The email field creates a simple email input.
+- `acf_url()` - The url field creates a simple url input.
+- `acf_password()` - The password field creates a simple password input.
 
-acf_textarea($settings);
+#### Choice Fields
 
-acf_number($settings);
+- `acf_checkbox()` - The checkbox field creates a list of tick-able inputs.
+- `acf_radio()` - The radio button field creates a list of select-able inputs.
+- `acf_select()` - The select field creates a drop down select or multiple select input.
+- `acf_true_false()` - The true / false field allows you to select a value that is either 1 or 0.
 
-acf_email($settings);
+#### Content Fields
 
-acf_url($settings);
+- `acf_file()` - The file field allows a file to be uploaded and selected.
+- `acf_gallery()` - The gallery field provides a simple and intuitive interface for managing
+- `acf_image()` - The image field allows an image to be uploaded and selected.
+- `acf_oembed()` - The oEmbed field allows an easy way to embed videos, images, tweets, audio, and other content.
+- `acf_wysiwyg()` - The WYSIWYG field creates a full WordPress tinyMCE content editor.
 
-acf_password($settings);
-```
+#### Layout Fields
 
-#### Content Field Types
+- `acf_repeater()` - The repeater field allows you to create a set of sub fields which can be repeated again and again whilst editing content!
 
-```php
-acf_wysiwyg($settings);
+#### Relational Fields
 
-acf_image($settings);
-
-acf_oembed($settings);
-
-acf_file($settings);
-
-acf_gallery($settings);
-```
-
-#### Choice Field Types
-
-```php
-acf_select($settings);
-
-acf_checkbox($settings);
-
-acf_radio($settings);
-
-acf_true_false($settings);
-
-```
-
-#### Relational Field Types
-
-```php
-acf_post_object($settings);
-
-acf_page_link($settings);
-
-acf_relationship($settings);
-
-acf_taxonomy($settings);
-
-acf_user($settings);
-```
-
-#### Repeater Field Types
-
-```php
-acf_repeater($settings);
-```
-
+- `acf_page_link()` - The page link field allows the selection of 1 or more posts, pages or custom post types.
+- `acf_post_object()` - The post object field creates a select field where the choices are your pages + posts + custom post types. 
+- `acf_relationship()` - The relationship field creates a very attractive version of the post object field. 
+- `acf_taxonomy()` - The taxonomy field allows the selection of 1 or more taxonomy terms. 
+- `acf_user()` - The user field creates a select field for all your users. 
 
 ## License
 
