@@ -61,7 +61,7 @@ class AcfTest extends TestCase
     {
         require __DIR__.'/stubs/functions.php';
 
-        Acf::group(['key' => 'without_group_']);
+        Acf::group(['key' => 'without_group_', 'title' => 1, 'fields' => 1]);
     }
 
     /**
