@@ -23,7 +23,7 @@ if (!function_exists('acf_checkbox')) {
      */
     function acf_checkbox(array $settings): array
     {
-        return Acf::field('checkbox', $settings);
+        return Acf::field('checkbox', $settings, ['choices']);
     }
 }
 
@@ -302,7 +302,7 @@ if (!function_exists('acf_radio')) {
      */
     function acf_radio(array $settings): array
     {
-        return Acf::field('radio', $settings);
+        return Acf::field('radio', $settings, ['choices']);
     }
 }
 
@@ -344,7 +344,7 @@ if (!function_exists('acf_select')) {
      */
     function acf_select(array $settings): array
     {
-        return Acf::field('select', $settings);
+        return Acf::field('select', $settings, ['choices']);
     }
 }
 

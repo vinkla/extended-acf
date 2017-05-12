@@ -31,7 +31,7 @@ class HelpersTest extends TestCase
     {
         $settings = ['name' => 'test', 'label' => 'test'];
 
-        $this->assertFieldType('checkbox', acf_checkbox($settings));
+        $this->assertFieldType('checkbox', acf_checkbox(array_merge(['choices' => []], $settings)));
         $this->assertFieldType('clone', acf_clone($settings));
         $this->assertFieldType('color_picker', acf_color_picker($settings));
         $this->assertFieldType('date_picker', acf_date_picker($settings));
@@ -48,10 +48,10 @@ class HelpersTest extends TestCase
         $this->assertFieldType('page_link', acf_page_link($settings));
         $this->assertFieldType('password', acf_password($settings));
         $this->assertFieldType('post_object', acf_post_object($settings));
-        $this->assertFieldType('radio', acf_radio($settings));
+        $this->assertFieldType('radio', acf_radio(array_merge(['choices' => []], $settings)));
         $this->assertFieldType('relationship', acf_relationship($settings));
         $this->assertFieldType('repeater', acf_repeater(array_merge(['sub_fields' => []], $settings)));
-        $this->assertFieldType('select', acf_select($settings));
+        $this->assertFieldType('select', acf_select(array_merge(['choices' => []], $settings)));
         $this->assertFieldType('tab', acf_tab($settings));
         $this->assertFieldType('taxonomy', acf_taxonomy($settings));
         $this->assertFieldType('text', acf_text($settings));
