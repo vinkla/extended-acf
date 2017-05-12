@@ -90,7 +90,11 @@ acf_text([
 
 #### Layout Fields
 
+- `acf_clone()` - The clone field allows you to select and display existing fields.
+- `acf_flexible_content()` - The flexible content field acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
+- `acf_message()` - The message fields allows you to display a text message.
 - `acf_repeater()` - The repeater field allows you to create a set of sub fields which can be repeated again and again whilst editing content!
+- `acf_tab()` - The tab field is used to group together fields into tabbed sections. 
 
 #### Relational Fields
 

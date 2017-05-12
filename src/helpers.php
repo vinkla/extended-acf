@@ -27,6 +27,20 @@ if (!function_exists('acf_checkbox')) {
     }
 }
 
+if (!function_exists('acf_clone')) {
+    /**
+     * Get an acf clone content field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_clone(array $settings): array
+    {
+        return Acf::field('clone', $settings);
+    }
+}
+
 if (!function_exists('acf_color_picker')) {
     /**
      * Get an acf color picker field settings array.
@@ -108,6 +122,20 @@ if (!function_exists('acf_file')) {
     function acf_file(array $settings): array
     {
         return Acf::field('file', $settings);
+    }
+}
+
+if (!function_exists('acf_flexible_content')) {
+    /**
+     * Get an acf flexible content field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_flexible_content(array $settings): array
+    {
+        return Acf::field('flexible_content', $settings, ['layouts']);
     }
 }
 
@@ -208,6 +236,20 @@ if (!function_exists('acf_location')) {
     }
 }
 
+if (!function_exists('acf_message')) {
+    /**
+     * Get an acf message field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_message(array $settings): array
+    {
+        return Acf::field('message', $settings, ['message']);
+    }
+}
+
 if (!function_exists('acf_page_link')) {
     /**
      * Get an acf page_link field settings array.
@@ -288,11 +330,7 @@ if (!function_exists('acf_repeater')) {
      */
     function acf_repeater(array $settings): array
     {
-        if (!array_key_exists('sub_fields', $settings)) {
-            throw new InvalidArgumentException('Missing field setting key [sub_fields].');
-        }
-
-        return Acf::field('repeater', $settings);
+        return Acf::field('repeater', $settings, ['sub_fields']);
     }
 }
 
@@ -307,6 +345,20 @@ if (!function_exists('acf_select')) {
     function acf_select(array $settings): array
     {
         return Acf::field('select', $settings);
+    }
+}
+
+if (!function_exists('acf_tab')) {
+    /**
+     * Get an acf tab field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_tab(array $settings): array
+    {
+        return Acf::field('tab', $settings);
     }
 }
 

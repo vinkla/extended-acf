@@ -27,14 +27,15 @@ class Acf
      *
      * @param string $type
      * @param array $settings
+     * @param array $keys
      *
      * @throws \InvalidArgumentException
      *
      * @return array
      */
-    public static function field(string $type, array $settings): array
+    public static function field(string $type, array $settings, array $keys = []): array
     {
-        $keys = ['name', 'label'];
+        $keys = array_merge(['name', 'label'], $keys);
 
         foreach ($keys as $key) {
             if (!array_key_exists($key, $settings)) {

@@ -3,7 +3,9 @@
 ## 0.2.0 (upcoming)
 
 - Added acf helper class
-- Added repeater helper function
+- Added layout fields function
+- Added jquery fields function
+- Added field key validation
 
 ## 0.1.1 (released 2017-05-09)
 
