@@ -60,10 +60,15 @@ acf_text([
 
 ```php
 acf_text($settings);
+
 acf_textarea($settings);
+
 acf_number($settings);
+
 acf_email($settings);
+
 acf_url($settings);
+
 acf_password($settings);
 ```
 
@@ -71,9 +76,13 @@ acf_password($settings);
 
 ```php
 acf_wysiwyg($settings);
+
 acf_image($settings);
+
 acf_oembed($settings);
+
 acf_file($settings);
+
 acf_gallery($settings);
 ```
 
@@ -81,20 +90,35 @@ acf_gallery($settings);
 
 ```php
 acf_select($settings);
+
 acf_checkbox($settings);
+
 acf_radio($settings);
+
 acf_true_false($settings);
+
 ```
 
 #### Relational Field Types
 
 ```php
 acf_post_object($settings);
+
 acf_page_link($settings);
+
 acf_relationship($settings);
+
 acf_taxonomy($settings);
+
 acf_user($settings);
 ```
+
+#### Repeater Field Types
+
+```php
+acf_repeater($settings);
+```
+
 
 ## License
 
