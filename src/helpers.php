@@ -115,7 +115,7 @@ if (!function_exists('acf_hide_on_screen')) {
     /**
      * Get an acf hide_on_screen array.
      *
-     * @param array @elements
+     * @param array $elements
      *
      * @return array
      */
