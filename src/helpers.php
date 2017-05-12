@@ -27,6 +27,48 @@ if (!function_exists('acf_checkbox')) {
     }
 }
 
+if (!function_exists('acf_color_picker')) {
+    /**
+     * Get an acf color picker field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_color_picker(array $settings): array
+    {
+        return Acf::field('color_picker', $settings);
+    }
+}
+
+if (!function_exists('acf_date_picker')) {
+    /**
+     * Get an acf date picker field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_date_picker(array $settings): array
+    {
+        return Acf::field('date_picker', $settings);
+    }
+}
+
+if (!function_exists('acf_date_time_picker')) {
+    /**
+     * Get an acf date time picker field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_date_time_picker(array $settings): array
+    {
+        return Acf::field('date_time_picker', $settings);
+    }
+}
+
 if (!function_exists('acf_email')) {
     /**
      * Get an acf email field settings array.
@@ -307,6 +349,20 @@ if (!function_exists('acf_textarea')) {
     function acf_textarea(array $settings): array
     {
         return Acf::field('textarea', $settings);
+    }
+}
+
+if (!function_exists('acf_time_picker')) {
+    /**
+     * Get an acf time picker field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_time_picker(array $settings): array
+    {
+        return Acf::field('time_picker', $settings);
     }
 }
 

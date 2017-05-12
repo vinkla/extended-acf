@@ -32,6 +32,9 @@ class HelpersTest extends TestCase
         $settings = ['name' => 'test', 'label' => 'test', 'sub_fields' => []];
 
         $this->assertFieldType('checkbox', acf_checkbox($settings));
+        $this->assertFieldType('color_picker', acf_color_picker($settings));
+        $this->assertFieldType('date_picker', acf_date_picker($settings));
+        $this->assertFieldType('date_time_picker', acf_date_time_picker($settings));
         $this->assertFieldType('email', acf_email($settings));
         $this->assertFieldType('file', acf_file($settings));
         $this->assertFieldType('gallery', acf_gallery($settings));
@@ -49,6 +52,7 @@ class HelpersTest extends TestCase
         $this->assertFieldType('taxonomy', acf_taxonomy($settings));
         $this->assertFieldType('text', acf_text($settings));
         $this->assertFieldType('textarea', acf_textarea($settings));
+        $this->assertFieldType('time_picker', acf_time_picker($settings));
         $this->assertFieldType('true_false', acf_true_false($settings));
         $this->assertFieldType('url', acf_url($settings));
         $this->assertFieldType('user', acf_user($settings));

@@ -80,6 +80,14 @@ acf_text([
 - `acf_oembed()` - The oEmbed field allows an easy way to embed videos, images, tweets, audio, and other content.
 - `acf_wysiwyg()` - The WYSIWYG field creates a full WordPress tinyMCE content editor.
 
+#### jQuery Fields
+
+- `acf_color_picker()` - The color picker field allows a color to be selected via a JavaScript popup.
+- `acf_date_picker()` - The date picker field creates a jQuery date selection popup.
+- `acf_date_time_picker()` - The date time picker field creates a jQuery date & time selection popup.
+- `acf_google_map()` - The Google Map field creates an interactive map with the ability to place a marker.
+- `acf_time_picker()` - The time picker field creates a jQuery time selection popup.
+
 #### Layout Fields
 
 - `acf_repeater()` - The repeater field allows you to create a set of sub fields which can be repeated again and again whilst editing content!
