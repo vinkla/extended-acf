@@ -35,6 +35,7 @@ class HelpersTest extends TestCase
         $this->assertFieldType('email', acf_email($settings));
         $this->assertFieldType('file', acf_file($settings));
         $this->assertFieldType('gallery', acf_gallery($settings));
+        $this->assertFieldType('google_map', acf_google_map($settings));
         $this->assertFieldType('image', acf_image($settings));
         $this->assertFieldType('number', acf_number($settings));
         $this->assertFieldType('oembed', acf_oembed($settings));

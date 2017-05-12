@@ -83,6 +83,20 @@ if (!function_exists('acf_gallery')) {
     }
 }
 
+if (!function_exists('acf_google_map')) {
+    /**
+     * Get an acf google map field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_google_map(array $settings): array
+    {
+        return Acf::field('google_map', $settings);
+    }
+}
+
 if (!function_exists('acf_number')) {
     /**
      * Get an acf number field settings array.
