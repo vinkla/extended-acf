@@ -29,7 +29,7 @@ class HelpersTest extends TestCase
 
     public function testAcfField()
     {
-        $settings = ['name' => 'test', 'label' => 'test'];
+        $settings = ['name' => 'test', 'label' => 'test', 'sub_fields' => []];
 
         $this->assertFieldType('checkbox', acf_checkbox($settings));
         $this->assertFieldType('email', acf_email($settings));
@@ -43,6 +43,7 @@ class HelpersTest extends TestCase
         $this->assertFieldType('post_object', acf_post_object($settings));
         $this->assertFieldType('radio', acf_radio($settings));
         $this->assertFieldType('relationship', acf_relationship($settings));
+        $this->assertFieldType('repeater', acf_repeater($settings));
         $this->assertFieldType('select', acf_select($settings));
         $this->assertFieldType('taxonomy', acf_taxonomy($settings));
         $this->assertFieldType('text', acf_text($settings));
@@ -51,6 +52,14 @@ class HelpersTest extends TestCase
         $this->assertFieldType('url', acf_url($settings));
         $this->assertFieldType('user', acf_user($settings));
         $this->assertFieldType('wysiwyg', acf_wysiwyg($settings));
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testAcfRepeaterMissingSubFields()
+    {
+        acf_repeater(['name' => 'test', 'label' => 'test']);
     }
 
     /**
@@ -107,56 +116,5 @@ class HelpersTest extends TestCase
         ];
 
         $this->assertSame($elements, acf_hide_on_screen(['author', 'categories', 'comments', 'custom_fields', 'discussion', 'excerpt', 'format', 'page_attributes', 'revisions', 'send-trackbacks', 'slug', 'tags']));
-    }
-
-    public function testMissingFunction()
-    {
-        $this->assertNull(acf_field_group([]));
-    }
-
-    public function testAcfFieldGroup()
-    {
-        require __DIR__.'/stubs/functions.php';
-
-        $fields = [
-            acf_image(['name' => 'image', 'label' => 'Image']),
-            acf_text(['name' => 'title', 'label' => 'Title']),
-        ];
-
-        $location = [
-            acf_location('post_type', 'post'),
-            acf_location('post_type', '!=', 'page'),
-        ];
-
-        $group = acf_field_group([
-            'title' => 'About',
-            'key' => 'group_about',
-            'fields' => $fields,
-            'location' => [
-                $location,
-            ],
-        ]);
-
-        $this->assertNull($group);
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     */
-    public function testAcfFieldGroupPrefix()
-    {
-        require __DIR__.'/stubs/functions.php';
-
-        acf_field_group(['key' => 'without_group_']);
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     */
-    public function testAcfFieldGroupMissingTitle()
-    {
-        require __DIR__.'/stubs/functions.php';
-
-        acf_field_group(['key' => 'group_without_title']);
     }
 }

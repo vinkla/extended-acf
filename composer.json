@@ -25,7 +25,10 @@
     "autoload": {
         "files": [
             "src/helpers.php"
-        ]
+        ],
+        "psr-4": {
+            "WordPlate\\Acf\\": "src/"
+        }
     },
     "autoload-dev": {
         "psr-4": {

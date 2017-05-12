@@ -11,6 +11,8 @@
 
 declare(strict_types=1);
 
+use WordPlate\Acf\Acf;
+
 if (!function_exists('acf_checkbox')) {
     /**
      * Get an acf checkbox field settings array.
@@ -21,7 +23,7 @@ if (!function_exists('acf_checkbox')) {
      */
     function acf_checkbox(array $settings): array
     {
-        return acf_field('checkbox', $settings);
+        return Acf::field('checkbox', $settings);
     }
 }
 
@@ -35,32 +37,7 @@ if (!function_exists('acf_email')) {
      */
     function acf_email(array $settings): array
     {
-        return acf_field('email', $settings);
-    }
-}
-
-if (!function_exists('acf_field')) {
-    /**
-     * Get an acf field settings array.
-     *
-     * @param string $type
-     * @param array $settings
-     *
-     * @throws \InvalidArgumentException
-     *
-     * @return array
-     */
-    function acf_field(string $type, array $settings): array
-    {
-        $keys = ['name', 'label'];
-
-        foreach ($keys as $key) {
-            if (!array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Missing field setting key [$key].");
-            }
-        }
-
-        return array_merge(compact('type'), $settings);
+        return Acf::field('email', $settings);
     }
 }
 
@@ -70,56 +47,11 @@ if (!function_exists('acf_field_group')) {
      *
      * @param array $settings
      *
-     * @throws \InvalidArgumentException
-     *
      * @return void|null
      */
     function acf_field_group(array $settings)
     {
-        if (!function_exists('acf_add_local_field_group')) {
-            return;
-        }
-
-        $keys = ['key', 'title', 'fields'];
-
-        foreach ($keys as $key) {
-            if (!array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Missing field group setting key [$key].");
-            }
-        }
-
-        if (!starts_with($settings['key'], 'group_')) {
-            throw new InvalidArgumentException('Group setting [key] must begin with \'group_\'.');
-        }
-
-        $settings['key'] = snake_case($settings['key']);
-
-        foreach ($settings['fields'] as $i => $field) {
-            $settings['fields'][$i]['key'] = sprintf(
-                'field_%s_%s',
-                str_replace('group_', '', $settings['key']),
-                snake_case($field['name'])
-            );
-        }
-
-        if (!array_key_exists('hide_on_screen', $settings)) {
-            array_push($settings, 'hide_on_screen', acf_hide_on_screen([
-                'author',
-                'categories',
-                'comments',
-                'custom_fields',
-                'discussion',
-                'excerpt',
-                'format',
-                'page_attributes',
-                'revisions',
-                'send-trackbacks',
-                'slug',
-                'tags',
-            ]));
-        }
-
-        acf_add_local_field_group($settings);
+        return Acf::group($settings);
     }
 }
 
@@ -133,7 +65,7 @@ if (!function_exists('acf_file')) {
      */
     function acf_file(array $settings): array
     {
-        return acf_field('file', $settings);
+        return Acf::field('file', $settings);
     }
 }
 
@@ -147,7 +79,7 @@ if (!function_exists('acf_gallery')) {
      */
     function acf_gallery(array $settings): array
     {
-        return acf_field('gallery', $settings);
+        return Acf::field('gallery', $settings);
     }
 }
 
@@ -161,7 +93,7 @@ if (!function_exists('acf_number')) {
      */
     function acf_number(array $settings): array
     {
-        return acf_field('number', $settings);
+        return Acf::field('number', $settings);
     }
 }
 
@@ -175,7 +107,7 @@ if (!function_exists('acf_image')) {
      */
     function acf_image(array $settings): array
     {
-        return acf_field('image', $settings);
+        return Acf::field('image', $settings);
     }
 }
 
@@ -203,6 +135,10 @@ if (!function_exists('acf_location')) {
     /**
      * Get an acf location array.
      *
+     * @param string $param
+     * @param string $operator
+     * @param string|null $value
+     *
      * @return array
      */
     function acf_location(string $param, string $operator, string $value = null): array
@@ -226,7 +162,7 @@ if (!function_exists('acf_page_link')) {
      */
     function acf_page_link(array $settings): array
     {
-        return acf_field('page_link', $settings);
+        return Acf::field('page_link', $settings);
     }
 }
 
@@ -240,7 +176,7 @@ if (!function_exists('acf_password')) {
      */
     function acf_password(array $settings): array
     {
-        return acf_field('password', $settings);
+        return Acf::field('password', $settings);
     }
 }
 
@@ -254,7 +190,7 @@ if (!function_exists('acf_post_object')) {
      */
     function acf_post_object(array $settings): array
     {
-        return acf_field('post_object', $settings);
+        return Acf::field('post_object', $settings);
     }
 }
 
@@ -268,7 +204,7 @@ if (!function_exists('acf_radio')) {
      */
     function acf_radio(array $settings): array
     {
-        return acf_field('radio', $settings);
+        return Acf::field('radio', $settings);
     }
 }
 
@@ -282,7 +218,25 @@ if (!function_exists('acf_relationship')) {
      */
     function acf_relationship(array $settings): array
     {
-        return acf_field('relationship', $settings);
+        return Acf::field('relationship', $settings);
+    }
+}
+
+if (!function_exists('acf_repeater')) {
+    /**
+     * Get an acf repeater field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_repeater(array $settings): array
+    {
+        if (!array_key_exists('sub_fields', $settings)) {
+            throw new InvalidArgumentException('Missing field setting key [sub_fields].');
+        }
+
+        return Acf::field('repeater', $settings);
     }
 }
 
@@ -296,7 +250,7 @@ if (!function_exists('acf_select')) {
      */
     function acf_select(array $settings): array
     {
-        return acf_field('select', $settings);
+        return Acf::field('select', $settings);
     }
 }
 
@@ -310,7 +264,7 @@ if (!function_exists('acf_taxonomy')) {
      */
     function acf_taxonomy(array $settings): array
     {
-        return acf_field('taxonomy', $settings);
+        return Acf::field('taxonomy', $settings);
     }
 }
 
@@ -324,7 +278,7 @@ if (!function_exists('acf_text')) {
      */
     function acf_text(array $settings): array
     {
-        return acf_field('text', $settings);
+        return Acf::field('text', $settings);
     }
 }
 
@@ -338,7 +292,7 @@ if (!function_exists('acf_textarea')) {
      */
     function acf_textarea(array $settings): array
     {
-        return acf_field('textarea', $settings);
+        return Acf::field('textarea', $settings);
     }
 }
 
@@ -352,7 +306,7 @@ if (!function_exists('acf_true_false')) {
      */
     function acf_true_false(array $settings): array
     {
-        return acf_field('true_false', $settings);
+        return Acf::field('true_false', $settings);
     }
 }
 
@@ -366,7 +320,7 @@ if (!function_exists('acf_url')) {
      */
     function acf_url(array $settings): array
     {
-        return acf_field('url', $settings);
+        return Acf::field('url', $settings);
     }
 }
 
@@ -380,7 +334,7 @@ if (!function_exists('acf_user')) {
      */
     function acf_user(array $settings): array
     {
-        return acf_field('user', $settings);
+        return Acf::field('user', $settings);
     }
 }
 
@@ -394,7 +348,7 @@ if (!function_exists('acf_wysiwyg')) {
      */
     function acf_wysiwyg(array $settings): array
     {
-        return acf_field('wysiwyg', $settings);
+        return Acf::field('wysiwyg', $settings);
     }
 }
 
@@ -408,6 +362,6 @@ if (!function_exists('acf_oembed')) {
      */
     function acf_oembed(array $settings): array
     {
-        return acf_field('oembed', $settings);
+        return Acf::field('oembed', $settings);
     }
 }
