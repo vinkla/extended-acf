@@ -58,8 +58,8 @@ acf_text([
 
 #### Basic Fields
 
-- `acf_text()` - The text field creates a simple text input.
-- `acf_textarea()` - The textarea field creates a simple textarea.
+- `acf_text()` - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
+- `acf_textarea()` - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
 - `acf_number()` - The number field creates a simple number input.
 - `acf_email()` - The email field creates a simple email input.
 - `acf_url()` - The url field creates a simple url input.
@@ -67,41 +67,41 @@ acf_text([
 
 #### Choice Fields
 
-- `acf_checkbox()` - The checkbox field creates a list of tick-able inputs.
-- `acf_radio()` - The radio button field creates a list of select-able inputs.
-- `acf_select()` - The select field creates a drop down select or multiple select input.
-- `acf_true_false()` - The true / false field allows you to select a value that is either 1 or 0.
+- `acf_checkbox()` - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
+- `acf_radio()` - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
+- `acf_select()` - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
+- `acf_true_false()` - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
 
 #### Content Fields
 
-- `acf_file()` - The file field allows a file to be uploaded and selected.
-- `acf_gallery()` - The gallery field provides a simple and intuitive interface for managing
-- `acf_image()` - The image field allows an image to be uploaded and selected.
-- `acf_oembed()` - The oEmbed field allows an easy way to embed videos, images, tweets, audio, and other content.
-- `acf_wysiwyg()` - The WYSIWYG field creates a full WordPress tinyMCE content editor.
+- `acf_file()` - The [file field](https://www.advancedcustomfields.com/resources/file) allows a file to be uploaded and selected.
+- `acf_gallery()` - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing
+- `acf_image()` - The [image field](https://www.advancedcustomfields.com/resources/image) allows an image to be uploaded and selected.
+- `acf_oembed()` - The [oEmbed field](https://www.advancedcustomfields.com/resources/oembed) allows an easy way to embed videos, images, tweets, audio, and other content.
+- `acf_wysiwyg()` - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
 
 #### jQuery Fields
 
-- `acf_color_picker()` - The color picker field allows a color to be selected via a JavaScript popup.
-- `acf_date_picker()` - The date picker field creates a jQuery date selection popup.
-- `acf_date_time_picker()` - The date time picker field creates a jQuery date & time selection popup.
-- `acf_google_map()` - The Google Map field creates an interactive map with the ability to place a marker.
-- `acf_time_picker()` - The time picker field creates a jQuery time selection popup.
+- `acf_color_picker()` - The [color picker field](https://www.advancedcustomfields.com/resources/color-picker) allows a color to be selected via a JavaScript popup.
+- `acf_date_picker()` - The [date picker field](https://www.advancedcustomfields.com/resources/date-picker) creates a jQuery date selection popup.
+- `acf_date_time_picker()` - The [date time picker field](https://www.advancedcustomfields.com/resources/date-time-picker) creates a jQuery date & time selection popup.
+- `acf_google_map()` - The [Google Map field](https://www.advancedcustomfields.com/resources/google-map) creates an interactive map with the ability to place a marker.
+- `acf_time_picker()` - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
 
 #### Layout Fields
 
-- `acf_clone()` - The clone field allows you to select and display existing fields.
-- `acf_flexible_content()` - The flexible content field acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
+- `acf_clone()` - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields.
+- `acf_flexible_content()` - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
 - `acf_message()` - The message fields allows you to display a text message.
-- `acf_repeater()` - The repeater field allows you to create a set of sub fields which can be repeated again and again whilst editing content!
-- `acf_tab()` - The tab field is used to group together fields into tabbed sections. 
+- `acf_repeater()` - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
+- `acf_tab()` - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections. 
 
 #### Relational Fields
 
-- `acf_page_link()` - The page link field allows the selection of 1 or more posts, pages or custom post types.
-- `acf_post_object()` - The post object field creates a select field where the choices are your pages + posts + custom post types. 
-- `acf_relationship()` - The relationship field creates a very attractive version of the post object field. 
-- `acf_taxonomy()` - The taxonomy field allows the selection of 1 or more taxonomy terms. 
+- `acf_page_link()` - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
+- `acf_post_object()` - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types. 
+- `acf_relationship()` - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field. 
+- `acf_taxonomy()` - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms. 
 - `acf_user()` - The user field creates a select field for all your users. 
 
 ## License
