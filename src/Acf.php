@@ -75,12 +75,18 @@ class Acf
 
         $settings['key'] = snake_case($settings['key']);
 
+        $keys = [];
+
         foreach ($settings['fields'] as $i => $field) {
-            $settings['fields'][$i]['key'] = sprintf(
-                'field_%s_%s',
-                str_replace('group_', '', $settings['key']),
-                snake_case($field['name'])
-            );
+            $key = sprintf('field_%s_%s', str_replace('group_', '', $settings['key']), snake_case($field['name']));
+
+            if (in_array($key, $keys)) {
+                throw new InvalidArgumentException("Field setting key [$key] is duplicated.");
+            }
+
+            array_push($keys, $key);
+
+            $settings['fields'][$i]['key'] = $key;
         }
 
         if (!array_key_exists('hide_on_screen', $settings)) {

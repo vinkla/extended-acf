@@ -58,6 +58,19 @@ class AcfTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
+    public function test_key_duplication()
+    {
+        require __DIR__.'/stubs/functions.php';
+
+        Acf::group(['key' => 'group_test', 'title' => 1, 'fields' => [
+            acf_text(['name' => 'test', 'label' => 'test']),
+            acf_text(['name' => 'test', 'label' => 'test']),
+        ]]);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testAcfFieldGroupPrefix()
     {
         require __DIR__.'/stubs/functions.php';
