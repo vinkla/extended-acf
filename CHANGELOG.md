@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.1 (released 2017-05-16)
+
+- Added duplicate key exception 
+
 ## 0.2.0 (released 2017-05-12)
 
 - Added acf helper class
