@@ -23,12 +23,12 @@ use WordPlate\Acf\Acf;
  */
 class AcfTest extends TestCase
 {
-    public function testMissingFunction()
+    public function test_missing_function()
     {
         $this->assertNull(Acf::group([]));
     }
 
-    public function testGroup()
+    public function test_group()
     {
         require __DIR__.'/stubs/functions.php';
 
@@ -71,7 +71,7 @@ class AcfTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testAcfFieldGroupPrefix()
+    public function test_invalid_group_prefix()
     {
         require __DIR__.'/stubs/functions.php';
 
@@ -81,7 +81,7 @@ class AcfTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testAcfFieldGroupMissingTitle()
+    public function test_group_missing_title_key()
     {
         require __DIR__.'/stubs/functions.php';
 
