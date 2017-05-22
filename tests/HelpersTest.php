@@ -27,7 +27,7 @@ class HelpersTest extends TestCase
         $this->assertSame($type, $settings['type']);
     }
 
-    public function test_all_fields()
+    public function testFields()
     {
         $settings = ['name' => 'test', 'label' => 'test'];
 
@@ -66,7 +66,7 @@ class HelpersTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function test_missing_sub_fields_key()
+    public function testMissingSubFieldsKey()
     {
         acf_repeater(['name' => 'test', 'label' => 'test']);
     }
@@ -74,7 +74,7 @@ class HelpersTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function test_missing_name_key()
+    public function testMissingNameKey()
     {
         acf_text(['label']);
     }
@@ -82,12 +82,12 @@ class HelpersTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function test_missing_label_key()
+    public function testMissingLabelKey()
     {
         acf_text(['name']);
     }
 
-    public function test_conditional_logic()
+    public function testConditionalLogic()
     {
         $logic = [
             'field' => 'field_type',
@@ -107,7 +107,7 @@ class HelpersTest extends TestCase
         $this->assertSame($logic, acf_conditional_logic('type', '!=', 'gallery'));
     }
 
-    public function test_location()
+    public function testLocation()
     {
         $location = [
             'param' => 'post_type',
@@ -127,7 +127,7 @@ class HelpersTest extends TestCase
         $this->assertSame($location, acf_location('page_template', '!=', 'templates/start-page.php'));
     }
 
-    public function test_hide_on_screen()
+    public function testHideOnScreen()
     {
         $elements = [
             0 => 'author',
