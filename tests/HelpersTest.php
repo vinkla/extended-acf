@@ -90,7 +90,7 @@ class HelpersTest extends TestCase
     public function testConditionalLogic()
     {
         $logic = [
-            'field' => 'field_type',
+            'field' => 'type',
             'operator' => '==',
             'value' => 'image',
         ];
@@ -99,7 +99,7 @@ class HelpersTest extends TestCase
         $this->assertSame($logic, acf_conditional_logic('type', '==', 'image'));
 
         $logic = [
-            'field' => 'field_type',
+            'field' => 'type',
             'operator' => '!=',
             'value' => 'gallery',
         ];

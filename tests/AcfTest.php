@@ -34,7 +34,12 @@ class AcfTest extends TestCase
 
         $fields = [
             acf_image(['name' => 'image', 'label' => 'Image']),
-            acf_text(['name' => 'title', 'label' => 'Title']),
+            acf_text(['name' => 'title', 'label' => 'Title', 'conditional_logic' => [
+                    [
+                        acf_conditional_logic('type', 'image'),
+                    ],
+                ],
+            ]),
         ];
 
         $location = [

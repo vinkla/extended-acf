@@ -78,7 +78,9 @@ class Acf
         $keys = [];
 
         foreach ($settings['fields'] as $i => $field) {
-            $key = sprintf('field_%s_%s', str_replace('group_', '', $settings['key']), snake_case($field['name']));
+            $group = str_replace('group_', '', $settings['key']);
+
+            $key = sprintf('field_%s_%s', $group, snake_case($field['name']));
 
             if (in_array($key, $keys)) {
                 throw new InvalidArgumentException("Field setting key [$key] is duplicated.");
@@ -87,6 +89,26 @@ class Acf
             array_push($keys, $key);
 
             $settings['fields'][$i]['key'] = $key;
+
+            if (array_has($field, 'conditional_logic')) {
+                $logic = [];
+
+                foreach ($field['conditional_logic'] as $rules) {
+                    $arr = [];
+
+                    foreach ($rules as $rule) {
+                        array_push($arr, [
+                            'field' => sprintf('field_%s_%s', $group, array_get($rule, 'field')),
+                            'operator' => array_get($rule, 'operator'),
+                            'value' => array_get($rule, 'value'),
+                        ]);
+                    }
+
+                    array_push($settings['fields'][$i]['conditional_logic'], $arr);
+                }
+
+                $settings['fields'][$i]['conditional_logic'] = $logic;
+            }
         }
 
         if (!array_key_exists('hide_on_screen', $settings)) {
