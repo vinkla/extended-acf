@@ -87,6 +87,26 @@ class HelpersTest extends TestCase
         acf_text(['name']);
     }
 
+    public function test_conditional_logic()
+    {
+        $logic = [
+            'field' => 'field_type',
+            'operator' => '==',
+            'value' => 'image',
+        ];
+
+        $this->assertSame($logic, acf_conditional_logic('type', 'image'));
+        $this->assertSame($logic, acf_conditional_logic('type', '==', 'image'));
+
+        $logic = [
+            'field' => 'field_type',
+            'operator' => '!=',
+            'value' => 'gallery',
+        ];
+
+        $this->assertSame($logic, acf_conditional_logic('type', '!=', 'gallery'));
+    }
+
     public function test_location()
     {
         $location = [

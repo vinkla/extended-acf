@@ -55,6 +55,29 @@ if (!function_exists('acf_color_picker')) {
     }
 }
 
+if (!function_exists('acf_conditional_logic')) {
+    /**
+     * Get an acf conditional logic array.
+     *
+     * @param string $name
+     * @param string $operator
+     * @param string|null $value
+     *
+     * @return array
+     */
+    function acf_conditional_logic(string $name, string $operator, string $value = null): array
+    {
+        if (func_num_args() === 2) {
+            $value = $operator;
+            $operator = '==';
+        }
+
+        $field = sprintf('field_%s', $name);
+
+        return compact('field', 'operator', 'value');
+    }
+}
+
 if (!function_exists('acf_date_picker')) {
     /**
      * Get an acf date picker field settings array.

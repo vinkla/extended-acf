@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.0 (upcoming)
+
+- Added conditional logic helper
+
 ## 0.2.1 (released 2017-05-16)
 
 - Added duplicate key exception 
