@@ -104,7 +104,7 @@ class Acf
                         ]);
                     }
 
-                    array_push($settings['fields'][$i]['conditional_logic'], $arr);
+                    array_push($logic, $arr);
                 }
 
                 $settings['fields'][$i]['conditional_logic'] = $logic;
