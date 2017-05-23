@@ -42,24 +42,23 @@ class AcfTest extends TestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Missing field setting key [label].
      */
-    public function testKeyDuplication()
+    public function testFieldMissingKey()
     {
         require __DIR__.'/stubs/functions.php';
 
-        Acf::group(['key' => 'group_test', 'title' => 1, 'fields' => [
-            acf_text(['name' => 'test', 'label' => 'test']),
-            acf_text(['name' => 'test', 'label' => 'test']),
-        ]]);
+        Acf::field('text', ['name' => 'without_label']);
     }
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Missing group setting key [title].
      */
-    public function testGroupMissingTitleKey()
+    public function testGroupMissingKey()
     {
         require __DIR__.'/stubs/functions.php';
 
-        Acf::group(['key' => 'group_without_title']);
+        Acf::group(['key' => 'without_title']);
     }
 }

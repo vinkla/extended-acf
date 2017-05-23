@@ -79,6 +79,16 @@ class GroupTest extends TestCase
         ], $group->toArray());
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The group key [group_employee] is not unique.
+     */
+    public function testKeyDuplication()
+    {
+        $this->getGroup();
+        $this->getGroup();
+    }
+
     protected function getGroup()
     {
         return new Group([

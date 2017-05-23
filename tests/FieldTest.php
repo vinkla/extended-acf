@@ -98,6 +98,18 @@ class FieldTest extends TestCase
         ], $field->toArray());
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The field key [field_employee_link] is not unique.
+     */
+    public function testKeyDuplication()
+    {
+        $group = $this->getGroup();
+
+        new Field($group, acf_url(['name' => 'link', 'label' => 'Link']));
+        new Field($group, acf_url(['name' => 'link', 'label' => 'Link']));
+    }
+
     protected function getField()
     {
         return new Field($this->getGroup(), [
