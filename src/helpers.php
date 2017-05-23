@@ -12,7 +12,6 @@
 declare(strict_types=1);
 
 use WordPlate\Acf\Acf;
-use WordPlate\Acf\Group;
 
 if (!function_exists('acf_checkbox')) {
     /**
