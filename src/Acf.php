@@ -98,7 +98,7 @@ class Acf
 
                     foreach ($rules as $rule) {
                         array_push($arr, [
-                            'field' => sprintf('field_%s_%s', $group, array_get($rule, 'field')),
+                            'field' => sprintf('field_%s_%s', $group, snake_case(array_get($rule, 'field'))),
                             'operator' => array_get($rule, 'operator'),
                             'value' => array_get($rule, 'value'),
                         ]);
