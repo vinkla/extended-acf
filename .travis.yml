@@ -9,6 +9,9 @@ sudo: false
 install:
   - travis_retry composer install --no-interaction
 
+before_script:
+  - composer clear-cache
+
 script:
   - vendor/bin/phpunit --coverage-clover clover.xml
 
