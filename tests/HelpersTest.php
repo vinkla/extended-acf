@@ -90,7 +90,7 @@ class HelpersTest extends TestCase
     public function testConditionalLogic()
     {
         $logic = [
-            'field' => 'type',
+            'name' => 'type',
             'operator' => '==',
             'value' => 'image',
         ];
@@ -99,12 +99,24 @@ class HelpersTest extends TestCase
         $this->assertSame($logic, acf_conditional_logic('type', '==', 'image'));
 
         $logic = [
-            'field' => 'type',
+            'name' => 'type',
             'operator' => '!=',
             'value' => 'gallery',
         ];
 
         $this->assertSame($logic, acf_conditional_logic('type', '!=', 'gallery'));
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testFieldGroup()
+    {
+        require __DIR__.'/stubs/functions.php';
+
+        $settings = require __DIR__.'/stubs/settings.php';
+
+        $this->assertNull(acf_field_group($settings));
     }
 
     public function testLocation()

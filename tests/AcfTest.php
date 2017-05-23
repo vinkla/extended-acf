@@ -28,36 +28,16 @@ class AcfTest extends TestCase
         $this->assertNull(Acf::group([]));
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testGroup()
     {
         require __DIR__.'/stubs/functions.php';
 
-        $fields = [
-            acf_image(['name' => 'image', 'label' => 'Image']),
-            acf_text(['name' => 'title', 'label' => 'Title', 'conditional_logic' => [
-                    [
-                        acf_conditional_logic('type', 'image'),
-                    ],
-                ],
-            ]),
-        ];
+        $settings = require __DIR__.'/stubs/settings.php';
 
-        $location = [
-            acf_location('post_type', 'post'),
-            acf_location('post_type', '!=', 'page'),
-        ];
-
-        $group = [
-            'title' => 'About',
-            'key' => 'group_about',
-            'fields' => $fields,
-            'location' => [
-                $location,
-            ],
-        ];
-
-        $this->assertNull(Acf::group($group));
-        $this->assertNull(acf_field_group($group));
+        $this->assertNull(Acf::group($settings));
     }
 
     /**
@@ -71,16 +51,6 @@ class AcfTest extends TestCase
             acf_text(['name' => 'test', 'label' => 'test']),
             acf_text(['name' => 'test', 'label' => 'test']),
         ]]);
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     */
-    public function testInvalidGroupPrefix()
-    {
-        require __DIR__.'/stubs/functions.php';
-
-        Acf::group(['key' => 'without_group_', 'title' => 1, 'fields' => 1]);
     }
 
     /**

@@ -51,8 +51,6 @@ class Acf
      *
      * @param array $settings
      *
-     * @throws \InvalidArgumentException
-     *
      * @return void|null
      */
     public static function group(array $settings)
@@ -65,82 +63,12 @@ class Acf
 
         foreach ($keys as $key) {
             if (!array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Missing field group setting key [$key].");
+                throw new InvalidArgumentException("Missing group setting key [$key].");
             }
         }
 
-        if (!starts_with($settings['key'], 'group_')) {
-            throw new InvalidArgumentException('Group setting [key] must begin with \'group_\'.');
-        }
+        $group = new Group($settings);
 
-        $settings['key'] = snake_case($settings['key']);
-
-        $group = str_replace('group_', '', $settings['key']);
-
-        foreach ($settings['fields'] as $i => $field) {
-            $settings['fields'][$i] = self::prepareField($group, $field);
-        }
-
-        if (!array_key_exists('hide_on_screen', $settings)) {
-            array_push($settings, 'hide_on_screen', acf_hide_on_screen([
-                'author',
-                'categories',
-                'comments',
-                'custom_fields',
-                'discussion',
-                'excerpt',
-                'format',
-                'page_attributes',
-                'revisions',
-                'send-trackbacks',
-                'slug',
-                'tags',
-            ]));
-        }
-
-        acf_add_local_field_group($settings);
-    }
-
-    private static $keys = [];
-
-    private static function prepareField(string $group, array $field): array
-    {
-        $key = sprintf('field_%s_%s', $group, snake_case($field['name']));
-
-        if (in_array($key, self::$keys)) {
-            throw new InvalidArgumentException("Field setting key [$key] is duplicated.");
-        }
-
-        array_push(self::$keys, $key);
-
-        $field['key'] = $key;
-
-        if (array_has($field, 'conditional_logic') && is_array($field['conditional_logic'])) {
-            $logic = [];
-
-            foreach ($field['conditional_logic'] as $rules) {
-                $arr = [];
-
-                foreach ($rules as $rule) {
-                    array_push($arr, [
-                        'field' => sprintf('field_%s_%s', $group, snake_case(array_get($rule, 'field'))),
-                        'operator' => array_get($rule, 'operator'),
-                        'value' => array_get($rule, 'value'),
-                    ]);
-                }
-
-                array_push($logic, $arr);
-            }
-
-            $field['conditional_logic'] = $logic;
-        }
-
-        if (array_has($field, 'sub_fields') && is_array($field['sub_fields'])) {
-            foreach ($field['sub_fields'] as $i => $subField) {
-                $field['sub_fields'][$i] = self::prepareField($group, $subField);
-            }
-        }
-
-        return $field;
+        acf_add_local_field_group($group->toArray());
     }
 }

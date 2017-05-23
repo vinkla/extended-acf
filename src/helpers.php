@@ -12,6 +12,7 @@
 declare(strict_types=1);
 
 use WordPlate\Acf\Acf;
+use WordPlate\Acf\Group;
 
 if (!function_exists('acf_checkbox')) {
     /**
@@ -59,20 +60,20 @@ if (!function_exists('acf_conditional_logic')) {
     /**
      * Get an acf conditional logic array.
      *
-     * @param string $field
+     * @param string $name
      * @param string $operator
      * @param string|null $value
      *
      * @return array
      */
-    function acf_conditional_logic(string $field, string $operator, string $value = null): array
+    function acf_conditional_logic(string $name, string $operator, string $value = null): array
     {
         if (func_num_args() === 2) {
             $value = $operator;
             $operator = '==';
         }
 
-        return compact('field', 'operator', 'value');
+        return compact('name', 'operator', 'value');
     }
 }
 
