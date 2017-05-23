@@ -77,9 +77,9 @@ class Acf
 
         $keys = [];
 
-        foreach ($settings['fields'] as $i => $field) {
-            $group = str_replace('group_', '', $settings['key']);
+        $group = str_replace('group_', '', $settings['key']);
 
+        foreach ($settings['fields'] as $i => $field) {
             $key = sprintf('field_%s_%s', $group, snake_case($field['name']));
 
             if (in_array($key, $keys)) {
