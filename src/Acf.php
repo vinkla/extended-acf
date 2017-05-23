@@ -90,7 +90,7 @@ class Acf
 
             $settings['fields'][$i]['key'] = $key;
 
-            if (array_has($field, 'conditional_logic')) {
+            if (array_has($field, 'conditional_logic') && is_array($field['conditional_logic'])) {
                 $logic = [];
 
                 foreach ($field['conditional_logic'] as $rules) {
