@@ -78,11 +78,11 @@ class Field
      */
     public function setKey(string $key)
     {
-        $group = str_replace('group_', '', $this->group->getKey());
+        $prefix = str_replace('group_', '', $this->group->getKey());
 
         $name = Str::snake($key);
 
-        $key = sprintf('field_%s_%s', $group, $name);
+        $key = sprintf('field_%s_%s', $prefix, $name);
 
         if (in_array($key, self::$keys)) {
             throw new InvalidArgumentException("The field key [$key] is not unique.");
@@ -112,7 +112,7 @@ class Field
     {
         $conditionalLogic = [];
 
-        $groupKey = str_replace('group_', '', $this->group->getKey());
+        $prefix = str_replace('group_', '', $this->group->getKey());
 
         foreach ($this->settings['conditional_logic'] as $rules) {
             $group = [];
@@ -120,7 +120,7 @@ class Field
             foreach ($rules as $rule) {
                 $name = Str::snake($rule['name']);
 
-                $field = sprintf('field_%s_%s', $groupKey, $name);
+                $field = sprintf('field_%s_%s', $prefix, $name);
 
                 $rule = [
                     'field' => $field,
