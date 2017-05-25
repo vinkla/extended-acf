@@ -1,8 +1,9 @@
 # CHANGELOG
 
-## 0.3.0 (upcoming)
+## 0.3.0 (released 2017-05-25)
 
 - Added conditional logic helper
+- Added field and group classes
 
 ## 0.2.1 (released 2017-05-16)
 
