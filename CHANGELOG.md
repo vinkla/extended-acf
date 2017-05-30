@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.0 (released 2017-05-30)
+
+- First stable release
+
 ## 0.3.0 (released 2017-05-25)
 
 - Added conditional logic helper

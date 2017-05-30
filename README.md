@@ -18,7 +18,7 @@ $ composer require wordplate/acf
 
 ## Usage
 
-Use the `acf_field_group()` helper function to register a new field group in ACF. It uses the [`acf_add_local_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function behind the scenes. The difference is that it appends the `key` value to all fields and appends an array of elements to the `hide_on_screen` array by default. Below you'll find an example of a field group below.
+Use the `acf_field_group()` helper function to register a new field group in ACF. It uses the [`acf_add_local_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function behind the scenes. The difference is that it appends the `key` value to all fields keys. Below you'll find an example of a field group below.
 
 ```php
 $fields = [
@@ -33,7 +33,7 @@ $location = [
 
 acf_field_group([
     'title' => 'About',
-    'key' => 'group_about',
+    'key' => 'group',
     'fields' => $fields,
     'location' => [
         $location
@@ -53,6 +53,18 @@ acf_text([
     'name' => 'unique-field-name'
 ]);
 ```
+
+### Settings
+
+Name | Description
+---- | -----------
+`label` | This is the label which appears on the edit page when entering a value.
+`name` | This is the name used to save and load data from the database. This name must be a single word, no spaces, underscores and dashes allowed.
+`type` | The type of field will change the settings available, the interface when entering data, and the value returned from the database.
+`instructions` | This text appears on the edit page when entering a value.
+`required` | Required fields will cause validation to run when saving a post. When attempting to save an empty value to a required field, an error message will display.
+`conditional_logic` | Once enabled, more settings will appear to customize the logic which determines if the current field should be visible or not. Groups of conditional logic can be created to allow for multiple and/or statements. The available [toggle](#choice-fields) fields are limited to those which are of the type select, checkbox, true/false, radio.
+
 
 [Visit the official documentation to read more about the field settings.](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings)
 
@@ -103,6 +115,52 @@ acf_text([
 - `acf_relationship()` - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field. 
 - `acf_taxonomy()` - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms. 
 - `acf_user()` - The user field creates a select field for all your users. 
+
+## Helpers
+
+This package provides three helper packages [`acf_conditional_logic()`](#acf_conditional_logic), [`acf_hide_on_screen()`](#acf_hide_on_screen) and [`acf_location()`](#acf_location) to help you write less arrays for your field groups.
+
+### `acf_conditional_logic()`
+
+The `acf_conditional_logic()` function help you write [conditional logic](#settings) without knowing the fields `key` value.
+
+```php
+acf_conditional_logic('type', 'image');
+
+acf_conditional_logic('type', '!==' 'image');
+```
+
+### `acf_hide_on_screen()`
+
+The `acf_hide_on_screen()` function help you write the `hide_on_screen` field group key as an array of value without indexes.
+
+```php
+acf_hide_on_screen([
+    'author',
+    'categories',
+    'comments',
+    'custom_fields',
+    'discussion',
+    'excerpt',
+    'format',
+    'page_attributes',
+    'revisions',
+    'send-trackbacks',
+    'slug',
+    'tags'
+]);
+```
+
+### `acf_location()`
+
+The `acf_location()` function help you write [`location`](#settings) arrays without the `name`, `operator` and `value` keys.
+
+```php
+acf_location('post_type', 'post');
+
+acf_location('post_type', '!=', 'post');
+```
+
 
 ## License
 
