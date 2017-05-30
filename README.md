@@ -54,9 +54,9 @@ acf_text([
 ]);
 ```
 
-[Visit the official documentation to read more about the field settings.](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings)
-
 ### Settings
+
+Below you'll find a list of settings and their descriptions you can add to your fields. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about the field settings.
 
 Name | Description
 ---- | -----------
