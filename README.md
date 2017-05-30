@@ -152,7 +152,7 @@ acf_hide_on_screen([
 
 ##### `acf_location()`
 
-The `acf_location()` function help you write [`location`](#settings) arrays without the `name`, `operator` and `value` keys.
+The `acf_location()` function help you write `location` arrays without the `name`, `operator` and `value` keys.
 
 ```php
 acf_location('post_type', 'post');
