@@ -33,7 +33,7 @@ $location = [
 
 acf_field_group([
     'title' => 'About',
-    'key' => 'group',
+    'key' => 'about',
     'fields' => $fields,
     'location' => [
         $location
