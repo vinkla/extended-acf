@@ -119,7 +119,7 @@ Name | Description
 
 This package provides three helper packages [`acf_conditional_logic()`](#acf_conditional_logic), [`acf_hide_on_screen()`](#acf_hide_on_screen) and [`acf_location()`](#acf_location) to help you write less arrays for your field groups.
 
-### `acf_conditional_logic()`
+#### `acf_conditional_logic()`
 
 The `acf_conditional_logic()` function help you write [conditional logic](#settings) without knowing the fields `key` value.
 
@@ -129,7 +129,7 @@ acf_conditional_logic('type', 'image');
 acf_conditional_logic('type', '!==' 'image');
 ```
 
-### `acf_hide_on_screen()`
+#### `acf_hide_on_screen()`
 
 The `acf_hide_on_screen()` function help you write the `hide_on_screen` field group key as an array of value without indexes.
 
@@ -150,7 +150,7 @@ acf_hide_on_screen([
 ]);
 ```
 
-### `acf_location()`
+#### `acf_location()`
 
 The `acf_location()` function help you write [`location`](#settings) arrays without the `name`, `operator` and `value` keys.
 
@@ -159,7 +159,6 @@ acf_location('post_type', 'post');
 
 acf_location('post_type', '!=', 'post');
 ```
-
 
 ## License
 
