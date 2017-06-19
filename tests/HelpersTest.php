@@ -42,6 +42,7 @@ class HelpersTest extends TestCase
         $this->assertFieldType('gallery', acf_gallery($settings));
         $this->assertFieldType('google_map', acf_google_map($settings));
         $this->assertFieldType('image', acf_image($settings));
+        $this->assertFieldType('link', acf_link($settings));
         $this->assertFieldType('message', acf_message(array_merge(['message' => ''], $settings)));
         $this->assertFieldType('number', acf_number($settings));
         $this->assertFieldType('oembed', acf_oembed($settings));

@@ -216,6 +216,20 @@ if (!function_exists('acf_image')) {
     }
 }
 
+if (!function_exists('acf_link')) {
+    /**
+     * Get an acf link field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_link(array $settings): array
+    {
+        return Acf::field('link', $settings);
+    }
+}
+
 if (!function_exists('acf_location')) {
     /**
      * Get an acf location array.
