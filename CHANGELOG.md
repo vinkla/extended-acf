@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.0.0 (upcoming)
+
+- Remove hide on screen helper
+
 ## 1.0.0 (released 2017-05-30)
 
 - First stable release

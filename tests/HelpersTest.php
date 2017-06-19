@@ -138,24 +138,4 @@ class HelpersTest extends TestCase
 
         $this->assertSame($location, acf_location('page_template', '!=', 'templates/start-page.php'));
     }
-
-    public function testHideOnScreen()
-    {
-        $elements = [
-            0 => 'author',
-            1 => 'categories',
-            2 => 'comments',
-            3 => 'custom_fields',
-            4 => 'discussion',
-            5 => 'excerpt',
-            6 => 'format',
-            7 => 'page_attributes',
-            8 => 'revisions',
-            9 => 'send-trackbacks',
-            10 => 'slug',
-            11 => 'tags',
-        ];
-
-        $this->assertSame($elements, acf_hide_on_screen(['author', 'categories', 'comments', 'custom_fields', 'discussion', 'excerpt', 'format', 'page_attributes', 'revisions', 'send-trackbacks', 'slug', 'tags']));
-    }
 }

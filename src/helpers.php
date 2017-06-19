@@ -216,26 +216,6 @@ if (!function_exists('acf_image')) {
     }
 }
 
-if (!function_exists('acf_hide_on_screen')) {
-    /**
-     * Get an acf hide_on_screen array.
-     *
-     * @param array $elements
-     *
-     * @return array
-     */
-    function acf_hide_on_screen(array $elements): array
-    {
-        $array = [];
-
-        foreach ($elements as $i => $element) {
-            $array[$i] = $element;
-        }
-
-        return $array;
-    }
-}
-
 if (!function_exists('acf_location')) {
     /**
      * Get an acf location array.
