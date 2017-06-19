@@ -55,7 +55,7 @@ class Group
     {
         $this->settings = $settings;
 
-        $this->setKey($settings['key']);
+        $this->setKey($settings['key'] ?? $settings['title']);
     }
 
     /**

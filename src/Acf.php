@@ -59,7 +59,7 @@ class Acf
             return;
         }
 
-        $keys = ['key', 'title', 'fields'];
+        $keys = ['title', 'fields'];
 
         foreach ($keys as $key) {
             if (!array_key_exists($key, $settings)) {

@@ -4,6 +4,7 @@
 
 - Added link field
 - Added group field
+- Update group key title
 - Removed hide on screen helper
 
 ## 1.0.0 (released 2017-05-30)
