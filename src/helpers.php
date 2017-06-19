@@ -188,6 +188,20 @@ if (!function_exists('acf_google_map')) {
     }
 }
 
+if (!function_exists('acf_group')) {
+    /**
+     * Get an acf group field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_group(array $settings): array
+    {
+        return Acf::field('group', $settings, ['sub_fields']);
+    }
+}
+
 if (!function_exists('acf_number')) {
     /**
      * Get an acf number field settings array.

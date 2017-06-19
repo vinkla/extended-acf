@@ -41,6 +41,7 @@ class HelpersTest extends TestCase
         $this->assertFieldType('flexible_content', acf_flexible_content(array_merge(['layouts' => []], $settings)));
         $this->assertFieldType('gallery', acf_gallery($settings));
         $this->assertFieldType('google_map', acf_google_map($settings));
+        $this->assertFieldType('group', acf_group(array_merge(['sub_fields' => []], $settings)));
         $this->assertFieldType('image', acf_image($settings));
         $this->assertFieldType('link', acf_link($settings));
         $this->assertFieldType('message', acf_message(array_merge(['message' => ''], $settings)));
