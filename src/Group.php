@@ -69,6 +69,8 @@ class Group
      */
     public function setKey(string $key)
     {
+        $key = strtolower($key);
+
         if (!Str::startsWith($key, 'group_')) {
             $key = sprintf('group_%s', $key);
         }
