@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2.0.0 (upcoming)
+## 2.0.0 (released 2017-06-20)
 
 - Added link field
 - Added group field
