@@ -103,7 +103,7 @@ Name | Description
 
 - `acf_clone()` - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields.
 - `acf_flexible_content()` - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
-- `acf_group()` - The [group](https://www.advancedcustomfields.com/resources/flexible-content) allows you to create a group of sub fields.
+- `acf_group()` - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.
 - `acf_message()` - The message fields allows you to display a text message.
 - `acf_repeater()` - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
 - `acf_tab()` - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections. 
