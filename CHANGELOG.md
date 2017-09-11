@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.1.0 (upcoming)
+
+- Added range field
+
 ## 2.0.0 (released 2017-06-20)
 
 - Added link field
