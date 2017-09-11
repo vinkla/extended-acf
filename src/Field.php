@@ -59,10 +59,11 @@ class Field
      *
      * @return void
      */
-    public function __construct(Group $group, array $settings)
+    public function __construct(Group $group, array $settings, Field $parent_field = null )
     {
         $this->group = $group;
         $this->settings = $settings;
+        $this->parent_field = $parent_field;
 
         $this->setKey($settings['name']);
     }
@@ -79,6 +80,10 @@ class Field
     public function setKey(string $key)
     {
         $prefix = str_replace('group_', '', $this->group->getKey());
+
+        if ( $this->parent_field ) {
+            $prefix .= '_' . $this->parent_field->getKey();
+        }
 
         $name = Str::snake($key);
 
@@ -147,7 +152,25 @@ class Field
         $fields = [];
 
         foreach ($this->settings['sub_fields'] as $field) {
-            $field = new self($this->group, $field);
+            $field = new self($this->group, $field, $this);
+
+            $fields[] = $field->toArray();
+        }
+
+        return $fields;
+    }
+
+    /**
+     * Get the sub fields.
+     *
+     * @return array
+     */
+    public function getLayouts()
+    {
+        $fields = [];
+
+        foreach ($this->settings['layouts'] as $field) {
+            $field = new self($this->group, $field, $this);
 
             $fields[] = $field->toArray();
         }
@@ -172,6 +195,10 @@ class Field
 
         if (isset($this->settings['sub_fields']) && is_array($this->settings['sub_fields'])) {
             $settings['sub_fields'] = $this->getSubFields();
+        }
+
+        if (isset($this->settings['layouts']) && is_array($this->settings['layouts'])) {
+            $settings['layouts'] = $this->getLayouts();
         }
 
         return array_merge($this->settings, $settings);
