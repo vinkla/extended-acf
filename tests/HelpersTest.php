@@ -51,6 +51,7 @@ class HelpersTest extends TestCase
         $this->assertFieldType('password', acf_password($settings));
         $this->assertFieldType('post_object', acf_post_object($settings));
         $this->assertFieldType('radio', acf_radio(array_merge(['choices' => []], $settings)));
+        $this->assertFieldType('range', acf_range($settings));
         $this->assertFieldType('relationship', acf_relationship($settings));
         $this->assertFieldType('repeater', acf_repeater(array_merge(['sub_fields' => []], $settings)));
         $this->assertFieldType('select', acf_select(array_merge(['choices' => []], $settings)));

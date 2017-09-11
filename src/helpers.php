@@ -61,7 +61,7 @@ if (!function_exists('acf_conditional_logic')) {
      *
      * @param string $name
      * @param string $operator
-     * @param string|null $value
+     * @param null|string $value
      *
      * @return array
      */
@@ -124,7 +124,7 @@ if (!function_exists('acf_field_group')) {
      *
      * @param array $settings
      *
-     * @return void|null
+     * @return null|void
      */
     function acf_field_group(array $settings)
     {
@@ -250,7 +250,7 @@ if (!function_exists('acf_location')) {
      *
      * @param string $param
      * @param string $operator
-     * @param string|null $value
+     * @param null|string $value
      *
      * @return array
      */
@@ -332,6 +332,20 @@ if (!function_exists('acf_radio')) {
     function acf_radio(array $settings): array
     {
         return Acf::field('radio', $settings, ['choices']);
+    }
+}
+
+if (!function_exists('acf_range')) {
+    /**
+     * Get an acf range field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_range(array $settings): array
+    {
+        return Acf::field('range', $settings);
     }
 }
 

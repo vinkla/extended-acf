@@ -51,7 +51,7 @@ class Acf
      *
      * @param array $settings
      *
-     * @return void|null
+     * @return null|void
      */
     public static function group(array $settings)
     {
