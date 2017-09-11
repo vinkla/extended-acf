@@ -59,7 +59,7 @@ class Field
      *
      * @return void
      */
-    public function __construct(Group $group, array $settings, Field $parent_field = null )
+    public function __construct(Group $group, array $settings, Field $parent_field = null)
     {
         $this->group = $group;
         $this->settings = $settings;
@@ -81,8 +81,8 @@ class Field
     {
         $prefix = str_replace('group_', '', $this->group->getKey());
 
-        if ( $this->parent_field ) {
-            $prefix .= '_' . $this->parent_field->getKey();
+        if ($this->parent_field) {
+            $prefix .= '_'.$this->parent_field->getKey();
         }
 
         $name = Str::snake($key);
