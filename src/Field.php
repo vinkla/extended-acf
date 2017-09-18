@@ -28,7 +28,7 @@ class Field
      *
      * @var string
      */
-    protected $key;
+    protected $key = '';
 
     /**
      * The group instance.
@@ -59,13 +59,15 @@ class Field
      *
      * @return void
      */
-    public function __construct(Group $group, array $settings, Field $parent_field = null)
+    public function __construct(Group $group, array $settings, Field $parent_field = null )
     {
         $this->group = $group;
         $this->settings = $settings;
         $this->parent_field = $parent_field;
 
-        $this->setKey($settings['name']);
+        if ( 'tab' !== $settings['type'] ) {
+            $this->setKey($settings['name']);
+        }
     }
 
     /**
