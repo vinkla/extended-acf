@@ -28,7 +28,7 @@ class Field
      *
      * @var string
      */
-    protected $key = '';
+    protected $key;
 
     /**
      * The group instance.
