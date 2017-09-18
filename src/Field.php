@@ -79,10 +79,10 @@ class Field
      */
     public function setKey(string $key)
     {
-        $prefix = str_replace('group_', '', $this->group->getKey());
-
-        if ($this->parent_field) {
-            $prefix .= '_'.$this->parent_field->getKey();
+        if ( $this->parent_field ) {
+            $prefix = str_replace( 'field_', '', $this->parent_field->getKey() );
+        } else {
+            $prefix = str_replace('group_', '', $this->group->getKey());
         }
 
         $name = Str::snake($key);
