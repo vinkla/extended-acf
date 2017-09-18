@@ -65,9 +65,7 @@ class Field
         $this->settings = $settings;
         $this->parent_field = $parent_field;
 
-        if ('tab' !== $settings['type']) {
-            $this->setKey($settings['name']);
-        }
+        $this->setKey();
     }
 
     /**
@@ -79,7 +77,7 @@ class Field
      *
      * @return void
      */
-    public function setKey(string $key)
+    public function setKey()
     {
         if ($this->parent_field) {
             $prefix = str_replace('field_', '', $this->parent_field->getKey());
@@ -87,7 +85,7 @@ class Field
             $prefix = str_replace('group_', '', $this->group->getKey());
         }
 
-        $name = Str::snake($key);
+        $name = ('tab' === $this->settings['type']) ? uniqid() : Str::snake($this->settings['name']);
 
         $key = sprintf('field_%s_%s', $prefix, $name);
 
