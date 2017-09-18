@@ -59,11 +59,11 @@ class Field
      *
      * @return void
      */
-    public function __construct(Group $group, array $settings, Field $parent_field = null)
+    public function __construct(Group $group, array $settings, Field $parentField = null)
     {
         $this->group = $group;
         $this->settings = $settings;
-        $this->parent_field = $parent_field;
+        $this->parentField = $parentField;
 
         $this->setKey();
     }
@@ -79,8 +79,8 @@ class Field
      */
     public function setKey()
     {
-        if ($this->parent_field) {
-            $prefix = str_replace('field_', '', $this->parent_field->getKey());
+        if ($this->parentField) {
+            $prefix = str_replace('field_', '', $this->parentField->getKey());
         } else {
             $prefix = str_replace('group_', '', $this->group->getKey());
         }
