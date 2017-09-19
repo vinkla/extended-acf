@@ -2,7 +2,8 @@
 
 ## 2.1.0 (upcoming)
 
-- Added range field
+- Added range field helper
+- Added button group field helper
 
 ## 2.0.0 (released 2017-06-20)
 
