@@ -69,15 +69,17 @@ Name | Description
 
 #### Basic Fields
 
+- `acf_email()` - The email field creates a simple email input.
+- `acf_number()` - The number field creates a simple number input.
+- `acf_password()` - The password field creates a simple password input.
+- `acf_range()` - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
 - `acf_text()` - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
 - `acf_textarea()` - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
-- `acf_number()` - The number field creates a simple number input.
-- `acf_email()` - The email field creates a simple email input.
 - `acf_url()` - The url field creates a simple url input.
-- `acf_password()` - The password field creates a simple password input.
 
 #### Choice Fields
 
+- `acf_button_group()` - The button group field creates a list of radio buttons.
 - `acf_checkbox()` - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
 - `acf_radio()` - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
 - `acf_select()` - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
