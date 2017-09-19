@@ -13,6 +13,20 @@ declare(strict_types=1);
 
 use WordPlate\Acf\Acf;
 
+if (!function_exists('acf_button_group')) {
+    /**
+     * Get an acf button group field settings array.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    function acf_button_group(array $settings): array
+    {
+        return Acf::field('button_group', $settings, ['choices']);
+    }
+}
+
 if (!function_exists('acf_checkbox')) {
     /**
      * Get an acf checkbox field settings array.

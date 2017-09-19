@@ -31,6 +31,7 @@ class HelpersTest extends TestCase
     {
         $settings = ['name' => 'test', 'label' => 'test'];
 
+        $this->assertFieldType('button_group', acf_button_group(array_merge(['choices' => []], $settings)));
         $this->assertFieldType('checkbox', acf_checkbox(array_merge(['choices' => []], $settings)));
         $this->assertFieldType('clone', acf_clone($settings));
         $this->assertFieldType('color_picker', acf_color_picker($settings));
