@@ -51,10 +51,17 @@ class FieldTest extends TestCase
      */
     public function testGetFields()
     {
-        $fields = $this->getField()->getFields('sub_fields');
+        $field = $this->getField();
 
-        $this->assertCount(1, $fields);
-        $this->assertSame('field_employee_image_source', $fields[0]['key']);
+        $subFields = $field->getFields('sub_fields');
+
+        $this->assertCount(1, $subFields);
+        $this->assertSame('field_employee_image_source', $subFields[0]['key']);
+
+        $layouts = $field->getFields('layouts');
+
+        $this->assertCount(1, $layouts);
+        $this->assertSame('field_employee_image_author', $layouts[0]['key']);
     }
 
     /**
@@ -83,6 +90,14 @@ class FieldTest extends TestCase
                     'label' => 'Source',
                     'name' => 'source',
                     'key' => 'field_employee_image_source',
+                ],
+            ],
+            'layouts' => [
+                [
+                    'type' => 'text',
+                    'label' => 'Author',
+                    'name' => 'author',
+                    'key' => 'field_employee_image_author',
                 ],
             ],
             'conditional_logic' => [
@@ -117,6 +132,9 @@ class FieldTest extends TestCase
             'name' => 'image',
             'sub_fields' => [
                 acf_text(['label' => 'Source', 'name' => 'source']),
+            ],
+            'layouts' => [
+                acf_text(['label' => 'Author', 'name' => 'author']),
             ],
             'conditional_logic' => [
                 [
