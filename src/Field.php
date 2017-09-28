@@ -59,12 +59,13 @@ class Field
      *
      * @return void
      */
-    public function __construct(Group $group, array $settings)
+    public function __construct(Group $group, array $settings, Field $parentField = null)
     {
         $this->group = $group;
         $this->settings = $settings;
+        $this->parentField = $parentField;
 
-        $this->setKey($settings['name']);
+        $this->setKey();
     }
 
     /**
@@ -76,11 +77,15 @@ class Field
      *
      * @return void
      */
-    public function setKey(string $key)
+    public function setKey()
     {
-        $prefix = str_replace('group_', '', $this->group->getKey());
+        if ($this->parentField) {
+            $prefix = str_replace('field_', '', $this->parentField->getKey());
+        } else {
+            $prefix = str_replace('group_', '', $this->group->getKey());
+        }
 
-        $name = Str::snake($key);
+        $name = ('tab' === $this->settings['type']) ? uniqid() : Str::snake($this->settings['name']);
 
         $key = sprintf('field_%s_%s', $prefix, $name);
 
@@ -147,7 +152,25 @@ class Field
         $fields = [];
 
         foreach ($this->settings['sub_fields'] as $field) {
-            $field = new self($this->group, $field);
+            $field = new self($this->group, $field, $this);
+
+            $fields[] = $field->toArray();
+        }
+
+        return $fields;
+    }
+
+    /**
+     * Get the sub fields.
+     *
+     * @return array
+     */
+    public function getLayouts()
+    {
+        $fields = [];
+
+        foreach ($this->settings['layouts'] as $field) {
+            $field = new self($this->group, $field, $this);
 
             $fields[] = $field->toArray();
         }
@@ -172,6 +195,10 @@ class Field
 
         if (isset($this->settings['sub_fields']) && is_array($this->settings['sub_fields'])) {
             $settings['sub_fields'] = $this->getSubFields();
+        }
+
+        if (isset($this->settings['layouts']) && is_array($this->settings['layouts'])) {
+            $settings['layouts'] = $this->getLayouts();
         }
 
         return array_merge($this->settings, $settings);
