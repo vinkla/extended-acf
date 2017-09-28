@@ -49,12 +49,12 @@ class FieldTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testGetSubFields()
+    public function testGetFields()
     {
-        $fields = $this->getField()->getSubFields();
+        $fields = $this->getField()->getFields('sub_fields');
 
         $this->assertCount(1, $fields);
-        $this->assertSame('field_employee_source', $fields[0]['key']);
+        $this->assertSame('field_employee_image_source', $fields[0]['key']);
     }
 
     /**
@@ -82,7 +82,7 @@ class FieldTest extends TestCase
                     'type' => 'text',
                     'label' => 'Source',
                     'name' => 'source',
-                    'key' => 'field_employee_source',
+                    'key' => 'field_employee_image_source',
                 ],
             ],
             'conditional_logic' => [

@@ -35,7 +35,7 @@ class Acf
      */
     public static function field(string $type, array $settings, array $keys = []): array
     {
-        $keys = ('tab' === $type) ? array_merge(['label'], $keys) : array_merge(['name', 'label'], $keys);
+        $keys = array_merge(['label', 'name'], $keys);
 
         foreach ($keys as $key) {
             if (!array_key_exists($key, $settings)) {
