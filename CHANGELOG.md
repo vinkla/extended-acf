@@ -1,9 +1,10 @@
 # CHANGELOG
 
-## 2.1.0 (upcoming)
+## 3.0.0 (upcoming)
 
 - Added range field helper
 - Added button group field helper
+- Added support for flexible content layouts
 
 ## 2.0.0 (released 2017-06-20)
 
