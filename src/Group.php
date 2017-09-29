@@ -49,10 +49,20 @@ class Group
      *
      * @param array $settings
      *
+     * @throws \InvalidArgumentException
+     *
      * @return void
      */
     public function __construct(array $settings)
     {
+        $keys = ['title', 'fields'];
+
+        foreach ($keys as $key) {
+            if (!array_key_exists($key, $settings)) {
+                throw new InvalidArgumentException("Missing group setting key [$key].");
+            }
+        }
+
         $this->settings = $settings;
 
         $this->setKey($settings['key'] ?? $settings['title']);

@@ -23,23 +23,6 @@ use WordPlate\Acf\Acf;
  */
 class AcfTest extends TestCase
 {
-    public function testMissingFunction()
-    {
-        $this->assertNull(Acf::group([]));
-    }
-
-    /**
-     * @runInSeparateProcess
-     */
-    public function testGroup()
-    {
-        require __DIR__.'/stubs/functions.php';
-
-        $settings = require __DIR__.'/stubs/settings.php';
-
-        $this->assertNull(Acf::group($settings));
-    }
-
     /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Missing field setting key [label].
@@ -49,16 +32,5 @@ class AcfTest extends TestCase
         require __DIR__.'/stubs/functions.php';
 
         Acf::field('text', ['name' => 'without_label']);
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Missing group setting key [title].
-     */
-    public function testGroupMissingKey()
-    {
-        require __DIR__.'/stubs/functions.php';
-
-        Acf::group(['key' => 'without_title']);
     }
 }

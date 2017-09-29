@@ -45,30 +45,4 @@ class Acf
 
         return array_merge(compact('type'), $settings);
     }
-
-    /**
-     * Register an acf field group.
-     *
-     * @param array $settings
-     *
-     * @return null|void
-     */
-    public static function group(array $settings)
-    {
-        if (!function_exists('acf_add_local_field_group')) {
-            return;
-        }
-
-        $keys = ['title', 'fields'];
-
-        foreach ($keys as $key) {
-            if (!array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Missing group setting key [$key].");
-            }
-        }
-
-        $group = new Group($settings);
-
-        acf_add_local_field_group($group->toArray());
-    }
 }

@@ -12,6 +12,7 @@
 declare(strict_types=1);
 
 use WordPlate\Acf\Acf;
+use WordPlate\Acf\Group;
 
 if (!function_exists('acf_button_group')) {
     /**
@@ -142,7 +143,13 @@ if (!function_exists('acf_field_group')) {
      */
     function acf_field_group(array $settings)
     {
-        return Acf::group($settings);
+        if (function_exists('acf_add_local_field_group')) {
+            return;
+        }
+
+        $group = new Group($settings);
+
+        acf_add_local_field_group($group->toArray());
     }
 }
 

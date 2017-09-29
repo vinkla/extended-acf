@@ -81,6 +81,17 @@ class GroupTest extends TestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Missing group setting key [title].
+     */
+    public function testGroupMissingTitleKey()
+    {
+        require __DIR__.'/stubs/functions.php';
+
+        new Group(['key' => 'without_title']);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage The group key [group_employee] is not unique.
      */
     public function testKeyDuplication()
