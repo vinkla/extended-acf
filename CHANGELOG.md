@@ -5,6 +5,8 @@
 - Added range field helper
 - Added button group field helper
 - Added support for flexible content layouts
+- Updated field and group logic
+- Removed deprecated acf class
 
 ## 2.0.0 (released 2017-06-20)
 

@@ -15,7 +15,6 @@ namespace WordPlate\Tests\Acf;
 
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Field;
-use WordPlate\Acf\Group;
 
 /**
  * This is the field test class.
@@ -37,13 +36,13 @@ class FieldTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSetKey()
+    public function testSetParentKey()
     {
         $field = $this->getField();
 
-        $field->setKey('thumbnail');
+        $field->setParentKey('article');
 
-        $this->assertSame('field_employee_thumbnail', $field->getKey());
+        $this->assertSame('field_article_image', $field->getKey());
     }
 
     /**
@@ -82,6 +81,7 @@ class FieldTest extends TestCase
         $field = $this->getField();
 
         $this->assertSame([
+            'type' => 'image',
             'label' => 'Thumbnail',
             'name' => 'image',
             'sub_fields' => [
@@ -103,7 +103,7 @@ class FieldTest extends TestCase
             'conditional_logic' => [
                 [
                     [
-                        'field' => 'field_employee_source',
+                        'field' => 'field_employee_image_source',
                         'operator' => '==',
                         'value' => 'https://example.com/',
                     ],
@@ -119,15 +119,18 @@ class FieldTest extends TestCase
      */
     public function testKeyDuplication()
     {
-        $group = $this->getGroup();
+        $field = acf_url(['name' => 'link', 'label' => 'Link']);
+        $field->setParentKey('employee');
+        $field->getKey();
 
-        new Field($group, acf_url(['name' => 'link', 'label' => 'Link']));
-        new Field($group, acf_url(['name' => 'link', 'label' => 'Link']));
+        $field = acf_url(['name' => 'link', 'label' => 'Link']);
+        $field->setParentKey('employee');
+        $field->getKey();
     }
 
     protected function getField()
     {
-        return new Field($this->getGroup(), [
+        $field = acf_image([
             'label' => 'Thumbnail',
             'name' => 'image',
             'sub_fields' => [
@@ -142,14 +145,9 @@ class FieldTest extends TestCase
                 ],
             ],
         ]);
-    }
 
-    protected function getGroup()
-    {
-        return new Group([
-            'key' => 'employee',
-            'title' => 'Employee',
-            'fields' => [],
-        ]);
+        $field->setParentKey('employee');
+
+        return $field;
     }
 }

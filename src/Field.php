@@ -54,48 +54,23 @@ class Field
     /**
      * Create a new field instance.
      *
-     * @param \WordPlate\Acf\Group $group
+     * @param string $type
      * @param array $settings
+     * @param array $keys
      *
      * @return void
      */
-    public function __construct(Group $group, array $settings, Field $parentField = null)
+    public function __construct(string $type, array $settings, array $keys = [])
     {
-        $this->group = $group;
-        $this->settings = $settings;
-        $this->parentField = $parentField;
+        $keys = array_merge(['label', 'name'], $keys);
 
-        $this->setKey($settings['name']);
-    }
-
-    /**
-     * Set the field key.
-     *
-     * @param string $key
-     *
-     * @throws \InvalidArgumentException
-     *
-     * @return void
-     */
-    public function setKey(string $key)
-    {
-        if ($this->parentField) {
-            $prefix = str_replace('field_', '', $this->parentField->getKey());
-        } else {
-            $prefix = str_replace('group_', '', $this->group->getKey());
+        foreach ($keys as $key) {
+            if (!array_key_exists($key, $settings)) {
+                throw new InvalidArgumentException("Missing field setting key [$key].");
+            }
         }
 
-        $name = Str::snake($key);
-
-        $key = sprintf('field_%s_%s', $prefix, $name);
-
-        if (in_array($key, self::$keys)) {
-            throw new InvalidArgumentException("The field key [$key] is not unique.");
-        }
-
-        self::$keys[] = $key;
-
-        $this->key = $key;
+        $this->settings = array_merge(compact('type'), $settings);
     }
 
     /**
@@ -105,7 +80,53 @@ class Field
      */
     public function getKey(): string
     {
-        return $this->key;
+        if ($this->key) {
+            return $this->key;
+        }
+
+        $name = Str::snake($this->getName());
+
+        $key = sprintf('field_%s_%s', $this->parentKey, $name);
+
+        if (in_array($key, self::$keys)) {
+            throw new InvalidArgumentException("The field key [$key] is not unique.");
+        }
+
+        self::$keys[] = $key;
+
+        $this->key = $key;
+
+        return $key;
+    }
+
+    /**
+     * Get the field name.
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->settings['name'];
+    }
+
+    /**
+     * Get the field type.
+     *
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->settings['type'];
+    }
+
+    /**
+     * Set the field parent key.
+     *
+     * @return void
+     */
+    public function setParentKey(string $parentKey)
+    {
+        $this->parentKey = $parentKey;
     }
 
     /**
@@ -117,15 +138,15 @@ class Field
     {
         $conditionalLogic = [];
 
-        $prefix = str_replace('group_', '', $this->group->getKey());
-
         foreach ($this->settings['conditional_logic'] as $rules) {
             $group = [];
 
             foreach ($rules as $rule) {
                 $name = Str::snake($rule['name']);
 
-                $field = sprintf('field_%s_%s', $prefix, $name);
+                $parentKey = str_replace('field_', '', $this->key);
+
+                $field = sprintf('field_%s_%s', $parentKey, $name);
 
                 $rule = [
                     'field' => $field,
@@ -152,7 +173,9 @@ class Field
         $fields = [];
 
         foreach ($this->settings[$key] as $field) {
-            $field = new self($this->group, $field, $this);
+            $key = str_replace('field_', '', $this->getKey());
+
+            $field->setParentKey($key);
 
             $fields[] = $field->toArray();
         }

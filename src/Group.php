@@ -64,8 +64,6 @@ class Group
         }
 
         $this->settings = $settings;
-
-        $this->setKey($settings['key'] ?? $settings['title']);
     }
 
     /**
@@ -116,7 +114,9 @@ class Group
         $fields = [];
 
         foreach ($this->settings['fields'] as $field) {
-            $field = new Field($this, $field);
+            $key = str_replace('group_', '', $this->getKey());
+
+            $field->setParentKey($key);
 
             $fields[] = $field->toArray();
         }

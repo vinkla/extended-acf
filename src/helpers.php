@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-use WordPlate\Acf\Acf;
+use WordPlate\Acf\Field;
 use WordPlate\Acf\Group;
 
 if (!function_exists('acf_button_group')) {
@@ -20,11 +20,11 @@ if (!function_exists('acf_button_group')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_button_group(array $settings): array
+    function acf_button_group(array $settings): Field
     {
-        return Acf::field('button_group', $settings, ['choices']);
+        return new Field('button_group', $settings, ['choices']);
     }
 }
 
@@ -34,11 +34,11 @@ if (!function_exists('acf_checkbox')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_checkbox(array $settings): array
+    function acf_checkbox(array $settings): Field
     {
-        return Acf::field('checkbox', $settings, ['choices']);
+        return new Field('checkbox', $settings, ['choices']);
     }
 }
 
@@ -48,11 +48,11 @@ if (!function_exists('acf_clone')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_clone(array $settings): array
+    function acf_clone(array $settings): Field
     {
-        return Acf::field('clone', $settings);
+        return new Field('clone', $settings);
     }
 }
 
@@ -62,11 +62,11 @@ if (!function_exists('acf_color_picker')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_color_picker(array $settings): array
+    function acf_color_picker(array $settings): Field
     {
-        return Acf::field('color_picker', $settings);
+        return new Field('color_picker', $settings);
     }
 }
 
@@ -97,11 +97,11 @@ if (!function_exists('acf_date_picker')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_date_picker(array $settings): array
+    function acf_date_picker(array $settings): Field
     {
-        return Acf::field('date_picker', $settings);
+        return new Field('date_picker', $settings);
     }
 }
 
@@ -111,11 +111,11 @@ if (!function_exists('acf_date_time_picker')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_date_time_picker(array $settings): array
+    function acf_date_time_picker(array $settings): Field
     {
-        return Acf::field('date_time_picker', $settings);
+        return new Field('date_time_picker', $settings);
     }
 }
 
@@ -125,11 +125,11 @@ if (!function_exists('acf_email')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_email(array $settings): array
+    function acf_email(array $settings): Field
     {
-        return Acf::field('email', $settings);
+        return new Field('email', $settings);
     }
 }
 
@@ -149,6 +149,8 @@ if (!function_exists('acf_field_group')) {
 
         $group = new Group($settings);
 
+        $group->setKey($settings['key'] ?? $settings['title']);
+
         acf_add_local_field_group($group->toArray());
     }
 }
@@ -159,11 +161,11 @@ if (!function_exists('acf_file')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_file(array $settings): array
+    function acf_file(array $settings): Field
     {
-        return Acf::field('file', $settings);
+        return new Field('file', $settings);
     }
 }
 
@@ -173,11 +175,11 @@ if (!function_exists('acf_flexible_content')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_flexible_content(array $settings): array
+    function acf_flexible_content(array $settings): Field
     {
-        return Acf::field('flexible_content', $settings, ['layouts']);
+        return new Field('flexible_content', $settings, ['layouts']);
     }
 }
 
@@ -187,11 +189,11 @@ if (!function_exists('acf_gallery')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_gallery(array $settings): array
+    function acf_gallery(array $settings): Field
     {
-        return Acf::field('gallery', $settings);
+        return new Field('gallery', $settings);
     }
 }
 
@@ -201,11 +203,11 @@ if (!function_exists('acf_google_map')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_google_map(array $settings): array
+    function acf_google_map(array $settings): Field
     {
-        return Acf::field('google_map', $settings);
+        return new Field('google_map', $settings);
     }
 }
 
@@ -215,11 +217,11 @@ if (!function_exists('acf_group')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_group(array $settings): array
+    function acf_group(array $settings): Field
     {
-        return Acf::field('group', $settings, ['sub_fields']);
+        return new Field('group', $settings, ['sub_fields']);
     }
 }
 
@@ -229,11 +231,11 @@ if (!function_exists('acf_number')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_number(array $settings): array
+    function acf_number(array $settings): Field
     {
-        return Acf::field('number', $settings);
+        return new Field('number', $settings);
     }
 }
 
@@ -243,11 +245,11 @@ if (!function_exists('acf_image')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_image(array $settings): array
+    function acf_image(array $settings): Field
     {
-        return Acf::field('image', $settings);
+        return new Field('image', $settings);
     }
 }
 
@@ -257,11 +259,11 @@ if (!function_exists('acf_link')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_link(array $settings): array
+    function acf_link(array $settings): Field
     {
-        return Acf::field('link', $settings);
+        return new Field('link', $settings);
     }
 }
 
@@ -292,11 +294,11 @@ if (!function_exists('acf_message')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_message(array $settings): array
+    function acf_message(array $settings): Field
     {
-        return Acf::field('message', $settings, ['message']);
+        return new Field('message', $settings, ['message']);
     }
 }
 
@@ -306,11 +308,11 @@ if (!function_exists('acf_page_link')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_page_link(array $settings): array
+    function acf_page_link(array $settings): Field
     {
-        return Acf::field('page_link', $settings);
+        return new Field('page_link', $settings);
     }
 }
 
@@ -320,11 +322,11 @@ if (!function_exists('acf_password')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_password(array $settings): array
+    function acf_password(array $settings): Field
     {
-        return Acf::field('password', $settings);
+        return new Field('password', $settings);
     }
 }
 
@@ -334,11 +336,11 @@ if (!function_exists('acf_post_object')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_post_object(array $settings): array
+    function acf_post_object(array $settings): Field
     {
-        return Acf::field('post_object', $settings);
+        return new Field('post_object', $settings);
     }
 }
 
@@ -348,11 +350,11 @@ if (!function_exists('acf_radio')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_radio(array $settings): array
+    function acf_radio(array $settings): Field
     {
-        return Acf::field('radio', $settings, ['choices']);
+        return new Field('radio', $settings, ['choices']);
     }
 }
 
@@ -362,11 +364,11 @@ if (!function_exists('acf_range')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_range(array $settings): array
+    function acf_range(array $settings): Field
     {
-        return Acf::field('range', $settings);
+        return new Field('range', $settings);
     }
 }
 
@@ -376,11 +378,11 @@ if (!function_exists('acf_relationship')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_relationship(array $settings): array
+    function acf_relationship(array $settings): Field
     {
-        return Acf::field('relationship', $settings);
+        return new Field('relationship', $settings);
     }
 }
 
@@ -390,11 +392,11 @@ if (!function_exists('acf_repeater')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_repeater(array $settings): array
+    function acf_repeater(array $settings): Field
     {
-        return Acf::field('repeater', $settings, ['sub_fields']);
+        return new Field('repeater', $settings, ['sub_fields']);
     }
 }
 
@@ -404,11 +406,11 @@ if (!function_exists('acf_select')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_select(array $settings): array
+    function acf_select(array $settings): Field
     {
-        return Acf::field('select', $settings, ['choices']);
+        return new Field('select', $settings, ['choices']);
     }
 }
 
@@ -418,11 +420,11 @@ if (!function_exists('acf_tab')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_tab(array $settings): array
+    function acf_tab(array $settings): Field
     {
-        return Acf::field('tab', $settings);
+        return new Field('tab', $settings);
     }
 }
 
@@ -432,11 +434,11 @@ if (!function_exists('acf_taxonomy')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_taxonomy(array $settings): array
+    function acf_taxonomy(array $settings): Field
     {
-        return Acf::field('taxonomy', $settings);
+        return new Field('taxonomy', $settings);
     }
 }
 
@@ -446,11 +448,11 @@ if (!function_exists('acf_text')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_text(array $settings): array
+    function acf_text(array $settings): Field
     {
-        return Acf::field('text', $settings);
+        return new Field('text', $settings);
     }
 }
 
@@ -460,11 +462,11 @@ if (!function_exists('acf_textarea')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_textarea(array $settings): array
+    function acf_textarea(array $settings): Field
     {
-        return Acf::field('textarea', $settings);
+        return new Field('textarea', $settings);
     }
 }
 
@@ -474,11 +476,11 @@ if (!function_exists('acf_time_picker')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_time_picker(array $settings): array
+    function acf_time_picker(array $settings): Field
     {
-        return Acf::field('time_picker', $settings);
+        return new Field('time_picker', $settings);
     }
 }
 
@@ -488,11 +490,11 @@ if (!function_exists('acf_true_false')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_true_false(array $settings): array
+    function acf_true_false(array $settings): Field
     {
-        return Acf::field('true_false', $settings);
+        return new Field('true_false', $settings);
     }
 }
 
@@ -502,11 +504,11 @@ if (!function_exists('acf_url')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_url(array $settings): array
+    function acf_url(array $settings): Field
     {
-        return Acf::field('url', $settings);
+        return new Field('url', $settings);
     }
 }
 
@@ -516,11 +518,11 @@ if (!function_exists('acf_user')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_user(array $settings): array
+    function acf_user(array $settings): Field
     {
-        return Acf::field('user', $settings);
+        return new Field('user', $settings);
     }
 }
 
@@ -530,11 +532,11 @@ if (!function_exists('acf_wysiwyg')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_wysiwyg(array $settings): array
+    function acf_wysiwyg(array $settings): Field
     {
-        return Acf::field('wysiwyg', $settings);
+        return new Field('wysiwyg', $settings);
     }
 }
 
@@ -544,10 +546,10 @@ if (!function_exists('acf_oembed')) {
      *
      * @param array $settings
      *
-     * @return array
+     * @return \WordPlate\Acf\Field
      */
-    function acf_oembed(array $settings): array
+    function acf_oembed(array $settings): Field
     {
-        return Acf::field('oembed', $settings);
+        return new Field('oembed', $settings);
     }
 }

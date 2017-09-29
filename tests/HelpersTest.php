@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace WordPlate\Tests\Acf;
 
 use PHPUnit\Framework\TestCase;
+use WordPlate\Acf\Field;
 
 /**
  * This is the helpers test class.
@@ -22,9 +23,9 @@ use PHPUnit\Framework\TestCase;
  */
 class HelpersTest extends TestCase
 {
-    protected function assertFieldType($type, $settings)
+    protected function assertFieldType($type, Field $field)
     {
-        $this->assertSame($type, $settings['type']);
+        $this->assertSame($type, $field->getType());
     }
 
     public function testFields()

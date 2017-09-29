@@ -102,12 +102,16 @@ class GroupTest extends TestCase
 
     protected function getGroup()
     {
-        return new Group([
+        $group = new Group([
             'key' => 'employee',
             'title' => 'Employee',
             'fields' => [
                 acf_text(['label' => 'First Name', 'name' => 'first_name']),
             ],
         ]);
+
+        $group->setKey('employee');
+
+        return $group;
     }
 }
