@@ -119,13 +119,11 @@ class FieldTest extends TestCase
      */
     public function testKeyDuplication()
     {
-        $field = acf_url(['name' => 'link', 'label' => 'Link']);
-        $field->setParentKey('employee');
-        $field->getKey();
-
-        $field = acf_url(['name' => 'link', 'label' => 'Link']);
-        $field->setParentKey('employee');
-        $field->getKey();
+        for ($i = 0; $i < 2; $i++) {
+            $field = acf_url(['name' => 'link', 'label' => 'Link']);
+            $field->setParentKey('employee');
+            $field->getKey();
+        }
     }
 
     protected function getField()
