@@ -31,11 +31,11 @@ class Field
     protected $key;
 
     /**
-     * The group instance.
+     * The field parent key.
      *
-     * @var \WordPlate\Acf\Group
+     * @var string
      */
-    protected $group;
+    protected $parentKey;
 
     /**
      * The settings array.
@@ -136,31 +136,19 @@ class Field
      */
     public function getConditionalLogic(): array
     {
-        $conditionalLogic = [];
+        $conditionals = [];
 
         foreach ($this->settings['conditional_logic'] as $rules) {
-            $group = [];
+            $conditional = new Conditional($rules);
 
-            foreach ($rules as $rule) {
-                $name = Str::snake($rule['name']);
+            $key = str_replace('field_', '', $this->getKey());
 
-                $parentKey = str_replace('field_', '', $this->key);
+            $conditional->setParentKey($key);
 
-                $field = sprintf('field_%s_%s', $parentKey, $name);
-
-                $rule = [
-                    'field' => $field,
-                    'operator' => $rule['operator'],
-                    'value' => $rule['value'],
-                ];
-
-                $group[] = $rule;
-            }
-
-            $conditionalLogic[] = $group;
+            $conditionals[] = $conditional->toArray();
         }
 
-        return $conditionalLogic;
+        return $conditionals;
     }
 
     /**
