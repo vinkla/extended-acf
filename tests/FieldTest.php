@@ -108,6 +108,13 @@ class FieldTest extends TestCase
                         'value' => 'https://example.com/',
                     ],
                 ],
+                [
+                    [
+                        'field' => 'field_employee_image_author',
+                        'operator' => '!=',
+                        'value' => 'Max Martin',
+                    ],
+                ],
             ],
             'key' => 'field_employee_image',
         ], $field->toArray());
@@ -140,6 +147,9 @@ class FieldTest extends TestCase
             'conditional_logic' => [
                 [
                     acf_conditional_logic('source', 'https://example.com/'),
+                ],
+                [
+                    acf_conditional_logic('author', '!=', 'Max Martin'),
                 ],
             ],
         ]);
