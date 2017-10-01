@@ -85,8 +85,6 @@ class GroupTest extends TestCase
      */
     public function testGroupMissingTitleKey()
     {
-        require __DIR__.'/stubs/functions.php';
-
         new Group(['key' => 'without_title']);
     }
 

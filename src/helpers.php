@@ -143,7 +143,7 @@ if (!function_exists('acf_field_group')) {
      */
     function acf_field_group(array $settings)
     {
-        if (function_exists('acf_add_local_field_group')) {
+        if (!function_exists('acf_add_local_field_group')) {
             return;
         }
 

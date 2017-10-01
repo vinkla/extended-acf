@@ -115,14 +115,6 @@ class HelpersTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testFieldGroupMissingFunction()
-    {
-        $this->assertNull(acf_field_group([]));
-    }
-
-    /**
-     * @runInSeparateProcess
-     */
     public function testFieldGroup()
     {
         require __DIR__.'/stubs/functions.php';
@@ -130,6 +122,14 @@ class HelpersTest extends TestCase
         $settings = require __DIR__.'/stubs/settings.php';
 
         $this->assertNull(acf_field_group($settings));
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testFieldGroupMissingFunction()
+    {
+        $this->assertNull(acf_field_group([]));
     }
 
     public function testLocation()
