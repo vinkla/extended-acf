@@ -78,7 +78,7 @@ Name | Description
 
 ### Choice Fields
 
-- `acf_button_group()` - The button group field creates a list of radio buttons.
+- `acf_button_group()` - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
 - `acf_checkbox()` - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
 - `acf_radio()` - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
 - `acf_select()` - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
