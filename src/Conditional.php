@@ -40,23 +40,13 @@ class Conditional
      * Create a new conditional instance.
      *
      * @param array $groups
-     *
-     * @return void
-     */
-    public function __construct(array $groups)
-    {
-        $this->groups = $groups;
-    }
-
-    /**
-     * Set the parent field key.
-     *
      * @param string $parentKey
      *
      * @return void
      */
-    public function setParentKey(string $parentKey)
+    public function __construct(array $groups, string $parentKey)
     {
+        $this->groups = $groups;
         $this->parentKey = $parentKey;
     }
 
@@ -72,7 +62,7 @@ class Conditional
         foreach ($this->groups as $group) {
             $name = Str::snake($group['name']);
 
-            $field = sprintf('field_%s_%s', $this->parentKey, $name);
+            $field = sprintf('%s_%s', $this->parentKey, $name);
 
             $group = [
                 'field' => $field,

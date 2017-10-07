@@ -139,11 +139,7 @@ class Field
         $conditionals = [];
 
         foreach ($this->settings['conditional_logic'] as $rules) {
-            $conditional = new Conditional($rules);
-
-            $key = str_replace('field_', '', $this->getKey());
-
-            $conditional->setParentKey($key);
+            $conditional = new Conditional($rules, $this->getKey());
 
             $conditionals[] = $conditional->toArray();
         }
