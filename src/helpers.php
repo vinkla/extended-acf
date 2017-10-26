@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 use WordPlate\Acf\Field;
 use WordPlate\Acf\Group;
+use WordPlate\Acf\Layout;
 
 if (!function_exists('acf_button_group')) {
     /**
@@ -24,7 +25,9 @@ if (!function_exists('acf_button_group')) {
      */
     function acf_button_group(array $settings): Field
     {
-        return new Field('button_group', $settings, ['choices']);
+        $settings = array_merge($settings, ['type' => 'button_group']);
+
+        return new Field($settings, ['choices']);
     }
 }
 
@@ -38,7 +41,9 @@ if (!function_exists('acf_checkbox')) {
      */
     function acf_checkbox(array $settings): Field
     {
-        return new Field('checkbox', $settings, ['choices']);
+        $settings = array_merge($settings, ['type' => 'checkbox']);
+
+        return new Field($settings, ['choices']);
     }
 }
 
@@ -52,7 +57,9 @@ if (!function_exists('acf_clone')) {
      */
     function acf_clone(array $settings): Field
     {
-        return new Field('clone', $settings);
+        $settings = array_merge($settings, ['type' => 'clone']);
+
+        return new Field($settings);
     }
 }
 
@@ -66,7 +73,9 @@ if (!function_exists('acf_color_picker')) {
      */
     function acf_color_picker(array $settings): Field
     {
-        return new Field('color_picker', $settings);
+        $settings = array_merge($settings, ['type' => 'color_picker']);
+
+        return new Field($settings);
     }
 }
 
@@ -76,7 +85,7 @@ if (!function_exists('acf_conditional_logic')) {
      *
      * @param string $name
      * @param string $operator
-     * @param null|string $value
+     * @param string|null $value
      *
      * @return array
      */
@@ -101,7 +110,9 @@ if (!function_exists('acf_date_picker')) {
      */
     function acf_date_picker(array $settings): Field
     {
-        return new Field('date_picker', $settings);
+        $settings = array_merge($settings, ['type' => 'date_picker']);
+
+        return new Field($settings);
     }
 }
 
@@ -115,7 +126,9 @@ if (!function_exists('acf_date_time_picker')) {
      */
     function acf_date_time_picker(array $settings): Field
     {
-        return new Field('date_time_picker', $settings);
+        $settings = array_merge($settings, ['type' => 'date_time_picker']);
+
+        return new Field($settings);
     }
 }
 
@@ -129,7 +142,9 @@ if (!function_exists('acf_email')) {
      */
     function acf_email(array $settings): Field
     {
-        return new Field('email', $settings);
+        $settings = array_merge($settings, ['type' => 'email']);
+
+        return new Field($settings);
     }
 }
 
@@ -139,7 +154,7 @@ if (!function_exists('acf_field_group')) {
      *
      * @param array $settings
      *
-     * @return null|void
+     * @return void|null
      */
     function acf_field_group(array $settings)
     {
@@ -165,7 +180,9 @@ if (!function_exists('acf_file')) {
      */
     function acf_file(array $settings): Field
     {
-        return new Field('file', $settings);
+        $settings = array_merge($settings, ['type' => 'file']);
+
+        return new Field($settings);
     }
 }
 
@@ -179,7 +196,9 @@ if (!function_exists('acf_flexible_content')) {
      */
     function acf_flexible_content(array $settings): Field
     {
-        return new Field('flexible_content', $settings, ['layouts']);
+        $settings = array_merge($settings, ['type' => 'flexible_content']);
+
+        return new Field($settings, ['layouts']);
     }
 }
 
@@ -193,7 +212,9 @@ if (!function_exists('acf_gallery')) {
      */
     function acf_gallery(array $settings): Field
     {
-        return new Field('gallery', $settings);
+        $settings = array_merge($settings, ['type' => 'gallery']);
+
+        return new Field($settings);
     }
 }
 
@@ -207,7 +228,9 @@ if (!function_exists('acf_google_map')) {
      */
     function acf_google_map(array $settings): Field
     {
-        return new Field('google_map', $settings);
+        $settings = array_merge($settings, ['type' => 'google_map']);
+
+        return new Field($settings);
     }
 }
 
@@ -221,7 +244,9 @@ if (!function_exists('acf_group')) {
      */
     function acf_group(array $settings): Field
     {
-        return new Field('group', $settings, ['sub_fields']);
+        $settings = array_merge($settings, ['type' => 'group']);
+
+        return new Field($settings, ['sub_fields']);
     }
 }
 
@@ -235,7 +260,9 @@ if (!function_exists('acf_number')) {
      */
     function acf_number(array $settings): Field
     {
-        return new Field('number', $settings);
+        $settings = array_merge($settings, ['type' => 'number']);
+
+        return new Field($settings);
     }
 }
 
@@ -249,7 +276,23 @@ if (!function_exists('acf_image')) {
      */
     function acf_image(array $settings): Field
     {
-        return new Field('image', $settings);
+        $settings = array_merge($settings, ['type' => 'image']);
+
+        return new Field($settings);
+    }
+}
+
+if (!function_exists('acf_layout')) {
+    /**
+     * Get an acf layout settings array.
+     *
+     * @param array $settings
+     *
+     * @return \WordPlate\Acf\Layout
+     */
+    function acf_layout(array $settings): Layout
+    {
+        return new Layout($settings);
     }
 }
 
@@ -263,7 +306,9 @@ if (!function_exists('acf_link')) {
      */
     function acf_link(array $settings): Field
     {
-        return new Field('link', $settings);
+        $settings = array_merge($settings, ['type' => 'link']);
+
+        return new Field($settings);
     }
 }
 
@@ -273,7 +318,7 @@ if (!function_exists('acf_location')) {
      *
      * @param string $param
      * @param string $operator
-     * @param null|string $value
+     * @param string|null $value
      *
      * @return array
      */
@@ -298,7 +343,9 @@ if (!function_exists('acf_message')) {
      */
     function acf_message(array $settings): Field
     {
-        return new Field('message', $settings, ['message']);
+        $settings = array_merge($settings, ['type' => 'message']);
+
+        return new Field($settings, ['message']);
     }
 }
 
@@ -312,7 +359,9 @@ if (!function_exists('acf_page_link')) {
      */
     function acf_page_link(array $settings): Field
     {
-        return new Field('page_link', $settings);
+        $settings = array_merge($settings, ['type' => 'page_link']);
+
+        return new Field($settings);
     }
 }
 
@@ -326,7 +375,9 @@ if (!function_exists('acf_password')) {
      */
     function acf_password(array $settings): Field
     {
-        return new Field('password', $settings);
+        $settings = array_merge($settings, ['type' => 'password']);
+
+        return new Field($settings);
     }
 }
 
@@ -340,7 +391,9 @@ if (!function_exists('acf_post_object')) {
      */
     function acf_post_object(array $settings): Field
     {
-        return new Field('post_object', $settings);
+        $settings = array_merge($settings, ['type' => 'post_object']);
+
+        return new Field($settings);
     }
 }
 
@@ -354,7 +407,9 @@ if (!function_exists('acf_radio')) {
      */
     function acf_radio(array $settings): Field
     {
-        return new Field('radio', $settings, ['choices']);
+        $settings = array_merge($settings, ['type' => 'radio']);
+
+        return new Field($settings, ['choices']);
     }
 }
 
@@ -368,7 +423,9 @@ if (!function_exists('acf_range')) {
      */
     function acf_range(array $settings): Field
     {
-        return new Field('range', $settings);
+        $settings = array_merge($settings, ['type' => 'range']);
+
+        return new Field($settings);
     }
 }
 
@@ -382,7 +439,9 @@ if (!function_exists('acf_relationship')) {
      */
     function acf_relationship(array $settings): Field
     {
-        return new Field('relationship', $settings);
+        $settings = array_merge($settings, ['type' => 'relationship']);
+
+        return new Field($settings);
     }
 }
 
@@ -396,7 +455,9 @@ if (!function_exists('acf_repeater')) {
      */
     function acf_repeater(array $settings): Field
     {
-        return new Field('repeater', $settings, ['sub_fields']);
+        $settings = array_merge($settings, ['type' => 'repeater']);
+
+        return new Field($settings, ['sub_fields']);
     }
 }
 
@@ -410,7 +471,9 @@ if (!function_exists('acf_select')) {
      */
     function acf_select(array $settings): Field
     {
-        return new Field('select', $settings, ['choices']);
+        $settings = array_merge($settings, ['type' => 'select']);
+
+        return new Field($settings, ['choices']);
     }
 }
 
@@ -424,7 +487,9 @@ if (!function_exists('acf_tab')) {
      */
     function acf_tab(array $settings): Field
     {
-        return new Field('tab', $settings);
+        $settings = array_merge($settings, ['type' => 'tab']);
+
+        return new Field($settings);
     }
 }
 
@@ -438,7 +503,9 @@ if (!function_exists('acf_taxonomy')) {
      */
     function acf_taxonomy(array $settings): Field
     {
-        return new Field('taxonomy', $settings);
+        $settings = array_merge($settings, ['type' => 'taxonomy']);
+
+        return new Field($settings);
     }
 }
 
@@ -452,7 +519,9 @@ if (!function_exists('acf_text')) {
      */
     function acf_text(array $settings): Field
     {
-        return new Field('text', $settings);
+        $settings = array_merge($settings, ['type' => 'text']);
+
+        return new Field($settings);
     }
 }
 
@@ -466,7 +535,9 @@ if (!function_exists('acf_textarea')) {
      */
     function acf_textarea(array $settings): Field
     {
-        return new Field('textarea', $settings);
+        $settings = array_merge($settings, ['type' => 'textarea']);
+
+        return new Field($settings);
     }
 }
 
@@ -480,7 +551,9 @@ if (!function_exists('acf_time_picker')) {
      */
     function acf_time_picker(array $settings): Field
     {
-        return new Field('time_picker', $settings);
+        $settings = array_merge($settings, ['type' => 'time_picker']);
+
+        return new Field($settings);
     }
 }
 
@@ -494,7 +567,9 @@ if (!function_exists('acf_true_false')) {
      */
     function acf_true_false(array $settings): Field
     {
-        return new Field('true_false', $settings);
+        $settings = array_merge($settings, ['type' => 'true_false']);
+
+        return new Field($settings);
     }
 }
 
@@ -508,7 +583,9 @@ if (!function_exists('acf_url')) {
      */
     function acf_url(array $settings): Field
     {
-        return new Field('url', $settings);
+        $settings = array_merge($settings, ['type' => 'url']);
+
+        return new Field($settings);
     }
 }
 
@@ -522,7 +599,9 @@ if (!function_exists('acf_user')) {
      */
     function acf_user(array $settings): Field
     {
-        return new Field('user', $settings);
+        $settings = array_merge($settings, ['type' => 'user']);
+
+        return new Field($settings);
     }
 }
 
@@ -536,7 +615,9 @@ if (!function_exists('acf_wysiwyg')) {
      */
     function acf_wysiwyg(array $settings): Field
     {
-        return new Field('wysiwyg', $settings);
+        $settings = array_merge($settings, ['type' => 'wysiwyg']);
+
+        return new Field($settings);
     }
 }
 
@@ -550,6 +631,8 @@ if (!function_exists('acf_oembed')) {
      */
     function acf_oembed(array $settings): Field
     {
-        return new Field('oembed', $settings);
+        $settings = array_merge($settings, ['type' => 'oembed']);
+
+        return new Field($settings);
     }
 }

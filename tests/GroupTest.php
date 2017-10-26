@@ -70,9 +70,9 @@ class GroupTest extends TestCase
             'title' => 'Employee',
             'fields' => [
                 [
-                    'type' => 'text',
                     'label' => 'First Name',
                     'name' => 'first_name',
+                    'type' => 'text',
                     'key' => 'field_employee_first_name',
                 ],
             ],

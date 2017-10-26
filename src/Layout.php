@@ -17,19 +17,12 @@ use Illuminate\Support\Str;
 use InvalidArgumentException;
 
 /**
- * This is the group class.
+ * This is the layout class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Group
+class Layout
 {
-    /**
-     * The group key.
-     *
-     * @var string
-     */
-    protected $key;
-
     /**
      * The settings array.
      *
@@ -38,16 +31,24 @@ class Group
     protected $settings;
 
     /**
-     * The group keys.
+     * The parent field key.
+     *
+     * @var string
+     */
+    protected $parentKey;
+
+    /**
+     * The layout keys.
      *
      * @var array
      */
     protected static $keys = [];
 
     /**
-     * Create a new group instance.
+     * Create a new layout instance.
      *
      * @param array $settings
+     * @param string $parentKey
      *
      * @throws \InvalidArgumentException
      *
@@ -55,11 +56,11 @@ class Group
      */
     public function __construct(array $settings)
     {
-        $keys = ['title', 'fields'];
+        $keys = ['display', 'label', 'name', 'sub_fields'];
 
         foreach ($keys as $key) {
             if (!array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Missing group setting key [$key].");
+                throw new InvalidArgumentException("Missing field setting key [$key].");
             }
         }
 
@@ -67,56 +68,48 @@ class Group
     }
 
     /**
-     * Set the group key.
-     *
-     * @param string $key
-     *
-     * @throws \InvalidArgumentException
+     * Set the field parent key.
      *
      * @return void
      */
-    public function setKey(string $key)
+    public function setParentKey(string $parentKey)
     {
-        $key = Str::lower($key);
-
-        if (!Str::startsWith($key, 'group_')) {
-            $key = sprintf('group_%s', $key);
-        }
-
-        $key = Str::slug($key, '_');
-
-        if (in_array($key, self::$keys)) {
-            throw new InvalidArgumentException("The group key [$key] is not unique.");
-        }
-
-        self::$keys[] = $key;
-
-        $this->key = $key;
+        $this->parentKey = $parentKey;
     }
 
     /**
-     * Get the group key.
+     * Get the layout key.
+     *
+     * @throws \InvalidArgumentException
      *
      * @return string
      */
     public function getKey(): string
     {
-        return $this->key;
+        $name = Str::slug($this->settings['name'], '_');
+
+        $key = sprintf('layout_%s_%s', $this->parentKey, $name);
+
+        if (in_array($key, self::$keys)) {
+            throw new InvalidArgumentException("The field key [$key] is not unique.");
+        }
+
+        self::$keys[] = $key;
+
+        return $key;
     }
 
     /**
-     * Get the group fields.
+     * Get the sub fields.
      *
      * @return array
      */
-    public function getFields(): array
+    public function getSubFields(): array
     {
         $fields = [];
 
-        foreach ($this->settings['fields'] as $field) {
-            $key = str_replace('group_', '', $this->getKey());
-
-            $field->setParentKey($key);
+        foreach ($this->settings['sub_fields'] as $field) {
+            $field->setParentKey($this->parentKey);
 
             $fields[] = $field->toArray();
         }
@@ -125,7 +118,7 @@ class Group
     }
 
     /**
-     * Return the group as array.
+     * Return the layout as array.
      *
      * @return array
      */
@@ -133,7 +126,7 @@ class Group
     {
         $settings = [
             'key' => $this->getKey(),
-            'fields' => $this->getFields(),
+            'sub_fields' => $this->getSubFields(),
         ];
 
         return array_merge($this->settings, $settings);

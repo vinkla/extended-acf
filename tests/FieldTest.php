@@ -48,19 +48,27 @@ class FieldTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testGetFields()
+    public function testGetSubFields()
     {
         $field = $this->getField();
 
-        $subFields = $field->getFields('sub_fields');
+        $subFields = $field->getSubFields();
 
         $this->assertCount(1, $subFields);
         $this->assertSame('field_employee_image_source', $subFields[0]['key']);
+    }
 
-        $layouts = $field->getFields('layouts');
+    /**
+     * @runInSeparateProcess
+     */
+    public function testGetLayouts()
+    {
+        $field = $this->getField();
+
+        $layouts = $field->getLayouts('layouts');
 
         $this->assertCount(1, $layouts);
-        $this->assertSame('field_employee_image_author', $layouts[0]['key']);
+        $this->assertSame('field_employee_image_author', $layouts[0]['sub_fields'][0]['key']);
     }
 
     /**
@@ -81,23 +89,30 @@ class FieldTest extends TestCase
         $field = $this->getField();
 
         $this->assertSame([
-            'type' => 'image',
             'label' => 'Thumbnail',
             'name' => 'image',
             'sub_fields' => [
                 [
-                    'type' => 'text',
                     'label' => 'Source',
                     'name' => 'source',
+                    'type' => 'text',
                     'key' => 'field_employee_image_source',
                 ],
             ],
             'layouts' => [
                 [
-                    'type' => 'text',
-                    'label' => 'Author',
-                    'name' => 'author',
-                    'key' => 'field_employee_image_author',
+                    'label' => 'Author Block',
+                    'name' => 'author-block',
+                    'display' => 'block',
+                    'sub_fields' => [
+                        [
+                            'label' => 'Author',
+                            'name' => 'author',
+                            'type' => 'text',
+                            'key' => 'field_employee_image_author',
+                        ],
+                    ],
+                    'key' => 'layout_employee_image_author_block',
                 ],
             ],
             'conditional_logic' => [
@@ -116,6 +131,7 @@ class FieldTest extends TestCase
                     ],
                 ],
             ],
+            'type' => 'image',
             'key' => 'field_employee_image',
         ], $field->toArray());
     }
@@ -142,7 +158,14 @@ class FieldTest extends TestCase
                 acf_text(['label' => 'Source', 'name' => 'source']),
             ],
             'layouts' => [
-                acf_text(['label' => 'Author', 'name' => 'author']),
+                acf_layout([
+                    'label' => 'Author Block',
+                    'name' => 'author-block',
+                    'display' => 'block',
+                    'sub_fields' => [
+                        acf_text(['label' => 'Author', 'name' => 'author']),
+                    ],
+                ]),
             ],
             'conditional_logic' => [
                 [

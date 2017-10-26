@@ -45,7 +45,7 @@ class Field
     protected $settings;
 
     /**
-     * The group keys.
+     * The field keys.
      *
      * @var array
      */
@@ -54,15 +54,14 @@ class Field
     /**
      * Create a new field instance.
      *
-     * @param string $type
      * @param array $settings
      * @param array $keys
      *
      * @return void
      */
-    public function __construct(string $type, array $settings, array $keys = [])
+    public function __construct(array $settings, array $keys = [])
     {
-        $keys = array_merge(['label', 'name'], $keys);
+        $keys = array_merge(['label', 'name', 'type'], $keys);
 
         foreach ($keys as $key) {
             if (!array_key_exists($key, $settings)) {
@@ -70,11 +69,13 @@ class Field
             }
         }
 
-        $this->settings = array_merge(compact('type'), $settings);
+        $this->settings = $settings;
     }
 
     /**
      * Get the field key.
+     *
+     * @throws \InvalidArgumentException
      *
      * @return string
      */
@@ -84,7 +85,7 @@ class Field
             return $this->key;
         }
 
-        $name = Str::snake($this->getName());
+        $name = Str::slug($this->settings['name'], '_');
 
         $key = sprintf('field_%s_%s', $this->parentKey, $name);
 
@@ -97,16 +98,6 @@ class Field
         $this->key = $key;
 
         return $key;
-    }
-
-    /**
-     * Get the field name.
-     *
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->settings['name'];
     }
 
     /**
@@ -148,15 +139,35 @@ class Field
     }
 
     /**
-     * Get the fields by key.
+     * Get the flexible content layouts.
      *
      * @return array
      */
-    public function getFields(string $key)
+    public function getLayouts(): array
+    {
+        $layouts = [];
+
+        foreach ($this->settings['layouts'] as $layout) {
+            $key = str_replace('field_', '', $this->getKey());
+
+            $layout->setParentKey($key);
+
+            $layouts[] = $layout->toArray();
+        }
+
+        return $layouts;
+    }
+
+    /**
+     * Get the sub fields.
+     *
+     * @return array
+     */
+    public function getSubFields(): array
     {
         $fields = [];
 
-        foreach ($this->settings[$key] as $field) {
+        foreach ($this->settings['sub_fields'] as $field) {
             $key = str_replace('field_', '', $this->getKey());
 
             $field->setParentKey($key);
@@ -182,12 +193,12 @@ class Field
             $settings['conditional_logic'] = $this->getConditionalLogic();
         }
 
-        if (isset($this->settings['sub_fields']) && is_array($this->settings['sub_fields'])) {
-            $settings['sub_fields'] = $this->getFields('sub_fields');
+        if (isset($this->settings['layouts']) && is_array($this->settings['layouts'])) {
+            $settings['layouts'] = $this->getLayouts();
         }
 
-        if (isset($this->settings['layouts']) && is_array($this->settings['layouts'])) {
-            $settings['layouts'] = $this->getFields('layouts');
+        if (isset($this->settings['sub_fields']) && is_array($this->settings['sub_fields'])) {
+            $settings['sub_fields'] = $this->getSubFields();
         }
 
         return array_merge($this->settings, $settings);
