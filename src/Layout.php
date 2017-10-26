@@ -56,7 +56,7 @@ class Layout
      */
     public function __construct(array $settings)
     {
-        $keys = ['display', 'label', 'name', 'sub_fields'];
+        $keys = ['display', 'label', 'name'];
 
         foreach ($keys as $key) {
             if (!array_key_exists($key, $settings)) {
@@ -126,8 +126,11 @@ class Layout
     {
         $settings = [
             'key' => $this->getKey(),
-            'sub_fields' => $this->getSubFields(),
         ];
+
+        if (isset($this->settings['sub_fields']) && is_array($this->settings['sub_fields'])) {
+            $settings['sub_fields'] = $this->getSubFields();
+        }
 
         return array_merge($this->settings, $settings);
     }

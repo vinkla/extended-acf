@@ -4,7 +4,9 @@
 
 - Added range field helper
 - Added button group field helper
+- Added flexible content layout helper
 - Added support for flexible content layouts
+- Added layout class
 - Added conditional logic class
 - Updated field and group logic
 - Removed deprecated acf class
