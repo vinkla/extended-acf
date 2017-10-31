@@ -68,13 +68,13 @@ Name | Description
 
 ### Basic Fields
 
-- `acf_email()` - The email field creates a simple email input.
-- `acf_number()` - The number field creates a simple number input.
-- `acf_password()` - The password field creates a simple password input.
+- `acf_email()` - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
+- `acf_number()` - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
+- `acf_password()` - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
 - `acf_range()` - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
 - `acf_text()` - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
 - `acf_textarea()` - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
-- `acf_url()` - The url field creates a simple url input.
+- `acf_url()` - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
 
 ### Choice Fields
 
@@ -120,7 +120,7 @@ Name | Description
 
 ## Helpers
 
-This package provides three helper packages [`acf_conditional_logic()`](#acf_conditional_logic) and [`acf_location()`](#acf_location) to help you write less arrays for your field groups.
+This package provides three helper packages [`acf_conditional_logic()`](#acf_conditional_logic), [`acf_layout()`](#acf_layout) and  [`acf_location()`](#acf_location) to help you write less arrays for your field groups.
 
 ##### `acf_conditional_logic()`
 
@@ -130,6 +130,18 @@ The `acf_conditional_logic()` function help you write [conditional logic](#setti
 acf_conditional_logic('type', 'image');
 
 acf_conditional_logic('type', '!==' 'image');
+```
+
+##### `acf_layout()`
+
+The `acf_layout()` function help you write [flexible content layouts](https://www.advancedcustomfields.com/resources/flexible-content) without knowing the fields `key` value.
+
+```php
+acf_layout([
+    'label' => 'Layout',
+    'name' => 'layout',
+    'sub_fields' => [ ... ]
+])
 ```
 
 ##### `acf_location()`
