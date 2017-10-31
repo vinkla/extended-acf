@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.0.0 (upcoming)
+## 3.0.0 (released 2017-10-31)
 
 - Added range field helper
 - Added button group field helper
