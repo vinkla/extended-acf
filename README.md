@@ -27,16 +27,16 @@ $fields = [
 ];
 
 $location = [
-    acf_location('post_type', 'post'),
-    acf_location('post_type', '!=', 'page'),
+    [
+        acf_location('post_type', 'page')
+    ],
 ];
 
 acf_field_group([
     'title' => 'About',
     'fields' => $fields,
-    'location' => [
-        $location
-    ],
+    'style' => 'seamless',
+    'location' => $location,
 ]);
 ```
 
