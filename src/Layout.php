@@ -56,7 +56,7 @@ class Layout
      */
     public function __construct(array $settings)
     {
-        $keys = ['display', 'label', 'name'];
+        $keys = ['label', 'name'];
 
         foreach ($keys as $key) {
             if (!array_key_exists($key, $settings)) {
