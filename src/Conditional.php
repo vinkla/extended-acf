@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
-use Illuminate\Support\Str;
-
 /**
  * This is the conditional class.
  *
@@ -60,7 +58,7 @@ class Conditional
         $groups = [];
 
         foreach ($this->groups as $group) {
-            $name = Str::snake($group['name']);
+            $name = str_replace('-', '_', sanitize_title($group['name']));
 
             $field = sprintf('%s_%s', $this->parentKey, $name);
 

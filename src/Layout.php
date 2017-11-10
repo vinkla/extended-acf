@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
-use Illuminate\Support\Str;
 use InvalidArgumentException;
 
 /**
@@ -86,7 +85,7 @@ class Layout
      */
     public function getKey(): string
     {
-        $name = Str::slug($this->settings['name'], '_');
+        $name = str_replace('-', '_', sanitize_title($this->settings['name']));
 
         $key = sprintf('layout_%s_%s', $this->parentKey, $name);
 

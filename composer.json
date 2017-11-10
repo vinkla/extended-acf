@@ -16,10 +16,10 @@
         }
     ],
     "require": {
-        "php": "^7.0",
-        "illuminate/support": "^5.5"
+        "php": "^7.0"
     },
     "require-dev": {
+        "illuminate/support": "^5.5",
         "phpunit/phpunit": "^6.3"
     },
     "autoload": {
@@ -31,6 +31,9 @@
         }
     },
     "autoload-dev": {
+        "files": [
+            "tests/helpers.php"
+        ],
         "psr-4": {
             "WordPlate\\Tests\\Acf\\": "tests/"
         }

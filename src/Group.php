@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
-use Illuminate\Support\Str;
 use InvalidArgumentException;
 
 /**
@@ -77,13 +76,13 @@ class Group
      */
     public function setKey(string $key)
     {
-        $key = Str::lower($key);
+        $key = strtolower($key);
 
-        if (!Str::startsWith($key, 'group_')) {
+        if (substr($key, 0, 6) !== 'group_') {
             $key = sprintf('group_%s', $key);
         }
 
-        $key = Str::slug($key, '_');
+        $key = str_replace('-', '_', sanitize_title($key));
 
         if (in_array($key, self::$keys)) {
             throw new InvalidArgumentException("The group key [$key] is not unique.");

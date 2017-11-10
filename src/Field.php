@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
-use Illuminate\Support\Str;
 use InvalidArgumentException;
 
 /**
@@ -85,7 +84,7 @@ class Field
             return $this->key;
         }
 
-        $name = Str::slug($this->settings['name'], '_');
+        $name = str_replace('-', '_', sanitize_title($this->settings['name']));
 
         $key = sprintf('field_%s_%s', $this->parentKey, $name);
 
