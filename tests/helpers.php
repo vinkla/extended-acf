@@ -13,5 +13,5 @@ declare(strict_types=1);
 
 function sanitize_title($value)
 {
-    return Illuminate\Support\Str::slug($value);
+    return $value;
 }
