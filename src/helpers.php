@@ -43,7 +43,7 @@ if (!function_exists('acf_button_group')) {
     {
         $settings = array_merge($settings, ['type' => 'button_group']);
 
-        return new Field($settings, ['choices']);
+        return new Field($settings, ['choices', 'name']);
     }
 }
 
@@ -59,7 +59,7 @@ if (!function_exists('acf_checkbox')) {
     {
         $settings = array_merge($settings, ['type' => 'checkbox']);
 
-        return new Field($settings, ['choices']);
+        return new Field($settings, ['choices', 'name']);
     }
 }
 
@@ -75,7 +75,7 @@ if (!function_exists('acf_clone')) {
     {
         $settings = array_merge($settings, ['type' => 'clone']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -91,7 +91,7 @@ if (!function_exists('acf_color_picker')) {
     {
         $settings = array_merge($settings, ['type' => 'color_picker']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -128,7 +128,7 @@ if (!function_exists('acf_date_picker')) {
     {
         $settings = array_merge($settings, ['type' => 'date_picker']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -144,7 +144,7 @@ if (!function_exists('acf_date_time_picker')) {
     {
         $settings = array_merge($settings, ['type' => 'date_time_picker']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -160,7 +160,7 @@ if (!function_exists('acf_email')) {
     {
         $settings = array_merge($settings, ['type' => 'email']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -198,7 +198,7 @@ if (!function_exists('acf_file')) {
     {
         $settings = array_merge($settings, ['type' => 'file']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -214,7 +214,7 @@ if (!function_exists('acf_flexible_content')) {
     {
         $settings = array_merge($settings, ['type' => 'flexible_content']);
 
-        return new Field($settings, ['layouts']);
+        return new Field($settings, ['layouts', 'name']);
     }
 }
 
@@ -230,7 +230,7 @@ if (!function_exists('acf_gallery')) {
     {
         $settings = array_merge($settings, ['type' => 'gallery']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -246,7 +246,7 @@ if (!function_exists('acf_google_map')) {
     {
         $settings = array_merge($settings, ['type' => 'google_map']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -262,7 +262,7 @@ if (!function_exists('acf_group')) {
     {
         $settings = array_merge($settings, ['type' => 'group']);
 
-        return new Field($settings, ['sub_fields']);
+        return new Field($settings, ['sub_fields', 'name']);
     }
 }
 
@@ -278,7 +278,7 @@ if (!function_exists('acf_number')) {
     {
         $settings = array_merge($settings, ['type' => 'number']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -294,7 +294,7 @@ if (!function_exists('acf_image')) {
     {
         $settings = array_merge($settings, ['type' => 'image']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -308,7 +308,7 @@ if (!function_exists('acf_layout')) {
      */
     function acf_layout(array $settings): Layout
     {
-        return new Layout($settings);
+        return new Layout($settings, ['name']);
     }
 }
 
@@ -324,7 +324,7 @@ if (!function_exists('acf_link')) {
     {
         $settings = array_merge($settings, ['type' => 'link']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -377,7 +377,7 @@ if (!function_exists('acf_page_link')) {
     {
         $settings = array_merge($settings, ['type' => 'page_link']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -393,7 +393,7 @@ if (!function_exists('acf_password')) {
     {
         $settings = array_merge($settings, ['type' => 'password']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -409,7 +409,7 @@ if (!function_exists('acf_post_object')) {
     {
         $settings = array_merge($settings, ['type' => 'post_object']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -425,7 +425,7 @@ if (!function_exists('acf_radio')) {
     {
         $settings = array_merge($settings, ['type' => 'radio']);
 
-        return new Field($settings, ['choices']);
+        return new Field($settings, ['choices', 'name']);
     }
 }
 
@@ -441,7 +441,7 @@ if (!function_exists('acf_range')) {
     {
         $settings = array_merge($settings, ['type' => 'range']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -457,7 +457,7 @@ if (!function_exists('acf_relationship')) {
     {
         $settings = array_merge($settings, ['type' => 'relationship']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -473,7 +473,7 @@ if (!function_exists('acf_repeater')) {
     {
         $settings = array_merge($settings, ['type' => 'repeater']);
 
-        return new Field($settings, ['sub_fields']);
+        return new Field($settings, ['sub_fields', 'name']);
     }
 }
 
@@ -489,7 +489,7 @@ if (!function_exists('acf_select')) {
     {
         $settings = array_merge($settings, ['type' => 'select']);
 
-        return new Field($settings, ['choices']);
+        return new Field($settings, ['choices', 'name']);
     }
 }
 
@@ -521,7 +521,7 @@ if (!function_exists('acf_taxonomy')) {
     {
         $settings = array_merge($settings, ['type' => 'taxonomy']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -537,7 +537,7 @@ if (!function_exists('acf_text')) {
     {
         $settings = array_merge($settings, ['type' => 'text']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -553,7 +553,7 @@ if (!function_exists('acf_textarea')) {
     {
         $settings = array_merge($settings, ['type' => 'textarea']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -569,7 +569,7 @@ if (!function_exists('acf_time_picker')) {
     {
         $settings = array_merge($settings, ['type' => 'time_picker']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -585,7 +585,7 @@ if (!function_exists('acf_true_false')) {
     {
         $settings = array_merge($settings, ['type' => 'true_false']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -601,7 +601,7 @@ if (!function_exists('acf_url')) {
     {
         $settings = array_merge($settings, ['type' => 'url']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -617,7 +617,7 @@ if (!function_exists('acf_user')) {
     {
         $settings = array_merge($settings, ['type' => 'user']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -633,7 +633,7 @@ if (!function_exists('acf_wysiwyg')) {
     {
         $settings = array_merge($settings, ['type' => 'wysiwyg']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }
 
@@ -649,6 +649,6 @@ if (!function_exists('acf_oembed')) {
     {
         $settings = array_merge($settings, ['type' => 'oembed']);
 
-        return new Field($settings);
+        return new Field($settings, ['name']);
     }
 }

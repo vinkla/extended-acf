@@ -3,6 +3,7 @@
 ## 3.1.0 (upcoming)
 
 - Added accordion field helper
+- Remove name validation on layout fields
 - Remove display property validation
 - Remove illuminate dependency
 

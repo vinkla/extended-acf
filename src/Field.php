@@ -60,7 +60,7 @@ class Field
      */
     public function __construct(array $settings, array $keys = [])
     {
-        $keys = array_merge(['label', 'name', 'type'], $keys);
+        $keys = array_merge(['label', 'type'], $keys);
 
         foreach ($keys as $key) {
             if (!array_key_exists($key, $settings)) {
