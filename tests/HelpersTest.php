@@ -32,6 +32,7 @@ class HelpersTest extends TestCase
     {
         $settings = ['name' => 'test', 'label' => 'test'];
 
+        $this->assertFieldType('accordion', acf_accordion($settings));
         $this->assertFieldType('button_group', acf_button_group(array_merge(['choices' => []], $settings)));
         $this->assertFieldType('checkbox', acf_checkbox(array_merge(['choices' => []], $settings)));
         $this->assertFieldType('clone', acf_clone($settings));

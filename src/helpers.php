@@ -15,6 +15,22 @@ use WordPlate\Acf\Field;
 use WordPlate\Acf\Group;
 use WordPlate\Acf\Layout;
 
+if (!function_exists('acf_accordion')) {
+    /**
+     * Get an acf accordion field settings array.
+     *
+     * @param array $settings
+     *
+     * @return \WordPlate\Acf\Field
+     */
+    function acf_accordion(array $settings): Field
+    {
+        $settings = array_merge($settings, ['type' => 'accordion']);
+
+        return new Field($settings);
+    }
+}
+
 if (!function_exists('acf_button_group')) {
     /**
      * Get an acf button group field settings array.

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.1.0 (upcoming)
+
+- Added accordion field helper
+
 ## 3.0.0 (released 2017-10-31)
 
 - Added range field helper
