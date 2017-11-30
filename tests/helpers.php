@@ -13,5 +13,5 @@ declare(strict_types=1);
 
 function sanitize_title($value)
 {
-    return $value;
+    return strtolower($value);
 }
