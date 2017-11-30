@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.0.0 (upcoming)
+
+- Added hashed field, group and layout keys
+
 ## 3.1.0 (released 2017-11-30)
 
 - Added accordion field helper

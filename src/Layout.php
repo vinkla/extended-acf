@@ -37,13 +37,6 @@ class Layout
     protected $parentKey;
 
     /**
-     * The layout keys.
-     *
-     * @var array
-     */
-    protected static $keys = [];
-
-    /**
      * Create a new layout instance.
      *
      * @param array $settings
@@ -79,23 +72,13 @@ class Layout
     /**
      * Get the layout key.
      *
-     * @throws \InvalidArgumentException
-     *
      * @return string
      */
     public function getKey(): string
     {
         $name = str_replace('-', '_', sanitize_title($this->settings['name']));
 
-        $key = sprintf('layout_%s_%s', $this->parentKey, $name);
-
-        if (in_array($key, self::$keys)) {
-            throw new InvalidArgumentException("The field key [$key] is not unique.");
-        }
-
-        self::$keys[] = $key;
-
-        return $key;
+        return sprintf('%s_%s', $this->parentKey, $name);
     }
 
     /**
@@ -108,7 +91,7 @@ class Layout
         $fields = [];
 
         foreach ($this->settings['sub_fields'] as $field) {
-            $field->setParentKey($this->parentKey);
+            $field->setParentKey($this->getKey());
 
             $fields[] = $field->toArray();
         }
@@ -124,7 +107,7 @@ class Layout
     public function toArray(): array
     {
         $settings = [
-            'key' => $this->getKey(),
+            'key' => Key::generate('layout', $this->getKey()),
         ];
 
         if (isset($this->settings['sub_fields']) && is_array($this->settings['sub_fields'])) {

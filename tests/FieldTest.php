@@ -30,7 +30,7 @@ class FieldTest extends TestCase
     {
         $field = $this->getField();
 
-        $this->assertSame('field_employee_image', $field->getKey());
+        $this->assertSame('employee_image', $field->getKey());
     }
 
     /**
@@ -42,7 +42,7 @@ class FieldTest extends TestCase
 
         $field->setParentKey('article');
 
-        $this->assertSame('field_article_image', $field->getKey());
+        $this->assertSame('article_image', $field->getKey());
     }
 
     /**
@@ -54,8 +54,8 @@ class FieldTest extends TestCase
 
         $subFields = $field->getSubFields();
 
-        $this->assertCount(1, $subFields);
-        $this->assertSame('field_employee_image_source', $subFields[0]['key']);
+        $this->assertCount(2, $subFields);
+        $this->assertSame('text', $subFields[0]['type']);
     }
 
     /**
@@ -65,10 +65,10 @@ class FieldTest extends TestCase
     {
         $field = $this->getField();
 
-        $layouts = $field->getLayouts('layouts');
+        $layouts = $field->getLayouts();
 
         $this->assertCount(1, $layouts);
-        $this->assertSame('field_employee_image_author', $layouts[0]['sub_fields'][0]['key']);
+        $this->assertSame('text', $layouts[0]['sub_fields'][0]['type']);
     }
 
     /**
@@ -96,7 +96,13 @@ class FieldTest extends TestCase
                     'label' => 'Source',
                     'name' => 'source',
                     'type' => 'text',
-                    'key' => 'field_employee_image_source',
+                    'key' => 'field_036330209160eb85fa2524270cf5fd97',
+                ],
+                [
+                    'label' => 'URL',
+                    'name' => 'url',
+                    'type' => 'url',
+                    'key' => 'field_58495fbdc1ed79748dc65ae15fdd59c6',
                 ],
             ],
             'layouts' => [
@@ -109,44 +115,31 @@ class FieldTest extends TestCase
                             'label' => 'Author',
                             'name' => 'author',
                             'type' => 'text',
-                            'key' => 'field_employee_image_author',
+                            'key' => 'field_35d1cc5541d26e3ac66999044518367d',
                         ],
                     ],
-                    'key' => 'layout_employee_image_author_block',
+                    'key' => 'layout_1f59996c21f83a4e3b075601c3cf4e4d',
                 ],
             ],
             'conditional_logic' => [
                 [
                     [
-                        'field' => 'field_employee_image_source',
+                        'field' => 'field_036330209160eb85fa2524270cf5fd97',
                         'operator' => '==',
-                        'value' => 'https://example.com/',
+                        'value' => 'Max Martin',
                     ],
                 ],
                 [
                     [
-                        'field' => 'field_employee_image_author',
+                        'field' => 'field_58495fbdc1ed79748dc65ae15fdd59c6',
                         'operator' => '!=',
-                        'value' => 'Max Martin',
+                        'value' => 'https://example.com/',
                     ],
                 ],
             ],
             'type' => 'image',
-            'key' => 'field_employee_image',
+            'key' => 'field_58ed1ef698a85b34d7c21b5c66444cb9',
         ], $field->toArray());
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The field key [field_employee_link] is not unique.
-     */
-    public function testKeyDuplication()
-    {
-        for ($i = 0; $i < 2; $i++) {
-            $field = acf_url(['name' => 'link', 'label' => 'Link']);
-            $field->setParentKey('employee');
-            $field->getKey();
-        }
     }
 
     protected function getField()
@@ -156,6 +149,7 @@ class FieldTest extends TestCase
             'name' => 'image',
             'sub_fields' => [
                 acf_text(['label' => 'Source', 'name' => 'source']),
+                acf_url(['label' => 'URL', 'name' => 'url']),
             ],
             'layouts' => [
                 acf_layout([
@@ -169,10 +163,10 @@ class FieldTest extends TestCase
             ],
             'conditional_logic' => [
                 [
-                    acf_conditional_logic('source', 'https://example.com/'),
+                    acf_conditional_logic('source', 'Max Martin'),
                 ],
                 [
-                    acf_conditional_logic('author', '!=', 'Max Martin'),
+                    acf_conditional_logic('url', '!=', 'https://example.com/'),
                 ],
             ],
         ]);

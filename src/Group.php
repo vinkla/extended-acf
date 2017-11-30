@@ -37,13 +37,6 @@ class Group
     protected $settings;
 
     /**
-     * The group keys.
-     *
-     * @var array
-     */
-    protected static $keys = [];
-
-    /**
      * Create a new group instance.
      *
      * @param array $settings
@@ -70,25 +63,11 @@ class Group
      *
      * @param string $key
      *
-     * @throws \InvalidArgumentException
-     *
      * @return void
      */
     public function setKey(string $key)
     {
-        $key = strtolower($key);
-
-        if (substr($key, 0, 6) !== 'group_') {
-            $key = sprintf('group_%s', $key);
-        }
-
         $key = str_replace('-', '_', sanitize_title($key));
-
-        if (in_array($key, self::$keys)) {
-            throw new InvalidArgumentException("The group key [$key] is not unique.");
-        }
-
-        self::$keys[] = $key;
 
         $this->key = $key;
     }
@@ -113,9 +92,7 @@ class Group
         $fields = [];
 
         foreach ($this->settings['fields'] as $field) {
-            $key = str_replace('group_', '', $this->getKey());
-
-            $field->setParentKey($key);
+            $field->setParentKey($this->getKey());
 
             $fields[] = $field->toArray();
         }
@@ -130,8 +107,10 @@ class Group
      */
     public function toArray(): array
     {
+        $key = Key::generate('group', $this->getKey());
+
         $settings = [
-            'key' => $this->getKey(),
+            'key' => $key,
             'fields' => $this->getFields(),
         ];
 

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Tests\Acf;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Group;
 
@@ -30,7 +31,7 @@ class GroupTest extends TestCase
     {
         $group = $this->getGroup();
 
-        $this->assertSame('group_employee', $group->getKey());
+        $this->assertSame('employee', $group->getKey());
     }
 
     /**
@@ -42,7 +43,7 @@ class GroupTest extends TestCase
 
         $group->setKey('event');
 
-        $this->assertSame('group_event', $group->getKey());
+        $this->assertSame('event', $group->getKey());
     }
 
     /**
@@ -55,7 +56,7 @@ class GroupTest extends TestCase
         $fields = $group->getFields();
 
         $this->assertInternalType('array', $fields);
-        $this->assertSame('field_employee_first_name', $fields[0]['key']);
+        $this->assertSame('text', $fields[0]['type']);
     }
 
     /**
@@ -66,36 +67,25 @@ class GroupTest extends TestCase
         $group = $this->getGroup();
 
         $this->assertSame([
-            'key' => 'group_employee',
+            'key' => 'group_fa5473530e4d1a5a1e1eb53d2fedb10c',
             'title' => 'Employee',
             'fields' => [
                 [
                     'label' => 'First Name',
                     'name' => 'first_name',
                     'type' => 'text',
-                    'key' => 'field_employee_first_name',
+                    'key' => 'field_ec838b8b519576a53ce5aff3476fc54e',
                 ],
             ],
         ], $group->toArray());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Missing group setting key [title].
-     */
     public function testGroupMissingTitleKey()
     {
-        new Group(['key' => 'without_title']);
-    }
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Missing group setting key [title].');
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The group key [group_employee] is not unique.
-     */
-    public function testKeyDuplication()
-    {
-        $this->getGroup();
-        $this->getGroup();
+        new Group(['key' => 'without_title']);
     }
 
     protected function getGroup()

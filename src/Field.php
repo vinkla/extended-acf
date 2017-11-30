@@ -44,13 +44,6 @@ class Field
     protected $settings;
 
     /**
-     * The field keys.
-     *
-     * @var array
-     */
-    protected static $keys = [];
-
-    /**
      * Create a new field instance.
      *
      * @param array $settings
@@ -74,8 +67,6 @@ class Field
     /**
      * Get the field key.
      *
-     * @throws \InvalidArgumentException
-     *
      * @return string
      */
     public function getKey(): string
@@ -86,13 +77,7 @@ class Field
 
         $name = str_replace('-', '_', sanitize_title($this->settings['name']));
 
-        $key = sprintf('field_%s_%s', $this->parentKey, $name);
-
-        if (in_array($key, self::$keys)) {
-            throw new InvalidArgumentException("The field key [$key] is not unique.");
-        }
-
-        self::$keys[] = $key;
+        $key = sprintf('%s_%s', $this->parentKey, $name);
 
         $this->key = $key;
 
@@ -147,9 +132,7 @@ class Field
         $layouts = [];
 
         foreach ($this->settings['layouts'] as $layout) {
-            $key = str_replace('field_', '', $this->getKey());
-
-            $layout->setParentKey($key);
+            $layout->setParentKey($this->getKey());
 
             $layouts[] = $layout->toArray();
         }
@@ -167,9 +150,7 @@ class Field
         $fields = [];
 
         foreach ($this->settings['sub_fields'] as $field) {
-            $key = str_replace('field_', '', $this->getKey());
-
-            $field->setParentKey($key);
+            $field->setParentKey($this->getKey());
 
             $fields[] = $field->toArray();
         }
@@ -185,7 +166,7 @@ class Field
     public function toArray(): array
     {
         $settings = [
-            'key' => $this->getKey(),
+            'key' => Key::generate('field', $this->getKey()),
         ];
 
         if (isset($this->settings['conditional_logic'])) {

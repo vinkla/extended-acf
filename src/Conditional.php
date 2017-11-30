@@ -60,10 +60,10 @@ class Conditional
         foreach ($this->groups as $group) {
             $name = str_replace('-', '_', sanitize_title($group['name']));
 
-            $field = sprintf('%s_%s', $this->parentKey, $name);
+            $key = sprintf('%s_%s', $this->parentKey, $name);
 
             $group = [
-                'field' => $field,
+                'field' => sprintf('field_%s', md5($key)),
                 'operator' => $group['operator'],
                 'value' => $group['value'],
             ];
