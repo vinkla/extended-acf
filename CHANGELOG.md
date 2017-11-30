@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.1.0 (upcoming)
+## 3.1.0 (released 2017-11-30)
 
 - Added accordion field helper
 - Remove name validation on layout fields
