@@ -28,6 +28,13 @@ class Conditional
     protected $groups;
 
     /**
+     * The groups array.
+     *
+     * @var array
+     */
+    protected $field;
+
+    /**
      * The parent field key.
      *
      * @var string
@@ -42,9 +49,10 @@ class Conditional
      *
      * @return void
      */
-    public function __construct(array $groups, string $parentKey)
+    public function __construct(array $groups, array $field, string $parentKey)
     {
         $this->groups = $groups;
+        $this->field = $field;
         $this->parentKey = $parentKey;
     }
 
@@ -53,14 +61,17 @@ class Conditional
      *
      * @return array
      */
-    public function toArray(): array
+    public function toArray() : array
     {
         $groups = [];
 
         foreach ($this->groups as $group) {
+            $fieldName = sprintf('_%s', $this->field['name']);
+            $parent = str_replace($fieldName, '', $this->parentKey);
+
             $name = str_replace('-', '_', sanitize_title($group['name']));
 
-            $field = sprintf('%s_%s', $this->parentKey, $name);
+            $field = sprintf('%s_%s', $parent, $name);
 
             $group = [
                 'field' => $field,
