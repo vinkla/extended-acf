@@ -95,16 +95,6 @@ class Field
     }
 
     /**
-     * Get the field parent key.
-     *
-     * @return string
-     */
-    public function getParentKey(): string
-    {
-        return $this->parentKey;
-    }
-
-    /**
      * Set the field parent key.
      *
      * @param string $parentKey
@@ -126,7 +116,7 @@ class Field
         $conditionals = [];
 
         foreach ($this->settings['conditional_logic'] as $rules) {
-            $conditional = new Conditional($rules, $this->getParentKey());
+            $conditional = new Conditional($rules, $this->parentKey);
 
             $conditionals[] = $conditional->toArray();
         }
