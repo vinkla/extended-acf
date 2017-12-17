@@ -64,7 +64,7 @@ class Layout
      *
      * @return void
      */
-    public function setParentKey(string $parentKey)
+    public function setParentKey(string $parentKey): void
     {
         $this->parentKey = $parentKey;
     }

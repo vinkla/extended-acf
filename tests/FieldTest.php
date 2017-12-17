@@ -124,14 +124,14 @@ class FieldTest extends TestCase
             'conditional_logic' => [
                 [
                     [
-                        'field' => 'field_036330209160eb85fa2524270cf5fd97',
+                        'field' => 'field_d3cc89c64c574699c6de81fc03ae58dc',
                         'operator' => '==',
                         'value' => 'Max Martin',
                     ],
                 ],
                 [
                     [
-                        'field' => 'field_58495fbdc1ed79748dc65ae15fdd59c6',
+                        'field' => 'field_ff3114c4be74e832ccbddd74891cd947',
                         'operator' => '!=',
                         'value' => 'https://example.com/',
                     ],

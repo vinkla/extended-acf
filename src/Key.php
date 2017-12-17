@@ -30,16 +30,28 @@ class Key
      *
      * @return string
      */
-    public static function generate(string $prefix, string $key)
+    public static function generate(string $prefix, string $key): string
     {
-        $key = sprintf('%s_%s', $prefix, md5($key));
+        $key = sprintf('%s_%s', $prefix, static::hash($key));
 
         if (in_array($key, self::$keys)) {
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
 
-        self::$keys[] = $key;
+        static::$keys[] = $key;
 
         return $key;
+    }
+
+    /**
+     * Hash a given string.
+     *
+     * @param string $key
+     *
+     * @return string
+     */
+    public static function hash(string $key): string
+    {
+        return md5($key);
     }
 }

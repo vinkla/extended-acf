@@ -65,9 +65,11 @@ class Group
      *
      * @return void
      */
-    public function setKey(string $key)
+    public function setKey(string $key): void
     {
         $key = str_replace('-', '_', sanitize_title($key));
+
+        $key = str_replace('group_', '', $key);
 
         $this->key = $key;
     }

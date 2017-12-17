@@ -37,4 +37,9 @@ class KeyTest extends TestCase
 
         Key::generate('layout', 'block_image');
     }
+
+    public function testHash()
+    {
+        $this->assertSame('78805a221a988e79ef3f42d7c5bfd418', Key::hash('image'));
+    }
 }

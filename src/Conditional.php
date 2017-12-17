@@ -63,7 +63,7 @@ class Conditional
             $key = sprintf('%s_%s', $this->parentKey, $name);
 
             $group = [
-                'field' => sprintf('field_%s', md5($key)),
+                'field' => sprintf('field_%s', Key::hash($key)),
                 'operator' => $group['operator'],
                 'value' => $group['value'],
             ];

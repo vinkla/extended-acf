@@ -170,9 +170,9 @@ if (!function_exists('acf_field_group')) {
      *
      * @param array $settings
      *
-     * @return void|null
+     * @return void
      */
-    function acf_field_group(array $settings)
+    function acf_field_group(array $settings): void
     {
         if (!function_exists('acf_add_local_field_group')) {
             return;
