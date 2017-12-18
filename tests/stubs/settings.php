@@ -21,7 +21,7 @@ return [
             'label' => 'Title',
             'conditional_logic' => [
                 [
-                    acf_conditional_logic('type', 'image'),
+                    acf_conditional('type', 'image'),
                 ],
             ],
         ]),

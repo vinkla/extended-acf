@@ -163,10 +163,10 @@ class FieldTest extends TestCase
             ],
             'conditional_logic' => [
                 [
-                    acf_conditional_logic('source', 'Max Martin'),
+                    acf_conditional('source', 'Max Martin'),
                 ],
                 [
-                    acf_conditional_logic('url', '!=', 'https://example.com/'),
+                    acf_conditional('url', '!=', 'https://example.com/'),
                 ],
             ],
         ]);

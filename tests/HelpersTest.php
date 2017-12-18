@@ -101,8 +101,8 @@ class HelpersTest extends TestCase
             'value' => 'image',
         ];
 
-        $this->assertSame($logic, acf_conditional_logic('type', 'image'));
-        $this->assertSame($logic, acf_conditional_logic('type', '==', 'image'));
+        $this->assertSame($logic, acf_conditional('type', 'image'));
+        $this->assertSame($logic, acf_conditional('type', '==', 'image'));
 
         $logic = [
             'name' => 'type',
@@ -110,7 +110,7 @@ class HelpersTest extends TestCase
             'value' => 'gallery',
         ];
 
-        $this->assertSame($logic, acf_conditional_logic('type', '!=', 'gallery'));
+        $this->assertSame($logic, acf_conditional('type', '!=', 'gallery'));
     }
 
     /**

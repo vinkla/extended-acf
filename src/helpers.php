@@ -95,7 +95,7 @@ if (!function_exists('acf_color_picker')) {
     }
 }
 
-if (!function_exists('acf_conditional_logic')) {
+if (!function_exists('acf_conditional')) {
     /**
      * Get an acf conditional logic array.
      *
@@ -105,7 +105,7 @@ if (!function_exists('acf_conditional_logic')) {
      *
      * @return array
      */
-    function acf_conditional_logic(string $name, string $operator, string $value = null): array
+    function acf_conditional(string $name, string $operator, string $value = null): array
     {
         if (func_num_args() === 2) {
             $value = $operator;
