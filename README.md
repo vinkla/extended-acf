@@ -121,16 +121,16 @@ Name | Description
 
 ## Helpers
 
-This package provides three helper packages [`acf_conditional_logic()`](#acf_conditional_logic), [`acf_layout()`](#acf_layout) and  [`acf_location()`](#acf_location) to help you write less arrays for your field groups.
+This package provides three helper packages [`acf_conditional()`](#acf_conditional), [`acf_layout()`](#acf_layout) and  [`acf_location()`](#acf_location) to help you write less arrays for your field groups.
 
-##### `acf_conditional_logic()`
+##### `acf_conditional()`
 
-The `acf_conditional_logic()` function help you write [conditional logic](#settings) without knowing the fields `key` value.
+The `acf_conditional()` function help you write [conditional logic](#settings) without knowing the fields `key` value.
 
 ```php
-acf_conditional_logic('type', 'image');
+acf_conditional('type', 'image');
 
-acf_conditional_logic('type', '!==' 'image');
+acf_conditional('type', '!==' 'image');
 ```
 
 ##### `acf_layout()`
