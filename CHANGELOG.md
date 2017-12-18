@@ -3,7 +3,7 @@
 ## 4.0.0 (upcoming)
 
 - Added hashed field, group and layout keys
-- Fixed field keys in conditional logic
+- Fixed conditional logic field keys bug
 - Removed PHP 7.0 support
 
 ## 3.1.0 (released 2017-11-30)
