@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 4.0.0 (upcoming)
+## 4.0.0 (released 2017-01-02)
 
 - Added hashed field, group and layout keys
 - Fixed conditional logic field keys bug
