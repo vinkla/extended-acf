@@ -28,7 +28,7 @@ class KeyTest extends TestCase
     {
         $key = Key::generate('layout', 'block_image');
 
-        $this->assertSame('layout_b4062623c542a5101d809c88483c16ed', $key);
+        $this->assertSame('layout_2f1c419c', $key);
     }
 
     public function testKeyUniqueness()
@@ -40,6 +40,6 @@ class KeyTest extends TestCase
 
     public function testHash()
     {
-        $this->assertSame('78805a221a988e79ef3f42d7c5bfd418', Key::hash('image'));
+        $this->assertSame('b35135fa', Key::hash('image'));
     }
 }

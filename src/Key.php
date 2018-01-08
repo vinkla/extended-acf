@@ -53,7 +53,9 @@ class Key
     }
 
     /**
-     * Hash a given string.
+     * Hash a given string using the FNV-1a algorithm.
+     *
+     * @see https://softwareengineering.stackexchange.com/a/145633
      *
      * @param string $key
      *
@@ -61,6 +63,6 @@ class Key
      */
     public static function hash(string $key): string
     {
-        return md5($key);
+        return hash('fnv1a32', $key);
     }
 }

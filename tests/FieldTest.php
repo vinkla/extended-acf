@@ -96,13 +96,13 @@ class FieldTest extends TestCase
                     'label' => 'Source',
                     'name' => 'source',
                     'type' => 'text',
-                    'key' => 'field_036330209160eb85fa2524270cf5fd97',
+                    'key' => 'field_9f70f095',
                 ],
                 [
                     'label' => 'URL',
                     'name' => 'url',
                     'type' => 'url',
-                    'key' => 'field_58495fbdc1ed79748dc65ae15fdd59c6',
+                    'key' => 'field_c9bc0661',
                 ],
             ],
             'layouts' => [
@@ -115,30 +115,30 @@ class FieldTest extends TestCase
                             'label' => 'Author',
                             'name' => 'author',
                             'type' => 'text',
-                            'key' => 'field_35d1cc5541d26e3ac66999044518367d',
+                            'key' => 'field_2d27e841',
                         ],
                     ],
-                    'key' => 'layout_1f59996c21f83a4e3b075601c3cf4e4d',
+                    'key' => 'layout_4095e94d',
                 ],
             ],
             'conditional_logic' => [
                 [
                     [
-                        'field' => 'field_d3cc89c64c574699c6de81fc03ae58dc',
+                        'field' => 'field_75e716e7',
                         'operator' => '==',
                         'value' => 'Max Martin',
                     ],
                 ],
                 [
                     [
-                        'field' => 'field_ff3114c4be74e832ccbddd74891cd947',
+                        'field' => 'field_b10b2be3',
                         'operator' => '!=',
                         'value' => 'https://example.com/',
                     ],
                 ],
             ],
             'type' => 'image',
-            'key' => 'field_58ed1ef698a85b34d7c21b5c66444cb9',
+            'key' => 'field_c4c7f60f',
         ], $field->toArray());
     }
 

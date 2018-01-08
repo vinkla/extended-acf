@@ -67,14 +67,14 @@ class GroupTest extends TestCase
         $group = $this->getGroup();
 
         $this->assertSame([
-            'key' => 'group_fa5473530e4d1a5a1e1eb53d2fedb10c',
+            'key' => 'group_13b71421',
             'title' => 'Employee',
             'fields' => [
                 [
                     'label' => 'First Name',
                     'name' => 'first_name',
                     'type' => 'text',
-                    'key' => 'field_ec838b8b519576a53ce5aff3476fc54e',
+                    'key' => 'field_63445d8e',
                 ],
             ],
         ], $group->toArray());
