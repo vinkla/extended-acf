@@ -1,6 +1,11 @@
 # CHANGELOG
 
-## 4.0.0 (released 2017-01-02)
+## 5.0.0 (released 2018-01-08)
+
+- Updated hash algorithm to FNV-1a
+- Fixed conditional logic key issue
+
+## 4.0.0 (released 2018-01-02)
 
 - Added hashed field, group and layout keys
 - Fixed conditional logic field keys bug
