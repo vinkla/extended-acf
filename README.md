@@ -147,7 +147,7 @@ acf_layout([
 
 #### Location
 
-The `acf_location()` function help you write `location` arrays without the `name`, `operator` and `value` keys.
+The `acf_location()` function help you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys.
 
 ```php
 acf_location('post_type', 'post');
