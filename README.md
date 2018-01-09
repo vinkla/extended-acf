@@ -121,9 +121,9 @@ Name | Description
 
 ## Helpers
 
-This package provides three helper packages [`acf_conditional()`](#acf_conditional), [`acf_layout()`](#acf_layout) and  [`acf_location()`](#acf_location) to help you write less arrays for your field groups.
+This package provides helper functions for [conditional logic](#conditional-logic), [layout](#layout), [location](#location) and [options pages](#options-page) to help you write less code.
 
-##### `acf_conditional()`
+#### Conditional Logic
 
 The `acf_conditional()` function help you write [conditional logic](#settings) without knowing the fields `key` value.
 
@@ -133,7 +133,7 @@ acf_conditional('type', 'image');
 acf_conditional('type', '!==' 'image');
 ```
 
-##### `acf_layout()`
+#### Layout
 
 The `acf_layout()` function help you write [flexible content layouts](https://www.advancedcustomfields.com/resources/flexible-content) without knowing the fields `key` value.
 
@@ -145,7 +145,7 @@ acf_layout([
 ])
 ```
 
-##### `acf_location()`
+#### Location
 
 The `acf_location()` function help you write `location` arrays without the `name`, `operator` and `value` keys.
 
@@ -154,6 +154,19 @@ acf_location('post_type', 'post');
 
 acf_location('post_type', '!=', 'post');
 ```
+
+#### Options Page
+
+The `acf_page()` function is a shorthand to help you register [option pages](https://www.advancedcustomfields.com/resources/options-page).
+
+```php
+acf_page([
+    'page_title' => 'Theme General Settings',
+    'menu_title' => 'Theme Settings',
+    'menu_slug' => 'theme-general-settings',
+])
+```
+
 
 ## License
 
