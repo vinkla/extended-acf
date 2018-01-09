@@ -142,7 +142,7 @@ acf_layout([
     'label' => 'Layout',
     'name' => 'layout',
     'sub_fields' => [ ... ]
-])
+]);
 ```
 
 #### Location
@@ -164,7 +164,7 @@ acf_page([
     'page_title' => 'Theme General Settings',
     'menu_title' => 'Theme Settings',
     'menu_slug' => 'theme-general-settings',
-])
+]);
 ```
 
 
