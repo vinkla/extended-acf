@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.1.0 (upcoming)
+
+- Added options page helper function
+
 ## 5.0.0 (released 2018-01-08)
 
 - Updated hash algorithm to FNV-1a
