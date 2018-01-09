@@ -673,3 +673,24 @@ if (!function_exists('acf_oembed')) {
         return new Field($settings, ['name']);
     }
 }
+
+if (!function_exists('field')) {
+    /**
+     * Shorthand getter for the fields and sub fields functions.
+     *
+     * @param string $key
+     * @param mixed $default
+     *
+     * @return mixed
+     */
+    function field(string $key, $default = null)
+    {
+        if (!function_exists('get_field')) {
+            return $default;
+        }
+
+        $value = get_field($key);
+
+        return empty($value) ? $default : $value;
+    }
+}
