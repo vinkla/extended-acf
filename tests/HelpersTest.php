@@ -152,4 +152,26 @@ class HelpersTest extends TestCase
 
         $this->assertSame($location, acf_location('page_template', '!=', 'templates/start-page.php'));
     }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testPage()
+    {
+        require __DIR__.'/stubs/functions.php';
+
+        $this->assertNull(acf_page([
+            'page_title' => 'Theme General Settings',
+            'menu_title' => 'Theme Settings',
+            'menu_slug' => 'theme-general-settings',
+        ]));
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testPageMissingFunction()
+    {
+        $this->assertNull(acf_page([]));
+    }
 }

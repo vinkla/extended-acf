@@ -17,3 +17,10 @@ if (!function_exists('acf_add_local_field_group')) {
         //
     }
 }
+
+if (!function_exists('acf_add_options_page')) {
+    function acf_add_options_page()
+    {
+        //
+    }
+}

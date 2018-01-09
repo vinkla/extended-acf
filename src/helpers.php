@@ -14,6 +14,7 @@ declare(strict_types=1);
 use WordPlate\Acf\Field;
 use WordPlate\Acf\Group;
 use WordPlate\Acf\Layout;
+use WordPlate\Acf\Page;
 
 if (!function_exists('acf_accordion')) {
     /**
@@ -362,6 +363,26 @@ if (!function_exists('acf_message')) {
         $settings = array_merge($settings, ['type' => 'message']);
 
         return new Field($settings, ['message']);
+    }
+}
+
+if (!function_exists('acf_page')) {
+    /**
+     * Register an acf options page.
+     *
+     * @param array $settings
+     *
+     * @return void
+     */
+    function acf_page(array $settings): void
+    {
+        if (!function_exists('acf_add_options_page')) {
+            return;
+        }
+
+        $page = new Page($settings);
+
+        acf_add_options_page($page->toArray());
     }
 }
 
