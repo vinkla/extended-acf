@@ -157,7 +157,7 @@ acf_location('post_type', '!=', 'post');
 
 #### Options Page
 
-The `acf_page()` function is a shorthand to help you register [option pages](https://www.advancedcustomfields.com/resources/options-page).
+The `acf_page()` function is a shorthand to help you register [option pages](https://www.advancedcustomfields.com/resources/options-page). This function also works for sub pages as long as we provide the `parent_slug` setting key.
 
 ```php
 acf_page([
