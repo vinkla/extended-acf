@@ -312,7 +312,7 @@ This package provides helper functions for [conditional logic](#conditional-logi
 
 #### Conditional Logic
 
-The `acf_conditional()` function help you write [conditional logic](#settings) without knowing the fields `key` value.
+The conditional function help you write [conditional logic](#settings) without knowing the fields `key` value.
 
 ```php
 acf_conditional('type', 'image');
@@ -322,7 +322,7 @@ acf_conditional('type', '!==' 'image');
 
 #### Layout
 
-The `acf_layout()` function help you write [flexible content layouts](https://www.advancedcustomfields.com/resources/flexible-content) without knowing the fields `key` value.
+The layout function help you write [flexible content layouts](https://www.advancedcustomfields.com/resources/flexible-content) without knowing the fields `key` value.
 
 ```php
 acf_layout([
@@ -334,7 +334,7 @@ acf_layout([
 
 #### Location
 
-The `acf_location()` function help you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys.
+The location function help you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys.
 
 ```php
 acf_location('post_type', 'post');
@@ -344,7 +344,7 @@ acf_location('post_type', '!=', 'post');
 
 #### Options Page
 
-The `acf_page()` function is a shorthand to help you register [option pages](https://www.advancedcustomfields.com/resources/options-page). This function also works for sub pages as long as we provide the `parent_slug` setting key. Don't forget to [add a dashing icon](https://developer.wordpress.org/resource/dashicons) to the menu item.
+The options page function is a shorthand to help you register [option pages](https://www.advancedcustomfields.com/resources/options-page). This function also works for sub pages as long as we provide the `parent_slug` setting key. Don't forget to [add a dashing icon](https://developer.wordpress.org/resource/dashicons) to the menu item.
 
 ```php
 acf_page([
