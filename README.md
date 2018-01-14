@@ -310,7 +310,7 @@ acf_true_false([
 
 This package provides helper functions for [conditional logic](#conditional-logic), [layout](#layout), [location](#location) and [options pages](#options-page) to help you write less code.
 
-### Conditional Logic
+#### Conditional Logic
 
 The `acf_conditional()` function help you write [conditional logic](#settings) without knowing the fields `key` value.
 
@@ -320,7 +320,7 @@ acf_conditional('type', 'image');
 acf_conditional('type', '!==' 'image');
 ```
 
-### Layout
+#### Layout
 
 The `acf_layout()` function help you write [flexible content layouts](https://www.advancedcustomfields.com/resources/flexible-content) without knowing the fields `key` value.
 
@@ -332,7 +332,7 @@ acf_layout([
 ]);
 ```
 
-### Location
+#### Location
 
 The `acf_location()` function help you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys.
 
@@ -342,7 +342,7 @@ acf_location('post_type', 'post');
 acf_location('post_type', '!=', 'post');
 ```
 
-### Options Page
+#### Options Page
 
 The `acf_page()` function is a shorthand to help you register [option pages](https://www.advancedcustomfields.com/resources/options-page). This function also works for sub pages as long as we provide the `parent_slug` setting key. Don't forget to [add a dashing icon](https://developer.wordpress.org/resource/dashicons) to the menu item.
 
