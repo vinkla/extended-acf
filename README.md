@@ -99,8 +99,8 @@ acf_number([
     'label' => 'Age',
     'instructions' => 'Add the person\'s age.',
     'required' => true,
-    'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value. (optional)
-    'max' => 10, // (optional) The maximum (numeric) value allowed, which must not be less than its minimum value. 
+    'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value. The attribute is optional and defaults to 0.
+    'max' => 10, // The maximum (numeric) value allowed, which must not be less than its minimum value. The attribute is optional and defaults to 100.
 ]);
 ```
     
@@ -119,13 +119,19 @@ acf_password([
 
 #### Range
 
-The [`acf_range()`](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
+The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
 
-Name | Default | Description | Optional
----- | ------- | ----------- | --------
-`min` | `0` | The minimum (numeric) value allowed, which must not be greater than its maximum value. | `true`
-`max` | `100` | The maximum (numeric) value allowed, which must not be less than its minimum value. | `true`
-`step` | `null` | The increment at which a numeric value can be set. | `true`
+```php
+acf_range([
+    'name' => 'volume',
+    'label' => 'Volume',
+    'instructions' => 'Add the player volume.',
+    'required' => true,
+    'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value. The attribute is optional and defaults to 100.
+    'max' => 10, // The maximum (numeric) value allowed, which must not be less than its minimum value.  The attribute is optional and defaults to 100.
+    'step' => 1, // The increment at which a numeric value can be set. The attribute is optional and defaults to 1.
+]);
+```
 
 #### Text
 
@@ -137,7 +143,7 @@ acf_text([
     'label' => 'Occupation',
     'instructions' => 'Add the employee\'s occupation.',
     'required' => true,
-    'maxlength' => 100, // (optional) Limits the number of characters allowed.
+    'maxlength' => 100, // Limits the number of characters allowed. The attribute is optional and defaults to null.
 ]);
 ```
 
@@ -151,9 +157,9 @@ acf_textarea([
     'label' => 'Description',
     'instructions' => 'Add the product description.',
     'required' => true,
-    'maxlength' => 100, // (optional) Limits the number of characters allowed.
-    'rows' => 8, // (optional) The visible number of lines in a text area.
-    'new_lines' => null, // (optional) Controls how new lines are rendered: `wpautop`, `br` or `null`.
+    'maxlength' => 100, // Limits the number of characters allowed. The attribute is optional and defaults to null.
+    'rows' => 8, // The visible number of lines in a text area. The attribute is optional and defaults to 8.
+    'new_lines' => 'br', // Controls how new lines are rendered. The attribute is optional and defaults to null.
 ]);
 ```
 
