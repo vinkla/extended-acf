@@ -59,7 +59,7 @@ acf_text([
 
 ### Settings
 
-Below you'll find a list of settings and their descriptions you can add to your fields. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about the field settings.
+Below you'll find a list of settings and their descriptions you can add to your fields. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about the field settings. Please **note** that the `type` and `key` values will be automagically added by this package. Please don't add these values manually, they will be overwritten.
 
 Name | Description
 ---- | -----------
@@ -70,8 +70,6 @@ Name | Description
 `conditional_logic` | Once enabled, more settings will appear to customize the logic which determines if the current field should be visible or not. Groups of conditional logic can be created to allow for multiple and/or statements. The available [toggle](#choice-fields) fields are limited to those which are of the type select, checkbox, true/false, radio.
 `wrapper` | An array of attributes given to the field element such as `width`, `class` and `id`.
 `default_value` |  A default value used by ACF if no value has yet been saved.
-
-> **Note:** The `type` and `key` values will be automagically added by this package. Please don't add these values manually, they will be overwritten.
 
 ### Basic Fields
 
