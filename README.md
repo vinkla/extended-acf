@@ -78,198 +78,21 @@ Name | Description
 
 ### Basic Fields
 
-#### Email
-
-The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
-    
-```php
-acf_email([
-    'name' => 'email',
-    'label' => 'Email',
-    'instructions' => 'Add the email address.',
-    'required' => true,
-]);
-```
-
-#### Number
-
-The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
-    
-```php
-acf_number([
-    'name' => 'age',
-    'label' => 'Age',
-    'instructions' => 'Add the person\'s age.',
-    'required' => true,
-    'min' => 0, // The setting is optional and defaults to 0.
-    'max' => 10, // The setting is optional and defaults to 100.
-]);
-```
-    
-#### Password
-
-The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
-
-```php
-acf_password([
-    'name' => 'password',
-    'label' => 'Password',
-    'instructions' => 'Add the user\'s password.',
-    'required' => true,
-]);
-```
-
-#### Range
-
-The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
-
-```php
-acf_range([
-    'name' => 'volume',
-    'label' => 'Volume',
-    'instructions' => 'Add the player volume.',
-    'required' => true,
-    'min' => 0, // The setting is optional and defaults to 100.
-    'max' => 10, // The setting is optional and defaults to 100.
-    'step' => 1, // The setting is optional and defaults to 1.
-]);
-```
-
-#### Text
-
-The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
-
-```php
-acf_text([
-    'name' => 'occupation',
-    'label' => 'Occupation',
-    'instructions' => 'Add the employee\'s occupation.',
-    'required' => true,
-    'maxlength' => 100, // The setting is optional and defaults to null.
-]);
-```
-
-#### Textarea
-
-The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
-
-```php
-acf_textarea([
-    'name' => 'description',
-    'label' => 'Description',
-    'instructions' => 'Add the product description.',
-    'required' => true,
-    'maxlength' => 100, // The setting is optional and defaults to null.
-    'rows' => 8, // The setting is optional and defaults to 8.
-    'new_lines' => 'br', // The setting is optional and defaults to null.
-]);
-```
-
-#### URL
-
-The [URL field](https://www.advancedcustomfields.com/resources/text) creates a simple URL input.
-
-```php
-acf_url([
-    'name' => 'website_url',
-    'label' => 'Website',
-    'instructions' => 'Add the user\'s website.',
-    'required' => true,
-]);
-```
+- `acf_email()` - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
+- `acf_number()` - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
+- `acf_password()` - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
+- `acf_range()` - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
+- `acf_text()` - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
+- `acf_textarea()` - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
+- `acf_url()` - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
 
 ### Choice Fields
 
-#### Button Group
-
-The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
-
-```php
-acf_button_group([
-    'name' => 'animals',
-    'label' => 'Animals',
-    'instructions' => 'Select your favorite animals.',
-    'required' => true,
-    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The setting is required.
-    'layout' => 'horizontal', // The setting is optional and defaults to horizontal.
-    'allow_null' => false, // The setting is optional and defaults to false.
-    'return_format' => 'value', // The setting is optional and defaults to value.
-]);
-```
-
-#### Checkbox
-
-The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
-
-```php
-acf_checkbox([
-    'name' => 'animals',
-    'label' => 'Animals',
-    'instructions' => 'Select your favorite animals.',
-    'required' => true,
-    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The setting is required.
-    'allow_custom' => false, // The setting is optional and defaults to false.
-    'save_custom' => false, // The setting is optional and defaults to false.
-    'layout' => 'vertical', // The setting is optional and defaults to vertical.
-    'toggle' => false, // The setting is optional and defaults to false.
-    'return_format' => 'value', // The setting is optional and defaults to value.
-]);
-```
-
-#### Radio Button
-
-The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
-
-```php
-acf_radio([
-    'name' => 'animal',
-    'label' => 'Animal',
-    'instructions' => 'Select your favorite animal.',
-    'required' => true,
-    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The setting is required.
-    'other_choice' => false, // The setting is optional and defaults to false.
-    'save_other_choice' => false, // The setting is optional and defaults to false.
-    'allow_null' => false, // The setting is optional and defaults to false.
-    'layout' => 'vertical', // The setting is optional and defaults to vertical.
-    'return_format' => 'value', // The setting is optional and defaults to value.
-]);
-```
-
-#### Select
-
-The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
-
-```php
-acf_select([
-    'name' => 'animal',
-    'label' => 'Animal',
-    'instructions' => 'Select your favorite animal.',
-    'required' => true,
-    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The setting is required.
-    'multiple' => false, // The setting is optional and defaults to false.
-    'ui' => false, // The setting is optional and defaults to false.
-    'ajax' => false, // The setting is optional and defaults to false.
-    'allow_null' => false, // The setting is optional and defaults to false.
-    'return_format' => 'value', // The setting is optional and defaults to value.
-]);
-```
-
-#### True / False
-
-The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
-
-```php
-acf_true_false([
-    'name' => 'notifications',
-    'label' => 'Notifications',
-    'instructions' => 'Toggle if notifications should be on or off.',
-    'required' => true,
-    'message' => null, // The setting is optional and defaults to null.
-    'ui' => false, // The setting is optional and defaults to value.
-    'ui_on_text' => null, // The setting is optional and defaults to yes.
-    'ui_off_text' => null, // The setting is optional and defaults to no.
-]);
-```
+- `acf_button_group()` - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
+- `acf_checkbox()` - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
+- `acf_radio()` - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
+- `acf_select()` - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
+- `acf_true_false()` - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
 
 ### Content Fields
 
