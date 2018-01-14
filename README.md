@@ -121,11 +121,11 @@ acf_password([
 
 The [`acf_range()`](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
 
-Name | Description | Default
----- | ----------- | -------
-`min` | The minimum (numeric) value allowed, which must not be greater than its maximum value. | 0
-`max` | The maximum (numeric) value allowed, which must not be less than its minimum value. | 100
-`step` | The increment at which a numeric value can be set. | null
+Name | Default | Description | Optional
+---- | ------- | ----------- | --------
+`min` | `0` | The minimum (numeric) value allowed, which must not be greater than its maximum value. | `true`
+`max` | `100` | The maximum (numeric) value allowed, which must not be less than its minimum value. | `true`
+`step` | `null` | The increment at which a numeric value can be set. | `true`
 
 #### Text
 
