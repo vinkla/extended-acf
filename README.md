@@ -191,9 +191,9 @@ acf_button_group([
     'instructions' => 'Select your favorite animals.',
     'required' => true,
     'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The list choices to choose from. This setting is required.
-    'layout' => 'horizontal', The layout vertical to horizontal style of inputs. This setting is optional and defaults to horizontal.
+    'layout' => 'horizontal', // The layout vertical to horizontal style of inputs. This setting is optional and defaults to horizontal.
     'allow_null' => false, // Allows no value to be selected. This setting is optional and defaults to false.
-    'return_format' => 'value', The returned value format. This setting is optional and defaults to value.
+    'return_format' => 'value', // The returned value format. This setting is optional and defaults to value.
 ]);
 ```
 
