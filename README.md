@@ -76,32 +76,29 @@ Name | Description
 
 ### Basic Fields
 
-<details>
-    <summary>`acf_email()` - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.</summary>
+`acf_email()` - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
     
-    ```php
-    acf_email([
-        'name' => 'email',
-        'label' => 'Email',
-        'instructions' => 'Add the email address.',
-        'required' => true,
-    ]);
-    ```
-</details>
+```php
+acf_email([
+    'name' => 'email',
+    'label' => 'Email',
+    'instructions' => 'Add the email address.',
+    'required' => true,
+]);
+```
 
-
-- `acf_number()` - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
+`acf_number()` - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
     
-    ```php
-    acf_number([
-        'name' => 'age',
-        'label' => 'Age',
-        'instructions' => 'Add the person\'s age.',
-        'required' => true,
-        'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value.
-        'max' => 10, // The maximum (numeric) value allowed, which must not be less than its minimum value. 
-    ]);
-    ```
+```php
+acf_number([
+    'name' => 'age',
+    'label' => 'Age',
+    'instructions' => 'Add the person\'s age.',
+    'required' => true,
+    'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value.
+    'max' => 10, // The maximum (numeric) value allowed, which must not be less than its minimum value. 
+]);
+```
     
 - `acf_password()` - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
 - `acf_range()` - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
