@@ -61,7 +61,7 @@ acf_text([
 
 ### Settings
 
-Below you'll find a list of settings and their descriptions you can add to your fields. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about the field settings. Please **note** that the `type` and `key` values will be automagically added by this package. Please don't add these values manually, they will be overwritten.
+Below you'll find a list of settings and their descriptions you can add to your fields. **Please note** that the `type` and `key` values will be automagically added by this package. Please don't add these values manually, they will be overwritten. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about the field settings.
 
 Name | Description
 ---- | -----------
