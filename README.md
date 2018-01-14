@@ -52,8 +52,10 @@ All fields accepts an array of settings. All field settings arrays must have the
 
 ```php
 acf_text([
+    'name' => 'unique-field-name',
     'label' => 'Field Label'
-    'name' => 'unique-field-name'
+    'instructions' => 'Add the text value',
+    'required' => true,
 ]);
 ```
 
@@ -178,11 +180,112 @@ acf_url([
 
 ### Choice Fields
 
-- `acf_button_group()` - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
-- `acf_checkbox()` - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
-- `acf_radio()` - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
-- `acf_select()` - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
-- `acf_true_false()` - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
+#### Button Group
+
+The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
+
+```php
+acf_button_group([
+    'name' => 'animals',
+    'label' => 'Animals',
+    'instructions' => 'Select your favorite animals.',
+    'required' => true,
+    'choices' => [
+        'cat' => 'Cat',
+        'dog' => 'Dog',
+    ], // The list choices to choose from. This setting is required.
+    'layout' => 'horizontal', The layout vertical to horizontal style of inputs. This setting is optional and defaults to horizontal.
+    'allow_null' => false, // Allows no value to be selected. This setting is optional and defaults to false.
+    'return_format' => 'value', The returned value format. This setting is optional and defaults to value.
+]);
+```
+
+#### Checkbox
+
+The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
+
+```php
+acf_checkbox([
+    'name' => 'animals',
+    'label' => 'Animals',
+    'instructions' => 'Select your favorite animals.',
+    'required' => true,
+    'choices' => [
+        'cat' => 'Cat',
+        'dog' => 'Dog',
+    ], // The list choices to choose from. This setting is required.
+    'allow_custom' => false, // Allow custom values to be added. This setting is optional and defaults to false.
+    'save_custom' => false, // Save customs values to the field's choices. This setting is optional and defaults to false.
+    'layout' => 'vertical', The layout vertical to horizontal style of inputs. This setting is optional and defaults to vertical.
+    'toggle' => false, // Adds an extra checkbox to toggle on/off all inputs. This setting is optional and defaults to false.
+    'return_format' => 'value', The returned value format. This setting is optional and defaults to value.
+]);
+```
+
+#### Radio Button
+
+The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
+
+```php
+acf_radio([
+    'name' => 'animal',
+    'label' => 'Animal',
+    'instructions' => 'Select your favorite animal.',
+    'required' => true,
+    'choices' => [
+        'cat' => 'Cat',
+        'dog' => 'Dog',
+    ], // The list choices to choose from. This setting is required.
+    'other_choice' => false, // Adds a text input allowing for a custom value to be entered. This setting is optional and defaults to false.
+    'save_other_choice' => false, // Allows the custom value to be appended to the field’s choices. This setting is optional and defaults to false.
+    'allow_null' => false, // Allows no value to be selected. This setting is optional and defaults to false.
+    'layout' => 'vertical', The layout vertical to horizontal style of inputs. This setting is optional and defaults to vertical.
+    'return_format' => 'value', The returned value format. This setting is optional and defaults to value.
+]);
+```
+
+#### Select
+
+The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
+
+```php
+acf_select([
+    'name' => 'animal',
+    'label' => 'Animal',
+    'instructions' => 'Select your favorite animal.',
+    'required' => true,
+    'choices' => [
+        'cat' => 'Cat',
+        'dog' => 'Dog',
+    ], // The list choices to choose from. This setting is required.
+    'multiple' => false, // This setting will allow you to select more than one choice. This setting is optional and defaults to false.
+    'ui' => false, // This setting will use the Select2 JS library to enhance your select field with more functionality (search, ajax, reorder). This setting is optional and defaults to false.
+    'ajax' => false, // This setting will appear if using the Stylized UI and will use AJAX to populate the select field’s choices. This setting is optional and defaults to false.
+    'allow_null' => false, // Allows no value to be selected. This setting is optional and defaults to false.
+    'return_format' => 'value', The returned value format. This setting is optional and defaults to value.
+]);
+```
+
+#### True / False
+
+The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
+
+```php
+acf_true_false([
+    'name' => 'animal',
+    'label' => 'Animal',
+    'instructions' => 'Select your favorite animal.',
+    'required' => true,
+    'choices' => [
+        'cat' => 'Cat',
+        'dog' => 'Dog',
+    ], // The list choices to choose from. This setting is required.
+    'message' => null, // This text is displayed alongside the true false input. This setting is optional and defaults to null.
+    'ui' => false, // Changes the default checkbox input into a stylized toggle switch. This setting is optional and defaults to value.
+    'ui_on_text' => null, // Text displayed within the stylized toggle switch. This setting is optional and defaults to yes.
+    'ui_off_text' => null, // Text displayed within the stylized toggle switch. This setting is optional and defaults to no.
+]);
+```
 
 ### Content Fields
 
