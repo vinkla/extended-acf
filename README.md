@@ -99,7 +99,7 @@ acf_number([
     'label' => 'Age',
     'instructions' => 'Add the person\'s age.',
     'required' => true,
-    'min' => 0, // (optional) The minimum (numeric) value allowed, which must not be greater than its maximum value.
+    'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value. (optional)
     'max' => 10, // (optional) The maximum (numeric) value allowed, which must not be less than its minimum value. 
 ]);
 ```
@@ -119,19 +119,13 @@ acf_password([
 
 #### Range
 
-The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
+The [`acf_range()`](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
 
-```php
-acf_range([
-    'name' => 'volume',
-    'label' => 'Volume',
-    'instructions' => 'Add the player volume.',
-    'required' => true,
-    'min' => 0, // (optional) The minimum (numeric) value allowed, which must not be greater than its maximum value.
-    'max' => 10, // (optional) The maximum (numeric) value allowed, which must not be less than its minimum value. 
-    'step' => 1, // (optional) The increment at which a numeric value can be set.
-]);
-```
+Name | Description | Default
+---- | ----------- | -------
+`min` | The minimum (numeric) value allowed, which must not be greater than its maximum value. | 0
+`max` | The maximum (numeric) value allowed, which must not be less than its minimum value. | 100
+`step` | The increment at which a numeric value can be set. | null
 
 #### Text
 
