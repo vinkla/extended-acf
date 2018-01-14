@@ -55,7 +55,7 @@ All fields accepts an array of settings. All field settings arrays must have the
 ```php
 acf_text([
     'name' => 'unique-field-name',
-    'label' => 'Field Label'
+    'label' => 'Field Label',
     'instructions' => 'Add the text value',
     'required' => true,
 ]);
