@@ -20,7 +20,7 @@ Require this package, with [Composer](https://getcomposer.org/), in the root dir
 $ composer require wordplate/acf
 ```
 
-Install the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin within your `plugins` or `mu-plugins` directory. Please note that this package supports ACF version 5.6 or later.
+Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that this package supports ACF version 5.6 or later.
 
 ## Usage
 
