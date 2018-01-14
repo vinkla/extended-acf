@@ -190,10 +190,7 @@ acf_button_group([
     'label' => 'Animals',
     'instructions' => 'Select your favorite animals.',
     'required' => true,
-    'choices' => [
-        'cat' => 'Cat',
-        'dog' => 'Dog',
-    ], // The list choices to choose from. This setting is required.
+    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The list choices to choose from. This setting is required.
     'layout' => 'horizontal', The layout vertical to horizontal style of inputs. This setting is optional and defaults to horizontal.
     'allow_null' => false, // Allows no value to be selected. This setting is optional and defaults to false.
     'return_format' => 'value', The returned value format. This setting is optional and defaults to value.
@@ -210,10 +207,7 @@ acf_checkbox([
     'label' => 'Animals',
     'instructions' => 'Select your favorite animals.',
     'required' => true,
-    'choices' => [
-        'cat' => 'Cat',
-        'dog' => 'Dog',
-    ], // The list choices to choose from. This setting is required.
+    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The list choices to choose from. This setting is required.
     'allow_custom' => false, // Allow custom values to be added. This setting is optional and defaults to false.
     'save_custom' => false, // Save customs values to the field's choices. This setting is optional and defaults to false.
     'layout' => 'vertical', // The layout vertical to horizontal style of inputs. This setting is optional and defaults to vertical.
@@ -232,10 +226,7 @@ acf_radio([
     'label' => 'Animal',
     'instructions' => 'Select your favorite animal.',
     'required' => true,
-    'choices' => [
-        'cat' => 'Cat',
-        'dog' => 'Dog',
-    ], // The list choices to choose from. This setting is required.
+    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The list choices to choose from. This setting is required.
     'other_choice' => false, // Adds a text input allowing for a custom value to be entered. This setting is optional and defaults to false.
     'save_other_choice' => false, // Allows the custom value to be appended to the field’s choices. This setting is optional and defaults to false.
     'allow_null' => false, // Allows no value to be selected. This setting is optional and defaults to false.
@@ -254,10 +245,7 @@ acf_select([
     'label' => 'Animal',
     'instructions' => 'Select your favorite animal.',
     'required' => true,
-    'choices' => [
-        'cat' => 'Cat',
-        'dog' => 'Dog',
-    ], // The list choices to choose from. This setting is required.
+    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The list choices to choose from. This setting is required.
     'multiple' => false, // This setting will allow you to select more than one choice. This setting is optional and defaults to false.
     'ui' => false, // This setting will use the Select2 JS library to enhance your select field with more functionality (search, ajax, reorder). This setting is optional and defaults to false.
     'ajax' => false, // This setting will appear if using the Stylized UI and will use AJAX to populate the select field’s choices. This setting is optional and defaults to false.
