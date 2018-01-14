@@ -76,9 +76,7 @@ Name | Description
 
 ### Basic Fields
 
-#### Email
-
-The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
+**Email** - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
     
 ```php
 acf_email([
@@ -89,9 +87,7 @@ acf_email([
 ]);
 ```
 
-#### Number
-
-The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
+**Number** - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
     
 ```php
 acf_number([
