@@ -100,11 +100,67 @@ acf_number([
 ]);
 ```
     
-- `acf_password()` - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
-- `acf_range()` - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
-- `acf_text()` - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
-- `acf_textarea()` - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
-- `acf_url()` - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
+**Password** - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
+
+```php
+acf_password([
+    'name' => 'password',
+    'label' => 'Password',
+    'instructions' => 'Add the user\'s password.',
+    'required' => true,
+]);
+```
+
+**Range** - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
+
+```php
+acf_range([
+    'name' => 'volume',
+    'label' => 'Volume',
+    'instructions' => 'Add the player volume.',
+    'required' => true,
+    'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value.
+    'max' => 10, // The maximum (numeric) value allowed, which must not be less than its minimum value. 
+    'step' => 1, // The increment at which a numeric value can be set.
+]);
+```
+
+**Text** - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
+
+```php
+acf_text([
+    'name' => 'occupation',
+    'label' => 'Occupation',
+    'instructions' => 'Add the employee\'s occupation.',
+    'required' => true,
+    'maxlength' => 0, // Limits the number of characters allowed.
+]);
+```
+
+**Textarea** - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
+
+```php
+acf_textarea([
+    'name' => 'description',
+    'label' => 'Description',
+    'instructions' => 'Add the product description.',
+    'required' => true,
+    'maxlength' => 0, // Limits the number of characters allowed.
+    'rows' => 8, // The visible number of lines in a text area.
+    'new_lines' => null, // Controls how new lines are rendered: `wpautop`, `br` or `null`.
+]);
+```
+
+**URL** - The [URL field](https://www.advancedcustomfields.com/resources/text) creates a simple URL input.
+
+```php
+acf_url([
+    'name' => 'website_url',
+    'label' => 'Website',
+    'instructions' => 'Add the user\'s website.',
+    'required' => true,
+]);
+```
 
 ### Choice Fields
 
