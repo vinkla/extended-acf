@@ -101,8 +101,8 @@ acf_number([
     'label' => 'Age',
     'instructions' => 'Add the person\'s age.',
     'required' => true,
-    'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value. The setting is optional and defaults to 0.
-    'max' => 10, // The maximum (numeric) value allowed, which must not be less than its minimum value. The setting is optional and defaults to 100.
+    'min' => 0, // The setting is optional and defaults to 0.
+    'max' => 10, // The setting is optional and defaults to 100.
 ]);
 ```
     
@@ -129,9 +129,9 @@ acf_range([
     'label' => 'Volume',
     'instructions' => 'Add the player volume.',
     'required' => true,
-    'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value. The setting is optional and defaults to 100.
-    'max' => 10, // The maximum (numeric) value allowed, which must not be less than its minimum value.  The setting is optional and defaults to 100.
-    'step' => 1, // The increment at which a numeric value can be set. The setting is optional and defaults to 1.
+    'min' => 0, // The setting is optional and defaults to 100.
+    'max' => 10, // The setting is optional and defaults to 100.
+    'step' => 1, // The setting is optional and defaults to 1.
 ]);
 ```
 
@@ -145,7 +145,7 @@ acf_text([
     'label' => 'Occupation',
     'instructions' => 'Add the employee\'s occupation.',
     'required' => true,
-    'maxlength' => 100, // Limits the number of characters allowed. The setting is optional and defaults to null.
+    'maxlength' => 100, // The setting is optional and defaults to null.
 ]);
 ```
 
@@ -159,9 +159,9 @@ acf_textarea([
     'label' => 'Description',
     'instructions' => 'Add the product description.',
     'required' => true,
-    'maxlength' => 100, // Limits the number of characters allowed. The setting is optional and defaults to null.
-    'rows' => 8, // The visible number of lines in a text area. The setting is optional and defaults to 8.
-    'new_lines' => 'br', // Controls how new lines are rendered. The setting is optional and defaults to null.
+    'maxlength' => 100, // The setting is optional and defaults to null.
+    'rows' => 8, // The setting is optional and defaults to 8.
+    'new_lines' => 'br', // The setting is optional and defaults to null.
 ]);
 ```
 
@@ -190,10 +190,10 @@ acf_button_group([
     'label' => 'Animals',
     'instructions' => 'Select your favorite animals.',
     'required' => true,
-    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The list choices to choose from. This setting is required.
-    'layout' => 'horizontal', // The layout vertical to horizontal style of inputs. This setting is optional and defaults to horizontal.
-    'allow_null' => false, // Allows no value to be selected. This setting is optional and defaults to false.
-    'return_format' => 'value', // The returned value format. This setting is optional and defaults to value.
+    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The setting is required.
+    'layout' => 'horizontal', // The setting is optional and defaults to horizontal.
+    'allow_null' => false, // The setting is optional and defaults to false.
+    'return_format' => 'value', // The setting is optional and defaults to value.
 ]);
 ```
 
@@ -207,12 +207,12 @@ acf_checkbox([
     'label' => 'Animals',
     'instructions' => 'Select your favorite animals.',
     'required' => true,
-    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The list choices to choose from. This setting is required.
-    'allow_custom' => false, // Allow custom values to be added. This setting is optional and defaults to false.
-    'save_custom' => false, // Save customs values to the field's choices. This setting is optional and defaults to false.
-    'layout' => 'vertical', // The layout vertical to horizontal style of inputs. This setting is optional and defaults to vertical.
-    'toggle' => false, // Adds an extra checkbox to toggle on/off all inputs. This setting is optional and defaults to false.
-    'return_format' => 'value', // The returned value format. This setting is optional and defaults to value.
+    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The setting is required.
+    'allow_custom' => false, // The setting is optional and defaults to false.
+    'save_custom' => false, // The setting is optional and defaults to false.
+    'layout' => 'vertical', // The setting is optional and defaults to vertical.
+    'toggle' => false, // The setting is optional and defaults to false.
+    'return_format' => 'value', // The setting is optional and defaults to value.
 ]);
 ```
 
@@ -226,12 +226,12 @@ acf_radio([
     'label' => 'Animal',
     'instructions' => 'Select your favorite animal.',
     'required' => true,
-    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The list choices to choose from. This setting is required.
-    'other_choice' => false, // Adds a text input allowing for a custom value to be entered. This setting is optional and defaults to false.
-    'save_other_choice' => false, // Allows the custom value to be appended to the field’s choices. This setting is optional and defaults to false.
-    'allow_null' => false, // Allows no value to be selected. This setting is optional and defaults to false.
-    'layout' => 'vertical', // The layout vertical to horizontal style of inputs. This setting is optional and defaults to vertical.
-    'return_format' => 'value', // The returned value format. This setting is optional and defaults to value.
+    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The setting is required.
+    'other_choice' => false, // The setting is optional and defaults to false.
+    'save_other_choice' => false, // The setting is optional and defaults to false.
+    'allow_null' => false, // The setting is optional and defaults to false.
+    'layout' => 'vertical', // The setting is optional and defaults to vertical.
+    'return_format' => 'value', // The setting is optional and defaults to value.
 ]);
 ```
 
@@ -245,12 +245,12 @@ acf_select([
     'label' => 'Animal',
     'instructions' => 'Select your favorite animal.',
     'required' => true,
-    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The list choices to choose from. This setting is required.
-    'multiple' => false, // This setting will allow you to select more than one choice. This setting is optional and defaults to false.
-    'ui' => false, // This setting will use the Select2 JS library to enhance your select field with more functionality (search, ajax, reorder). This setting is optional and defaults to false.
-    'ajax' => false, // This setting will appear if using the Stylized UI and will use AJAX to populate the select field’s choices. This setting is optional and defaults to false.
-    'allow_null' => false, // Allows no value to be selected. This setting is optional and defaults to false.
-    'return_format' => 'value', // The returned value format. This setting is optional and defaults to value.
+    'choices' => ['cat' => 'Cat', 'dog' => 'Dog'], // The setting is required.
+    'multiple' => false, // The setting is optional and defaults to false.
+    'ui' => false, // The setting is optional and defaults to false.
+    'ajax' => false, // The setting is optional and defaults to false.
+    'allow_null' => false, // The setting is optional and defaults to false.
+    'return_format' => 'value', // The setting is optional and defaults to value.
 ]);
 ```
 
@@ -264,10 +264,10 @@ acf_true_false([
     'label' => 'Notifications',
     'instructions' => 'Toggle if notifications should be on or off.',
     'required' => true,
-    'message' => null, // This text is displayed alongside the true false input. This setting is optional and defaults to null.
-    'ui' => false, // Changes the default checkbox input into a stylized toggle switch. This setting is optional and defaults to value.
-    'ui_on_text' => null, // Text displayed within the stylized toggle switch. This setting is optional and defaults to yes.
-    'ui_off_text' => null, // Text displayed within the stylized toggle switch. This setting is optional and defaults to no.
+    'message' => null, // The setting is optional and defaults to null.
+    'ui' => false, // The setting is optional and defaults to value.
+    'ui_on_text' => null, // The setting is optional and defaults to yes.
+    'ui_off_text' => null, // The setting is optional and defaults to no.
 ]);
 ```
 
