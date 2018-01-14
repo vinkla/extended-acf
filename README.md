@@ -70,11 +70,11 @@ Name | Description
 `instructions` | This text appears on the edit page when entering a value.
 `required` | Required fields will cause validation to run when saving a post. When attempting to save an empty value to a required field, an error message will display.
 `conditional_logic` | Once enabled, more settings will appear to customize the logic which determines if the current field should be visible or not. Groups of conditional logic can be created to allow for multiple and/or statements. The available [toggle](#choice-fields) fields are limited to those which are of the type select, checkbox, true/false, radio.
-`wrapper` | An array of attributes given to the field element such as `width`, `class` and `id`.
-`default_value` | A default value used by ACF if no value has yet been saved.
-`placeholder` | The placeholder appears within input when no value exists.
+`wrapper` | The array of attributes given to the field element such as width, class and id.
 `prepend` | The prepend value adds a visual text element before the input.
 `append` | The append value adds a visual text element before the input.
+`default_value` | The default value if no value has yet been saved.
+`placeholder` | The placeholder appears within input when no value exists.
 
 #### Basic Fields
 
