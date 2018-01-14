@@ -76,7 +76,9 @@ Name | Description
 
 ### Basic Fields
 
-**Email** - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
+#### Email
+
+The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
     
 ```php
 acf_email([
@@ -87,7 +89,9 @@ acf_email([
 ]);
 ```
 
-**Number** - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
+#### Number
+
+The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
     
 ```php
 acf_number([
@@ -100,7 +104,9 @@ acf_number([
 ]);
 ```
     
-**Password** - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
+#### Password
+
+The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
 
 ```php
 acf_password([
@@ -111,7 +117,9 @@ acf_password([
 ]);
 ```
 
-**Range** - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
+#### Range
+
+The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
 
 ```php
 acf_range([
@@ -125,7 +133,9 @@ acf_range([
 ]);
 ```
 
-**Text** - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
+#### Text
+
+The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
 
 ```php
 acf_text([
@@ -137,7 +147,9 @@ acf_text([
 ]);
 ```
 
-**Textarea** - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
+#### Textarea
+
+The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
 
 ```php
 acf_textarea([
@@ -151,7 +163,9 @@ acf_textarea([
 ]);
 ```
 
-**URL** - The [URL field](https://www.advancedcustomfields.com/resources/text) creates a simple URL input.
+#### URL
+
+The [URL field](https://www.advancedcustomfields.com/resources/text) creates a simple URL input.
 
 ```php
 acf_url([
