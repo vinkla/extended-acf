@@ -99,8 +99,8 @@ acf_number([
     'label' => 'Age',
     'instructions' => 'Add the person\'s age.',
     'required' => true,
-    'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value.
-    'max' => 10, // The maximum (numeric) value allowed, which must not be less than its minimum value. 
+    'min' => 0, // (optional) The minimum (numeric) value allowed, which must not be greater than its maximum value.
+    'max' => 10, // (optional) The maximum (numeric) value allowed, which must not be less than its minimum value. 
 ]);
 ```
     
@@ -127,9 +127,9 @@ acf_range([
     'label' => 'Volume',
     'instructions' => 'Add the player volume.',
     'required' => true,
-    'min' => 0, // The minimum (numeric) value allowed, which must not be greater than its maximum value.
-    'max' => 10, // The maximum (numeric) value allowed, which must not be less than its minimum value. 
-    'step' => 1, // The increment at which a numeric value can be set.
+    'min' => 0, // (optional) The minimum (numeric) value allowed, which must not be greater than its maximum value.
+    'max' => 10, // (optional) The maximum (numeric) value allowed, which must not be less than its minimum value. 
+    'step' => 1, // (optional) The increment at which a numeric value can be set.
 ]);
 ```
 
@@ -143,7 +143,7 @@ acf_text([
     'label' => 'Occupation',
     'instructions' => 'Add the employee\'s occupation.',
     'required' => true,
-    'maxlength' => 0, // Limits the number of characters allowed.
+    'maxlength' => 100, // (optional) Limits the number of characters allowed.
 ]);
 ```
 
@@ -157,9 +157,9 @@ acf_textarea([
     'label' => 'Description',
     'instructions' => 'Add the product description.',
     'required' => true,
-    'maxlength' => 0, // Limits the number of characters allowed.
-    'rows' => 8, // The visible number of lines in a text area.
-    'new_lines' => null, // Controls how new lines are rendered: `wpautop`, `br` or `null`.
+    'maxlength' => 100, // (optional) Limits the number of characters allowed.
+    'rows' => 8, // (optional) The visible number of lines in a text area.
+    'new_lines' => null, // (optional) Controls how new lines are rendered: `wpautop`, `br` or `null`.
 ]);
 ```
 
