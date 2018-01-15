@@ -28,7 +28,9 @@ if (!function_exists('acf_add_options_page')) {
 if (!function_exists('get_field')) {
     function get_field($value, $post = null)
     {
-        return $post && $value !== 'option' ? $value : null;
+        if ($post && $value !== 'option') {
+            return $value;
+        }
     }
 }
 
