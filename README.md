@@ -192,7 +192,7 @@ Instead of fetching data with `get_field` and `get_sub_field` you can use the `f
 echo field('title');
 ```
 
-> **Note:** This will not work if two fields in a field group share the same name.
+> **Note:** This will not work if nested fields in a field group share the same name.
 
 #### Option
 
