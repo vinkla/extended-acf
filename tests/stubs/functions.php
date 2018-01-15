@@ -31,6 +31,8 @@ if (!function_exists('get_field')) {
         if ($post && $value !== 'option') {
             return $value;
         }
+
+        return;
     }
 }
 
