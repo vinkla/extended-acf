@@ -175,6 +175,9 @@ class HelpersTest extends TestCase
         $this->assertNull(acf_page([]));
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testField()
     {
         require __DIR__.'/stubs/functions.php';
@@ -183,6 +186,9 @@ class HelpersTest extends TestCase
         $this->assertNull(field('marty'));
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testOption()
     {
         require __DIR__.'/stubs/functions.php';
