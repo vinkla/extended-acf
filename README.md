@@ -12,15 +12,6 @@ If you're working with multiple developers on a WordPress application with custo
 [![Latest Version](https://img.shields.io/github/release/wordplate/acf.svg?style=flat)](https://github.com/wordplate/acf/releases)
 [![License](https://img.shields.io/packagist/l/wordplate/acf.svg?style=flat)](https://packagist.org/packages/wordplate/acf)
 
-#### Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Settings](#settings)
-- [Helpers](#helpers)
-- [Theming](#theming)
-- [Resources](#resources)
-
 ## Installation
 
 Require this package, with [Composer](https://getcomposer.org/), in the root directory of your project.
