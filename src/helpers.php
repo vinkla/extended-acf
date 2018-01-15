@@ -689,10 +689,10 @@ if (!function_exists('field')) {
             return;
         }
 
-        $value = get_field($name, $post);
+        $value = get_sub_field($name);
 
         if (!$value) {
-            $value = get_sub_field($name);
+            $value = get_field($name, $post);
         }
 
         return empty($value) ? null : $value;

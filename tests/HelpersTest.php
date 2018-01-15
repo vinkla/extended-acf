@@ -193,8 +193,9 @@ class HelpersTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testFieldMissingFunction()
+    public function testMissingGetFieldFunction()
     {
-        $this->assertNull(field('title'));
+        $this->assertNull(field('field'));
+        $this->assertNull(option('option'));
     }
 }
