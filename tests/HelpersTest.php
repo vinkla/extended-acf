@@ -174,4 +174,34 @@ class HelpersTest extends TestCase
     {
         $this->assertNull(acf_page([]));
     }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testField()
+    {
+        require __DIR__.'/stubs/functions.php';
+
+        $this->assertSame('marty', field('marty', 11));
+        $this->assertNull(field('marty'));
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testOption()
+    {
+        require __DIR__.'/stubs/functions.php';
+
+        $this->assertSame('marty', option('marty'));
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testMissingGetFieldFunction()
+    {
+        $this->assertNull(field('field'));
+        $this->assertNull(option('option'));
+    }
 }

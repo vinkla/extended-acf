@@ -24,3 +24,19 @@ if (!function_exists('acf_add_options_page')) {
         //
     }
 }
+
+if (!function_exists('get_field')) {
+    function get_field($value, $post = null)
+    {
+        if ($post && $value !== 'option') {
+            return $value;
+        }
+    }
+}
+
+if (!function_exists('get_sub_field')) {
+    function get_sub_field()
+    {
+        //
+    }
+}

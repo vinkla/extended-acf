@@ -673,3 +673,48 @@ if (!function_exists('acf_oembed')) {
         return new Field($settings, ['name']);
     }
 }
+
+if (!function_exists('field')) {
+    /**
+     * Shorthand getter for the fields and sub fields functions.
+     *
+     * @param string $name
+     * @param int|\WP_Post|null $post
+     *
+     * @return mixed
+     */
+    function field(string $name, $post = null)
+    {
+        if (!function_exists('get_field')) {
+            return;
+        }
+
+        $value = get_sub_field($name);
+
+        if (!$value) {
+            $value = get_field($name, $post);
+        }
+
+        return empty($value) ? null : $value;
+    }
+}
+
+if (!function_exists('option')) {
+    /**
+     * Shorthand getter for the field option function.
+     *
+     * @param string $name
+     *
+     * @return mixed
+     */
+    function option(string $name)
+    {
+        if (!function_exists('get_field')) {
+            return;
+        }
+
+        $value = get_field($name, 'option');
+
+        return empty($value) ? null : $value;
+    }
+}

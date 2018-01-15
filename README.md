@@ -180,6 +180,28 @@ acf_page([
 ]);
 ```
 
+## Theming
+
+This package provides two helpers to make theming with custom fields much cleaner.
+
+#### Field
+
+Instead of fetching data with `get_field` and `get_sub_field` you can use the `field` helper function. It works as the `get_field` function except that if checks if the given field name is a sub field first.
+
+```php
+echo field('title');
+```
+
+> **Note:** This will not work if two fields in a field group share the same name.
+
+#### Option
+
+Instead of passing the `option` key to the `get_field` function we can now use the new option function. It will automagically use the `get_field` function with the `option` key.
+
+```php
+echo option('github-url');
+```
+
 ## Resources
 
 Below you'll find a list of articles which can help you getting started and advance your custom fields knowledge.
