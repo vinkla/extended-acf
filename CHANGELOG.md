@@ -1,8 +1,10 @@
 # CHANGELOG
 
-## 5.1.0 (upcoming)
+## 5.1.0 (released 2018-01-16)
 
 - Added options page helper function
+- Added field helper function
+- Added option helper function
 
 ## 5.0.0 (released 2018-01-08)
 
