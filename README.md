@@ -145,6 +145,33 @@ acf_conditional('type', 'image');
 acf_conditional('type', '!==' 'image');
 ```
 
+##### Usage
+
+```php
+acf_select([
+    'name' => 'type',
+    'label' => __('Type', 'janes'),
+    'choices' => [
+        'document' => __('Document', 'janes'),
+        'link' => __('Link to resource', 'janes'),
+    ],
+]),
+acf_file([
+    'name' => 'file',
+    'label' => __('Document', 'janes'),
+    'conditional_logic' => [
+        [acf_conditional('type', 'document')],
+    ],
+]),
+acf_url([
+    'name' => 'url',
+    'label' => __('Link', 'janes'),
+    'conditional_logic' => [
+        [acf_conditional('type', 'link')],
+    ],
+]),
+```
+
 #### Layout
 
 The layout function help you write [flexible content layouts](https://www.advancedcustomfields.com/resources/flexible-content) without knowing the fields `key` value.
