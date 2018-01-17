@@ -150,22 +150,22 @@ acf_conditional('type', '!==' 'image');
 ```php
 acf_select([
     'name' => 'type',
-    'label' => __('Type', 'janes'),
+    'label' => 'Type',
     'choices' => [
-        'document' => __('Document', 'janes'),
-        'link' => __('Link to resource', 'janes'),
+        'document' => 'Document',
+        'link' => 'Link to resource',
     ],
 ]),
 acf_file([
     'name' => 'file',
-    'label' => __('Document', 'janes'),
+    'label' => 'Document',
     'conditional_logic' => [
         [acf_conditional('type', 'document')],
     ],
 ]),
 acf_url([
     'name' => 'url',
-    'label' => __('Link', 'janes'),
+    'label' => 'Link',
     'conditional_logic' => [
         [acf_conditional('type', 'link')],
     ],
