@@ -140,14 +140,6 @@ This package provides helper functions for [conditional logic](#conditional-logi
 The conditional function help you write [conditional logic](#settings) without knowing the fields `key` value.
 
 ```php
-acf_conditional('type', 'image');
-
-acf_conditional('type', '!==' 'image');
-```
-
-##### Usage
-
-```php
 acf_select([
     'name' => 'type',
     'label' => 'Type',
@@ -160,14 +152,18 @@ acf_file([
     'name' => 'file',
     'label' => 'Document',
     'conditional_logic' => [
-        [acf_conditional('type', 'document')],
+        [
+            acf_conditional('type', 'document')
+        ],
     ],
 ]),
 acf_url([
     'name' => 'url',
     'label' => 'Link',
     'conditional_logic' => [
-        [acf_conditional('type', 'link')],
+        [
+            acf_conditional('type', 'link')
+        ],
     ],
 ]),
 ```
