@@ -78,7 +78,7 @@ Name | Description
 `default_value` | The default value if no value has yet been saved.
 `placeholder` | The placeholder appears within input when no value exists.
 
-#### Basic Fields
+### Basic Fields
 
 - `acf_email()` - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
 - `acf_number()` - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
@@ -88,7 +88,7 @@ Name | Description
 - `acf_textarea()` - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
 - `acf_url()` - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
 
-#### Choice Fields
+### Choice Fields
 
 - `acf_button_group()` - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
 - `acf_checkbox()` - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
@@ -96,7 +96,7 @@ Name | Description
 - `acf_select()` - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
 - `acf_true_false()` - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
 
-#### Content Fields
+### Content Fields
 
 - `acf_file()` - The [file field](https://www.advancedcustomfields.com/resources/file) allows a file to be uploaded and selected.
 - `acf_gallery()` - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing
@@ -104,7 +104,7 @@ Name | Description
 - `acf_oembed()` - The [oEmbed field](https://www.advancedcustomfields.com/resources/oembed) allows an easy way to embed videos, images, tweets, audio, and other content.
 - `acf_wysiwyg()` - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
 
-#### jQuery Fields
+### jQuery Fields
 
 - `acf_color_picker()` - The [color picker field](https://www.advancedcustomfields.com/resources/color-picker) allows a color to be selected via a JavaScript popup.
 - `acf_date_picker()` - The [date picker field](https://www.advancedcustomfields.com/resources/date-picker) creates a jQuery date selection popup.
@@ -112,7 +112,7 @@ Name | Description
 - `acf_google_map()` - The [Google Map field](https://www.advancedcustomfields.com/resources/google-map) creates an interactive map with the ability to place a marker.
 - `acf_time_picker()` - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
 
-#### Layout Fields
+### Layout Fields
 
 - `acf_accordion()` - The [accordion field](https://www.advancedcustomfields.com/resources/accordion) is used to organize fields into collapsible panels.
 - `acf_clone()` - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields.
@@ -122,7 +122,7 @@ Name | Description
 - `acf_repeater()` - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
 - `acf_tab()` - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections. 
 
-#### Relational Fields
+### Relational Fields
 
 - `acf_link()` - The [page link field](https://www.advancedcustomfields.com/resources/link) provides a simple way to select or define a link (url, title, target).
 - `acf_page_link()` - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
@@ -135,7 +135,7 @@ Name | Description
 
 This package provides helper functions for [conditional logic](#conditional-logic), [layout](#layout), [location](#location) and [options pages](#options-page) to help you write less code.
 
-#### Conditional Logic
+### Conditional Logic
 
 The conditional function help you write [conditional logic](#settings) without knowing the fields `key` value.
 
@@ -168,7 +168,7 @@ acf_url([
 ]),
 ```
 
-#### Layout
+### Layout
 
 The layout function help you write [flexible content layouts](https://www.advancedcustomfields.com/resources/flexible-content) without knowing the fields `key` value.
 
@@ -180,7 +180,7 @@ acf_layout([
 ]);
 ```
 
-#### Location
+### Location
 
 The location function help you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys.
 
@@ -190,7 +190,7 @@ acf_location('post_type', 'post');
 acf_location('post_type', '!=', 'post');
 ```
 
-#### Options Page
+### Options Page
 
 The options page function is a shorthand to help you register [option pages](https://www.advancedcustomfields.com/resources/options-page). This function also works for sub pages as long as we provide the `parent_slug` setting key. Don't forget to [add a dashing icon](https://developer.wordpress.org/resource/dashicons) to the menu item.
 
@@ -207,7 +207,7 @@ acf_page([
 
 This package provides two helpers to make theming with custom fields much cleaner.
 
-#### Field
+### Field
 
 Instead of fetching data with `get_field` and `get_sub_field` you can use the `field` helper function. It works as the `get_field` function except that if checks if the given field name is a sub field first.
 
@@ -217,7 +217,7 @@ echo field('title');
 
 > **Note:** This will not work if nested fields in a field group share the same name.
 
-#### Option
+### Option
 
 Instead of passing the `option` key to the `get_field` function we can now use the new option function. It will automagically use the `get_field` function with the `option` key.
 
