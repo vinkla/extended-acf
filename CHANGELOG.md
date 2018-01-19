@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.1.1 (released 2018-01-19)
+
+- Fixed conditional logic issue
+
 ## 5.1.0 (released 2018-01-16)
 
 - Added options page helper function

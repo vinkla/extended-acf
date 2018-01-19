@@ -116,7 +116,7 @@ class Field
         $conditionals = [];
 
         foreach ($this->settings['conditional_logic'] as $rules) {
-            $conditional = new Conditional($rules, $this->getKey());
+            $conditional = new Conditional($rules, $this->parentKey);
 
             $conditionals[] = $conditional->toArray();
         }
