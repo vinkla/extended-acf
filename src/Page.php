@@ -31,7 +31,7 @@ class Page
      */
     public function __construct(array $settings)
     {
-        $keys = ['page_title', 'menu_title', 'menu_slug'];
+        $keys = ['page_title', 'menu_slug'];
 
         foreach ($keys as $key) {
             if (!array_key_exists($key, $settings)) {
