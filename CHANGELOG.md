@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.1.2 (released 2018-02-23)
+
+- Remove required page key menu_title
+
 ## 5.1.1 (released 2018-01-19)
 
 - Fixed conditional logic issue
