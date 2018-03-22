@@ -23,6 +23,25 @@ $ composer require wordplate/acf
 
 Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that this package supports ACF version 5.6 or later.
 
+If you want to install ACF with Composer you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file, replace `your-acf-key` with your ACF key and run `composer install`. Composer should now install the plugin to the `plugins` directory.
+
+```json
+"repositories": [
+    {
+        "type": "package",
+        "package": {
+            "name": "wpackagist-plugin/advanced-custom-fields-pro",
+            "type": "wordpress-plugin",
+            "version": "5.6.9",
+            "dist": {
+                "url": "https://connect.advancedcustomfields.com/index.php?v=5.6.9&p=pro&a=download&k=your-acf-key",
+                "type": "zip"
+            }
+        }
+    }
+]
+```
+
 ## Usage
 
 Use the `acf_field_group()` helper function to register a new field group in ACF. It uses the [`acf_add_local_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function behind the scenes. The difference is that it appends the `key` value to all fields. Below you'll find an example of a field group.
