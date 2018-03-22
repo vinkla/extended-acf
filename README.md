@@ -25,7 +25,7 @@ Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/p
 
 #### ACF Pro
 
-If you want to install ACF Pro with Composer you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `your-acf-key` with your [ACF Pro](https://www.advancedcustomfields.com/pro) key and run `composer install`. Composer should now install the plugin to the `plugins` directory.
+If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `your-acf-key` with your ACF Pro key and run `composer install`. Composer should now install the plugin to the `plugins` directory.
 
 ```json
 "repositories": [
