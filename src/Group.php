@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
-use InvalidArgumentException;
-
 /**
  * This is the group class.
  *
@@ -23,6 +21,13 @@ use InvalidArgumentException;
 class Group
 {
     /**
+     * The config array.
+     *
+     * @var \WordPlate\Acf\Config
+     */
+    protected $config;
+
+    /**
      * The group key.
      *
      * @var string
@@ -30,32 +35,15 @@ class Group
     protected $key;
 
     /**
-     * The settings array.
-     *
-     * @var array
-     */
-    protected $settings;
-
-    /**
      * Create a new group instance.
      *
-     * @param array $settings
-     *
-     * @throws \InvalidArgumentException
+     * @param array $config
      *
      * @return void
      */
-    public function __construct(array $settings)
+    public function __construct(array $config)
     {
-        $keys = ['title', 'fields'];
-
-        foreach ($keys as $key) {
-            if (!array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Missing group setting key [$key].");
-            }
-        }
-
-        $this->settings = $settings;
+        $this->config = new Config($config, ['title', 'fields']);
     }
 
     /**
@@ -93,7 +81,7 @@ class Group
     {
         $fields = [];
 
-        foreach ($this->settings['fields'] as $field) {
+        foreach ($this->config->get('fields') as $field) {
             $field->setParentKey($this->getKey());
 
             $fields[] = $field->toArray();
@@ -111,11 +99,11 @@ class Group
     {
         $key = Key::generate('group', $this->getKey());
 
-        $settings = [
+        $config = [
             'key' => $key,
             'fields' => $this->getFields(),
         ];
 
-        return array_merge($this->settings, $settings);
+        return array_merge($this->config->toArray(), $config);
     }
 }

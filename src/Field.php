@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
-use InvalidArgumentException;
-
 /**
  * This is the field class.
  *
@@ -22,6 +20,13 @@ use InvalidArgumentException;
  */
 class Field
 {
+    /**
+     * The config array.
+     *
+     * @var \WordPlate\Acf\Config
+     */
+    protected $config;
+
     /**
      * The field key.
      *
@@ -37,31 +42,18 @@ class Field
     protected $parentKey;
 
     /**
-     * The settings array.
-     *
-     * @var array
-     */
-    protected $settings;
-
-    /**
      * Create a new field instance.
      *
-     * @param array $settings
+     * @param array $config
      * @param array $keys
      *
      * @return void
      */
-    public function __construct(array $settings, array $keys = [])
+    public function __construct(array $config, array $keys = [])
     {
         $keys = array_merge(['label', 'type'], $keys);
 
-        foreach ($keys as $key) {
-            if (!array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Missing field setting key [$key].");
-            }
-        }
-
-        $this->settings = $settings;
+        $this->config = new Config($config, $keys);
     }
 
     /**
@@ -76,9 +68,9 @@ class Field
         }
 
         if (in_array($this->getType(), ['accordion', 'message', 'tab'])) {
-            $key = $this->settings['label'];
+            $key = $this->config->get('label');
         } else {
-            $key = $this->settings['name'];
+            $key = $this->config->get('name');
         }
 
         $key = str_replace('-', '_', sanitize_title($key));
@@ -97,7 +89,7 @@ class Field
      */
     public function getType(): string
     {
-        return $this->settings['type'];
+        return $this->config->get('type');
     }
 
     /**
@@ -121,7 +113,7 @@ class Field
     {
         $conditionals = [];
 
-        foreach ($this->settings['conditional_logic'] as $rules) {
+        foreach ($this->config->get('conditional_logic') as $rules) {
             $conditional = new Conditional($rules, $this->parentKey);
 
             $conditionals[] = $conditional->toArray();
@@ -139,7 +131,7 @@ class Field
     {
         $layouts = [];
 
-        foreach ($this->settings['layouts'] as $layout) {
+        foreach ($this->config->get('layouts') as $layout) {
             $layout->setParentKey($this->getKey());
 
             $layouts[] = $layout->toArray();
@@ -157,7 +149,7 @@ class Field
     {
         $fields = [];
 
-        foreach ($this->settings['sub_fields'] as $field) {
+        foreach ($this->config->get('sub_fields') as $field) {
             $field->setParentKey($this->getKey());
 
             $fields[] = $field->toArray();
@@ -173,22 +165,22 @@ class Field
      */
     public function toArray(): array
     {
-        $settings = [
+        $config = [
             'key' => Key::generate('field', $this->getKey()),
         ];
 
-        if (isset($this->settings['conditional_logic'])) {
-            $settings['conditional_logic'] = $this->getConditionalLogic();
+        if ($this->config->has('conditional_logic')) {
+            $config['conditional_logic'] = $this->getConditionalLogic();
         }
 
-        if (isset($this->settings['layouts']) && is_array($this->settings['layouts'])) {
-            $settings['layouts'] = $this->getLayouts();
+        if ($this->config->has('layouts')) {
+            $config['layouts'] = $this->getLayouts();
         }
 
-        if (isset($this->settings['sub_fields']) && is_array($this->settings['sub_fields'])) {
-            $settings['sub_fields'] = $this->getSubFields();
+        if ($this->config->has('sub_fields')) {
+            $config['sub_fields'] = $this->getSubFields();
         }
 
-        return array_merge($this->settings, $settings);
+        return array_merge($this->config->toArray(), $config);
     }
 }

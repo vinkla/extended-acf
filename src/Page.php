@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
-use InvalidArgumentException;
-
 /**
  * This is the page class.
  *
@@ -23,23 +21,22 @@ use InvalidArgumentException;
 class Page
 {
     /**
+     * The config array.
+     *
+     * @var \WordPlate\Acf\Config
+     */
+    protected $config;
+
+    /**
      * Create a new page instance.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return void
      */
-    public function __construct(array $settings)
+    public function __construct(array $config)
     {
-        $keys = ['page_title', 'menu_slug'];
-
-        foreach ($keys as $key) {
-            if (!array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Missing page setting key [$key].");
-            }
-        }
-
-        $this->settings = $settings;
+        $this->config = new Config($config, ['menu_slug', 'page_title']);
     }
 
     /**
@@ -49,6 +46,6 @@ class Page
      */
     public function toArray(): array
     {
-        return $this->settings;
+        return $this->config->toArray();
     }
 }
