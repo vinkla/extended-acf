@@ -120,7 +120,7 @@ class HelpersTest extends TestCase
     {
         require __DIR__.'/stubs/functions.php';
 
-        $config = require __DIR__.'/stubs/settings.php';
+        $config = require __DIR__.'/stubs/config.php';
 
         $this->assertNull(acf_field_group($config));
     }
