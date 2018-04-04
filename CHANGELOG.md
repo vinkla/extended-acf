@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.1.3 (released 2018-04-04)
+
+- Fixed multiple tabs bug
+
 ## 5.1.2 (released 2018-02-23)
 
 - Remove required page key menu_title

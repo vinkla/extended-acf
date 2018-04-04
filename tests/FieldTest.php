@@ -54,8 +54,8 @@ class FieldTest extends TestCase
 
         $subFields = $field->getSubFields();
 
-        $this->assertCount(2, $subFields);
-        $this->assertSame('text', $subFields[0]['type']);
+        $this->assertCount(4, $subFields);
+        $this->assertSame('text', $subFields[1]['type']);
     }
 
     /**
@@ -93,10 +93,20 @@ class FieldTest extends TestCase
             'name' => 'image',
             'sub_fields' => [
                 [
+                    'label' => 'Tab 1',
+                    'type' => 'tab',
+                    'key' => 'field_4dd4d504',
+                ],
+                [
                     'label' => 'Source',
                     'name' => 'source',
                     'type' => 'text',
                     'key' => 'field_9f70f095',
+                ],
+                [
+                    'label' => 'Tab 2',
+                    'type' => 'tab',
+                    'key' => 'field_50d4d9bd',
                 ],
                 [
                     'label' => 'URL',
@@ -148,7 +158,9 @@ class FieldTest extends TestCase
             'label' => 'Thumbnail',
             'name' => 'image',
             'sub_fields' => [
+                acf_tab(['label' => 'Tab 1']),
                 acf_text(['label' => 'Source', 'name' => 'source']),
+                acf_tab(['label' => 'Tab 2']),
                 acf_url(['label' => 'URL', 'name' => 'url']),
             ],
             'layouts' => [

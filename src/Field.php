@@ -75,9 +75,11 @@ class Field
             return $this->key;
         }
 
-        $name = str_replace('-', '_', sanitize_title($this->settings['name']));
+        $key = $this->settings['name'] ?? $this->settings['label'];
 
-        $key = sprintf('%s_%s', $this->parentKey, $name);
+        $key = str_replace('-', '_', sanitize_title($key));
+
+        $key = sprintf('%s_%s', $this->parentKey, $key);
 
         $this->key = $key;
 
