@@ -20,15 +20,15 @@ if (!function_exists('acf_accordion')) {
     /**
      * Get an acf accordion field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_accordion(array $settings): Field
+    function acf_accordion(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'accordion']);
+        $config = array_merge($config, ['type' => 'accordion']);
 
-        return new Field($settings);
+        return new Field($config);
     }
 }
 
@@ -36,15 +36,15 @@ if (!function_exists('acf_button_group')) {
     /**
      * Get an acf button group field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_button_group(array $settings): Field
+    function acf_button_group(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'button_group']);
+        $config = array_merge($config, ['type' => 'button_group']);
 
-        return new Field($settings, ['choices', 'name']);
+        return new Field($config, ['choices', 'name']);
     }
 }
 
@@ -52,15 +52,15 @@ if (!function_exists('acf_checkbox')) {
     /**
      * Get an acf checkbox field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_checkbox(array $settings): Field
+    function acf_checkbox(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'checkbox']);
+        $config = array_merge($config, ['type' => 'checkbox']);
 
-        return new Field($settings, ['choices', 'name']);
+        return new Field($config, ['choices', 'name']);
     }
 }
 
@@ -68,15 +68,15 @@ if (!function_exists('acf_clone')) {
     /**
      * Get an acf clone content field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_clone(array $settings): Field
+    function acf_clone(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'clone']);
+        $config = array_merge($config, ['type' => 'clone']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -84,15 +84,15 @@ if (!function_exists('acf_color_picker')) {
     /**
      * Get an acf color picker field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_color_picker(array $settings): Field
+    function acf_color_picker(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'color_picker']);
+        $config = array_merge($config, ['type' => 'color_picker']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -121,15 +121,15 @@ if (!function_exists('acf_date_picker')) {
     /**
      * Get an acf date picker field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_date_picker(array $settings): Field
+    function acf_date_picker(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'date_picker']);
+        $config = array_merge($config, ['type' => 'date_picker']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -137,15 +137,15 @@ if (!function_exists('acf_date_time_picker')) {
     /**
      * Get an acf date time picker field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_date_time_picker(array $settings): Field
+    function acf_date_time_picker(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'date_time_picker']);
+        $config = array_merge($config, ['type' => 'date_time_picker']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -153,15 +153,15 @@ if (!function_exists('acf_email')) {
     /**
      * Get an acf email field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_email(array $settings): Field
+    function acf_email(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'email']);
+        $config = array_merge($config, ['type' => 'email']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -169,19 +169,19 @@ if (!function_exists('acf_field_group')) {
     /**
      * Register an acf field group.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return void
      */
-    function acf_field_group(array $settings): void
+    function acf_field_group(array $config): void
     {
         if (!function_exists('acf_add_local_field_group')) {
             return;
         }
 
-        $group = new Group($settings);
+        $group = new Group($config);
 
-        $group->setKey($settings['key'] ?? $settings['title']);
+        $group->setKey($config['key'] ?? $config['title']);
 
         acf_add_local_field_group($group->toArray());
     }
@@ -191,15 +191,15 @@ if (!function_exists('acf_file')) {
     /**
      * Get an acf file field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_file(array $settings): Field
+    function acf_file(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'file']);
+        $config = array_merge($config, ['type' => 'file']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -207,15 +207,15 @@ if (!function_exists('acf_flexible_content')) {
     /**
      * Get an acf flexible content field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_flexible_content(array $settings): Field
+    function acf_flexible_content(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'flexible_content']);
+        $config = array_merge($config, ['type' => 'flexible_content']);
 
-        return new Field($settings, ['layouts', 'name']);
+        return new Field($config, ['layouts', 'name']);
     }
 }
 
@@ -223,15 +223,15 @@ if (!function_exists('acf_gallery')) {
     /**
      * Get an acf gallery field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_gallery(array $settings): Field
+    function acf_gallery(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'gallery']);
+        $config = array_merge($config, ['type' => 'gallery']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -239,15 +239,15 @@ if (!function_exists('acf_google_map')) {
     /**
      * Get an acf google map field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_google_map(array $settings): Field
+    function acf_google_map(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'google_map']);
+        $config = array_merge($config, ['type' => 'google_map']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -255,15 +255,15 @@ if (!function_exists('acf_group')) {
     /**
      * Get an acf group field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_group(array $settings): Field
+    function acf_group(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'group']);
+        $config = array_merge($config, ['type' => 'group']);
 
-        return new Field($settings, ['sub_fields', 'name']);
+        return new Field($config, ['sub_fields', 'name']);
     }
 }
 
@@ -271,15 +271,15 @@ if (!function_exists('acf_number')) {
     /**
      * Get an acf number field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_number(array $settings): Field
+    function acf_number(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'number']);
+        $config = array_merge($config, ['type' => 'number']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -287,15 +287,15 @@ if (!function_exists('acf_image')) {
     /**
      * Get an acf image field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_image(array $settings): Field
+    function acf_image(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'image']);
+        $config = array_merge($config, ['type' => 'image']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -303,13 +303,13 @@ if (!function_exists('acf_layout')) {
     /**
      * Get an acf layout settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Layout
      */
-    function acf_layout(array $settings): Layout
+    function acf_layout(array $config): Layout
     {
-        return new Layout($settings, ['name']);
+        return new Layout($config, ['name']);
     }
 }
 
@@ -317,15 +317,15 @@ if (!function_exists('acf_link')) {
     /**
      * Get an acf link field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_link(array $settings): Field
+    function acf_link(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'link']);
+        $config = array_merge($config, ['type' => 'link']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -354,15 +354,15 @@ if (!function_exists('acf_message')) {
     /**
      * Get an acf message field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_message(array $settings): Field
+    function acf_message(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'message']);
+        $config = array_merge($config, ['type' => 'message']);
 
-        return new Field($settings, ['message']);
+        return new Field($config, ['message']);
     }
 }
 
@@ -370,17 +370,17 @@ if (!function_exists('acf_page')) {
     /**
      * Register an acf options page.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return void
      */
-    function acf_page(array $settings): void
+    function acf_page(array $config): void
     {
         if (!function_exists('acf_add_options_page')) {
             return;
         }
 
-        $page = new Page($settings);
+        $page = new Page($config);
 
         acf_add_options_page($page->toArray());
     }
@@ -390,15 +390,15 @@ if (!function_exists('acf_page_link')) {
     /**
      * Get an acf page_link field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_page_link(array $settings): Field
+    function acf_page_link(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'page_link']);
+        $config = array_merge($config, ['type' => 'page_link']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -406,15 +406,15 @@ if (!function_exists('acf_password')) {
     /**
      * Get an acf password field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_password(array $settings): Field
+    function acf_password(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'password']);
+        $config = array_merge($config, ['type' => 'password']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -422,15 +422,15 @@ if (!function_exists('acf_post_object')) {
     /**
      * Get an acf post_object field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_post_object(array $settings): Field
+    function acf_post_object(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'post_object']);
+        $config = array_merge($config, ['type' => 'post_object']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -438,15 +438,15 @@ if (!function_exists('acf_radio')) {
     /**
      * Get an acf radio field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_radio(array $settings): Field
+    function acf_radio(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'radio']);
+        $config = array_merge($config, ['type' => 'radio']);
 
-        return new Field($settings, ['choices', 'name']);
+        return new Field($config, ['choices', 'name']);
     }
 }
 
@@ -454,15 +454,15 @@ if (!function_exists('acf_range')) {
     /**
      * Get an acf range field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_range(array $settings): Field
+    function acf_range(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'range']);
+        $config = array_merge($config, ['type' => 'range']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -470,15 +470,15 @@ if (!function_exists('acf_relationship')) {
     /**
      * Get an acf relationship field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_relationship(array $settings): Field
+    function acf_relationship(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'relationship']);
+        $config = array_merge($config, ['type' => 'relationship']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -486,15 +486,15 @@ if (!function_exists('acf_repeater')) {
     /**
      * Get an acf repeater field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_repeater(array $settings): Field
+    function acf_repeater(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'repeater']);
+        $config = array_merge($config, ['type' => 'repeater']);
 
-        return new Field($settings, ['sub_fields', 'name']);
+        return new Field($config, ['sub_fields', 'name']);
     }
 }
 
@@ -502,15 +502,15 @@ if (!function_exists('acf_select')) {
     /**
      * Get an acf select field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_select(array $settings): Field
+    function acf_select(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'select']);
+        $config = array_merge($config, ['type' => 'select']);
 
-        return new Field($settings, ['choices', 'name']);
+        return new Field($config, ['choices', 'name']);
     }
 }
 
@@ -518,15 +518,15 @@ if (!function_exists('acf_tab')) {
     /**
      * Get an acf tab field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_tab(array $settings): Field
+    function acf_tab(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'tab']);
+        $config = array_merge($config, ['type' => 'tab']);
 
-        return new Field($settings);
+        return new Field($config);
     }
 }
 
@@ -534,15 +534,15 @@ if (!function_exists('acf_taxonomy')) {
     /**
      * Get an acf taxonomy field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_taxonomy(array $settings): Field
+    function acf_taxonomy(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'taxonomy']);
+        $config = array_merge($config, ['type' => 'taxonomy']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -550,15 +550,15 @@ if (!function_exists('acf_text')) {
     /**
      * Get an acf text field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_text(array $settings): Field
+    function acf_text(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'text']);
+        $config = array_merge($config, ['type' => 'text']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -566,15 +566,15 @@ if (!function_exists('acf_textarea')) {
     /**
      * Get an acf textarea field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_textarea(array $settings): Field
+    function acf_textarea(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'textarea']);
+        $config = array_merge($config, ['type' => 'textarea']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -582,15 +582,15 @@ if (!function_exists('acf_time_picker')) {
     /**
      * Get an acf time picker field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_time_picker(array $settings): Field
+    function acf_time_picker(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'time_picker']);
+        $config = array_merge($config, ['type' => 'time_picker']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -598,15 +598,15 @@ if (!function_exists('acf_true_false')) {
     /**
      * Get an acf true_false field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_true_false(array $settings): Field
+    function acf_true_false(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'true_false']);
+        $config = array_merge($config, ['type' => 'true_false']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -614,15 +614,15 @@ if (!function_exists('acf_url')) {
     /**
      * Get an acf url field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_url(array $settings): Field
+    function acf_url(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'url']);
+        $config = array_merge($config, ['type' => 'url']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -630,15 +630,15 @@ if (!function_exists('acf_user')) {
     /**
      * Get an acf user field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_user(array $settings): Field
+    function acf_user(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'user']);
+        $config = array_merge($config, ['type' => 'user']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -646,15 +646,15 @@ if (!function_exists('acf_wysiwyg')) {
     /**
      * Get an acf wysiwyg field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_wysiwyg(array $settings): Field
+    function acf_wysiwyg(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'wysiwyg']);
+        $config = array_merge($config, ['type' => 'wysiwyg']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
@@ -662,15 +662,15 @@ if (!function_exists('acf_oembed')) {
     /**
      * Get an acf oembed field settings array.
      *
-     * @param array $settings
+     * @param array $config
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_oembed(array $settings): Field
+    function acf_oembed(array $config): Field
     {
-        $settings = array_merge($settings, ['type' => 'oembed']);
+        $config = array_merge($config, ['type' => 'oembed']);
 
-        return new Field($settings, ['name']);
+        return new Field($config, ['name']);
     }
 }
 
