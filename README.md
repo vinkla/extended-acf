@@ -206,7 +206,7 @@ Instead of using [`get_row_layout`](https://www.advancedcustomfields.com/resourc
 
 ```php
 if (is_layout('text')) {
-    //
+    // Load the layout row template view.
 }
 ```
 
