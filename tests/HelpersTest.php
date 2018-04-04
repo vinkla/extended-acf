@@ -151,6 +151,11 @@ class HelpersTest extends TestCase
         $this->assertSame($location, acf_location('page_template', '!=', 'templates/start-page.php'));
     }
 
+    public function testIsLayout()
+    {
+        $this->assertTrue(is_layout('text'));
+    }
+
     /**
      * @runInSeparateProcess
      */
