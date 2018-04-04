@@ -75,7 +75,11 @@ class Field
             return $this->key;
         }
 
-        $key = $this->settings['name'] ?? $this->settings['label'];
+        if (in_array($this->getType(), ['accordion', 'message', 'tab'])) {
+            $key = $this->settings['label'];
+        } else {
+            $key = $this->settings['name'];
+        }
 
         $key = str_replace('-', '_', sanitize_title($key));
 
