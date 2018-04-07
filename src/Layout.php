@@ -63,7 +63,7 @@ class Layout
      */
     public function getKey(): string
     {
-        $name = str_replace('-', '_', sanitize_title($this->config->get('name')));
+        $name = Key::sanitize($this->config->get('name'));
 
         return sprintf('%s_%s', $this->parentKey, $name);
     }

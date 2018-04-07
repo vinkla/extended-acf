@@ -55,11 +55,7 @@ class Group
      */
     public function setKey(string $key): void
     {
-        $key = str_replace('-', '_', sanitize_title($key));
-
-        $key = str_replace('group_', '', $key);
-
-        $this->key = $key;
+        $this->key = str_replace('group_', '', Key::sanitize($key));
     }
 
     /**

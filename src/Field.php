@@ -73,9 +73,7 @@ class Field
             $key = $this->config->get('name');
         }
 
-        $key = str_replace('-', '_', sanitize_title($key));
-
-        $key = sprintf('%s_%s', $this->parentKey, $key);
+        $key = sprintf('%s_%s', $this->parentKey, Key::sanitize($key));
 
         $this->key = $key;
 

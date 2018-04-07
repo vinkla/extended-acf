@@ -58,7 +58,7 @@ class Conditional
         $groups = [];
 
         foreach ($this->groups as $group) {
-            $name = str_replace('-', '_', sanitize_title($group['name']));
+            $name = Key::sanitize($group['name']);
 
             $key = sprintf('%s_%s', $this->parentKey, $name);
 

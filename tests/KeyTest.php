@@ -38,6 +38,11 @@ class KeyTest extends TestCase
         Key::generate('layout', 'block_image');
     }
 
+    public function testSanitize()
+    {
+        $this->assertSame('group_test', Key::sanitize('GROUP-TEST'));
+    }
+
     public function testHash()
     {
         $this->assertSame('b35135fa', Key::hash('image'));
