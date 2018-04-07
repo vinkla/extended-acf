@@ -83,7 +83,7 @@ class GroupTest extends TestCase
     public function testGroupMissingTitleKey()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Missing group setting key [title].');
+        $this->expectExceptionMessage('Missing setting key [title].');
 
         new Group(['key' => 'without_title']);
     }

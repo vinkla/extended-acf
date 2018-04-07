@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
-use InvalidArgumentException;
-
 /**
  * This is the layout class.
  *
@@ -23,11 +21,11 @@ use InvalidArgumentException;
 class Layout
 {
     /**
-     * The settings array.
+     * The config array.
      *
-     * @var array
+     * @var \WordPlate\Acf\Config
      */
-    protected $settings;
+    protected $config;
 
     /**
      * The parent field key.
@@ -39,24 +37,13 @@ class Layout
     /**
      * Create a new layout instance.
      *
-     * @param array $settings
-     * @param string $parentKey
-     *
-     * @throws \InvalidArgumentException
+     * @param array $config
      *
      * @return void
      */
-    public function __construct(array $settings)
+    public function __construct(array $config)
     {
-        $keys = ['label', 'name'];
-
-        foreach ($keys as $key) {
-            if (!array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Missing field setting key [$key].");
-            }
-        }
-
-        $this->settings = $settings;
+        $this->config = new Config($config, ['label', 'name']);
     }
 
     /**
@@ -76,7 +63,7 @@ class Layout
      */
     public function getKey(): string
     {
-        $name = str_replace('-', '_', sanitize_title($this->settings['name']));
+        $name = str_replace('-', '_', sanitize_title($this->config->get('name')));
 
         return sprintf('%s_%s', $this->parentKey, $name);
     }
@@ -90,7 +77,7 @@ class Layout
     {
         $fields = [];
 
-        foreach ($this->settings['sub_fields'] as $field) {
+        foreach ($this->config->get('sub_fields') as $field) {
             $field->setParentKey($this->getKey());
 
             $fields[] = $field->toArray();
@@ -106,14 +93,14 @@ class Layout
      */
     public function toArray(): array
     {
-        $settings = [
+        $config = [
             'key' => Key::generate('layout', $this->getKey()),
         ];
 
-        if (isset($this->settings['sub_fields']) && is_array($this->settings['sub_fields'])) {
-            $settings['sub_fields'] = $this->getSubFields();
+        if ($this->config->has('sub_fields')) {
+            $config['sub_fields'] = $this->getSubFields();
         }
 
-        return array_merge($this->settings, $settings);
+        return array_merge($this->config->toArray(), $config);
     }
 }
