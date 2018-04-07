@@ -50,17 +50,36 @@ class Config
         $this->items = $items;
     }
 
-    public function has($key)
+    /**
+     * Determine if the given configuration value exists.
+     *
+     * @param string $key
+     *
+     * @return bool
+     */
+    public function has(string $key): bool
     {
         return array_key_exists($key, $this->items);
     }
 
-    public function get($key)
+    /**
+     * Get the specified configuration value.
+     *
+     * @param string $key
+     *
+     * @return mixed
+     */
+    public function get(string $key)
     {
         return $this->items[$key];
     }
 
-    public function toArray()
+    /**
+     * Return the config items as array.
+     *
+     * @return array
+     */
+    public function toArray(): array
     {
         return $this->items;
     }
