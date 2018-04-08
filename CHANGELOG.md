@@ -5,6 +5,7 @@
 - Added configuration class
 - Added sanitize key helper method
 - Updated key validation for fields without name
+- Removed unnecessary page class
 
 ## 5.1.3 (released 2018-04-04)
 

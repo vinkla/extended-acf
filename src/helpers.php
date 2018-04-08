@@ -12,9 +12,9 @@
 declare(strict_types=1);
 
 use WordPlate\Acf\Attributes\Layout;
+use WordPlate\Acf\Config\Repository;
 use WordPlate\Acf\Field;
 use WordPlate\Acf\Group;
-use WordPlate\Acf\Page;
 
 if (!function_exists('acf_accordion')) {
     /**
@@ -380,9 +380,9 @@ if (!function_exists('acf_page')) {
             return;
         }
 
-        $page = new Page($config);
+        $config = new Repository($config, ['menu_slug', 'page_title']);
 
-        acf_add_options_page($page->toArray());
+        acf_add_options_page($config->toArray());
     }
 }
 
