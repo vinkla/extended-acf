@@ -699,6 +699,20 @@ if (!function_exists('field')) {
     }
 }
 
+if (!function_exists('is_layout')) {
+    /**
+     * Check whether current row is layout.
+     *
+     * @param string $layout
+     *
+     * @return bool
+     */
+    function is_layout(string $layout): bool
+    {
+        return get_row_layout() === $layout;
+    }
+}
+
 if (!function_exists('option')) {
     /**
      * Shorthand getter for the field option function.

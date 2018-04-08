@@ -202,6 +202,14 @@ acf_layout([
 ]);
 ```
 
+Instead of using [`get_row_layout`](https://www.advancedcustomfields.com/resources/get_row_layout) and compare it against a string you may use the `is_layout` function.
+
+```php
+if (is_layout('text')) {
+    // Load the layout row template view.
+}
+```
+
 ### Location
 
 The location function help you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys.
