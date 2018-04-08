@@ -220,19 +220,6 @@ acf_location('post_type', 'post');
 acf_location('post_type', '!=', 'post');
 ```
 
-### Options Page
-
-The options page function is a shorthand to help you register [option pages](https://www.advancedcustomfields.com/resources/options-page). This function also works for sub pages as long as we provide the `parent_slug` setting key. Don't forget to [add a dashing icon](https://developer.wordpress.org/resource/dashicons) to the menu item.
-
-```php
-acf_page([
-    'page_title' => 'Theme General Settings',
-    'menu_title' => 'Theme Settings',
-    'menu_slug' => 'theme-general-settings',
-    'icon_url' => 'dashicons-analytics',
-]);
-```
-
 ## Theming
 
 This package provides two helpers to make theming with custom fields much cleaner.
