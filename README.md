@@ -186,46 +186,46 @@ acf_url([
 
 ### Choice Fields
 
-- `acf_button_group()` - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
-- `acf_checkbox()` - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
-- `acf_radio()` - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
-- `acf_select()` - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
-- `acf_true_false()` - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
+**Button Group** - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
+**Checkbox** - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
+**Radio** - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
+**Select** - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
+**True False** - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
 
 ### Content Fields
 
-- `acf_file()` - The [file field](https://www.advancedcustomfields.com/resources/file) allows a file to be uploaded and selected.
-- `acf_gallery()` - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing
-- `acf_image()` - The [image field](https://www.advancedcustomfields.com/resources/image) allows an image to be uploaded and selected.
-- `acf_oembed()` - The [oEmbed field](https://www.advancedcustomfields.com/resources/oembed) allows an easy way to embed videos, images, tweets, audio, and other content.
-- `acf_wysiwyg()` - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
+**File** - The [file field](https://www.advancedcustomfields.com/resources/file) allows a file to be uploaded and selected.
+**Gallery** - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing
+**Image** - The [image field](https://www.advancedcustomfields.com/resources/image) allows an image to be uploaded and selected.
+**Oembed** - The [oEmbed field](https://www.advancedcustomfields.com/resources/oembed) allows an easy way to embed videos, images, tweets, audio, and other content.
+**Wysiwyg** - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
 
 ### jQuery Fields
 
-- `acf_color_picker()` - The [color picker field](https://www.advancedcustomfields.com/resources/color-picker) allows a color to be selected via a JavaScript popup.
-- `acf_date_picker()` - The [date picker field](https://www.advancedcustomfields.com/resources/date-picker) creates a jQuery date selection popup.
-- `acf_date_time_picker()` - The [date time picker field](https://www.advancedcustomfields.com/resources/date-time-picker) creates a jQuery date & time selection popup.
-- `acf_google_map()` - The [Google Map field](https://www.advancedcustomfields.com/resources/google-map) creates an interactive map with the ability to place a marker.
-- `acf_time_picker()` - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
+**Color Picker** - The [color picker field](https://www.advancedcustomfields.com/resources/color-picker) allows a color to be selected via a JavaScript popup.
+**Date Picker** - The [date picker field](https://www.advancedcustomfields.com/resources/date-picker) creates a jQuery date selection popup.
+**Date Time Picker** - The [date time picker field](https://www.advancedcustomfields.com/resources/date-time-picker) creates a jQuery date & time selection popup.
+**Google Map** - The [Google Map field](https://www.advancedcustomfields.com/resources/google-map) creates an interactive map with the ability to place a marker.
+**Time Picker** - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
 
 ### Layout Fields
 
-- `acf_accordion()` - The [accordion field](https://www.advancedcustomfields.com/resources/accordion) is used to organize fields into collapsible panels.
-- `acf_clone()` - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields.
-- `acf_flexible_content()` - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
-- `acf_group()` - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.
-- `acf_message()` - The message fields allows you to display a text message.
-- `acf_repeater()` - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
-- `acf_tab()` - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections. 
+**Accordion** - The [accordion field](https://www.advancedcustomfields.com/resources/accordion) is used to organize fields into collapsible panels.
+**Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields.
+**Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
+**Group** - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.
+**Message** - The message fields allows you to display a text message.
+**Repeater** - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
+**Tab** - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections.
 
 ### Relational Fields
 
-- `acf_link()` - The [page link field](https://www.advancedcustomfields.com/resources/link) provides a simple way to select or define a link (url, title, target).
-- `acf_page_link()` - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
-- `acf_post_object()` - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types. 
-- `acf_relationship()` - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field. 
-- `acf_taxonomy()` - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms. 
-- `acf_user()` - The user field creates a select field for all your users. 
+**Link** - The [page link field](https://www.advancedcustomfields.com/resources/link) provides a simple way to select or define a link (url, title, target).
+**Page Link** - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
+**Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.
+**Relationship** - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field.
+**Taxonomy** - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms.
+**User** - The user field creates a select field for all your users.
 
 ## Helpers
 
