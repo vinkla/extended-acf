@@ -49,15 +49,15 @@ class Field
      * Create a new field instance.
      *
      * @param array $config
-     * @param array $keys
+     * @param array $required
      *
      * @return void
      */
-    public function __construct(array $config, array $keys = [])
+    public function __construct(array $config, array $required = [])
     {
-        $keys = array_merge(['label', 'type'], $keys);
+        $required = array_merge(['label', 'type'], $required);
 
-        $this->config = new Repository($config, $keys);
+        $this->config = new Repository($config, $required);
     }
 
     /**

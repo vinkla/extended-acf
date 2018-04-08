@@ -33,15 +33,15 @@ class Repository
      * Create a new config repository instance.
      *
      * @param array $items
-     * @param array $keys
+     * @param array $required
      *
      * @throws \InvalidArgumentException
      *
      * @return void
      */
-    public function __construct(array $items, array $keys = [])
+    public function __construct(array $items, array $required = [])
     {
-        foreach ($keys as $key) {
+        foreach ($required as $key) {
             if (!array_key_exists($key, $items)) {
                 throw new InvalidArgumentException("Missing setting key [$key].");
             }
