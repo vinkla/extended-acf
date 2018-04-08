@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Tests\Acf;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Field;
 
@@ -69,27 +70,24 @@ class HelpersTest extends TestCase
         $this->assertFieldType('wysiwyg', acf_wysiwyg($config));
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testMissingSubFieldsKey()
     {
+        $this->expectException(InvalidArgumentException::class);
+
         acf_repeater(['name' => 'test', 'label' => 'test']);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testMissingNameKey()
     {
+        $this->expectException(InvalidArgumentException::class);
+
         acf_text(['label']);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testMissingLabelKey()
     {
+        $this->expectException(InvalidArgumentException::class);
+
         acf_text(['name']);
     }
 
