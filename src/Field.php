@@ -85,16 +85,6 @@ class Field
     }
 
     /**
-     * Get the field type.
-     *
-     * @return string
-     */
-    public function getType(): string
-    {
-        return $this->config->get('type');
-    }
-
-    /**
      * Set the field parent key.
      *
      * @param string $parentKey
@@ -104,6 +94,16 @@ class Field
     public function setParentKey(string $parentKey): void
     {
         $this->parentKey = $parentKey;
+    }
+
+    /**
+     * Get the field type.
+     *
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->config->get('type');
     }
 
     /**

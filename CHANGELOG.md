@@ -4,6 +4,7 @@
 
 - Added configuration repository class
 - Added sanitize key helper method
+- Updated group key prefix sanitize
 - Updated key validation for fields without name
 - Updated project structure
 - Removed unnecessary page class

@@ -58,7 +58,7 @@ class Group
      */
     public function setKey(string $key): void
     {
-        $this->key = str_replace('group_', '', Key::sanitize($key));
+        $this->key = Key::sanitize($key);
     }
 
     /**
