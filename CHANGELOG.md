@@ -2,9 +2,10 @@
 
 ## 6.0.0 (upcoming)
 
-- Added configuration class
+- Added configuration repository class
 - Added sanitize key helper method
 - Updated key validation for fields without name
+- Updated project structure
 - Removed unnecessary page class
 
 ## 5.1.3 (released 2018-04-04)
