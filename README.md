@@ -102,42 +102,42 @@ Name | Description
 
 ### Basic Fields
 
-- **Email** - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
+**Email** - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
 
-    ```php
-    acf_email([
-        'name' => 'email',
-        'label' => 'Email',
-        'instructions' => 'Add the employees email address.',
-        'required' => true,
-    ]);
+```php
+acf_email([
+    'name' => 'email',
+    'label' => 'Email',
+    'instructions' => 'Add the employees email address.',
+    'required' => true,
+]);
+```
+
+**Number** - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
+
+```php
+acf_number([
+    'name' => 'age',
+    'label' => 'Age',
+    'instructions' => 'Add the employees age.',
+    'required' => true,
+    'min' => 18,
+    'max' => 65,
+]);
     ```
 
-- **Number** - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
+**Password** - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
 
-    ```php
-    acf_number([
-        'name' => 'age',
-        'label' => 'Age',
-        'instructions' => 'Add the employees age.',
-        'required' => true,
-        'min' => 18,
-        'max' => 65,
-    ]);
-    ```
+```php
+acf_password([
+    'name' => 'password',
+    'label' => 'Password',
+    'instructions' => 'Add the employees secret pwned password.',
+    'required' => true,
+]);
+```
 
-- **Password** - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
-
-    ```php
-    acf_password([
-        'name' => 'password',
-        'label' => 'Password',
-        'instructions' => 'Add the employees secret pwned password.',
-        'required' => true,
-    ]);
-    ```
-
-- **Range** - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
+**Range** - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
 
     ```php
     acf_range([
@@ -150,41 +150,39 @@ Name | Description
     ]);
     ```
 
-- **Text** - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
+**Text** - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
 
+```php
+acf_text([
+    'name' => 'name',
+    'label' => 'Name',
+    'instructions' => 'Add the employees name.',
+    'required' => true,
+]);
+```
 
-    ```php
-    acf_text([
-        'name' => 'name',
-        'label' => 'Name',
-        'instructions' => 'Add the employees name.',
-        'required' => true,
-    ]);
-    ```
+**Textarea** - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
 
-- **Textarea** - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
+```php
+acf_textarea([
+    'name' => 'biography',
+    'label' => 'Biography',
+    'instructions' => 'Add the employees biography.',
+    'required' => true,
+    'rows' => 3,
+]);
+```
 
+**URL** - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
 
-    ```php
-    acf_textarea([
-        'name' => 'biography',
-        'label' => 'Biography',
-        'instructions' => 'Add the employees biography.',
-        'required' => true,
-        'rows' => 3,
-    ]);
-    ```
-
-- **URL** - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
-
-    ```php
-    acf_url([
-        'name' => 'website',
-        'label' => 'Website',
-        'instructions' => 'Add the employees website link.',
-        'required' => true,
-    ]);
-    ```
+```php
+acf_url([
+    'name' => 'website',
+    'label' => 'Website',
+    'instructions' => 'Add the employees website link.',
+    'required' => true,
+]);
+```
 
 ### Choice Fields
 
