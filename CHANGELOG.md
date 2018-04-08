@@ -3,6 +3,7 @@
 ## 6.0.0 (upcoming)
 
 - Added configuration repository class
+- Added is layout helper function
 - Added sanitize key helper method
 - Updated group key prefix sanitize
 - Updated key validation for fields without name
