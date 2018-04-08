@@ -24,18 +24,18 @@ use WordPlate\Acf\Field;
 class Layout extends Field
 {
     /**
-     * The config repository.
-     *
-     * @var \WordPlate\Acf\Config\Repository
-     */
-    protected $config;
-
-    /**
      * The parent field key.
      *
      * @var string
      */
     protected $parentKey;
+
+    /**
+     * The config repository.
+     *
+     * @var \WordPlate\Acf\Config\Repository
+     */
+    protected $config;
 
     /**
      * Create a new layout instance.

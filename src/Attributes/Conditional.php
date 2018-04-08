@@ -58,9 +58,9 @@ class Conditional
         $groups = [];
 
         foreach ($this->groups as $group) {
-            $name = Key::sanitize($group['name']);
+            $key = Key::sanitize($group['name']);
 
-            $key = sprintf('%s_%s', $this->parentKey, $name);
+            $key = sprintf('%s_%s', $this->parentKey, $key);
 
             $group = [
                 'field' => sprintf('field_%s', Key::hash($key)),

@@ -53,18 +53,6 @@ class Key
     }
 
     /**
-     * Sanitize key and convert to snake case.
-     *
-     * @param string $key
-     *
-     * @return string
-     */
-    public static function sanitize(string $key): string
-    {
-        return str_replace('-', '_', sanitize_title($key));
-    }
-
-    /**
      * Hash a given string using the FNV-1a algorithm.
      *
      * @see https://softwareengineering.stackexchange.com/a/145633
@@ -76,5 +64,17 @@ class Key
     public static function hash(string $key): string
     {
         return hash('fnv1a32', $key);
+    }
+
+    /**
+     * Sanitize key and convert to snake case.
+     *
+     * @param string $key
+     *
+     * @return string
+     */
+    public static function sanitize(string $key): string
+    {
+        return str_replace('-', '_', sanitize_title($key));
     }
 }

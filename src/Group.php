@@ -24,18 +24,18 @@ use WordPlate\Acf\Config\Repository;
 class Group
 {
     /**
-     * The config repository.
-     *
-     * @var \WordPlate\Acf\Config\Repository
-     */
-    protected $config;
-
-    /**
      * The group key.
      *
      * @var string
      */
     protected $key;
+
+    /**
+     * The config repository.
+     *
+     * @var \WordPlate\Acf\Config\Repository
+     */
+    protected $config;
 
     /**
      * Create a new group instance.

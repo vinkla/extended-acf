@@ -25,13 +25,6 @@ use WordPlate\Acf\Config\Repository;
 class Field
 {
     /**
-     * The config repository.
-     *
-     * @var \WordPlate\Acf\Config\Repository
-     */
-    protected $config;
-
-    /**
      * The field key.
      *
      * @var string
@@ -44,6 +37,13 @@ class Field
      * @var string
      */
     protected $parentKey;
+
+    /**
+     * The config repository.
+     *
+     * @var \WordPlate\Acf\Config\Repository
+     */
+    protected $config;
 
     /**
      * Create a new field instance.
