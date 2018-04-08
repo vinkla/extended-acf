@@ -14,16 +14,15 @@ declare(strict_types=1);
 namespace WordPlate\Acf\Attributes;
 
 use WordPlate\Acf\Config\Repository;
+use WordPlate\Acf\Field;
 
 /**
  * This is the layout class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Layout
+class Layout extends Field
 {
-    use SubFieldsTrait;
-
     /**
      * The config repository.
      *
@@ -48,16 +47,6 @@ class Layout
     public function __construct(array $config)
     {
         $this->config = new Repository($config, ['label', 'name']);
-    }
-
-    /**
-     * Set the field parent key.
-     *
-     * @return void
-     */
-    public function setParentKey(string $parentKey): void
-    {
-        $this->parentKey = $parentKey;
     }
 
     /**
