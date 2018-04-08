@@ -190,22 +190,121 @@ acf_url([
 **Checkbox** - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
 **Radio** - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
 **Select** - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
+
+```php
+acf_select([
+    'name' => 'color',
+    'label' => 'Color',
+    'instructions' => 'Select the background color.',
+    'required' => true,
+    'choices' => [
+        'cyan' => 'Cyan',
+        'hotpink' => 'Hotpink',
+    ],
+    'default_value' => [
+        'cyan',
+    ],
+]);
+```
+
 **True False** - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
+
+```php
+acf_true_false([
+    'name' => 'display-social-media',
+    'label' => 'Social Media',
+    'instructions' => 'Select whether to display social media links or not.',
+    'default_value' => false,
+    'ui' => true,
+]);
+```
 
 ### Content Fields
 
 **File** - The [file field](https://www.advancedcustomfields.com/resources/file) allows a file to be uploaded and selected.
+
+```php
+acf_file([
+    'name' => 'menu',
+    'label' => 'Menu',
+    'instructions' => 'Add the menu <strong>pdf</strong> file.',
+    'required' => true,
+    'library' => 'all',
+    'mime_types' => 'pdf',
+    'return_format' => 'array',
+]);
+```
+
 **Gallery** - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing
 **Image** - The [image field](https://www.advancedcustomfields.com/resources/image) allows an image to be uploaded and selected.
+
+```php
+acf_image([
+    'name' => 'background-image',
+    'label' => 'Background Image',
+    'instructions' => 'Add an image in at least 12000x100px and only in the formats <strong>jpg</strong>, <strong>jpeg</strong> or <strong>png</strong>.',
+    'library' => 'all',
+    'mime_types' => 'jpeg, jpg, png',
+    'min_height' => 1000,
+    'min_width' => 1200,
+    'preview_size' => 'medium',
+    'return_format' => 'array',
+]);
+```
+
 **Oembed** - The [oEmbed field](https://www.advancedcustomfields.com/resources/oembed) allows an easy way to embed videos, images, tweets, audio, and other content.
-**Wysiwyg** - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
+**WYSIWYG** - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
+
+```php
+acf_wysiwyg([
+    'name' => 'content',
+    'label' => 'Content',
+    'instructions' => 'Add the text content.',
+    'required' => true,
+    'media_upload' => false,
+    'tabs' => 'visual',
+    'toolbar' => 'simple',
+]);
+```
 
 ### jQuery Fields
 
 **Color Picker** - The [color picker field](https://www.advancedcustomfields.com/resources/color-picker) allows a color to be selected via a JavaScript popup.
+
+```php
+acf_color_picker([
+    'name' => 'text-color',
+    'label' => 'Text Color',
+    'instructions' => 'Add the text color.',
+    'default_value' => '#4a9cff',
+]);
+```
+
 **Date Picker** - The [date picker field](https://www.advancedcustomfields.com/resources/date-picker) creates a jQuery date selection popup.
 **Date Time Picker** - The [date time picker field](https://www.advancedcustomfields.com/resources/date-time-picker) creates a jQuery date & time selection popup.
+
+```php
+acf_time_picker([
+    'name' => 'start_time',
+    'label' => 'Start Time',
+    'instructions' => 'Add the start time.',
+    'required' => true,
+    'display_format' => 'H:i',
+    'return_format' => 'H:i',
+]);
+```
+
 **Google Map** - The [Google Map field](https://www.advancedcustomfields.com/resources/google-map) creates an interactive map with the ability to place a marker.
+
+```php
+acf_google_map([
+    'name' => 'address',
+    'label' => 'Address',
+    'instructions' => 'Add the Google Map address.',
+    'required' => true,
+]);
+```
+
 **Time Picker** - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
 
 ### Layout Fields
@@ -216,6 +315,25 @@ acf_url([
 **Group** - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.
 **Message** - The message fields allows you to display a text message.
 **Repeater** - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
+
+```php
+acf_repeater([
+    'name' => 'employees',
+    'label' => 'Employees',
+    'instructions' => 'Add the employees.',
+    'required' => true,
+    'min' => 2,
+    'layout' => 'block', // block, row or table
+    'sub_fields' => [
+        acf_text([
+            'name' => 'name',
+            'label' => 'Name',
+            'instructions' => 'Add the employee name.',
+        ]),
+    ],
+]);
+```
+
 **Tab** - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections.
 
 ### Relational Fields
@@ -224,6 +342,18 @@ acf_url([
 **Page Link** - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
 **Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.
 **Relationship** - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field.
+
+```php
+acf_relationship([
+    'name' => 'contacts',
+    'label' => 'Contacts',
+    'instructions' => 'Add the contacts.',
+    'post_type' => ['contact'],
+    'required' => true,
+    'filters' => '', // Ugly hack to hide filters and search.
+]);
+```
+
 **Taxonomy** - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms.
 **User** - The user field creates a select field for all your users.
 
