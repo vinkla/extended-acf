@@ -159,28 +159,6 @@ class HelpersTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testPage()
-    {
-        require __DIR__.'/stubs/functions.php';
-
-        $this->assertNull(acf_page([
-            'page_title' => 'Theme General Settings',
-            'menu_title' => 'Theme Settings',
-            'menu_slug' => 'theme-general-settings',
-        ]));
-    }
-
-    /**
-     * @runInSeparateProcess
-     */
-    public function testPageMissingFunction()
-    {
-        $this->assertNull(acf_page([]));
-    }
-
-    /**
-     * @runInSeparateProcess
-     */
     public function testField()
     {
         require __DIR__.'/stubs/functions.php';

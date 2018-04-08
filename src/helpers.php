@@ -12,7 +12,6 @@
 declare(strict_types=1);
 
 use WordPlate\Acf\Attributes\Layout;
-use WordPlate\Acf\Config\Repository;
 use WordPlate\Acf\Field;
 use WordPlate\Acf\Group;
 
@@ -363,26 +362,6 @@ if (!function_exists('acf_message')) {
         $config = array_merge($config, ['type' => 'message']);
 
         return new Field($config, ['message']);
-    }
-}
-
-if (!function_exists('acf_page')) {
-    /**
-     * Register an acf options page.
-     *
-     * @param array $config
-     *
-     * @return void
-     */
-    function acf_page(array $config): void
-    {
-        if (!function_exists('acf_add_options_page')) {
-            return;
-        }
-
-        $config = new Repository($config, ['menu_slug', 'page_title']);
-
-        acf_add_options_page($config->toArray());
     }
 }
 
