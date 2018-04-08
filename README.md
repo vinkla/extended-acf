@@ -102,7 +102,7 @@ Name | Description
 
 ### Basic Fields
 
-- `acf_email()` - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
+- **Email** - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
 
     ```php
     acf_email([
@@ -110,15 +110,81 @@ Name | Description
         'label' => 'Email',
         'instructions' => 'Add the employees email address.',
         'required' => true,
-    ])
+    ]);
     ```
 
-- `acf_number()` - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
-- `acf_password()` - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
-- `acf_range()` - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
-- `acf_text()` - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
-- `acf_textarea()` - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
-- `acf_url()` - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
+- **Number** - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
+
+    ```php
+    acf_number([
+        'name' => 'age',
+        'label' => 'Age',
+        'instructions' => 'Add the employees age.',
+        'required' => true,
+        'min' => 18,
+        'max' => 65,
+    ]);
+    ```
+
+- **Password** - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
+
+    ```php
+    acf_password([
+        'name' => 'password',
+        'label' => 'Password',
+        'instructions' => 'Add the employees secret pwned password.',
+        'required' => true,
+    ]);
+    ```
+
+- **Range** - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
+
+    ```php
+    acf_range([
+        'name' => 'rate',
+        'label' => 'Rate',
+        'instructions' => 'Add the employees completion rate.',
+        'required' => true,
+        'min' => 0,
+        'max' => 100,
+    ]);
+    ```
+
+- **Text** - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
+
+
+    ```php
+    acf_text([
+        'name' => 'name',
+        'label' => 'Name',
+        'instructions' => 'Add the employees name.',
+        'required' => true,
+    ]);
+    ```
+
+- **Textarea** - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
+
+
+    ```php
+    acf_textarea([
+        'name' => 'biography',
+        'label' => 'Biography',
+        'instructions' => 'Add the employees biography.',
+        'required' => true,
+        'rows' => 3,
+    ]);
+    ```
+
+- **URL** - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
+
+    ```php
+    acf_url([
+        'name' => 'website',
+        'label' => 'Website',
+        'instructions' => 'Add the employees website link.',
+        'required' => true,
+    ]);
+    ```
 
 ### Choice Fields
 
