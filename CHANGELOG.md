@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 5.2.0 (upcoming)
+## 6.0.0 (upcoming)
 
 - Added configuration class
 - Added sanitize key helper method
