@@ -124,7 +124,7 @@ acf_number([
     'min' => 18,
     'max' => 65,
 ]);
-    ```
+```
 
 **Password** - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
 
@@ -139,16 +139,16 @@ acf_password([
 
 **Range** - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
 
-    ```php
-    acf_range([
-        'name' => 'rate',
-        'label' => 'Rate',
-        'instructions' => 'Add the employees completion rate.',
-        'required' => true,
-        'min' => 0,
-        'max' => 100,
-    ]);
-    ```
+```php
+acf_range([
+    'name' => 'rate',
+    'label' => 'Rate',
+    'instructions' => 'Add the employees completion rate.',
+    'required' => true,
+    'min' => 0,
+    'max' => 100,
+]);
+```
 
 **Text** - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
 
