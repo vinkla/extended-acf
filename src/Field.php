@@ -15,6 +15,7 @@ namespace WordPlate\Acf;
 
 use WordPlate\Acf\Attributes\Conditional;
 use WordPlate\Acf\Attributes\Key;
+use WordPlate\Acf\Attributes\SubFieldsTrait;
 use WordPlate\Acf\Config\Repository;
 
 /**
@@ -24,6 +25,8 @@ use WordPlate\Acf\Config\Repository;
  */
 class Field
 {
+    use SubFieldsTrait;
+
     /**
      * The config repository.
      *
@@ -140,24 +143,6 @@ class Field
         }
 
         return $layouts;
-    }
-
-    /**
-     * Get the sub fields.
-     *
-     * @return array
-     */
-    public function getSubFields(): array
-    {
-        $fields = [];
-
-        foreach ($this->config->get('sub_fields') as $field) {
-            $field->setParentKey($this->getKey());
-
-            $fields[] = $field->toArray();
-        }
-
-        return $fields;
     }
 
     /**

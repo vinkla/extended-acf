@@ -22,6 +22,8 @@ use WordPlate\Acf\Config\Repository;
  */
 class Layout
 {
+    use SubFieldsTrait;
+
     /**
      * The config repository.
      *
@@ -68,24 +70,6 @@ class Layout
         $name = Key::sanitize($this->config->get('name'));
 
         return sprintf('%s_%s', $this->parentKey, $name);
-    }
-
-    /**
-     * Get the sub fields.
-     *
-     * @return array
-     */
-    public function getSubFields(): array
-    {
-        $fields = [];
-
-        foreach ($this->config->get('sub_fields') as $field) {
-            $field->setParentKey($this->getKey());
-
-            $fields[] = $field->toArray();
-        }
-
-        return $fields;
     }
 
     /**
