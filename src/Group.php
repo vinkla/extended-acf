@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
+use WordPlate\Acf\Config\Repository;
+
 /**
  * This is the group class.
  *
@@ -21,9 +23,9 @@ namespace WordPlate\Acf;
 class Group
 {
     /**
-     * The config array.
+     * The config repository.
      *
-     * @var \WordPlate\Acf\Config
+     * @var \WordPlate\Acf\Config\Repository
      */
     protected $config;
 
@@ -43,7 +45,7 @@ class Group
      */
     public function __construct(array $config)
     {
-        $this->config = new Config($config, ['title', 'fields']);
+        $this->config = new Repository($config, ['title', 'fields']);
     }
 
     /**

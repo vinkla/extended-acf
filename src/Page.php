@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
+use WordPlate\Acf\Config\Repository;
+
 /**
  * This is the page class.
  *
@@ -21,9 +23,9 @@ namespace WordPlate\Acf;
 class Page
 {
     /**
-     * The config array.
+     * The config repository.
      *
-     * @var \WordPlate\Acf\Config
+     * @var \WordPlate\Acf\Config\Repository
      */
     protected $config;
 
@@ -36,7 +38,7 @@ class Page
      */
     public function __construct(array $config)
     {
-        $this->config = new Config($config, ['menu_slug', 'page_title']);
+        $this->config = new Repository($config, ['menu_slug', 'page_title']);
     }
 
     /**

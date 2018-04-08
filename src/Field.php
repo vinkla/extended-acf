@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
+use WordPlate\Acf\Config\Repository;
+
 /**
  * This is the field class.
  *
@@ -21,9 +23,9 @@ namespace WordPlate\Acf;
 class Field
 {
     /**
-     * The config array.
+     * The config repository.
      *
-     * @var \WordPlate\Acf\Config
+     * @var \WordPlate\Acf\Config\Repository
      */
     protected $config;
 
@@ -53,7 +55,7 @@ class Field
     {
         $keys = array_merge(['label', 'type'], $keys);
 
-        $this->config = new Config($config, $keys);
+        $this->config = new Repository($config, $keys);
     }
 
     /**

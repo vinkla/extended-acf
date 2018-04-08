@@ -11,16 +11,16 @@
 
 declare(strict_types=1);
 
-namespace WordPlate\Acf;
+namespace WordPlate\Acf\Config;
 
 use InvalidArgumentException;
 
 /**
- * This is the settings class.
+ * This is the config repository class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Config
+class Repository
 {
     /**
      * The items array.
@@ -30,7 +30,7 @@ class Config
     protected $items;
 
     /**
-     * Create a new config instance.
+     * Create a new config repository instance.
      *
      * @param array $items
      * @param array $keys

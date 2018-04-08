@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
+use WordPlate\Acf\Config\Repository;
+
 /**
  * This is the layout class.
  *
@@ -21,9 +23,9 @@ namespace WordPlate\Acf;
 class Layout
 {
     /**
-     * The config array.
+     * The config repository.
      *
-     * @var \WordPlate\Acf\Config
+     * @var \WordPlate\Acf\Config\Repository
      */
     protected $config;
 
@@ -43,7 +45,7 @@ class Layout
      */
     public function __construct(array $config)
     {
-        $this->config = new Config($config, ['label', 'name']);
+        $this->config = new Repository($config, ['label', 'name']);
     }
 
     /**
