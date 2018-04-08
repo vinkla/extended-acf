@@ -11,9 +11,9 @@
 
 declare(strict_types=1);
 
+use WordPlate\Acf\Attributes\Layout;
 use WordPlate\Acf\Field;
 use WordPlate\Acf\Group;
-use WordPlate\Acf\Layout;
 use WordPlate\Acf\Page;
 
 if (!function_exists('acf_accordion')) {

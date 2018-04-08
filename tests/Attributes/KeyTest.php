@@ -11,11 +11,11 @@
 
 declare(strict_types=1);
 
-namespace WordPlate\Tests\Acf;
+namespace WordPlate\Tests\Acf\Attributes;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use WordPlate\Acf\Key;
+use WordPlate\Acf\Attributes\Key;
 
 /**
  * This is the key test class.

@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace WordPlate\Acf;
+namespace WordPlate\Acf\Attributes;
 
 use InvalidArgumentException;
 

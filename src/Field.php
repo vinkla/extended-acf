@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
+use WordPlate\Acf\Attributes\Conditional;
+use WordPlate\Acf\Attributes\Key;
 use WordPlate\Acf\Config\Repository;
 
 /**
