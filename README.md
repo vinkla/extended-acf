@@ -103,6 +103,16 @@ Name | Description
 ### Basic Fields
 
 - `acf_email()` - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
+
+    ```php
+    acf_email([
+        'name' => 'email',
+        'label' => 'Email',
+        'instructions' => 'Add the employees email address.',
+        'required' => true,
+    ])
+    ```
+
 - `acf_number()` - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
 - `acf_password()` - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
 - `acf_range()` - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
