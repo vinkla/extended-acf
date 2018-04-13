@@ -35,17 +35,13 @@ class Key
      * @param string $prefix
      * @param string $key
      *
-     * @throws \InvalidArgumentException
-     *
      * @return string
      */
     public static function generate(string $prefix, string $key): string
     {
         $key = sprintf('%s_%s', $prefix, static::hash($key));
 
-        if (in_array($key, self::$keys)) {
-            throw new InvalidArgumentException("The key [$key] is not unique.");
-        }
+        static::validate($key);
 
         static::$keys[] = $key;
 
@@ -76,5 +72,21 @@ class Key
     public static function sanitize(string $key): string
     {
         return str_replace('-', '_', sanitize_title($key));
+    }
+
+    /**
+     * Validate a given key's uniqness.
+     *
+     * @param string $key
+     *
+     * @throws \InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function validate(string $key): void
+    {
+        if (in_array($key, self::$keys)) {
+            throw new InvalidArgumentException("The key [$key] is not unique.");
+        }
     }
 }
