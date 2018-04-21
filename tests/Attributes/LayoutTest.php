@@ -30,7 +30,7 @@ class LayoutTest extends TestCase
         $this->assertSame('group_block', $layout->getKey());
     }
 
-    public function testToArary()
+    public function testToArray()
     {
         $layout = $this->getLayout();
 
