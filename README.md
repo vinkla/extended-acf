@@ -351,6 +351,8 @@ acf_relationship([
     'post_type' => ['contact'],
     'required' => true,
     'filters' => '', // Ugly hack to hide filters and search.
+    'max' => 6,
+    'min' => 3,
 ]);
 ```
 
