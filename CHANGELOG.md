@@ -2,8 +2,8 @@
 
 ## 6.0.0 (upcoming)
 
-- Added custom key support
 - Added configuration repository class
+- Added custom key support
 - Added is layout helper function
 - Added sanitize key helper method
 - Added validate key helper method
