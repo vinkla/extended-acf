@@ -30,7 +30,7 @@ class Key
     protected static $keys = [];
 
     /**
-     * Generate a new field or group key.
+     * Generate a new field, group or layout key.
      *
      * @param string $prefix
      * @param string $key
