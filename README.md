@@ -408,11 +408,11 @@ acf_time_picker([
 
 ### Layout Fields
 
-**Accordion** - The [accordion field](https://www.advancedcustomfields.com/resources/accordion) is used to organize fields into collapsible panels.
-**Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields.
-**Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
+**Accordion** - The [accordion field](https://www.advancedcustomfields.com/resources/accordion) is used to organize fields into collapsible panels.  
+**Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields.  
+**Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.  
 **Group** - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.
-**Message** - The message fields allows you to display a text message.
+**Message** - The message fields allows you to display a text message.  
 **Repeater** - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
 
 ```php
@@ -437,9 +437,9 @@ acf_repeater([
 
 ### Relational Fields
 
-**Link** - The [page link field](https://www.advancedcustomfields.com/resources/link) provides a simple way to select or define a link (url, title, target).
-**Page Link** - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
-**Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.
+**Link** - The [page link field](https://www.advancedcustomfields.com/resources/link) provides a simple way to select or define a link (url, title, target).  
+**Page Link** - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.  
+**Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.  
 **Relationship** - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field.
 
 ```php
@@ -455,7 +455,7 @@ acf_relationship([
 ]);
 ```
 
-**Taxonomy** - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms.
+**Taxonomy** - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms.  
 **User** - The user field creates a select field for all your users.
 
 ## Helpers
