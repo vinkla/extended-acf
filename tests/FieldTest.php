@@ -152,6 +152,22 @@ class FieldTest extends TestCase
         ], $field->toArray());
     }
 
+    public function testCustomKey()
+    {
+        $field = acf_password([
+            'name' => 'password',
+            'label' => 'Password',
+            'key' => 'field_password',
+        ]);
+
+        $this->assertSame([
+            'name' => 'password',
+            'label' => 'Password',
+            'key' => 'field_password',
+            'type' => 'password',
+        ], $field->toArray());
+    }
+
     protected function getField()
     {
         $field = acf_image([

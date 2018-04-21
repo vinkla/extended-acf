@@ -81,12 +81,22 @@ class Key
      *
      * @throws \InvalidArgumentException
      *
-     * @return void
+     * @return string
      */
-    public static function validate(string $key): void
+    public static function validate(string $key): string
     {
         if (in_array($key, self::$keys)) {
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
+
+        if (
+            strpos($key, 'field') !== false &&
+            strpos($key, 'group') !== false &&
+            strpos($key, 'layout') !== false
+        ) {
+            throw new InvalidArgumentException('The key prefix must be either field, group or layout.');
+        }
+
+        return $key;
     }
 }

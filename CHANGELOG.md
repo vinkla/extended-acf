@@ -2,12 +2,15 @@
 
 ## 6.0.0 (upcoming)
 
+- Added custom key support
 - Added configuration repository class
 - Added is layout helper function
 - Added sanitize key helper method
+- Added validate key helper method
 - Updated group key prefix sanitize
 - Updated key validation for fields without name
 - Updated project structure
+- Fixed clone field support
 - Removed page helper function and class
 
 ## 5.1.3 (released 2018-04-04)

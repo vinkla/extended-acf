@@ -71,6 +71,14 @@ class Field
             return $this->key;
         }
 
+        if ($this->config->has('key')) {
+            $key = Key::validate($this->config->get('key'));
+
+            $this->key = $key;
+
+            return $key;
+        }
+
         if (in_array($this->getType(), ['accordion', 'message', 'tab'])) {
             $key = $this->config->get('label');
         } else {
@@ -167,9 +175,11 @@ class Field
      */
     public function toArray(): array
     {
-        $config = [
-            'key' => Key::generate('field', $this->getKey()),
-        ];
+        $config = [];
+
+        if (!$this->config->has('key')) {
+            $config['key'] = Key::generate('field', $this->getKey());
+        }
 
         if ($this->config->has('conditional_logic')) {
             $config['conditional_logic'] = $this->getConditionalLogic();
