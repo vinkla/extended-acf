@@ -187,8 +187,59 @@ acf_url([
 ### Choice Fields
 
 **Button Group** - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
+
+```php
+acf_button_group([
+    'name' => 'color',
+    'label' => 'Color',
+    'instructions' => 'Select the box shadow color.',
+    'required' => true,
+    'choices' => [
+        'cyan' => 'Cyan',
+        'hotpink' => 'Hotpink',
+    ],
+    'default_value' => [
+        'hotpink',
+    ],
+]);
+```
+
 **Checkbox** - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
+
+```php
+acf_checkbox([
+    'name' => 'color',
+    'label' => 'Color',
+    'instructions' => 'Select the border color.',
+    'required' => true,
+    'choices' => [
+        'cyan' => 'Cyan',
+        'hotpink' => 'Hotpink',
+    ],
+    'default_value' => [
+        'hotpink',
+    ],
+]);
+```
+
 **Radio** - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
+
+```php
+acf_radio([
+    'name' => 'color',
+    'label' => 'Color',
+    'instructions' => 'Select the text color.',
+    'required' => true,
+    'choices' => [
+        'cyan' => 'Cyan',
+        'hotpink' => 'Hotpink',
+    ],
+    'default_value' => [
+        'cyan',
+    ],
+]);
+```
+
 **Select** - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
 
 ```php
@@ -236,6 +287,21 @@ acf_file([
 ```
 
 **Gallery** - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing
+
+```php
+acf_gallery([
+    'name' => 'images',
+    'label' => 'Images',
+    'instructions' => 'Add the gallery images.',
+    'required' => true,
+    'mime_types' => 'jpeg, jpg, png',
+    'min_height' => 1000,
+    'min_width' => 1200,
+    'min' => 1,
+    'max' => 6,
+]);
+```
+
 **Image** - The [image field](https://www.advancedcustomfields.com/resources/image) allows an image to be uploaded and selected.
 
 ```php
@@ -253,6 +319,16 @@ acf_image([
 ```
 
 **Oembed** - The [oEmbed field](https://www.advancedcustomfields.com/resources/oembed) allows an easy way to embed videos, images, tweets, audio, and other content.
+
+```php
+acf_oembed([
+    'name' => 'tweet',
+    'label' => 'Tweet',
+    'instructions' => 'Add a tweet from Twitter.',
+    'required' => false,
+]);
+```
+
 **WYSIWYG** - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
 
 ```php
@@ -281,16 +357,28 @@ acf_color_picker([
 ```
 
 **Date Picker** - The [date picker field](https://www.advancedcustomfields.com/resources/date-picker) creates a jQuery date selection popup.
+
+```php
+acf_date_picker([
+    'name' => 'birthday',
+    'label' => 'Birthday',
+    'instructions' => 'Add the employee\'s birthday.',
+    'required' => true,
+    'display_format' => 'd/m/Y',
+	'return_format' => 'd/m/Y',
+]);
+```
+
 **Date Time Picker** - The [date time picker field](https://www.advancedcustomfields.com/resources/date-time-picker) creates a jQuery date & time selection popup.
 
 ```php
-acf_time_picker([
-    'name' => 'start_time',
-    'label' => 'Start Time',
-    'instructions' => 'Add the start time.',
+acf_date_time_picker([
+    'name' => 'date',
+    'label' => 'Event date',
+    'instructions' => 'Add the event\'s start date and time.',
     'required' => true,
-    'display_format' => 'H:i',
-    'return_format' => 'H:i',
+    'display_format' => 'd-m-Y H:i',
+	'return_format' => 'd-m-Y H:i',
 ]);
 ```
 
@@ -306,6 +394,17 @@ acf_google_map([
 ```
 
 **Time Picker** - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
+
+```php
+acf_time_picker([
+    'name' => 'start_time',
+    'label' => 'Start Time',
+    'instructions' => 'Add the start time.',
+    'required' => true,
+    'display_format' => 'H:i',
+    'return_format' => 'H:i',
+]);
+```
 
 ### Layout Fields
 
