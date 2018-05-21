@@ -410,7 +410,15 @@ acf_time_picker([
 
 **Accordion** - The [accordion field](https://www.advancedcustomfields.com/resources/accordion) is used to organize fields into collapsible panels.  
 **Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields.  
-**Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.  
+**Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
+```php
+acf_flexible_content([
+  'name' => 'page_components',
+  'label' => 'Components',
+  'button_label' => 'Add a component',
+  'layouts' => [] // Array of acf_layout (read the Layout part in Helpers)
+]);
+```
 **Group** - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.  
 **Message** - The message fields allows you to display a text message.  
 **Repeater** - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
