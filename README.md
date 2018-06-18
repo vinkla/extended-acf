@@ -283,6 +283,8 @@ acf_file([
     'library' => 'all',
     'mime_types' => 'pdf',
     'return_format' => 'array',
+    'min_size' => 0,
+    'max_size' => 5,
 ]);
 ```
 
