@@ -434,7 +434,32 @@ acf_flexible_content([
 **Group** - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.
 
 ```php
-// TODO: Add acf_group function example.
+acf_group([
+    'name' => 'hero',
+    'label' => 'Hero',
+    'layout' => 'row',
+    'instructions' => 'Add a hero block with title, content and image to the page.',
+    'sub_fields' => [
+        acf_text([
+            'name' => 'title',
+            'label' => 'Title',
+            'instructions' => 'Add the hero\'s title text.',
+            'required' => true,
+        ]),
+        acf_textarea([
+            'name' => 'content',
+            'label' => 'Content',
+            'instructions' => 'Add the hero\'s content text.',
+            'required' => true,
+        ]),
+        acf_image([
+            'name' => 'image',
+            'label' => 'Image',
+            'instructions' => 'Add the text hero\'s image.',
+            'required' => true,
+        ]),
+    ],
+]);
 ```
 
 **Message** - The message fields allows you to display a text message.
