@@ -288,7 +288,7 @@ acf_file([
 ]);
 ```
 
-**Gallery** - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing
+**Gallery** - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing a collection of images.
 
 ```php
 acf_gallery([
