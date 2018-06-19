@@ -180,7 +180,7 @@ class Field
         $config = [];
 
         if ($this->config->has('key')) {
-            Key::validate($this->config->get('key'), 'field');
+            $config['key'] = $this->getKey();
         } else {
             $config['key'] = Key::generate($this->getKey(), 'field');
         }

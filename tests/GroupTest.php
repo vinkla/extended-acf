@@ -68,6 +68,17 @@ class GroupTest extends TestCase
             'title' => 'Image',
             'fields' => [],
         ], $group->toArray());
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The key must be prefixed with [group]');
+
+        $group = new Group([
+            'key' => 'employee',
+            'title' => 'Employee',
+            'fields' => [],
+        ]);
+
+        $group->toArray();
     }
 
     /**

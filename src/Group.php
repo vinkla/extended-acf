@@ -103,7 +103,7 @@ class Group
         ];
 
         if ($this->config->has('key')) {
-            Key::validate($this->config->get('key'), 'group');
+            $config['key'] = $this->getKey();
         } else {
             $config['key'] = Key::generate($this->getKey(), 'group');
         }
