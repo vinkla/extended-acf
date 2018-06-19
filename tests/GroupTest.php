@@ -60,7 +60,7 @@ class GroupTest extends TestCase
         $group = new Group([
             'key' => 'image',
             'title' => 'Image',
-            'fields' => []
+            'fields' => [],
         ]);
 
         $this->assertSame([
