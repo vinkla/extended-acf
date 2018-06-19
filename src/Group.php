@@ -102,7 +102,9 @@ class Group
             'fields' => $this->getFields(),
         ];
 
-        if (!$this->config->has('key')) {
+        if ($this->config->has('key')) {
+            Key::validate($this->config->get('key'), 'group');
+        } else {
             $config['key'] = Key::generate($this->getKey(), 'group');
         }
 

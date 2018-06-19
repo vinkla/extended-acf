@@ -80,7 +80,7 @@ class Field
             return $key;
         }
 
-        // For fields which doesn't require name attribute we use label instead.
+        // For fields which doesn't require name attribute use label instead.
         if (in_array($this->getType(), ['accordion', 'message', 'tab'])) {
             $key = $this->config->get('label');
         } else {
@@ -179,7 +179,9 @@ class Field
     {
         $config = [];
 
-        if (!$this->config->has('key')) {
+        if ($this->config->has('key')) {
+            Key::validate($this->config->get('key'), 'field');
+        } else {
             $config['key'] = Key::generate($this->getKey(), 'field');
         }
 

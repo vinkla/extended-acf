@@ -58,13 +58,13 @@ class GroupTest extends TestCase
     public function testCustomKey()
     {
         $group = new Group([
-            'key' => 'image',
+            'key' => 'group_image',
             'title' => 'Image',
             'fields' => [],
         ]);
 
         $this->assertSame([
-            'key' => 'image',
+            'key' => 'group_image',
             'title' => 'Image',
             'fields' => [],
         ], $group->toArray());
