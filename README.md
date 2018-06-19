@@ -465,7 +465,11 @@ acf_group([
 **Message** - The message fields allows you to display a text message.
 
 ```php
-// TODO: Add acf_message function example.
+acf_message([
+    'name' => 'message',
+    'label' => 'Message',
+    'message' => 'George. Good morning, sleepyhead, Good morning, Dave, Lynda How could I have been so careless. One point twenty-one gigawatts.',
+]);
 ```
 
 **Repeater** - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
