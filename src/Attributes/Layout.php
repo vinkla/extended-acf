@@ -54,7 +54,7 @@ class Layout extends Field
             return $this->key;
         }
 
-        $this->key = printf(
+        $this->key = sprintf(
             '%s_%s',
             $this->parentKey,
             Key::sanitize($this->config->get('name'))
