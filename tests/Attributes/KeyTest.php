@@ -33,8 +33,8 @@ class KeyTest extends TestCase
 
     public function testValidate()
     {
-        // $this->expectException(InvalidArgumentException::class);
-        // $this->expectExceptionMessage('The key [layout_2f1c419c] is not unique.');
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The key [layout_2f1c419c] is not unique.');
 
         Key::generate('block_video', 'layout');
 
