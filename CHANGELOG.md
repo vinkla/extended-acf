@@ -7,6 +7,7 @@
 - Added is layout helper function
 - Added sanitize key helper method
 - Added validate key helper method
+- Added prefix group, field and layout validation
 - Updated group key prefix sanitize
 - Updated key generation argument order
 - Updated key validation for fields without name
