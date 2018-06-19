@@ -71,14 +71,16 @@ class Field
             return $this->key;
         }
 
+        // If the user has set a custom key.
         if ($this->config->has('key')) {
-            $key = Key::validate($this->config->get('key'));
+            $key = Key::validate($this->config->get('key'), 'field');
 
             $this->key = $key;
 
             return $key;
         }
 
+        // For fields which doesn't require name attribute use label instead.
         if (in_array($this->getType(), ['accordion', 'message', 'tab'])) {
             $key = $this->config->get('label');
         } else {
@@ -177,8 +179,10 @@ class Field
     {
         $config = [];
 
-        if (!$this->config->has('key')) {
-            $config['key'] = Key::generate('field', $this->getKey());
+        if ($this->config->has('key')) {
+            $config['key'] = $this->getKey();
+        } else {
+            $config['key'] = Key::generate($this->getKey(), 'field');
         }
 
         if ($this->config->has('conditional_logic')) {

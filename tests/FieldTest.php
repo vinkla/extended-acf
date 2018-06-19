@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Tests\Acf;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Field;
 
@@ -166,6 +167,17 @@ class FieldTest extends TestCase
             'key' => 'field_password',
             'type' => 'password',
         ], $field->toArray());
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The key must be prefixed with [field]');
+
+        $field = acf_password([
+            'name' => 'password',
+            'label' => 'Password',
+            'key' => 'password',
+        ]);
+
+        $field->toArray();
     }
 
     protected function getField()

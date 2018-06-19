@@ -180,8 +180,6 @@ if (!function_exists('acf_field_group')) {
 
         $group = new Group($config);
 
-        $group->setKey($config['key'] ?? $config['title']);
-
         acf_add_local_field_group($group->toArray());
     }
 }
