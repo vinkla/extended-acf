@@ -367,7 +367,7 @@ acf_date_picker([
     'instructions' => 'Add the employee\'s birthday.',
     'required' => true,
     'display_format' => 'd/m/Y',
-	'return_format' => 'd/m/Y',
+    'return_format' => 'd/m/Y',
 ]);
 ```
 
@@ -380,7 +380,7 @@ acf_date_time_picker([
     'instructions' => 'Add the event\'s start date and time.',
     'required' => true,
     'display_format' => 'd-m-Y H:i',
-	'return_format' => 'd-m-Y H:i',
+    'return_format' => 'd-m-Y H:i',
 ]);
 ```
 
@@ -431,6 +431,7 @@ acf_flexible_content([
   'layouts' => [] // Array of acf_layout (read the Layout part in Helpers)
 ]);
 ```
+
 **Group** - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.
 
 ```php
