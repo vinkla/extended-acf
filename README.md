@@ -504,13 +504,25 @@ acf_repeater([
 **Link** - The [link field](https://www.advancedcustomfields.com/resources/link) provides a simple way to select or define a link (url, title, target).
 
 ```php
-// TODO: Add acf_link function example.
+acf_link([
+    'name' => 'read-more-link',
+    'label' => 'Read More Link',
+]),
 ```
 
 **Page Link** - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
 
 ```php
-// TODO: Add acf_page_link function example.
+acf_page_link([
+    'name' => 'contact-link',
+    'label' => 'Contact Link',
+    'required' => true,
+    'post_type' => ['contact'],
+    'taxonomy' => [],
+    'allow_null' => false,
+    'allow_archives' => false,
+    'multiple' => false,
+]);
 ```
 
 **Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.
