@@ -90,7 +90,7 @@ class Key
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
 
-        if (strpos($key, $prefix) !== false) {
+        if (strpos($key, $prefix) === false) {
             throw new InvalidArgumentException("The key must be prefixed with [$prefix].");
         }
 
