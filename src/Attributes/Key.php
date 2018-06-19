@@ -41,7 +41,7 @@ class Key
     {
         $key = sprintf('%s_%s', $prefix, static::hash($key));
 
-        static::validate($key);
+        static::validate($key, $prefix);
 
         static::$keys[] = $key;
 
@@ -78,23 +78,20 @@ class Key
      * Validate a given key's uniqness.
      *
      * @param string $key
+     * @param string $prefix
      *
      * @throws \InvalidArgumentException
      *
      * @return string
      */
-    public static function validate(string $key): string
+    public static function validate(string $key, string $prefix): string
     {
         if (in_array($key, self::$keys)) {
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
 
-        if (
-            strpos($key, 'field') !== false &&
-            strpos($key, 'group') !== false &&
-            strpos($key, 'layout') !== false
-        ) {
-            throw new InvalidArgumentException('The key prefix must be either field, group or layout.');
+        if (strpos($key, $prefix) !== false) {
+            throw new InvalidArgumentException("The key must be prefixed with [$prefix].");
         }
 
         return $key;

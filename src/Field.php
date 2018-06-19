@@ -71,14 +71,16 @@ class Field
             return $this->key;
         }
 
+        // If the user has set a custom key.
         if ($this->config->has('key')) {
-            $key = Key::validate($this->config->get('key'));
+            $key = Key::validate($this->config->get('key'), 'field');
 
             $this->key = $key;
 
             return $key;
         }
 
+        // For fields which doesn't require name attribute we use label instead.
         if (in_array($this->getType(), ['accordion', 'message', 'tab'])) {
             $key = $this->config->get('label');
         } else {

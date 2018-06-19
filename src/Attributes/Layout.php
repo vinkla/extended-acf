@@ -24,20 +24,6 @@ use WordPlate\Acf\Field;
 class Layout extends Field
 {
     /**
-     * The parent field key.
-     *
-     * @var string
-     */
-    protected $parentKey;
-
-    /**
-     * The config repository.
-     *
-     * @var \WordPlate\Acf\Config\Repository
-     */
-    protected $config;
-
-    /**
      * Create a new layout instance.
      *
      * @param array $config
@@ -56,9 +42,25 @@ class Layout extends Field
      */
     public function getKey(): string
     {
-        $name = Key::sanitize($this->config->get('name'));
+        if ($this->key) {
+            return $this->key;
+        }
 
-        return sprintf('%s_%s', $this->parentKey, $name);
+        if ($this->config->has('key')) {
+            $key = Key::validate($this->config->get('key'), 'layout');
+
+            $this->key = $key;
+
+            return $this->key;
+        }
+
+        $this->key = printf(
+            '%s_%s',
+            $this->parentKey,
+            Key::sanitize($this->config->get('name'))
+        );
+
+        return $this->key;
     }
 
     /**
@@ -68,9 +70,11 @@ class Layout extends Field
      */
     public function toArray(): array
     {
-        $config = [
-            'key' => Key::generate('layout', $this->getKey()),
-        ];
+        $config = [];
+
+        if (!$this->config->has('key')) {
+            $config['key'] = Key::generate('layout', $this->getKey());
+        }
 
         if ($this->config->has('sub_fields')) {
             $config['sub_fields'] = $this->getSubFields();

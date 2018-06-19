@@ -50,24 +50,26 @@ class Group
     }
 
     /**
-     * Set the group key.
-     *
-     * @param string $key
-     *
-     * @return void
-     */
-    public function setKey(string $key): void
-    {
-        $this->key = Key::sanitize($key);
-    }
-
-    /**
      * Get the group key.
      *
      * @return string
      */
     public function getKey(): string
     {
+        if ($this->key) {
+            return $this->key;
+        }
+
+        if ($this->config->has('key')) {
+            $key = Key::validate($this->config->get('key'), 'group');
+
+            $this->key = $key;
+
+            return $key;
+        }
+
+        $this->key = Key::sanitize($this->config->get('title'));
+
         return $this->key;
     }
 
@@ -96,12 +98,13 @@ class Group
      */
     public function toArray(): array
     {
-        $key = Key::generate('group', $this->getKey());
-
         $config = [
-            'key' => $key,
             'fields' => $this->getFields(),
         ];
+
+        if (!$this->config->has('key')) {
+            $config['key'] = Key::generate('group', $this->getKey());
+        }
 
         return array_merge($this->config->toArray(), $config);
     }

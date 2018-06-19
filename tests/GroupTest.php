@@ -37,18 +37,6 @@ class GroupTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSetKey()
-    {
-        $group = $this->getGroup();
-
-        $group->setKey('event');
-
-        $this->assertSame('event', $group->getKey());
-    }
-
-    /**
-     * @runInSeparateProcess
-     */
     public function testGetFields()
     {
         $group = $this->getGroup();
@@ -59,6 +47,29 @@ class GroupTest extends TestCase
         $this->assertSame('text', $fields[0]['type']);
     }
 
+    public function testGroupMissingTitleKey()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Missing setting key [title].');
+
+        new Group(['key' => 'without_title']);
+    }
+
+    public function testCustomKey()
+    {
+        $group = new Group([
+            'key' => 'image',
+            'title' => 'Image',
+            'fields' => []
+        ]);
+
+        $this->assertSame([
+            'key' => 'image',
+            'title' => 'Image',
+            'fields' => [],
+        ], $group->toArray());
+    }
+
     /**
      * @runInSeparateProcess
      */
@@ -67,7 +78,6 @@ class GroupTest extends TestCase
         $group = $this->getGroup();
 
         $this->assertSame([
-            'key' => 'group_13b71421',
             'title' => 'Employee',
             'fields' => [
                 [
@@ -77,28 +87,18 @@ class GroupTest extends TestCase
                     'key' => 'field_63445d8e',
                 ],
             ],
+            'key' => 'group_13b71421',
         ], $group->toArray());
-    }
-
-    public function testGroupMissingTitleKey()
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Missing setting key [title].');
-
-        new Group(['key' => 'without_title']);
     }
 
     protected function getGroup()
     {
         $group = new Group([
-            'key' => 'employee',
             'title' => 'Employee',
             'fields' => [
                 acf_text(['label' => 'First Name', 'name' => 'first_name']),
             ],
         ]);
-
-        $group->setKey('employee');
 
         return $group;
     }

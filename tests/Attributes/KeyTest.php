@@ -33,15 +33,15 @@ class KeyTest extends TestCase
 
     public function testValidate()
     {
+        // $this->expectException(InvalidArgumentException::class);
+        // $this->expectExceptionMessage('The key [layout_2f1c419c] is not unique.');
+
+        $key = Key::generate('layout', 'block_video');
+
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The key [layout_2f1c419c] is not unique.');
+        $this->expectExceptionMessage('The key must be prefixed with [layout].');
 
-        Key::generate('layout', 'block_image');
-
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The key prefix must be either field, group or layout.');
-
-        Key::validate('image');
+        Key::validate('video', 'layout');
     }
 
     public function testSanitize()
