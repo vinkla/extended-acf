@@ -8,6 +8,7 @@
 - Added sanitize key helper method
 - Added validate key helper method
 - Updated group key prefix sanitize
+- Updated key generation argument order
 - Updated key validation for fields without name
 - Updated project structure
 - Fixed clone field support

@@ -103,7 +103,7 @@ class Group
         ];
 
         if (!$this->config->has('key')) {
-            $config['key'] = Key::generate('group', $this->getKey());
+            $config['key'] = Key::generate($this->getKey(), 'group');
         }
 
         return array_merge($this->config->toArray(), $config);

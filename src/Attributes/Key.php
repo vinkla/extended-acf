@@ -32,12 +32,12 @@ class Key
     /**
      * Generate a new field, group or layout key.
      *
-     * @param string $prefix
      * @param string $key
+     * @param string $prefix
      *
      * @return string
      */
-    public static function generate(string $prefix, string $key): string
+    public static function generate(string $key, string $prefix): string
     {
         $key = sprintf('%s_%s', $prefix, static::hash($key));
 

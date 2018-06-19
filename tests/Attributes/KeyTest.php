@@ -26,7 +26,7 @@ class KeyTest extends TestCase
 {
     public function testGenerate()
     {
-        $key = Key::generate('layout', 'block_image');
+        $key = Key::generate('block_image', 'layout');
 
         $this->assertSame('layout_2f1c419c', $key);
     }
@@ -36,7 +36,7 @@ class KeyTest extends TestCase
         // $this->expectException(InvalidArgumentException::class);
         // $this->expectExceptionMessage('The key [layout_2f1c419c] is not unique.');
 
-        $key = Key::generate('layout', 'block_video');
+        Key::generate('block_video', 'layout');
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The key must be prefixed with [layout].');

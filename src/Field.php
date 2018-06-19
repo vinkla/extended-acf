@@ -180,7 +180,7 @@ class Field
         $config = [];
 
         if (!$this->config->has('key')) {
-            $config['key'] = Key::generate('field', $this->getKey());
+            $config['key'] = Key::generate($this->getKey(), 'field');
         }
 
         if ($this->config->has('conditional_logic')) {

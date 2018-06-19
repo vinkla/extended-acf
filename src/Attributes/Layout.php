@@ -73,7 +73,7 @@ class Layout extends Field
         $config = [];
 
         if (!$this->config->has('key')) {
-            $config['key'] = Key::generate('layout', $this->getKey());
+            $config['key'] = Key::generate($this->getKey(), 'layout');
         }
 
         if ($this->config->has('sub_fields')) {
