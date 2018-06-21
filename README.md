@@ -528,7 +528,16 @@ acf_page_link([
 **Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.
 
 ```php
-// TODO: Add acf_post_object function example.
+acf_post_object([
+    'name' => 'animal',
+    'label' => 'Animal',
+    'instructions' => 'Select an animal',
+    'post_type' => ['animal'],
+    'required' => true,
+    'taxonomy' => [],
+    'allow_null' => false,
+    'multiple' => false,
+]);
 ```
 
 **Relationship** - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field.
