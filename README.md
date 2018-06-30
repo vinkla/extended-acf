@@ -558,7 +558,17 @@ acf_relationship([
 **Taxonomy** - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms.
 
 ```php
-// TODO: Add acf_taxonomy function example.
+acf_taxonomy([
+    'name' => 'cinemas',
+    'label' => 'Cinemas',
+    'instructions' => 'Select one or more cinema terms.',
+    'taxonomy' => 'cinema',
+    'field_type' => 'checkbox', // checkbox, multi_select, radio or select.
+    'add_term' => true, // Allow new terms to be created whilst editing
+    'save_terms' => false, // Connect selected terms to the post
+    'load_terms' => false, // Load value from posts terms
+    'return_format' => 'id', // id or object
+]);
 ```
 
 **User** - The user field creates a select field for all your users.
