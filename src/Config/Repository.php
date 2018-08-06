@@ -43,7 +43,7 @@ class Repository
     {
         foreach ($required as $key) {
             if (!array_key_exists($key, $items)) {
-                throw new InvalidArgumentException("Missing setting key [$key].");
+                throw new InvalidArgumentException("Missing configuration key [$key].");
             }
         }
 

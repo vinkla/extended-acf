@@ -25,6 +25,7 @@ class RepositoryTest extends TestCase
     public function testRequiredKeys()
     {
         $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Missing configuration key [required].');
 
         new Repository(['key' => 123], ['required']);
     }
