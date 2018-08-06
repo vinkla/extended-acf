@@ -666,10 +666,10 @@ if (!function_exists('field')) {
             return;
         }
 
-        $value = get_sub_field($name);
-
-        if (!$value) {
+        if ($post) {
             $value = get_field($name, $post);
+        } else {
+            $value = get_sub_field($name) ?? get_field($name);
         }
 
         return empty($value) ? null : $value;
