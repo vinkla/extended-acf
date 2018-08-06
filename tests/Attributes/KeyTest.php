@@ -31,13 +31,17 @@ class KeyTest extends TestCase
         $this->assertSame('layout_2f1c419c', $key);
     }
 
-    public function testValidate()
+    public function testValidateUnique()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The key [layout_2f1c419c] is not unique.');
+        $this->expectExceptionMessage('The key [layout_cef90b6c] is not unique.');
 
-        Key::generate('block_video', 'layout');
+        Key::generate('video', 'layout');
+        Key::generate('video', 'layout');
+    }
 
+    public function testValidatePrefix()
+    {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The key must be prefixed with [layout].');
 
