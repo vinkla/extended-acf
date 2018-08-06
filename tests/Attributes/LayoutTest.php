@@ -26,8 +26,10 @@ class LayoutTest extends TestCase
     public function testGetKey()
     {
         $layout = $this->getLayout();
-
         $this->assertSame('group_block', $layout->getKey());
+
+        $layout = $this->getLayout(['key' => 'layout_module']);
+        $this->assertSame('layout_module', $layout->getKey());
     }
 
     public function testToArray()
@@ -49,9 +51,9 @@ class LayoutTest extends TestCase
         ], $layout->toArray());
     }
 
-    protected function getLayout()
+    protected function getLayout($config = [])
     {
-        $layout = new Layout([
+        $layout = new Layout(array_merge([
             'name' => 'block',
             'label' => 'Block',
             'sub_fields' => [
@@ -60,7 +62,7 @@ class LayoutTest extends TestCase
                     'label' => 'Text',
                 ]),
             ],
-        ]);
+        ], $config));
 
         $layout->setParentKey('group');
 
