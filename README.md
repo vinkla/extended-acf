@@ -399,7 +399,7 @@ acf_google_map([
 
 ```php
 acf_time_picker([
-    'name' => 'start_time',
+    'name' => 'start-time',
     'label' => 'Start Time',
     'instructions' => 'Add the start time.',
     'required' => true,
@@ -422,13 +422,13 @@ acf_time_picker([
 // TODO: Add acf_clone function example.
 ```
 
-**Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
+**Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of [layouts](#layout) with full control over the order.
 ```php
 acf_flexible_content([
-  'name' => 'page_components',
+  'name' => 'page-components',
   'label' => 'Components',
-  'button_label' => 'Add a component',
-  'layouts' => [] // Array of acf_layout (read the Layout part in Helpers)
+  'button_label' => 'Add a page component',
+  'layouts' => [] // array of layouts (read more about layouts below)
 ]);
 ```
 
@@ -563,10 +563,10 @@ acf_taxonomy([
     'label' => 'Cinemas',
     'instructions' => 'Select one or more cinema terms.',
     'taxonomy' => 'cinema',
-    'field_type' => 'checkbox', // checkbox, multi_select, radio or select.
-    'add_term' => true, // Allow new terms to be created whilst editing
-    'save_terms' => false, // Connect selected terms to the post
-    'load_terms' => false, // Load value from posts terms
+    'field_type' => 'checkbox', // checkbox, multi_select, radio or select
+    'add_term' => true, // allow new terms to be created whilst editing
+    'save_terms' => false, // connect selected terms to the post
+    'load_terms' => false, // load value from posts terms
     'return_format' => 'id', // id or object
 ]);
 ```
@@ -620,8 +620,8 @@ The layout function help you write [flexible content layouts](https://www.advanc
 
 ```php
 acf_layout([
-    'label' => 'Layout',
     'name' => 'layout',
+    'label' => 'Layout',
     'sub_fields' => [ ... ]
 ]);
 ```
