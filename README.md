@@ -6,12 +6,11 @@
 
 If you're working with multiple developers on a WordPress application with custom fields it can be hard to keep track of changes made in custom fields. This package will help you register advanced custom fields with PHP without caring about field keys. All fields will have their own helper function that automagically create unique field keys based on their parent field group. All fields exists within the theme and can be added to version control.
 
-[![Build Status](https://img.shields.io/travis/wordplate/acf/master.svg?style=flat)](https://travis-ci.org/wordplate/acf)
-[![StyleCI](https://styleci.io/repos/87427318/shield?style=flat)](https://styleci.io/repos/87427318)
-[![Coverage Status](https://img.shields.io/codecov/c/github/wordplate/acf.svg?style=flat)](https://codecov.io/github/wordplate/acf)
-[![Total Downloads](https://img.shields.io/packagist/dt/wordplate/acf.svg?style=flat)](https://packagist.org/packages/wordplate/acf)
-[![Latest Version](https://img.shields.io/github/release/wordplate/acf.svg?style=flat)](https://github.com/wordplate/acf/releases)
-[![License](https://img.shields.io/packagist/l/wordplate/acf.svg?style=flat)](https://packagist.org/packages/wordplate/acf)
+[![Build Status](https://badgen.net/travis/wordplate/acf/master)](https://travis-ci.org/wordplate/acf)
+[![Coverage Status](https://badgen.net/codecov/c/github/wordplate/acf)](https://codecov.io/github/wordplate/acf)
+[![Total Downloads](https://badgen.net/packagist/dt/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
+[![Latest Version](https://badgen.net/github/release/wordplate/acf)](https://github.com/wordplate/acf/releases)
+[![License](https://badgen.net/packagist/license/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
 
 ## Installation
 
