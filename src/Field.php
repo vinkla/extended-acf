@@ -81,7 +81,10 @@ class Field
         }
 
         // For fields which doesn't require name attribute use label instead.
-        if (in_array($this->getType(), ['accordion', 'message', 'tab'])) {
+        if (
+            !$this->config->has('name') &&
+            in_array($this->getType(), ['accordion', 'message', 'tab'])
+        ) {
             $key = $this->config->get('label');
         } else {
             $key = $this->config->get('name');
