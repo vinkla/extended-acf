@@ -167,7 +167,7 @@ acf_textarea([
     'name' => 'biography',
     'label' => 'Biography',
     'instructions' => 'Add the employees biography.',
-    'new_lines' => 'br',
+    'new_lines' => 'br', // br or wpautop
     'required' => true,
     'rows' => 3,
 ]);
@@ -563,10 +563,10 @@ acf_taxonomy([
     'label' => 'Cinemas',
     'instructions' => 'Select one or more cinema terms.',
     'taxonomy' => 'cinema',
-    'field_type' => 'checkbox', // checkbox, multi_select, radio or select
-    'add_term' => true, // allow new terms to be created whilst editing
-    'save_terms' => false, // connect selected terms to the post
-    'load_terms' => false, // load value from posts terms
+    'field_type' => 'checkbox', // Checkbox, multi_select, radio or select
+    'add_term' => true, // Allow new terms to be created whilst editing
+    'save_terms' => false, // Connect selected terms to the post
+    'load_terms' => false, // Load value from posts terms
     'return_format' => 'id', // id or object
 ]);
 ```
