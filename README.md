@@ -167,6 +167,7 @@ acf_textarea([
     'name' => 'biography',
     'label' => 'Biography',
     'instructions' => 'Add the employees biography.',
+    'new_lines' => 'br',
     'required' => true,
     'rows' => 3,
 ]);
