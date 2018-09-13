@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 6.0.0 (upcoming)
+## 6.0.0 (released 2018-09-13)
 
 - Added configuration repository class
 - Added custom key support
