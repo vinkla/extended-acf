@@ -585,7 +585,15 @@ acf_taxonomy([
 **User** - The user field creates a select field for all your users.
 
 ```php
-// TODO: Add acf_user function example.
+acf_user([
+    'label' => 'User',
+    'name' => 'user',
+    'role' => [
+        0 => 'administrator',
+        // Filter field to certain account roles. Default available roles are 'administrator', 'author', 'subscriber, 'contributor' and 'editor'. Deafult is no filter.
+    ],
+    'return_format' => 'object', // Valid options are 'array', 'object' or 'id'. Default is 'array'.
+]),
 ```
 
 ## Helpers
