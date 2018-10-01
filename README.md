@@ -504,10 +504,23 @@ acf_repeater([
 ]);
 ```
 
-**Tab** - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections.
+**Tab** - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections. Any fields or groups added after a acf_tab will become a child to that tab. Setting 'endpoint' to true on a tab will create a new group of tabs.
 
 ```php
-// TODO: Add acf_tab function example.
+acf_tab([
+    'label' => 'Tab1',
+    'name' => 'tab1',
+]),
+acf_tab([
+    'label' => 'Tab2',
+    'name' => 'tab2',
+]),
+acf_tab([
+    'label' => 'Tab3',
+    'name' => 'tab3',
+    'placement' => 'top', // Valid settings are 'top' and 'left'.
+    'endpoint' => true, // This will make a break in the tabs and create a new group of tabs.
+]),
 ```
 
 ### Relational Fields
