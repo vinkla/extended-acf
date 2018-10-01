@@ -413,7 +413,18 @@ acf_time_picker([
 **Accordion** - The [accordion field](https://www.advancedcustomfields.com/resources/accordion) is used to organize fields into collapsible panels.
 
 ```php
-// TODO: Add acf_accordion function example.
+acf_accordion([
+    'label' => 'Address',
+    'open' => true,
+    'multi_expand' => true, // Allow accordion to remain open when other accordions are opened
+    // Any field after this accordion will become a child
+]),
+acf_accordion([
+    'label' => 'endpoint',
+    'endpoint' => 1, // 0 = new accordion
+    // This field will not be visible, but will end the accordion above.
+    // Any fields added after this will not be a child to the accordion.
+]),
 ```
 
 **Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields.
