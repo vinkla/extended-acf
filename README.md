@@ -427,10 +427,24 @@ acf_accordion([
 ]),
 ```
 
-**Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields.
+**Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields or groups.
 
 ```php
-// TODO: Add acf_clone function example.
+acf_text([
+        'key' => 'field_name',
+        'label' => 'Name',
+        'name' => 'name',
+        'placeholder' => 'Enter name here',
+    ]),
+    acf_clone([
+        'label' => 'NameClone',
+        'name' => 'nameClone',
+        'clone' => [
+            'field_name',
+            // This is the key of the field or group we want to clone. In this basic example the only settings that will be copied is the placeholder.
+        ],
+    ]),
+]),
 ```
 
 **Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of [layouts](#layout) with full control over the order.
