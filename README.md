@@ -589,7 +589,8 @@ acf_user([
     'label' => 'User',
     'name' => 'user',
     'role' => [
-        0 => 'administrator',
+        'administrator',
+        'author'
         // Filter field to certain account roles. Default available roles are 'administrator', 'author', 'subscriber, 'contributor' and 'editor'. Deafult is no filter.
     ],
     'return_format' => 'object', // Valid options are 'array', 'object' or 'id'. Default is 'array'.
