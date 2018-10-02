@@ -431,17 +431,19 @@ acf_accordion([
 
 ```php
 acf_text([
-	'label' => 'name',
-	'name' => 'Name',
-	'placeholder' => 'Enter name here',
-]),
-acf_clone([
-	'label' => 'nameClone',
-	'name' => 'Name',
-	'clone' => [
-		0 => 'field_f1fab926', 
-		// This is the key of the field or group we want to clone. We can get the key by right clicking the field/group in the administrator dashboard and inspecting the element. In this basic example the only settings that will be copied is the placeholder.
-	],
+        'key' => 'field_nameInput',
+        'label' => 'Name',
+        'name' => 'name',
+        'placeholder' => 'Enter name here',
+    ]),
+    acf_clone([
+        'label' => 'NameClone',
+        'name' => 'nameClone',
+        'clone' => [
+            'field_nameInput',
+            // This is the key of the field or group we want to clone. In this basic example the only settings that will be copied is the placeholder.
+        ],
+    ]),
 ]),
 ```
 
