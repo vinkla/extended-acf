@@ -431,7 +431,7 @@ acf_accordion([
 
 ```php
 acf_text([
-        'key' => 'field_nameInput',
+        'key' => 'field_name',
         'label' => 'Name',
         'name' => 'name',
         'placeholder' => 'Enter name here',
@@ -440,7 +440,7 @@ acf_text([
         'label' => 'NameClone',
         'name' => 'nameClone',
         'clone' => [
-            'field_nameInput',
+            'field_name',
             // This is the key of the field or group we want to clone. In this basic example the only settings that will be copied is the placeholder.
         ],
     ]),
