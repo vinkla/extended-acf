@@ -1,7 +1,14 @@
 {
     "name": "wordplate/acf",
     "description": "An Advanced Custom Fields helper for WordPlate",
-    "keywords": ["wordplate", "acf", "wordpress", "advanced", "custom", "fields"],
+    "keywords": [
+        "wordplate",
+        "acf",
+        "wordpress",
+        "advanced",
+        "custom",
+        "fields"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -21,29 +28,29 @@
     "require-dev": {
         "phpunit/phpunit": "^7.2"
     },
-    "autoload": {
-        "files": [
-            "src/helpers.php"
-        ],
-        "psr-4": {
-            "WordPlate\\Acf\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "files": [
-            "tests/stubs/helpers.php"
-        ],
-        "psr-4": {
-            "WordPlate\\Tests\\Acf\\": "tests/"
-        }
-    },
     "config": {
         "preferred-install": "dist"
     },
-    "extra":{
+    "extra": {
         "branch-alias": {
             "dev-master": "6.0-dev"
         }
+    },
+    "autoload": {
+        "psr-4": {
+            "WordPlate\\Acf\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WordPlate\\Tests\\Acf\\": "tests/"
+        },
+        "files": [
+            "tests/stubs/helpers.php"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true
