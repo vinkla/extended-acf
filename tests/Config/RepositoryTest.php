@@ -11,7 +11,7 @@ use WordPlate\Acf\Config\Repository;
 /**
  * This is the config repository test class.
  *
- * @author Vincent Klaiber <hello@vinkla.com>
+ * @author Vincent Klaiber <hello@doubledip.se>
  */
 class RepositoryTest extends TestCase
 {
