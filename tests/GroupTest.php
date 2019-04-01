@@ -43,7 +43,7 @@ class GroupTest extends TestCase
 
         $fields = $group->getFields();
 
-        $this->assertInternalType('array', $fields);
+        $this->assertIsArray($fields);
         $this->assertSame('text', $fields[0]['type']);
     }
 

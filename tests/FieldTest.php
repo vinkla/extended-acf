@@ -79,7 +79,7 @@ class FieldTest extends TestCase
     {
         $field = $this->getField();
 
-        $this->assertInternalType('array', $field->getConditionalLogic());
+        $this->assertIsArray($field->getConditionalLogic());
     }
 
     /**
