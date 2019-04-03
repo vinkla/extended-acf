@@ -626,7 +626,7 @@ acf_user([
 
 ## Helpers
 
-This package provides helper functions for [conditional logic](#conditional-logic), [layout](#layout), [location](#location) and [options pages](#options-page) to help you write less code.
+This package provides helper functions for [conditional logic](#conditional-logic), [layout](#layout) and [location](#location) to help you write less code.
 
 ### Conditional Logic
 
