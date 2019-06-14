@@ -669,7 +669,7 @@ if (!function_exists('field')) {
         if ($post) {
             $value = get_field($name, $post);
         } else {
-            $value = get_sub_field($name) ?? get_field($name);
+            $value = get_sub_field($name) ?: get_field($name);
         }
 
         return empty($value) ? null : $value;
