@@ -505,6 +505,7 @@ acf_repeater([
     'name' => 'employees',
     'label' => 'Employees',
     'instructions' => 'Add the employees.',
+    'button_label' => 'Add employee',
     'required' => true,
     'min' => 2,
     'layout' => 'block', // block, row or table
