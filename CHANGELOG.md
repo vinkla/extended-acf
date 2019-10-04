@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.1.0 (upcoming)
+
+- Added wrapper width shorthand
+
 ## 6.0.0 (released 2018-09-13)
 
 - Added configuration repository class

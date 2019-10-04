@@ -37,6 +37,14 @@ class RepositoryTest extends TestCase
         $this->assertTrue($config->has('key'));
     }
 
+    public function testUnset()
+    {
+        $config = new Repository(['key' => 123]);
+        $config->unset('key');
+
+        $this->assertFalse($config->has('key'));
+    }
+
     public function testToArray()
     {
         $items = ['key' => 123];

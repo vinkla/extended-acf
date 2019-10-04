@@ -104,13 +104,11 @@ class GroupTest extends TestCase
 
     protected function getGroup()
     {
-        $group = new Group([
+        return new Group([
             'title' => 'Employee',
             'fields' => [
                 acf_text(['label' => 'First Name', 'name' => 'first_name']),
             ],
         ]);
-
-        return $group;
     }
 }

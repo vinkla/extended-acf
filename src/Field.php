@@ -200,6 +200,11 @@ class Field
             $config['sub_fields'] = $this->getSubFields();
         }
 
+        if ($this->config->has('wrapper_width')) {
+            $config['wrapper']['width'] = $this->config->get('wrapper_width');
+            $this->config->unset('wrapper_width');
+        }
+
         return array_merge($this->config->toArray(), $config);
     }
 }
