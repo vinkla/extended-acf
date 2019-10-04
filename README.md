@@ -198,9 +198,7 @@ acf_button_group([
         'cyan' => 'Cyan',
         'hotpink' => 'Hotpink',
     ],
-    'default_value' => [
-        'hotpink',
-    ],
+    'default_value' => 'hotpink',
 ]);
 ```
 
@@ -216,9 +214,7 @@ acf_checkbox([
         'cyan' => 'Cyan',
         'hotpink' => 'Hotpink',
     ],
-    'default_value' => [
-        'hotpink',
-    ],
+    'default_value' => 'hotpink',
 ]);
 ```
 
@@ -234,9 +230,7 @@ acf_radio([
         'cyan' => 'Cyan',
         'hotpink' => 'Hotpink',
     ],
-    'default_value' => [
-        'cyan',
-    ],
+    'default_value' => 'cyan',
 ]);
 ```
 
@@ -252,9 +246,7 @@ acf_select([
         'cyan' => 'Cyan',
         'hotpink' => 'Hotpink',
     ],
-    'default_value' => [
-        'cyan',
-    ],
+    'default_value' => 'cyan',
 ]);
 ```
 
