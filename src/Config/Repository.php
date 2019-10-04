@@ -75,6 +75,18 @@ class Repository
     }
 
     /**
+     * Remove a configuration value.
+     *
+     * @param string $key
+     *
+     * @return void
+     */
+    public function remove(string $key): void
+    {
+        unset($this->items[$key]);
+    }
+
+    /**
      * Return the config items as array.
      *
      * @return array
