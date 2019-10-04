@@ -174,6 +174,35 @@ class Field
     }
 
     /**
+     * Get wrapper configuration array.
+     *
+     * @return array
+     */
+    public function getWrapper(): array
+    {
+        $wrapper = [];
+
+        if ($this->config->has('wrapper')) {
+            $wrapper = $this->config->get('wrapper');
+        }
+
+        $shorthands = [
+            'class' => 'wrapper_class',
+            'id' => 'wrapper_id',
+            'width' => 'wrapper_width',
+        ];
+
+        foreach ($shorthands as $key => $shorthand) {
+            if ($this->config->has($shorthand)) {
+                $wrapper[$key] = $this->config->get($shorthand);
+                $this->config->remove($shorthand);
+            }
+        }
+
+        return $wrapper;
+    }
+
+    /**
      * Return the field as array.
      *
      * @return array
@@ -200,9 +229,12 @@ class Field
             $config['sub_fields'] = $this->getSubFields();
         }
 
-        if ($this->config->has('wrapper_width')) {
-            $config['wrapper']['width'] = $this->config->get('wrapper_width');
-            $this->config->remove('wrapper_width');
+        if (
+            $this->config->has('wrapper_width') ||
+            $this->config->has('wrapper_id') ||
+            $this->config->has('wrapper_class')
+        ) {
+            $config['wrapper'] = $this->getWrapper();
         }
 
         return array_merge($this->config->toArray(), $config);

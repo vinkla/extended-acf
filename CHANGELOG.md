@@ -2,7 +2,7 @@
 
 ## 6.1.0 (upcoming)
 
-- Added wrapper width shorthand
+- Added wrapper id, class and width shorthands
 
 ## 6.0.0 (released 2018-09-13)
 
