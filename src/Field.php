@@ -202,7 +202,7 @@ class Field
 
         if ($this->config->has('wrapper_width')) {
             $config['wrapper']['width'] = $this->config->get('wrapper_width');
-            $this->config->unset('wrapper_width');
+            $this->config->remove('wrapper_width');
         }
 
         return array_merge($this->config->toArray(), $config);
