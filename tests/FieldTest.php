@@ -148,11 +148,12 @@ class FieldTest extends TestCase
                     ],
                 ],
             ],
-            'type' => 'image',
-            'key' => 'field_c4c7f60f',
             'wrapper' => [
+                'id' => 'id',
                 'width' => 50,
             ],
+            'type' => 'image',
+            'key' => 'field_c4c7f60f',
         ], $field->toArray());
     }
 
@@ -224,6 +225,9 @@ class FieldTest extends TestCase
                 [
                     acf_conditional('url', '!=', 'https://example.com/'),
                 ],
+            ],
+            'wrapper' => [
+                'id' => 'id',
             ],
             'wrapper_width' => 50,
         ]);
