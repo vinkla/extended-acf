@@ -11,16 +11,14 @@
 
 declare(strict_types=1);
 
-namespace WordPlate\Acf\Config;
-
-use InvalidArgumentException;
+namespace WordPlate\Acf;
 
 /**
  * This is the config repository class.
  *
  * @author Vincent Klaiber <hello@doubledip.se>
  */
-class Repository
+class Config
 {
     /**
      * The items array.
@@ -30,23 +28,14 @@ class Repository
     protected $items;
 
     /**
-     * Create a new config repository instance.
+     * Create a new config instance.
      *
      * @param array $items
-     * @param array $required
-     *
-     * @throws \InvalidArgumentException
      *
      * @return void
      */
-    public function __construct(array $items, array $required = [])
+    public function __construct(array $items)
     {
-        foreach ($required as $key) {
-            if (!array_key_exists($key, $items)) {
-                throw new InvalidArgumentException("Missing configuration key [$key].");
-            }
-        }
-
         $this->items = $items;
     }
 
@@ -63,6 +52,19 @@ class Repository
     }
 
     /**
+     * Set a given configuration value.
+     *
+     * @param string $key
+     * @param mixed $value
+     *
+     * @return void
+     */
+    public function set(string $key, $value): void
+    {
+        $this->items[$key] = $value;
+    }
+
+    /**
      * Get the specified configuration value.
      *
      * @param string $key
@@ -75,23 +77,11 @@ class Repository
     }
 
     /**
-     * Remove a configuration value.
-     *
-     * @param string $key
-     *
-     * @return void
-     */
-    public function remove(string $key): void
-    {
-        unset($this->items[$key]);
-    }
-
-    /**
-     * Return the config items as array.
+     * Get all the configuration items.
      *
      * @return array
      */
-    public function toArray(): array
+    public function all(): array
     {
         return $this->items;
     }

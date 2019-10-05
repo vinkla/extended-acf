@@ -15,8 +15,3 @@ function sanitize_title($value)
 {
     return strtolower($value);
 }
-
-function get_row_layout()
-{
-    return 'text';
-}
