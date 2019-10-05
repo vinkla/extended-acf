@@ -23,7 +23,8 @@
         }
     ],
     "require": {
-        "php": "^7.2"
+        "php": "^7.2",
+        "illuminate/config": "^6.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0"
@@ -49,7 +50,7 @@
             "WordPlate\\Tests\\Acf\\": "tests/"
         },
         "files": [
-            "tests/stubs/helpers.php"
+            "tests/helpers.php"
         ]
     },
     "minimum-stability": "dev",
