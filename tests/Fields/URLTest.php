@@ -14,4 +14,10 @@ class URLTest extends TestCase
         $field = URL::make('URL')->toArray();
         $this->assertSame('url', $field['type']);
     }
+
+    public function testDefaultValue()
+    {
+        $field = URL::make('Default Value')->defaultValue('dodgerblue')->toArray();
+        $this->assertSame('dodgerblue', $field['default_value']);
+    }
 }

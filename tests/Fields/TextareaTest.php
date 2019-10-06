@@ -16,6 +16,12 @@ class TextareaTest extends TestCase
         $this->assertSame('textarea', $field['type']);
     }
 
+    public function testCharacterLimit()
+    {
+        $field = Textarea::make('Character Limit')->characterLimit(100)->toArray();
+        $this->assertSame(100, $field['maxlength']);
+    }
+
     public function testNewLines()
     {
         $field = Textarea::make('Description')->newLines('br')->toArray();
@@ -25,5 +31,11 @@ class TextareaTest extends TestCase
         $this->expectExceptionMessage('Invalid argument new lines [test].');
 
         Textarea::make('Message')->newLines('test')->toArray();
+    }
+
+    public function testRows()
+    {
+        $field = Textarea::make('Rows')->rows(10)->toArray();
+        $this->assertSame(10, $field['rows']);
     }
 }
