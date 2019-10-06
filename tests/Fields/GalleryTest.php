@@ -16,7 +16,7 @@ class GalleryTest extends TestCase
         $this->assertSame('gallery', $field['type']);
     }
 
-    public function testInser()
+    public function testInsert()
     {
         $field = Gallery::make('Insert')->insert('prepend')->toArray();
         $this->assertSame('prepend', $field['insert']);
