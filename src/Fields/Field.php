@@ -25,20 +25,6 @@ abstract class Field
         return new static($label, $name);
     }
 
-    public function instructions(string $instructions): self
-    {
-        $this->config->set('instructions', $instructions);
-
-        return $this;
-    }
-
-    public function required(): self
-    {
-        $this->config->set('required', true);
-
-        return $this;
-    }
-
     public function toArray(): array
     {
         $this->config->set('key', Key::generate($this->config->get('name'), 'field'));

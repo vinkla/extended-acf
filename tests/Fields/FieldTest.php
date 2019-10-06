@@ -41,4 +41,13 @@ class FieldTest extends TestCase
         $field = Text::make('Heading')->instructions('Add the text content')->toArray();
         $this->assertSame('Add the text content', $field['instructions']);
     }
+
+    public function testWrapper()
+    {
+        $field = Text::make('Status')->wrapper(['id' => 'status'])->toArray();
+        $this->assertSame(['id' => 'status'], $field['wrapper']);
+
+        $field = Text::make('Label')->width(50)->toArray();
+        $this->assertSame(50, $field['wrapper']['width']);
+    }
 }
