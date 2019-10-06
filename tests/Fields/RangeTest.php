@@ -14,4 +14,10 @@ class RangeTest extends TestCase
         $field = Range::make('Range')->toArray();
         $this->assertSame('range', $field['type']);
     }
+
+    public function testStep()
+    {
+        $field = Range::make('Range Step')->step(5)->toArray();
+        $this->assertSame(5, $field['step']);
+    }
 }
