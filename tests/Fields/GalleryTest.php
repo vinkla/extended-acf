@@ -22,7 +22,7 @@ class GalleryTest extends TestCase
         $this->assertSame('prepend', $field['insert']);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid insert behaviour [test]');
+        $this->expectExceptionMessage('Invalid argument insert [test]');
 
         Gallery::make('Invalid Insert')->insert('test')->toArray();
     }

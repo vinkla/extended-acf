@@ -28,7 +28,7 @@ class FileTest extends TestCase
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid return format [test].');
+        $this->expectExceptionMessage('Invalid argument return format [test].');
 
         File::make('Invalid Return Format')->returnFormat('test')->toArray();
     }
