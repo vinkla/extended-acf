@@ -5,13 +5,10 @@ declare(strict_types=1);
 namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\Choices;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\Required;
-use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-class Radio extends Field
+class Radio extends Text
 {
-    use Choices, Instructions, Required, Wrapper;
+    use Choices;
 
     protected $type = 'radio';
 }

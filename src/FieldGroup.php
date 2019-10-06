@@ -31,7 +31,8 @@ class FieldGroup
 
         $this->config->set('key', Key::generate($key, 'group'));
 
-        foreach ($this->config->get('fields') as $field) {
+        foreach ($this->config->get('fields') as &$field) {
+            $field->toArray();
         }
 
         return $this->config->all();
