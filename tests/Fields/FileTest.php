@@ -35,7 +35,7 @@ class FileTest extends TestCase
 
     public function testSize()
     {
-        $field = File::make('Size')->size('400 KB', 5)->toArray();
+        $field = File::make('Max Size')->size('400 KB', 5)->toArray();
         $this->assertSame('400 KB', $field['min_size']);
         $this->assertSame(5, $field['max_size']);
     }

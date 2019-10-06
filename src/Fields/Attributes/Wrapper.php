@@ -12,15 +12,4 @@ trait Wrapper
 
         return $this;
     }
-
-    public function width(int $width): self
-    {
-        $wrapper = $this->config->get('wrapper', []);
-
-        $this->wrapper(array_merge($wrapper, [
-            'width' => $width,
-        ]));
-
-        return $this;
-    }
 }
