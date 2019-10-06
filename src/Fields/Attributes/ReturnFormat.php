@@ -10,7 +10,7 @@ trait ReturnFormat
 {
     public function returnFormat(string $format): self
     {
-        if (!in_array($format, ['array', 'id', 'url'])) {
+        if (!in_array($format, ['array', 'id', 'object', 'url'])) {
             throw new InvalidArgumentException("Invalid argument return format [$format].");
         }
 
