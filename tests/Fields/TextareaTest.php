@@ -12,7 +12,7 @@ class TextareaTest extends TestCase
 {
     public function testType()
     {
-        $field = Textarea::make('Biography')->toArray();
+        $field = Textarea::make('Textarea')->toArray();
         $this->assertSame('textarea', $field['type']);
     }
 

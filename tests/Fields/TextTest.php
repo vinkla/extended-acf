@@ -11,7 +11,7 @@ class TextTest extends TestCase
 {
     public function testType()
     {
-        $field = Text::make('Occupation')->toArray();
+        $field = Text::make('Text')->toArray();
         $this->assertSame('text', $field['type']);
     }
 }
