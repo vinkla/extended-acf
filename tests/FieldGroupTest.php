@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\FieldGroup;
 
 /**
- * This is the acf test class.
+ * This is the field group test class.
  *
  * @author Vincent Klaiber <hello@doubledip.se>
  */

@@ -86,10 +86,12 @@ class Key
      */
     public static function validate(string $key, string $prefix): string
     {
+        // Validate if the key is unique or not.
         if (in_array($key, self::$keys)) {
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
 
+        // Validate if the key contains the the given prefix or not.
         if (strpos($key, $prefix) === false) {
             throw new InvalidArgumentException("The key must be prefixed with [$prefix].");
         }

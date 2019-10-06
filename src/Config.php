@@ -68,12 +68,13 @@ class Config
      * Get the specified configuration value.
      *
      * @param string $key
+     * @param mixed $default
      *
      * @return mixed
      */
-    public function get(string $key)
+    public function get(string $key, $default = null)
     {
-        return $this->items[$key];
+        return $this->items[$key] ?? $default;
     }
 
     /**
