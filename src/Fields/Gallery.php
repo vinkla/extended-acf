@@ -6,24 +6,27 @@ namespace WordPlate\Acf\Fields;
 
 use InvalidArgumentException;
 use WordPlate\Acf\Fields\Attributes\Dimensions;
+use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Library;
 use WordPlate\Acf\Fields\Attributes\MimeTypes;
 use WordPlate\Acf\Fields\Attributes\MinMax;
+use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
+use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-class Gallery extends Text
+class Gallery extends Field
 {
-    use Dimensions, Library, MimeTypes, MinMax, ReturnFormat;
+    use Dimensions, Instructions, Library, MimeTypes, MinMax, Required, ReturnFormat, Wrapper;
 
     protected $type = 'gallery';
 
-    public function insert(string $behaviour): self
+    public function insert(string $insert): self
     {
-        if (!in_array($behaviour, ['append', 'prepend'])) {
-            throw new InvalidArgumentException("Invalid insert behaviour [$behaviour]");
+        if (!in_array($insert, ['append', 'prepend'])) {
+            throw new InvalidArgumentException("Invalid argument insert [$insert]");
         }
 
-        $this->config->set('insert', $behaviour);
+        $this->config->set('insert', $insert);
 
         return $this;
     }

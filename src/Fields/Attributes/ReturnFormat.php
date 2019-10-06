@@ -11,7 +11,7 @@ trait ReturnFormat
     public function returnFormat(string $format): self
     {
         if (!in_array($format, ['array', 'id', 'url'])) {
-            throw new InvalidArgumentException("Invalid return format [$format].");
+            throw new InvalidArgumentException("Invalid argument return format [$format].");
         }
 
         $this->config->set('return_format', $format);

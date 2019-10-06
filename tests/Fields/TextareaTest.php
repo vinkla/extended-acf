@@ -22,7 +22,7 @@ class TextareaTest extends TestCase
         $this->assertSame('br', $field['new_lines']);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid new_lines argument [test].');
+        $this->expectExceptionMessage('Invalid argument new lines [test].');
 
         Textarea::make('Message')->newLines('test')->toArray();
     }
