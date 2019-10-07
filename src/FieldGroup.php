@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of WordPlate.
+ *
+ * (c) Vincent Klaiber <hello@doubledip.se>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace WordPlate\Acf;
@@ -18,10 +27,8 @@ class FieldGroup
             }
         }
 
-        $key = Key::sanitize($config['title']);
-
         $this->config = new Config(array_merge($config, [
-            'key' => Key::generate($key, 'group'),
+            'key' => Key::generate(Key::sanitize($config['title']), 'group'),
         ]));
     }
 
@@ -32,6 +39,8 @@ class FieldGroup
         }
 
         $this->config->set('fields', array_map(function ($field) {
+            $field->setParentKey($this->config->get('key'));
+
             return $field->toArray();
         }, $this->config->get('fields', [])));
 
