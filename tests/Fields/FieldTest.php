@@ -27,6 +27,6 @@ class FieldTest extends TestCase
     public function testKey()
     {
         $field = Text::make('Phone')->toArray();
-        $this->assertSame('field_773611af', $field['key']);
+        $this->assertSame('field_16217cde', $field['key']);
     }
 }
