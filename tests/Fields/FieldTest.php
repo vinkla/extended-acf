@@ -29,22 +29,4 @@ class FieldTest extends TestCase
         $field = Text::make('Phone')->toArray();
         $this->assertSame('field_773611af', $field['key']);
     }
-
-    public function testRequired()
-    {
-        $field = Text::make('Title')->required()->toArray();
-        $this->assertTrue($field['required']);
-    }
-
-    public function testInstructions()
-    {
-        $field = Text::make('Heading')->instructions('Add the text content')->toArray();
-        $this->assertSame('Add the text content', $field['instructions']);
-    }
-
-    public function testWrapper()
-    {
-        $field = Text::make('Status')->wrapper(['id' => 'status'])->toArray();
-        $this->assertSame(['id' => 'status'], $field['wrapper']);
-    }
 }
