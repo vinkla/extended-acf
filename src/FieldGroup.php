@@ -18,7 +18,11 @@ class FieldGroup
             }
         }
 
-        $this->config = new Config($config);
+        $key = Key::sanitize($config['title']);
+
+        $this->config = new Config(array_merge($config, [
+            'key' => Key::generate($key, 'group'),
+        ]));
     }
 
     public function toArray(): array
@@ -27,13 +31,13 @@ class FieldGroup
             $this->config->set('style', 'seamless');
         }
 
-        $key = Key::sanitize($this->config->get('title'));
+        $this->config->set('fields', array_map(function ($field) {
+            return $field->toArray();
+        }, $this->config->get('fields', [])));
 
-        $this->config->set('key', Key::generate($key, 'group'));
-
-        foreach ($this->config->get('fields') as &$field) {
-            $field->toArray();
-        }
+        $location = $this->config->set('location', array_map(function ($location) {
+            return $location->toArray();
+        }, $this->config->get('location', [])));
 
         return $this->config->all();
     }
