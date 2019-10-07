@@ -15,8 +15,7 @@ abstract class Field
     {
         $this->config = new Config([
             'label' => $label,
-            'name' => $name ?? sanitize_title($label),
-            'type' => $this->type,
+            'name' => $name ?? sanitize_title($label)
         ]);
     }
 
@@ -27,6 +26,8 @@ abstract class Field
 
     public function toArray(): array
     {
+        $this->config->set('type', $this->type);
+
         $this->config->set('key', Key::generate($this->config->get('name'), 'field'));
 
         return $this->config->all();
