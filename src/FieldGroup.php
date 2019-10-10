@@ -15,8 +15,27 @@ namespace WordPlate\Acf;
 
 use InvalidArgumentException;
 
+/**
+ * This is the field group class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class FieldGroup
 {
+    /**
+     * The field group's config.
+     *
+     * @var \WordPlate\Acf\Config
+     */
+    protected $config;
+
+    /**
+     * Create a new field group instance.
+     *
+     * @param array $config
+     *
+     * @return void
+     */
     public function __construct(array $config)
     {
         $requiredKeys = ['title', 'fields', 'location'];
@@ -27,26 +46,33 @@ class FieldGroup
             }
         }
 
-        $this->config = new Config(array_merge($config, [
-            'key' => Key::generate(Key::sanitize($config['title']), 'group'),
-        ]));
+        $this->config = new Config($config);
     }
 
+    /**
+     * Return the field group config as an array.
+     *
+     * @return array
+     */
     public function toArray(): array
     {
+        $key = Key::sanitize($this->config->get('title'));
+
         if (!$this->config->has('style')) {
             $this->config->set('style', 'seamless');
         }
 
-        $this->config->set('fields', array_map(function ($field) {
-            $field->setParentKey($this->config->get('key'));
+        $this->config->set('fields', array_map(function ($field) use ($key) {
+            $field->setParentKey($key);
 
             return $field->toArray();
-        }, $this->config->get('fields', [])));
+        }, $this->config->get('fields')));
 
-        $location = $this->config->set('location', array_map(function ($location) {
+        $this->config->set('location', array_map(function ($location) {
             return $location->toArray();
-        }, $this->config->get('location', [])));
+        }, $this->config->get('location')));
+
+        $this->config->set('key', Key::generate($key, 'group'));
 
         return $this->config->all();
     }

@@ -16,16 +16,20 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Attributes\Layout as Display;
 use WordPlate\Acf\Fields\Attributes\MinMax;
 use WordPlate\Acf\Fields\Attributes\SubFields;
-use WordPlate\Acf\Key;
 
+/**
+ * This is the layout class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Layout extends Field
 {
     use Display, MinMax, SubFields;
 
-    public function toArray(): array
-    {
-        $this->config->set('key', Key::generate($this->config->get('name'), 'layout'));
-
-        return $this->config->all();
-    }
+    /**
+     * The layout's key prefix.
+     *
+     * @var string
+     */
+    protected $keyPrefix = 'layout';
 }
