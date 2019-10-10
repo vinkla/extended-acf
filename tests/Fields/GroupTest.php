@@ -27,8 +27,8 @@ class GroupTest extends TestCase
 
     public function testFields()
     {
-        $field = Group::make('Group Fields')->fields([1])->toArray();
-        $this->assertSame([1], $field['sub_fields']);
+        $field = Group::make('Group Fields')->fields([])->toArray();
+        $this->assertSame([], $field['sub_fields']);
     }
 
     public function testLayout()

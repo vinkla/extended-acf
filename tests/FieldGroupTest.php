@@ -33,7 +33,7 @@ class FieldGroupTest extends TestCase
             'fields' => [
                 Text::make('Event Title'),
             ],
-            'location' => null,
+            'location' => [],
         ]);
 
         $fields = $fieldGroup->toArray()['fields'];
@@ -42,7 +42,7 @@ class FieldGroupTest extends TestCase
 
     public function testKey()
     {
-        $fieldGroup = new FieldGroup(['title' => 'Apartment', 'fields' => null, 'location' => null]);
+        $fieldGroup = new FieldGroup(['title' => 'Apartment', 'fields' => [], 'location' => []]);
         $this->assertSame('group_b1c2ce91', $fieldGroup->toArray()['key']);
     }
 
@@ -50,7 +50,7 @@ class FieldGroupTest extends TestCase
     {
         $fieldGroup = new FieldGroup([
             'title' => 'Plant',
-            'fields' => null,
+            'fields' => [],
             'location' => [
                 Location::if('post_type', 'page'),
             ],
@@ -62,22 +62,17 @@ class FieldGroupTest extends TestCase
 
     public function testStyle()
     {
-        $fieldGroup = new FieldGroup(['title' => 'Employee', 'fields' => null, 'location' => null]);
+        $fieldGroup = new FieldGroup(['title' => 'Employee', 'fields' => [], 'location' => []]);
         $this->assertSame('seamless', $fieldGroup->toArray()['style']);
 
-        $fieldGroup = new FieldGroup(['title' => 'Student', 'fields' => null, 'location' => null, 'style' => 'default']);
+        $fieldGroup = new FieldGroup(['title' => 'Student', 'fields' => [], 'location' => [], 'style' => 'default']);
         $this->assertSame('default', $fieldGroup->toArray()['style']);
     }
 
     public function testRequiredKeys()
     {
-        $config = ['title' => 'Employee', 'fields' => null, 'location' => null];
-        $requiredKeys = array_keys($config);
-
-        foreach ($requiredKeys as $key) {
-            $this->expectException(InvalidArgumentException::class);
-            $this->expectExceptionMessage("Missing field group configuration key [$key].");
-            new FieldGroup(array_values(array_diff($config, [$key => null])));
-        }
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Missing field group configuration key [title].');
+        new FieldGroup(['fields' => [], 'location' => []]);
     }
 }

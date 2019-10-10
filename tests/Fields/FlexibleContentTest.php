@@ -26,7 +26,7 @@ class FlexibleContentTest extends TestCase
 
     public function testLabels()
     {
-        $field = FlexibleContent::make('Flexible Content Labels')->layouts([1])->toArray();
-        $this->assertSame([1], $field['layouts']);
+        $field = FlexibleContent::make('Flexible Content Labels')->layouts([])->toArray();
+        $this->assertSame([], $field['layouts']);
     }
 }
