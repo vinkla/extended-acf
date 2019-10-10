@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
+use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Placeholder;
 use WordPlate\Acf\Fields\Attributes\Required;
@@ -20,7 +21,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class Text extends Field
 {
-    use Instructions, Placeholder, Required, Wrapper;
+    use ConditionalLogic, Instructions, Placeholder, Required, Wrapper;
 
     protected $type = 'text';
 }

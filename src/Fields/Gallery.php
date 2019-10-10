@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace WordPlate\Acf\Fields;
 
 use InvalidArgumentException;
+use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\Dimensions;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Library;
@@ -25,7 +26,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class Gallery extends Field
 {
-    use Dimensions, Instructions, Library, MimeTypes, MinMax, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic, Dimensions, Instructions, Library, MimeTypes, MinMax, Required, ReturnFormat, Wrapper;
 
     protected $type = 'gallery';
 

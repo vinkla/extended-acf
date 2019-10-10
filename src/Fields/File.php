@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
+use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Library;
 use WordPlate\Acf\Fields\Attributes\MimeTypes;
@@ -22,7 +23,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class File extends Field
 {
-    use Instructions, Library, MimeTypes, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic, Instructions, Library, MimeTypes, Required, ReturnFormat, Wrapper;
 
     protected $type = 'file';
 

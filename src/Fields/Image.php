@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
+use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\Dimensions;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Library;
@@ -23,7 +24,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class Image extends Field
 {
-    use Dimensions, Instructions, Library, MimeTypes, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic, Dimensions, Instructions, Library, MimeTypes, Required, ReturnFormat, Wrapper;
 
     protected $type = 'image';
 
