@@ -16,6 +16,7 @@ namespace WordPlate\Tests\Acf\Fields;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Fields\Group;
+use WordPlate\Acf\Fields\Text;
 
 class GroupTest extends TestCase
 {
@@ -27,8 +28,13 @@ class GroupTest extends TestCase
 
     public function testFields()
     {
-        $field = Group::make('Group Fields')->fields([])->toArray();
-        $this->assertSame([], $field['sub_fields']);
+        $field = Group::make('Group Fields')
+            ->fields([
+                Text::make('Title'),
+            ])
+            ->toArray();
+
+        $this->assertSame('Title', $field['sub_fields'][0]['label']);
     }
 
     public function testLayout()
