@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace WordPlate\Acf\Fields;
 
 use InvalidArgumentException;
+use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Nullable;
 use WordPlate\Acf\Fields\Attributes\Required;
@@ -22,7 +23,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class Taxonomy extends Field
 {
-    use Instructions, Nullable, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic, Instructions, Nullable, Required, ReturnFormat, Wrapper;
 
     protected $type = 'taxonomy';
 

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
+use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DateTimeFormat;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
@@ -21,7 +22,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class DatePicker extends Field
 {
-    use DateTimeFormat, Instructions, Required, WeekDay, Wrapper;
+    use ConditionalLogic, DateTimeFormat, Instructions, Required, WeekDay, Wrapper;
 
     protected $type = 'date_picker';
 }

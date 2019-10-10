@@ -98,12 +98,14 @@ abstract class Field
             $this->config->set('type', $this->type);
         }
 
-        if ($this->config->has('sub_fields')) {
-            $this->config->set('sub_fields', array_map(function ($field) use ($key) {
-                $field->setParentKey($key);
+        if ($this->config->has('conditional_logic')) {
+            $this->config->set('conditional_logic', array_map(function ($rules) use ($key) {
+                return array_map(function ($rule) use ($key) {
+                    $rule->setParentKey($key);
 
-                return $field->toArray();
-            }, $this->config->get('sub_fields')));
+                    return $rule->toArray();
+                }, $rules);
+            }, $this->config->get('conditional_logic')));
         }
 
         if ($this->config->has('layouts')) {
@@ -112,6 +114,14 @@ abstract class Field
 
                 return $layout->toArray();
             }, $this->config->get('layouts')));
+        }
+
+        if ($this->config->has('sub_fields')) {
+            $this->config->set('sub_fields', array_map(function ($field) use ($key) {
+                $field->setParentKey($key);
+
+                return $field->toArray();
+            }, $this->config->get('sub_fields')));
         }
 
         $this->config->set('key', Key::generate($key, $this->keyPrefix));

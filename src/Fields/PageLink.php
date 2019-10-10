@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
+use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\FilterBy;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Multiple;
@@ -22,7 +23,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class PageLink extends Field
 {
-    use FilterBy, Instructions, Multiple, Nullable, Required, Wrapper;
+    use ConditionalLogic, FilterBy, Instructions, Multiple, Nullable, Required, Wrapper;
 
     protected $type = 'page_link';
 
