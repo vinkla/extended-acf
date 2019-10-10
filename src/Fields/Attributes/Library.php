@@ -20,7 +20,7 @@ trait Library
     public function library(string $library): self
     {
         if (!in_array($library, ['all', 'uploadedTo'])) {
-            throw new InvalidArgumentException("Invalid argument library [$library]");
+            throw new InvalidArgumentException("Invalid argument library [$library].");
         }
 
         $this->config->set('library', $library);

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Tests\Acf\Fields;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Fields\Image;
 
@@ -28,5 +29,16 @@ class ImageTest extends TestCase
     {
         $field = Image::make('Preview Size')->previewSize('large')->toArray();
         $this->assertSame('large', $field['preview_size']);
+    }
+
+    public function testLibrary()
+    {
+        $field = Image::make('Library')->library('all')->toArray();
+        $this->assertSame('all', $field['library']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument library [test].');
+
+        Image::make('Invalid Library')->library('test')->toArray();
     }
 }

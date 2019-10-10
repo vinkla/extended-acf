@@ -58,6 +58,12 @@ class TextTest extends TestCase
         $this->assertSame('Add the text content', $field['instructions']);
     }
 
+    public function testPlaceholder()
+    {
+        $field = Text::make('Placeholder')->placeholder('ACF')->toArray();
+        $this->assertSame('ACF', $field['placeholder']);
+    }
+
     public function testWrapper()
     {
         $field = Text::make('Status')->wrapper(['id' => 'status'])->toArray();
