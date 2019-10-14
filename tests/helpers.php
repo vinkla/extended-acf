@@ -11,6 +11,11 @@
 
 declare(strict_types=1);
 
+function register_field_group()
+{
+    //
+}
+
 function sanitize_title($value)
 {
     return strtolower($value);
