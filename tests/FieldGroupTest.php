@@ -75,4 +75,17 @@ class FieldGroupTest extends TestCase
         $this->expectExceptionMessage('Missing field group configuration key [title].');
         new FieldGroup(['fields' => [], 'location' => []]);
     }
+
+    public function testRegisterFieldGroupHelper()
+    {
+        function acf_add_local_field_group()
+        {
+        }
+
+        $this->assertEmpty(register_field_group([
+            'title' => 'Helper',
+            'fields' => [],
+            'location' => [],
+        ]));
+    }
 }
