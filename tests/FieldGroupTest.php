@@ -78,7 +78,7 @@ class FieldGroupTest extends TestCase
 
     public function testRegisterExtendedFieldGroup()
     {
-        $this->assertEmpty(register_field_group([
+        $this->assertEmpty(register_extended_field_group([
             'title' => 'Helper',
             'fields' => [],
             'location' => [],
