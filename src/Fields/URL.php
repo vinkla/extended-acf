@@ -20,7 +20,7 @@ use WordPlate\Acf\Fields\Attributes\Placeholder;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-class URL extends Field
+class Url extends Field
 {
     use ConditionalLogic, DefaultValue, Instructions, Placeholder, Required, Wrapper;
 
