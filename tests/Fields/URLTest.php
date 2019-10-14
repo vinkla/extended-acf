@@ -16,17 +16,17 @@ namespace WordPlate\Tests\Acf\Fields;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Fields\Url;
 
-class URLTest extends TestCase
+class UrlTest extends TestCase
 {
     public function testType()
     {
-        $field = URL::make('URL')->toArray();
+        $field = Url::make('Url')->toArray();
         $this->assertSame('url', $field['type']);
     }
 
     public function testDefaultValue()
     {
-        $field = URL::make('Default Value')->defaultValue('dodgerblue')->toArray();
+        $field = Url::make('Default Value')->defaultValue('dodgerblue')->toArray();
         $this->assertSame('dodgerblue', $field['default_value']);
     }
 }
