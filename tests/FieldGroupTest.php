@@ -76,9 +76,9 @@ class FieldGroupTest extends TestCase
         new FieldGroup(['fields' => [], 'location' => []]);
     }
 
-    public function testRegisterFieldGroupHelper()
+    public function testRegisterExtendedFieldGroup()
     {
-        function acf_add_local_field_group()
+        function register_field_group()
         {
         }
 
