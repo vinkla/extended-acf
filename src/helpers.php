@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 use WordPlate\Acf\FieldGroup;
 
-if (!function_exists('register_field_group')) {
+if (!function_exists('register_extended_field_group')) {
     /**
      * Register ACF field group.
      *
@@ -21,12 +21,12 @@ if (!function_exists('register_field_group')) {
      *
      * @return void
      */
-    function register_field_group(array $config): void
+    function register_extended_field_group(array $config): void
     {
-        if (function_exists('acf_add_local_field_group')) {
+        if (function_exists('register_field_group')) {
             $fieldGroup = new FieldGroup($config);
 
-            acf_add_local_field_group($fieldGroup->toArray());
+            register_field_group($fieldGroup->toArray());
         }
     }
 }
