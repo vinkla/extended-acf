@@ -19,9 +19,19 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the time picker field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class TimePicker extends Field
 {
     use ConditionalLogic, DateTimeFormat, Instructions, Required, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'time_picker';
 }

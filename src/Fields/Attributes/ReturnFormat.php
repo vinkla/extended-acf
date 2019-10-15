@@ -15,8 +15,20 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 use InvalidArgumentException;
 
+/**
+ * This is the return format trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait ReturnFormat
 {
+    /**
+     * Set the return format.
+     *
+     * @param string $format
+     *
+     * @return self
+     */
     public function returnFormat(string $format): self
     {
         if (!in_array($format, ['array', 'id', 'object', 'url'])) {

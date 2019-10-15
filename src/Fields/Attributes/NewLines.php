@@ -15,8 +15,20 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 use InvalidArgumentException;
 
+/**
+ * This is the new lines trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait NewLines
 {
+    /**
+     * Set the new lines behaviour.
+     *
+     * @param string $newLines
+     *
+     * @return self
+     */
     public function newLines(string $newLines): self
     {
         if (!in_array($newLines, ['br', 'wpautop'])) {

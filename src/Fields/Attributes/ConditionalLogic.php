@@ -13,8 +13,20 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
+/**
+ * This is the conditional logic trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait ConditionalLogic
 {
+    /**
+     * Set the conditional logic rules.
+     *
+     * @param array $rules
+     *
+     * @return self
+     */
     public function conditionalLogic(array $rules): self
     {
         $conditionalLogic = $this->config->get('conditional_logic', []);

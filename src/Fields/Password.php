@@ -19,9 +19,19 @@ use WordPlate\Acf\Fields\Attributes\Placeholder;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the password field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Password extends Field
 {
     use ConditionalLogic, Instructions, Placeholder, Required, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'password';
 }

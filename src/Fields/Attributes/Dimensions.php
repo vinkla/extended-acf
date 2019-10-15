@@ -13,8 +13,21 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
+/**
+ * This is the dimensions trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait Dimensions
 {
+    /**
+     * Set the image min and max height.
+     *
+     * @param int $min
+     * @param int $max
+     *
+     * @return self
+     */
     public function height(int $min, int $max): self
     {
         $this->config->set('min_height', $min);
@@ -23,6 +36,14 @@ trait Dimensions
         return $this;
     }
 
+    /**
+     * Set the image min and max width.
+     *
+     * @param int $min
+     * @param int $max
+     *
+     * @return self
+     */
     public function width(int $min, int $max): self
     {
         $this->config->set('min_width', $min);

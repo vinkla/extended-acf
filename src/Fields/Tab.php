@@ -16,12 +16,29 @@ namespace WordPlate\Acf\Fields;
 use InvalidArgumentException;
 use WordPlate\Acf\Fields\Attributes\Endpoint;
 
+/**
+ * This is the tab field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Tab extends Field
 {
     use Endpoint;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'tab';
 
+    /**
+     * Set the placement position.
+     *
+     * @param string $placement
+     *
+     * @return self
+     */
     public function placement(string $placement): self
     {
         if (!in_array($placement, ['left', 'top'])) {

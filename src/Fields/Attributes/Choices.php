@@ -13,12 +13,28 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
+/**
+ * This is the choices trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait Choices
 {
-    public function choices(array $choices, $default): self
+    /**
+     * Set the choices array and optional default value.
+     *
+     * @param array $choices
+     * @param mixed $default
+     *
+     * @return self
+     */
+    public function choices(array $choices, $default = null): self
     {
         $this->config->set('choices', $choices);
-        $this->config->set('default_value', $default);
+
+        if ($default) {
+            $this->config->set('default_value', $default);
+        }
 
         return $this;
     }

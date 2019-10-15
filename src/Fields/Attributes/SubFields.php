@@ -13,8 +13,20 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
+/**
+ * This is the sub field trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait SubFields
 {
+    /**
+     * Add sub fields to the field.
+     *
+     * @param array $fields
+     *
+     * @return self
+     */
     public function fields(array $fields): self
     {
         $this->config->set('sub_fields', $fields);

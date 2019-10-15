@@ -13,8 +13,18 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
+/**
+ * This is the required trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait Required
 {
+    /**
+     * Set the field as required.
+     *
+     * @return self
+     */
     public function required(): self
     {
         $this->config->set('required', true);

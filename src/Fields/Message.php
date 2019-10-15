@@ -15,12 +15,29 @@ namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\NewLines;
 
+/**
+ * This is the message field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Message extends Field
 {
     use NewLines;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'message';
 
+    /**
+     * Set the message content.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
     public function message(string $message): self
     {
         $this->config->set('message', $message);
@@ -28,6 +45,11 @@ class Message extends Field
         return $this;
     }
 
+    /**
+     * Enable escaped HTML.
+     *
+     * @return self
+     */
     public function escapeHtml(): self
     {
         $this->config->set('esc_html', true);

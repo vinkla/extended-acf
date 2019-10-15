@@ -20,9 +20,19 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\SubFields;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the group field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Group extends Field
 {
     use ConditionalLogic, Instructions, Layout, SubFields, Required, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'group';
 }

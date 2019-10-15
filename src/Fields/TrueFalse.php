@@ -18,12 +18,27 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the true false field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class TrueFalse extends Field
 {
     use ConditionalLogic, Instructions, Required, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'true_false';
 
+    /**
+     * Enable stylised UI.
+     *
+     * @return self
+     */
     public function ui(): self
     {
         $this->config->set('ui', true);

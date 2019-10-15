@@ -21,12 +21,29 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the taxonomy field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Taxonomy extends Field
 {
     use ConditionalLogic, Instructions, Nullable, Required, ReturnFormat, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'taxonomy';
 
+    /**
+     * Set the appearance style.
+     *
+     * @param string $fieldType
+     *
+     * @return self
+     */
     public function appearance(string $fieldType): self
     {
         if (!in_array($fieldType, ['checkbox', 'multi_select', 'select', 'radio'])) {
@@ -38,6 +55,11 @@ class Taxonomy extends Field
         return $this;
     }
 
+    /**
+     * Allow new terms to be created whilst editing.
+     *
+     * @return self
+     */
     public function createTerms(): self
     {
         $this->config->set('add_term', true);
@@ -45,6 +67,11 @@ class Taxonomy extends Field
         return $this;
     }
 
+    /**
+     * Load value from posts terms.
+     *
+     * @return self
+     */
     public function loadTerms(): self
     {
         $this->config->set('load_terms', true);
@@ -52,6 +79,11 @@ class Taxonomy extends Field
         return $this;
     }
 
+    /**
+     * Connect selected terms to the post.
+     *
+     * @return self
+     */
     public function saveTerms(): self
     {
         $this->config->set('save_terms', true);
@@ -59,6 +91,13 @@ class Taxonomy extends Field
         return $this;
     }
 
+    /**
+     * Set the select the taxonomy to be displayed.
+     *
+     * @param string $taxonomy
+     *
+     * @return self
+     */
     public function taxonomy(string $taxonomy): self
     {
         $this->config->set('taxonomy', $taxonomy);

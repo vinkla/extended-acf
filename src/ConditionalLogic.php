@@ -20,21 +20,63 @@ namespace WordPlate\Acf;
  */
 class ConditionalLogic
 {
+    /**
+     * The field name.
+     *
+     * @var string
+     */
     protected $name;
+
+    /**
+     * The comparison operator.
+     *
+     * @var string
+     */
     protected $operator;
+
+    /**
+     * The parent field's key.
+     *
+     * @var string
+     */
     protected $parentKey;
+
+    /**
+     * The comparison value.
+     *
+     * @var string
+     */
     protected $value;
 
+    /**
+     * Create a new conditional logic instance.
+     *
+     * @param string $name
+     */
     public function __construct(string $name)
     {
         $this->name = $name;
     }
 
+    /**
+     * Create a new conditional logic rule.
+     *
+     * @param string $name
+     *
+     * @return self
+     */
     public static function if(string $name): self
     {
         return new self($name);
     }
 
+    /**
+     * The value is greater than.
+     *
+     * @param int $value
+     *
+     * @return self
+     */
     public function greaterThan(int $value): self
     {
         $this->operator = '>';
@@ -43,6 +85,13 @@ class ConditionalLogic
         return $this;
     }
 
+    /**
+     * The value is less than.
+     *
+     * @param int $value
+     *
+     * @return self
+     */
     public function lessThan(int $value): self
     {
         $this->operator = '<';
@@ -51,6 +100,13 @@ class ConditionalLogic
         return $this;
     }
 
+    /**
+     * The value equals.
+     *
+     * @param mixed $value
+     *
+     * @return self
+     */
     public function equals($value): self
     {
         $this->operator = '==';
@@ -59,6 +115,11 @@ class ConditionalLogic
         return $this;
     }
 
+    /**
+     * The value not equals.
+     *
+     * @var string
+     */
     public function notEquals($value): self
     {
         $this->operator = '!=';
@@ -67,6 +128,13 @@ class ConditionalLogic
         return $this;
     }
 
+    /**
+     * The value contains.
+     *
+     * @param mixed $value
+     *
+     * @return self
+     */
     public function contains($value): self
     {
         $this->operator = '==contains';
@@ -75,6 +143,11 @@ class ConditionalLogic
         return $this;
     }
 
+    /**
+     * The value is empty.
+     *
+     * @return self
+     */
     public function empty(): self
     {
         $this->operator = '==empty';
@@ -82,6 +155,11 @@ class ConditionalLogic
         return $this;
     }
 
+    /**
+     * The value is not empty.
+     *
+     * @return self
+     */
     public function notEmpty(): self
     {
         $this->operator = '!=empty';
@@ -89,11 +167,23 @@ class ConditionalLogic
         return $this;
     }
 
+    /**
+     * Set the parent field's key.
+     *
+     * @param string $parentKey
+     *
+     * @return void
+     */
     public function setParentKey(string $parentKey): void
     {
         $this->parentKey = $parentKey;
     }
 
+    /**
+     * Return the conditional logic rule as an array.
+     *
+     * @return array
+     */
     public function toArray(): array
     {
         $key = sprintf('%s_%s', $this->parentKey, Key::sanitize($this->name));
