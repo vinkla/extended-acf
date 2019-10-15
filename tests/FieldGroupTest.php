@@ -46,6 +46,12 @@ class FieldGroupTest extends TestCase
         $this->assertSame('group_b1c2ce91', $fieldGroup->toArray()['key']);
     }
 
+    public function testCustomKey()
+    {
+        $fieldGroup = new FieldGroup(['key' => 'house', 'title' => 'Apartment', 'fields' => [], 'location' => []]);
+        $this->assertSame('group_0cfb455b', $fieldGroup->toArray()['key']);
+    }
+
     public function testLocation()
     {
         $fieldGroup = new FieldGroup([

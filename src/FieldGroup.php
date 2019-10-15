@@ -56,7 +56,11 @@ class FieldGroup
      */
     public function toArray(): array
     {
-        $key = Key::sanitize($this->config->get('title'));
+        if ($this->config->has('key')) {
+            $key = Key::sanitize($this->config->get('key'));
+        } else {
+            $key = Key::sanitize($this->config->get('title'));
+        }
 
         if (!$this->config->has('style')) {
             $this->config->set('style', 'seamless');
