@@ -690,7 +690,7 @@ This package provides two helpers to make theming with custom fields much cleane
 
 ### Field
 
-Instead of fetching data with `get_field` and `get_sub_field` you can use the `field` helper function. It works as the `get_field` function except that if checks if the given field name is a sub field first.
+Instead of fetching data with `get_field` and `get_sub_field` you can use the `field` helper function. It works as the `get_field` function except that it checks if the given field name is a sub field first.
 
 ```php
 echo field('title');
