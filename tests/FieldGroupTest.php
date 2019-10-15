@@ -75,40 +75,4 @@ class FieldGroupTest extends TestCase
         $this->expectExceptionMessage('Missing field group configuration key [title].');
         new FieldGroup(['fields' => [], 'location' => []]);
     }
-
-    public function testRegisterExtendedFieldGroup()
-    {
-        $this->assertEmpty(register_extended_field_group([
-            'title' => 'Helper',
-            'fields' => [],
-            'location' => [],
-        ]));
-    }
-
-    /**
-     * @runInSeparateProcess
-     */
-    public function testField()
-    {
-        require __DIR__.'/functions.php';
-        $this->assertSame('marty', field('marty', 11));
-        $this->assertNull(field('marty'));
-    }
-    /**
-     * @runInSeparateProcess
-     */
-    public function testOption()
-    {
-        require __DIR__.'/functions.php';
-        $this->assertSame('marty', option('marty'));
-    }
-
-    /**
-     * @runInSeparateProcess
-     */
-    public function testMissingGetFieldFunction()
-    {
-        $this->assertNull(field('field'));
-        $this->assertNull(option('option'));
-    }
 }
