@@ -20,12 +20,29 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the wysiwyg field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Wysiwyg extends Field
 {
     use ConditionalLogic, DefaultValue, Instructions, Required, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'wysiwyg';
 
+    /**
+     * Toggle media upload capability.
+     *
+     * @param bool $mediaUpload
+     *
+     * @return self
+     */
     public function mediaUpload(bool $mediaUpload): self
     {
         $this->config->set('media_upload', $mediaUpload);
@@ -33,6 +50,13 @@ class Wysiwyg extends Field
         return $this;
     }
 
+    /**
+     * Set default tabs layout.
+     *
+     * @param string $tabs
+     *
+     * @return self
+     */
     public function tabs(string $tabs): self
     {
         if (!in_array($tabs, ['all', 'visual', 'text'])) {

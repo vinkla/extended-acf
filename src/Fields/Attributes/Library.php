@@ -15,8 +15,20 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 use InvalidArgumentException;
 
+/**
+ * This is the library trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait Library
 {
+    /**
+     * Set the library property.
+     *
+     * @param string $library
+     *
+     * @return self
+     */
     public function library(string $library): self
     {
         if (!in_array($library, ['all', 'uploadedTo'])) {

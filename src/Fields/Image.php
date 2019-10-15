@@ -22,12 +22,29 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the email field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Image extends Field
 {
     use ConditionalLogic, Dimensions, Instructions, Library, MimeTypes, Required, ReturnFormat, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'image';
 
+    /**
+     * Set the preview size.
+     *
+     * @param string $size
+     *
+     * @return self
+     */
     public function previewSize(string $size): self
     {
         $this->config->set('preview_size', $size);

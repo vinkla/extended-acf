@@ -19,9 +19,19 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the button group field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class ButtonGroup extends Field
 {
     use Choices, ConditionalLogic, Instructions, Required, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'button_group';
 }

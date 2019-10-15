@@ -13,8 +13,20 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
+/**
+ * This is the wrapper trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait Wrapper
 {
+    /**
+     * Set the wrapper id, class and/or width.
+     *
+     * @param array $wrapper
+     *
+     * @return self
+     */
     public function wrapper(array $wrapper): self
     {
         $this->config->set('wrapper', $wrapper);

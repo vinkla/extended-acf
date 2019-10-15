@@ -21,12 +21,30 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the file field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class File extends Field
 {
     use ConditionalLogic, Instructions, Library, MimeTypes, Required, ReturnFormat, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'file';
 
+    /**
+     * Set the minimum and maximum file size.
+     *
+     * @param int|string $min
+     * @param int|string $max
+     *
+     * @return self
+     */
     public function size($min, $max): self
     {
         $this->config->set('min_size', $min);

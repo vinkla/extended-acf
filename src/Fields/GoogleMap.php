@@ -19,12 +19,30 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the google map field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class GoogleMap extends Field
 {
     use ConditionalLogic, Height, Instructions, Required, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'google_map';
 
+    /**
+     * Set the center of the map.
+     *
+     * @param float $latitude
+     * @param float $longitude
+     *
+     * @return self
+     */
     public function center(float $latitude, float $longitude): self
     {
         $this->config->set('center_lat', $latitude);
@@ -33,6 +51,13 @@ class GoogleMap extends Field
         return $this;
     }
 
+    /**
+     * Set the zoom level of the map.
+     *
+     * @param int $zoom
+     *
+     * @return self
+     */
     public function zoom(int $zoom): self
     {
         $this->config->set('zoom', $zoom);

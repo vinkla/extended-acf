@@ -16,12 +16,27 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Attributes\Endpoint;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 
+/**
+ * This is the accordion field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Accordion extends Field
 {
     use Endpoint, Instructions;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'accordion';
 
+    /**
+     * Enable multi expand.
+     *
+     * @return self
+     */
     public function multiExpand(): self
     {
         $this->config->set('multi_expand', true);
@@ -29,6 +44,11 @@ class Accordion extends Field
         return $this;
     }
 
+    /**
+     * Set the accordion to open.
+     *
+     * @return self
+     */
     public function open(): self
     {
         $this->config->set('open', true);

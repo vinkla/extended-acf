@@ -19,9 +19,19 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the link field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Link extends Field
 {
     use ConditionalLogic, Instructions, Required, ReturnFormat, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'link';
 }

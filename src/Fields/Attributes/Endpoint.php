@@ -13,8 +13,18 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
+/**
+ * This is the endpoint trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait Endpoint
 {
+    /**
+     * Define an endpoint for the previous tabs to stop.
+     *
+     * @return self
+     */
     public function endpoint(): self
     {
         $this->config->set('endpoint', true);

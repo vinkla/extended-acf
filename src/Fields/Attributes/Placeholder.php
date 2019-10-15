@@ -13,8 +13,20 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
+/**
+ * This is the placeholder trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait Placeholder
 {
+    /**
+     * Set the placeholder text.
+     *
+     * @param string $placeholder
+     *
+     * @return self
+     */
     public function placeholder(string $placeholder): self
     {
         $this->config->set('placeholder', $placeholder);

@@ -20,9 +20,19 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Step;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the range field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Range extends Field
 {
     use ConditionalLogic, Instructions, MinMax, Step, Required, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'range';
 }

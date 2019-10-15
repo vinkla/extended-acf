@@ -20,17 +20,32 @@ use WordPlate\Acf\Fields\Attributes\MinMax;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the flexible content field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class FlexibleContent extends Field
 {
     use ButtonLabel, ConditionalLogic, Instructions, MinMax, Required, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'flexible_content';
 
+    /**
+     * Add layouts to flexible content.
+     *
+     * @param array $layouts
+     *
+     * @return self
+     */
     public function layouts(array $layouts): self
     {
         $this->config->set('layouts', $layouts);
-
-        // TODO: Add indexed keys for layouts.
 
         return $this;
     }

@@ -18,7 +18,7 @@ use WordPlate\Acf\Fields\Attributes\MinMax;
 use WordPlate\Acf\Fields\Attributes\SubFields;
 
 /**
- * This is the layout class.
+ * This is the layout field class.
  *
  * @author Vincent Klaiber <hello@doubledip.se>
  */

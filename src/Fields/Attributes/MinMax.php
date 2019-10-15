@@ -13,8 +13,20 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
+/**
+ * This is the min max trait.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 trait MinMax
 {
+    /**
+     * Set the maximum value.
+     *
+     * @param int $max
+     *
+     * @return self
+     */
     public function max(int $max): self
     {
         $this->config->set('max', $max);
@@ -22,6 +34,13 @@ trait MinMax
         return $this;
     }
 
+    /**
+     * Set the minimum value.
+     *
+     * @param int $min
+     *
+     * @return self
+     */
     public function min(int $min): self
     {
         $this->config->set('min', $min);

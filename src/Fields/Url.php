@@ -20,9 +20,19 @@ use WordPlate\Acf\Fields\Attributes\Placeholder;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
+/**
+ * This is the url field class.
+ *
+ * @author Vincent Klaiber <hello@doubledip.se>
+ */
 class Url extends Field
 {
     use ConditionalLogic, DefaultValue, Instructions, Placeholder, Required, Wrapper;
 
+    /**
+     * The field type.
+     *
+     * @var string
+     */
     protected $type = 'url';
 }
