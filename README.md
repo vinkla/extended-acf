@@ -33,9 +33,9 @@ If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with 
         "package": {
             "name": "wpackagist-plugin/advanced-custom-fields-pro",
             "type": "wordpress-plugin",
-            "version": "5.7.2",
+            "version": "5.8.0",
             "dist": {
-                "url": "https://connect.advancedcustomfields.com/index.php?v=5.7.2&p=pro&a=download&k=your-acf-key",
+                "url": "https://connect.advancedcustomfields.com/index.php?v=5.8.0&p=pro&a=download&k=your-acf-key",
                 "type": "zip"
             }
         }
@@ -45,25 +45,22 @@ If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with 
 
 ## Usage
 
-Use the `acf_field_group()` helper function to register a new field group in ACF. It uses the [`acf_add_local_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function behind the scenes. The difference is that it appends the `key` value to all fields. Below you'll find an example of a field group.
+Use the `register_extended_field_group()` helper function to register a new field group in ACF. It uses the [`register_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function behind the scenes. The difference is that it appends the `key` value to field groups and fields. Below you'll find an example of a field group.
 
 ```php
-$fields = [
-    acf_image(['name' => 'image', 'label' => 'Image']),
-    acf_text(['name' => 'title', 'label' => 'Title']),
-];
+use WordPlate\Acf\Fields\Image;
+use WordPlate\Acf\Fields\Text;
+use WordPlate\Acf\Location;
 
-$location = [
-    [
-        acf_location('post_type', 'page')
-    ],
-];
-
-acf_field_group([
+register_extended_field_group([
     'title' => 'About',
-    'fields' => $fields,
-    'style' => 'seamless',
-    'location' => $location,
+    'fields' => [
+        Image::make('Image'),
+        Text::make('Title'),
+    ],
+    'location' => [
+        Location::if('post_type', 'page')
+    ],
 ]);
 ```
 
@@ -71,15 +68,14 @@ acf_field_group([
 
 ## Fields
 
-All fields accepts an array of settings. All field settings arrays must have the keys `label` and `name`. Below the example you'll find a list of available field functions.
+All fields accepts an array of settings. All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. Below the example you'll find a list of available fields.
 
 ```php
-acf_text([
-    'name' => 'unique-field-name',
-    'label' => 'Field Label',
-    'instructions' => 'Add the text value',
-    'required' => true,
-]);
+use WordPlate\Acf\Fields\Text;
+
+Text::make('Title', 'heading')
+  ->instructions('Add the text value')
+  ->required();
 ```
 
 ### Settings
