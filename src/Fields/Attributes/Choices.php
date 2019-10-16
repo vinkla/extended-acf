@@ -24,17 +24,12 @@ trait Choices
      * Set the choices array and optional default value.
      *
      * @param array $choices
-     * @param mixed $default
      *
      * @return self
      */
-    public function choices(array $choices, $default = null): self
+    public function choices(array $choices): self
     {
         $this->config->set('choices', $choices);
-
-        if ($default) {
-            $this->config->set('default_value', $default);
-        }
 
         return $this;
     }

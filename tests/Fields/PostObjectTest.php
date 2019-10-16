@@ -36,15 +36,15 @@ class PostObjectTest extends TestCase
         $this->assertTrue($field['allow_null']);
     }
 
-    public function testFilterByPostType()
+    public function testPostTypes()
     {
-        $field = PostObject::make('Post Object Filter Post Type')->filterByPostType(['page'])->toArray();
+        $field = PostObject::make('Post Object Filter Post Type')->postTypes(['page'])->toArray();
         $this->assertSame(['page'], $field['post_type']);
     }
 
-    public function testFilterByTaxonomy()
+    public function testTaxonomies()
     {
-        $field = PostObject::make('Post Object Filter Taxonomy')->filterByTaxonomy(['category:untitled'])->toArray();
+        $field = PostObject::make('Post Object Filter Taxonomy')->taxonomies(['category:untitled'])->toArray();
         $this->assertSame(['category:untitled'], $field['taxonomy']);
     }
 }

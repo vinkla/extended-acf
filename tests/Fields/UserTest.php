@@ -24,9 +24,9 @@ class UserTest extends TestCase
         $this->assertSame('user', $field['type']);
     }
 
-    public function testFilterByPostType()
+    public function testRoles()
     {
-        $field = User::make('User Filter Role')->filterByRole(['editor'])->toArray();
+        $field = User::make('User Filter Role')->roles(['editor'])->toArray();
         $this->assertSame(['editor'], $field['role']);
     }
 }

@@ -27,7 +27,7 @@ trait FilterBy
      *
      * @return self
      */
-    public function filterByPostType(array $postTypes): self
+    public function postTypes(array $postTypes): self
     {
         $this->config->set('post_type', $postTypes);
 
@@ -35,13 +35,13 @@ trait FilterBy
     }
 
     /**
-     * Filter by taxonomy.
+     * Filter by taxonomies.
      *
      * @param array $postTypes
      *
      * @return self
      */
-    public function filterByTaxonomy(array $taxonomies): self
+    public function taxonomies(array $taxonomies): self
     {
         $this->config->set('taxonomy', $taxonomies);
 
