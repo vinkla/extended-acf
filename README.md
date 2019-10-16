@@ -183,8 +183,8 @@ use WordPlate\Acf\Fields\ButtonGroup;
 ButtonGroup::make('Color')
   ->instructions('Select the box shadow color.')
   ->choices([
-    'cyan' => 'Cyan',
-    'hotpink' => 'Hotpink',
+      'cyan' => 'Cyan',
+      'hotpink' => 'Hotpink',
   ])
   ->defaultValue('hotpink')
   ->required();
@@ -198,8 +198,8 @@ use WordPlate\Acf\Fields\Checkbox;
 Checkbox::make('Color')
   ->instructions('Select the border color.')
   ->choices([
-    'cyan' => 'Cyan',
-    'hotpink' => 'Hotpink',
+      'cyan' => 'Cyan',
+      'hotpink' => 'Hotpink',
   ])
   ->defaultValue('cyan')
   ->required();
@@ -213,8 +213,8 @@ use WordPlate\Acf\Fields\Radio;
 Radio::make('Color')
   ->instructions('Select the text color.')
   ->choices([
-    'cyan' => 'Cyan',
-    'hotpink' => 'Hotpink',
+      'cyan' => 'Cyan',
+      'hotpink' => 'Hotpink',
   ])
   ->defaultValue('hotpink')
   ->required();
@@ -415,9 +415,9 @@ Accordion::make('Endpoint')
 
   ```php
   register_extended_field_group([
-    'fields' => [
-      require __DIR__.'/fields/occupation.php';
-    ]
+      'fields' => [
+          require __DIR__.'/fields/occupation.php';
+      ]
   ]);
   ```
 
@@ -431,11 +431,11 @@ FlexibleContent::make('Components', 'page-components')
   ->instructions('Add the employees occupation.')
   ->buttonLabel('Add a page component')
   ->layouts([
-    Layout::make('Image')
-      ->layout('block')
-      ->fields([
-        Text::make('Description')
-      ])
+      Layout::make('Image')
+          ->layout('block')
+          ->fields([
+              Text::make('Description')
+          ])
   ])
   ->required();
 ```
@@ -450,8 +450,8 @@ use WordPlate\Acf\Fields\Text;
 Group::make('Hero')
   ->instructions('Add a hero block with title, content and image to the page.')
   ->fields([
-    Text::make('Title'),
-    Image::make('Background Image'),
+      Text::make('Title'),
+      Image::make('Background Image'),
   ])
   ->layout('row')
   ->required();
@@ -477,8 +477,8 @@ use WordPlate\Acf\Fields\Text;
 Repeater::make('Employees')
   ->instructions('Add the employees.')
   ->fields([
-    Text::make('Name'),
-    Image::make('Profile Picture'),
+      Text::make('Name'),
+      Image::make('Profile Picture'),
   ])
   ->min(2)
   ->buttonLabel('Add employee')
@@ -599,16 +599,16 @@ use WordPlate\Acf\Fields\Url;
 
 Select::make('Type')
   ->choices([
-    'document' => 'Document',
-    'link' => 'Link to resource',
+      'document' => 'Document',
+      'link' => 'Link to resource',
   ]),
 File::make('Document', 'file')
   ->conditionalLogic([
-    ConditionalLogic::if('type')->equas('document')
+      ConditionalLogic::if('type')->equas('document')
   ]),
 Url::make('Link', 'url')
   ->conditionalLogic([
-    ConditionalLogic::if('type')->equas('link')
+      ConditionalLogic::if('type')->equas('link')
   ]),
 ```
 
