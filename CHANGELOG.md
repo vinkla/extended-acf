@@ -1,8 +1,11 @@
 # CHANGELOG
 
-## 6.1.0 (upcoming)
+## 7.0.0 (upcoming)
 
-- Added wrapper id, class and width shorthands
+- Added API with field classes
+- Removed acf_* helper functions
+- Removed is_layout helper functions
+- Removed clone field support
 
 ## 6.0.0 (released 2018-09-13)
 
