@@ -27,8 +27,7 @@ class ButtonGroupTest extends TestCase
     public function testChoices()
     {
         $choices = ['blue' => 'Blue Pill', 'red' => 'Red Pill'];
-        $field = ButtonGroup::make('Choices')->choices($choices, 'blue')->toArray();
+        $field = ButtonGroup::make('Choices')->choices($choices)->toArray();
         $this->assertSame($choices, $field['choices']);
-        $this->assertSame('blue', $field['default_value']);
     }
 }
