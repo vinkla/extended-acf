@@ -604,11 +604,11 @@ Select::make('Type')
   ]),
 File::make('Document', 'file')
   ->conditionalLogic([
-      ConditionalLogic::if('type')->equas('document')
+      ConditionalLogic::if('type')->equals('document')
   ]),
 Url::make('Link', 'url')
   ->conditionalLogic([
-      ConditionalLogic::if('type')->equas('link')
+      ConditionalLogic::if('type')->equals('link')
   ]),
 ```
 
