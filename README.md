@@ -82,8 +82,8 @@ Text::make('Title', 'heading')
 
 Below you'll find a list of methods and their descriptions available on most fields. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about the field settings.
 
-Name | Description
----- | -----------
+Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description
+-------------- | -----------
 `->instructions()` | This text appears on the edit page when entering a value.
 `->placeholder()` | The placeholder appears within input when no value exists.
 `->required()` | Required fields will cause validation to run when saving a post. When attempting to save an empty value to a required field, an error message will display.
