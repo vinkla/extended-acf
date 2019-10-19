@@ -4,7 +4,7 @@
 
 > An [Advanced Custom Fields](https://www.advancedcustomfields.com) helper for [WordPlate](https://wordplate.github.io).
 
-If you're working with multiple developers on a WordPress application with custom fields it can be hard to keep track of changes made in custom fields. This package will help you register advanced custom fields with PHP without caring about field keys. All fields will have their own helper function that automagically create unique field keys based on their parent field group. All fields exists within the theme and can be added to version control.
+If you're working with multiple developers on a WordPress application with custom fields it can be hard to keep track of changes made in custom fields. This package will help you register advanced custom fields with PHP without caring about field keys. All fields have their own class that automagically create unique field keys based on their parent field group. All fields exists within the theme and can be added to version control.
 
 [![Build Status](https://badgen.net/travis/wordplate/acf/master)](https://travis-ci.org/wordplate/acf)
 [![Coverage Status](https://badgen.net/codecov/c/github/wordplate/acf)](https://codecov.io/github/wordplate/acf)
