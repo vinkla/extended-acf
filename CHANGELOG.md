@@ -1,11 +1,10 @@
 # CHANGELOG
 
-## 7.0.0 (upcoming)
+## 7.0.0 (released 2019-10-19)
 
-- Added API with field classes
+- Added new field classes API
 - Removed acf_* helper functions
 - Removed is_layout helper functions
-- Removed clone field support
 
 ## 6.0.0 (released 2018-09-13)
 

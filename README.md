@@ -90,8 +90,6 @@ Name | Description
 `conditionalLogic()` | Once enabled, more settings will appear to customize the logic which determines if the current field should be visible or not. Groups of conditional logic can be created to allow for multiple and/or statements. The available [toggle](#choice-fields) fields are limited to those which are of the type select, checkbox, true/false, radio.
 `defaultValue()` | The default value if no value has yet been saved.
 `wrapper()` | The array of attributes given to the field element such as width, class and id.
-`append()` | The append value adds a visual text element before the input.
-`prepend()` | The prepend value adds a visual text element before the input.
 
 ### Basic Fields
 

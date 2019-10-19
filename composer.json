@@ -33,7 +33,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "7.0-dev"
+            "dev-master": "7.0-dev"
         }
     },
     "autoload": {
