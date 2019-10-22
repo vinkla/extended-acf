@@ -155,7 +155,7 @@ use WordPlate\Acf\Fields\Textarea;
 
 Textarea::make('Biography')
   ->instructions('Add the employees biography.')
-  ->newLine('br') // br or wpautop
+  ->newLines('br') // br or wpautop
   ->characterLimit(2000)
   ->rows(10)
   ->required();
