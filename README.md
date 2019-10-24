@@ -291,7 +291,7 @@ Image::make('Background Image')
   ->width(1000, 2000)
   ->library('all')
   ->returnFormat('array')
-  ->previewSize('medium')
+  ->previewSize('medium') // thumbnail, medium or large
   ->required();
 ```
 
