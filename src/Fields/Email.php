@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\Instructions;
+use WordPlate\Acf\Fields\Attributes\Pending;
 use WordPlate\Acf\Fields\Attributes\Placeholder;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
@@ -26,7 +27,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Email extends Field
 {
-    use Instructions, ConditionalLogic, Placeholder, Required, Wrapper;
+    use Instructions, ConditionalLogic, Pending, Placeholder, Required, Wrapper;
 
     /**
      * The field type.

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 7.1.0 (released 2019-10-28)
+
+- Added prepend and append methods
+
 ## 7.0.0 (released 2019-10-19)
 
 - Added new field classes API

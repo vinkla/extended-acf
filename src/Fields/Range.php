@@ -16,6 +16,7 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\MinMax;
+use WordPlate\Acf\Fields\Attributes\Pending;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Step;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
@@ -27,7 +28,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Range extends Field
 {
-    use ConditionalLogic, Instructions, MinMax, Step, Required, Wrapper;
+    use ConditionalLogic, Instructions, MinMax, Step, Pending, Required, Wrapper;
 
     /**
      * The field type.

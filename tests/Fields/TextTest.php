@@ -84,4 +84,16 @@ class TextTest extends TestCase
         $this->assertSame('==empty', $field['conditional_logic'][0][0]['operator']);
         $this->assertSame('==contains', $field['conditional_logic'][1][0]['operator']);
     }
+
+    public function testPrepend()
+    {
+        $field = Text::make('Prepend')->prepend('prefix')->toArray();
+        $this->assertSame('prefix', $field['prepend']);
+    }
+
+    public function testAppend()
+    {
+        $field = Text::make('Append')->append('suffix')->toArray();
+        $this->assertSame('suffix', $field['append']);
+    }
 }
