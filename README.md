@@ -405,7 +405,7 @@ Accordion::make('Endpoint')
   ```php
   use WordPlate\Acf\Fields\Text;
 
-  Text::make('Occupation')
+  return Text::make('Occupation')
     ->instructions('Add the employees occupation.')
     ->required();
   ```
