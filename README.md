@@ -68,7 +68,7 @@ register_extended_field_group([
 
 ## Fields
 
-All fields have their responding class except the `Clone` field. All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. Furthur down this page you'll find a list of available field types.
+All fields have their responding class except the clone field. All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. Furthur down this page you'll find a list of available field types.
 
 ```php
 use WordPlate\Acf\Fields\Text;
