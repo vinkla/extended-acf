@@ -602,11 +602,11 @@ Select::make('Type')
   ]),
 File::make('Document', 'file')
   ->conditionalLogic([
-      ConditionalLogic::if('type')->equals('document')
+      ConditionalLogic::if('type')->equals('Document')
   ]),
 Url::make('Link', 'url')
   ->conditionalLogic([
-      ConditionalLogic::if('type')->equals('link')
+      ConditionalLogic::if('type')->equals('Link to resource')
   ]),
 ```
 
