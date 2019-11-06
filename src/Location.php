@@ -36,7 +36,7 @@ class Location
      *
      * @return void
      */
-    public function __construct(string $param, string $operator, string $value = null)
+    public function __construct(string $param, string $operator, ?string $value = null)
     {
         $this->rules[] = compact('param', 'operator', 'value');
     }
@@ -50,7 +50,7 @@ class Location
      *
      * @return self
      */
-    public static function if(string $param, string $operator, string $value = null): self
+    public static function if(string $param, string $operator, ?string $value = null): self
     {
         if (func_num_args() === 2) {
             $value = $operator;
@@ -69,7 +69,7 @@ class Location
      *
      * @return self
      */
-    public function and(string $param, string $operator, string $value = null): self
+    public function and(string $param, string $operator, ?string $value = null): self
     {
         if (func_num_args() === 2) {
             $value = $operator;

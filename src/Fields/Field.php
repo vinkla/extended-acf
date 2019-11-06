@@ -52,7 +52,7 @@ abstract class Field
      *
      * @return void
      */
-    public function __construct(string $label, string $name = null)
+    public function __construct(string $label, ?string $name = null)
     {
         $this->config = new Config([
             'label' => $label,
@@ -68,7 +68,7 @@ abstract class Field
      *
      * @return self
      */
-    public static function make(string $label, string $name = null): self
+    public static function make(string $label, ?string $name = null): self
     {
         return new static($label, $name);
     }

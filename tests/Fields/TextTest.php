@@ -78,8 +78,10 @@ class TextTest extends TestCase
             ])
             ->conditionalLogic([
                 ConditionalLogic::if('title')->contains('ACF'),
-            ])
-            ->toArray();
+            ]);
+
+        $field->setParentKey('group');
+        $field = $field->toArray();
 
         $this->assertSame('==empty', $field['conditional_logic'][0][0]['operator']);
         $this->assertSame('==contains', $field['conditional_logic'][1][0]['operator']);
