@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 7.1.1 (released 2019-11-06)
+
+- Fixes error with conditional logic key
+
 ## 7.1.0 (released 2019-10-28)
 
 - Added prepend and append methods

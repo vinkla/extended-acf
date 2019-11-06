@@ -99,9 +99,9 @@ abstract class Field
         }
 
         if ($this->config->has('conditional_logic')) {
-            $this->config->set('conditional_logic', array_map(function ($rules) use ($key) {
-                return array_map(function ($rule) use ($key) {
-                    $rule->setParentKey($key);
+            $this->config->set('conditional_logic', array_map(function ($rules) {
+                return array_map(function ($rule) {
+                    $rule->setParentKey($this->parentKey);
 
                     return $rule->toArray();
                 }, $rules);
