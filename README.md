@@ -22,27 +22,6 @@ $ composer require wordplate/acf
 
 Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that this package supports ACF version 5.6 or later.
 
-#### ACF Pro
-
-If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `your-acf-key` with your ACF Pro key and run `composer install`. Composer should now install the plugin to the `plugins` directory.
-
-```json
-"repositories": [
-    {
-        "type": "package",
-        "package": {
-            "name": "wpackagist-plugin/advanced-custom-fields-pro",
-            "type": "wordpress-plugin",
-            "version": "5.8.0",
-            "dist": {
-                "url": "https://connect.advancedcustomfields.com/index.php?v=5.8.0&p=pro&a=download&k=your-acf-key",
-                "type": "zip"
-            }
-        }
-    }
-]
-```
-
 ## Usage
 
 Use the `register_extended_field_group()` function to register a new field group in ACF. It uses the [`register_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function behind the scenes. The difference is that it appends the `key` value to field groups and fields. Below you'll find an example of a field group.
@@ -78,18 +57,7 @@ Text::make('Title', 'heading')
   ->required();
 ```
 
-### Methods
-
-Below you'll find a list of methods and their descriptions available on most fields. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about the field settings.
-
-Name | Description
----- | -----------
-`instructions()` | This text appears on the edit page when entering a value.
-`placeholder()` | The placeholder appears within input when no value exists.
-`required()` | Required fields will cause validation to run when saving a post. When attempting to save an empty value to a required field, an error message will display.
-`conditionalLogic()` | Once enabled, more settings will appear to customize the logic which determines if the current field should be visible or not. Groups of conditional logic can be created to allow for multiple and/or statements. The available [toggle](#choice-fields) fields are limited to those which are of the type select, checkbox, true/false, radio.
-`defaultValue()` | The default value if no value has yet been saved.
-`wrapper()` | The array of attributes given to the field element such as width, class and id.
+[Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about the field settings.
 
 ### Basic Fields
 
@@ -641,6 +609,27 @@ Instead of passing the `option` key to the `get_field` function we can now use t
 
 ```php
 echo option('github-url');
+```
+
+## ACF ❤ Composer
+
+If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `your-acf-key` with your ACF Pro key and run `composer install`. Composer should now install the plugin to the `plugins` directory.
+
+```json
+"repositories": [
+    {
+        "type": "package",
+        "package": {
+            "name": "wpackagist-plugin/advanced-custom-fields-pro",
+            "type": "wordpress-plugin",
+            "version": "5.8.0",
+            "dist": {
+                "url": "https://connect.advancedcustomfields.com/index.php?v=5.8.0&p=pro&a=download&k=your-acf-key",
+                "type": "zip"
+            }
+        }
+    }
+]
 ```
 
 ## Resources
