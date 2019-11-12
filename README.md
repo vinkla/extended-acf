@@ -53,8 +53,8 @@ All fields have their responding class except the clone field. All fields must h
 use WordPlate\Acf\Fields\Text;
 
 Text::make('Title', 'heading')
-  ->instructions('Add the text value')
-  ->required();
+    ->instructions('Add the text value')
+    ->required();
 ```
 
 Setting such as `wrapper`, `append` and `prepend` are supported on most fields but not listed in the documentation below. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about field settings.
@@ -67,8 +67,8 @@ Setting such as `wrapper`, `append` and `prepend` are supported on most fields b
 use WordPlate\Acf\Fields\Email;
 
 Email::make('Email')
-  ->instructions('Add the employees email address.')
-  ->required();
+    ->instructions('Add the employees email address.')
+    ->required();
 ```
 
 **Number** - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
@@ -77,10 +77,10 @@ Email::make('Email')
 use WordPlate\Acf\Fields\Number;
 
 Number::make('Age')
-  ->instructions('Add the employees age.')
-  ->min(18)
-  ->max(65)
-  ->required();
+    ->instructions('Add the employees age.')
+    ->min(18)
+    ->max(65)
+    ->required();
 ```
 
 **Password** - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
@@ -89,8 +89,8 @@ Number::make('Age')
 use WordPlate\Acf\Fields\Password;
 
 Password::make('Password')
-  ->instructions('Add the employees secret pwned password.')
-  ->required();
+    ->instructions('Add the employees secret pwned password.')
+    ->required();
 ```
 
 **Range** - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
@@ -99,11 +99,11 @@ Password::make('Password')
 use WordPlate\Acf\Fields\Range;
 
 Range::make('Rate')
-  ->instructions('Add the employees completion rate.')
-  ->min(0)
-  ->max(100)
-  ->step(10)
-  ->required();
+    ->instructions('Add the employees completion rate.')
+    ->min(0)
+    ->max(100)
+    ->step(10)
+    ->required();
 ```
 
 **Text** - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
@@ -112,8 +112,8 @@ Range::make('Rate')
 use WordPlate\Acf\Fields\Text;
 
 Text::make('Name')
-  ->instructions('Add the employees name.')
-  ->required();
+    ->instructions('Add the employees name.')
+    ->required();
 ```
 
 **Textarea** - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
@@ -122,11 +122,11 @@ Text::make('Name')
 use WordPlate\Acf\Fields\Textarea;
 
 Textarea::make('Biography')
-  ->instructions('Add the employees biography.')
-  ->newLines('br') // br or wpautop
-  ->characterLimit(2000)
-  ->rows(10)
-  ->required();
+    ->instructions('Add the employees biography.')
+    ->newLines('br') // br or wpautop
+    ->characterLimit(2000)
+    ->rows(10)
+    ->required();
 ```
 
 **URL** - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
@@ -135,8 +135,8 @@ Textarea::make('Biography')
 use WordPlate\Acf\Fields\Url;
 
 Url::make('Website')
-  ->instructions('Add the employees website link.')
-  ->required();
+    ->instructions('Add the employees website link.')
+    ->required();
 ```
 
 ### Choice Fields
@@ -147,13 +147,13 @@ Url::make('Website')
 use WordPlate\Acf\Fields\ButtonGroup;
 
 ButtonGroup::make('Color')
-  ->instructions('Select the box shadow color.')
-  ->choices([
-      'cyan' => 'Cyan',
-      'hotpink' => 'Hotpink',
-  ])
-  ->defaultValue('hotpink')
-  ->required();
+    ->instructions('Select the box shadow color.')
+    ->choices([
+        'cyan' => 'Cyan',
+        'hotpink' => 'Hotpink',
+    ])
+    ->defaultValue('hotpink')
+    ->required();
 ```
 
 **Checkbox** - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
@@ -162,13 +162,13 @@ ButtonGroup::make('Color')
 use WordPlate\Acf\Fields\Checkbox;
 
 Checkbox::make('Color')
-  ->instructions('Select the border color.')
-  ->choices([
-      'cyan' => 'Cyan',
-      'hotpink' => 'Hotpink',
-  ])
-  ->defaultValue('cyan')
-  ->required();
+    ->instructions('Select the border color.')
+    ->choices([
+        'cyan' => 'Cyan',
+        'hotpink' => 'Hotpink',
+    ])
+    ->defaultValue('cyan')
+    ->required();
 ```
 
 **Radio** - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
@@ -177,13 +177,13 @@ Checkbox::make('Color')
 use WordPlate\Acf\Fields\Radio;
 
 Radio::make('Color')
-  ->instructions('Select the text color.')
-  ->choices([
-      'cyan' => 'Cyan',
-      'hotpink' => 'Hotpink',
-  ])
-  ->defaultValue('hotpink')
-  ->required();
+    ->instructions('Select the text color.')
+    ->choices([
+        'cyan' => 'Cyan',
+        'hotpink' => 'Hotpink',
+    ])
+    ->defaultValue('hotpink')
+    ->required();
 ```
 
 **Select** - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
@@ -192,13 +192,13 @@ Radio::make('Color')
 use WordPlate\Acf\Fields\Select;
 
 Select::make('Color')
-  ->instructions('Select the background color.')
-  ->choices([
-    'cyan' => 'Cyan',
-    'hotpink' => 'Hotpink',
-  ])
-  ->defaultValue('cyan')
-  ->required();
+    ->instructions('Select the background color.')
+    ->choices([
+        'cyan' => 'Cyan',
+        'hotpink' => 'Hotpink',
+    ])
+    ->defaultValue('cyan')
+    ->required();
 ```
 
 **True False** - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
@@ -207,10 +207,10 @@ Select::make('Color')
 use WordPlate\Acf\Fields\TrueFalse;
 
 TrueFalse::make('Social Media', 'display-social-media')
-  ->instructions('Select whether to display social media links or not.')
-  ->defaultValue(false)
-  ->ui()
-  ->required();
+    ->instructions('Select whether to display social media links or not.')
+    ->defaultValue(false)
+    ->ui()
+    ->required();
 ```
 
 ### Content Fields
@@ -221,13 +221,13 @@ TrueFalse::make('Social Media', 'display-social-media')
 use WordPlate\Acf\Fields\File;
 
 File::make('Resturant Menu', 'menu')
-  ->instructions('Add the menu <strong>pdf</strong> file.')
-  ->defaultValue(false)
-  ->mimeTypes(['pdf'])
-  ->library('all')
-  ->size('400 KB', 5) // MB if entered as int
-  ->returnFormat('array')
-  ->required();
+    ->instructions('Add the menu <strong>pdf</strong> file.')
+    ->defaultValue(false)
+    ->mimeTypes(['pdf'])
+    ->library('all')
+    ->size('400 KB', 5) // MB if entered as int
+    ->returnFormat('array')
+    ->required();
 ```
 
 **Gallery** - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing a collection of images.
@@ -236,15 +236,15 @@ File::make('Resturant Menu', 'menu')
 use WordPlate\Acf\Fields\Gallery;
 
 Gallery::make('Images')
-  ->instructions('Add the gallery images.')
-  ->mimeTypes(['jpg', 'jpeg', 'png'])
-  ->height(500, 1400)
-  ->width(1000, 2000)
-  ->min(1)
-  ->max(6)
-  ->library('all')
-  ->returnFormat('array')
-  ->required();
+    ->instructions('Add the gallery images.')
+    ->mimeTypes(['jpg', 'jpeg', 'png'])
+    ->height(500, 1400)
+    ->width(1000, 2000)
+    ->min(1)
+    ->max(6)
+    ->library('all')
+    ->returnFormat('array')
+    ->required();
 ```
 
 **Image** - The [image field](https://www.advancedcustomfields.com/resources/image) allows an image to be uploaded and selected.
@@ -253,14 +253,14 @@ Gallery::make('Images')
 use WordPlate\Acf\Fields\Image;
 
 Image::make('Background Image')
-  ->instructions('Add an image in at least 12000x100px and only in the formats <strong>jpg</strong>, <strong>jpeg</strong> or <strong>png</strong>.')
-  ->mimeTypes(['jpg', 'jpeg', 'png'])
-  ->height(500, 1400)
-  ->width(1000, 2000)
-  ->library('all')
-  ->returnFormat('array')
-  ->previewSize('medium') // thumbnail, medium or large
-  ->required();
+    ->instructions('Add an image in at least 12000x100px and only in the formats <strong>jpg</strong>, <strong>jpeg</strong> or <strong>png</strong>.')
+    ->mimeTypes(['jpg', 'jpeg', 'png'])
+    ->height(500, 1400)
+    ->width(1000, 2000)
+    ->library('all')
+    ->returnFormat('array')
+    ->previewSize('medium') // thumbnail, medium or large
+    ->required();
 ```
 
 **Oembed** - The [oEmbed field](https://www.advancedcustomfields.com/resources/oembed) allows an easy way to embed videos, images, tweets, audio, and other content.
@@ -269,8 +269,8 @@ Image::make('Background Image')
 use WordPlate\Acf\Fields\Oembed;
 
 Oembed::make('Tweet')
-  ->instructions('Add a tweet from Twitter.')
-  ->required();
+    ->instructions('Add a tweet from Twitter.')
+    ->required();
 ```
 
 **WYSIWYG** - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
@@ -279,11 +279,11 @@ Oembed::make('Tweet')
 use WordPlate\Acf\Fields\Wysiwyg;
 
 Wysiwyg::make('Content')
-  ->instructions('Add the text content.')
-  ->mediaUpload(false)
-  ->tabs('visual')
-  ->toolbar('simple')
-  ->required();
+    ->instructions('Add the text content.')
+    ->mediaUpload(false)
+    ->tabs('visual')
+    ->toolbar('simple')
+    ->required();
 ```
 
 ### jQuery Fields
@@ -294,9 +294,9 @@ Wysiwyg::make('Content')
 use WordPlate\Acf\Fields\ColorPicker;
 
 ColorPicker::make('Text Color')
-  ->instructions('Add the text color.')
-  ->defaultValue('#4a9cff')
-  ->required();
+    ->instructions('Add the text color.')
+    ->defaultValue('#4a9cff')
+    ->required();
 ```
 
 **Date Picker** - The [date picker field](https://www.advancedcustomfields.com/resources/date-picker) creates a jQuery date selection popup.
@@ -305,10 +305,10 @@ ColorPicker::make('Text Color')
 use WordPlate\Acf\Fields\DatePicker;
 
 DatePicker::make('Birthday')
-  ->instructions('Add the employee\'s birthday.')
-  ->displayFormat('d/m/Y')
-  ->returnFormat('d/m/Y')
-  ->required();
+    ->instructions('Add the employee\'s birthday.')
+    ->displayFormat('d/m/Y')
+    ->returnFormat('d/m/Y')
+    ->required();
 ```
 
 **Date Time Picker** - The [date time picker field](https://www.advancedcustomfields.com/resources/date-time-picker) creates a jQuery date & time selection popup.
@@ -317,10 +317,10 @@ DatePicker::make('Birthday')
 use WordPlate\Acf\Fields\DateTimePicker;
 
 DateTimePicker::make('Event Date', 'date')
-  ->instructions('Add the event\'s start date and time.')
-  ->displayFormat('d-m-Y H:i')
-  ->returnFormat('d-m-Y H:i')
-  ->required();
+    ->instructions('Add the event\'s start date and time.')
+    ->displayFormat('d-m-Y H:i')
+    ->returnFormat('d-m-Y H:i')
+    ->required();
 ```
 
 **Google Map** - The [Google Map field](https://www.advancedcustomfields.com/resources/google-map) creates an interactive map with the ability to place a marker.
@@ -329,10 +329,10 @@ DateTimePicker::make('Event Date', 'date')
 use WordPlate\Acf\Fields\GoogleMap;
 
 GoogleMap::make('Address', 'address')
-  ->instructions('Add the Google Map address.')
-  ->center(57.456286, 18.377716)
-  ->zoom(14)
-  ->required();
+    ->instructions('Add the Google Map address.')
+    ->center(57.456286, 18.377716)
+    ->zoom(14)
+    ->required();
 ```
 
 **Time Picker** - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
@@ -341,10 +341,10 @@ GoogleMap::make('Address', 'address')
 use WordPlate\Acf\Fields\DateTimePicker;
 
 DateTimePicker::make('Start Time', 'time')
-  ->instructions('Add the start time.')
-  ->displayFormat('H:i')
-  ->returnFormat('H:i')
-  ->required();
+    ->instructions('Add the start time.')
+    ->displayFormat('H:i')
+    ->returnFormat('H:i')
+    ->required();
 ```
 
 ### Layout Fields
@@ -355,13 +355,16 @@ DateTimePicker::make('Start Time', 'time')
 use WordPlate\Acf\Fields\Accordion;
 
 Accordion::make('Address')
-  ->open()
-  ->multiExpand(), // Allow accordion to remain open when other accordions are opened.
+    ->open()
+    ->multiExpand(),
+
+// Allow accordion to remain open when other accordions are opened.
 // Any field after this accordion will become a child.
 
 Accordion::make('Endpoint')
-  ->endpoint()
-  ->multiExpand(),
+    ->endpoint()
+    ->multiExpand(),
+
 // This field will not be visible, but will end the accordion above.
 // Any fields added after this will not be a child to the accordion.
 ```
@@ -374,8 +377,8 @@ Accordion::make('Endpoint')
   use WordPlate\Acf\Fields\Text;
 
   return Text::make('Occupation')
-    ->instructions('Add the employees occupation.')
-    ->required();
+      ->instructions('Add the employees occupation.')
+      ->required();
   ```
 - `employee.php`
 
@@ -394,16 +397,16 @@ use WordPlate\Acf\Fields\Layout;
 use WordPlate\Acf\Fields\Text;
 
 FlexibleContent::make('Components', 'page-components')
-  ->instructions('Add the employees occupation.')
-  ->buttonLabel('Add a page component')
-  ->layouts([
-      Layout::make('Image')
-          ->layout('block')
-          ->fields([
-              Text::make('Description')
-          ])
-  ])
-  ->required();
+    ->instructions('Add the employees occupation.')
+    ->buttonLabel('Add a page component')
+    ->layouts([
+        Layout::make('Image')
+            ->layout('block')
+            ->fields([
+                Text::make('Description')
+            ])
+    ])
+    ->required();
 ```
 
 **Group** - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.
@@ -414,13 +417,13 @@ use WordPlate\Acf\Fields\Image;
 use WordPlate\Acf\Fields\Text;
 
 Group::make('Hero')
-  ->instructions('Add a hero block with title, content and image to the page.')
-  ->fields([
-      Text::make('Title'),
-      Image::make('Background Image'),
-  ])
-  ->layout('row')
-  ->required();
+    ->instructions('Add a hero block with title, content and image to the page.')
+    ->fields([
+        Text::make('Title'),
+        Image::make('Background Image'),
+    ])
+    ->layout('row')
+    ->required();
 ```
 
 **Message** - The message fields allows you to display a text message.
@@ -429,8 +432,8 @@ Group::make('Hero')
 use WordPlate\Acf\Fields\Message;
 
 Message::make('Message')
-  ->message('George. Good morning, sleepyhead, Good morning, Dave, Lynda How could I have been so careless. One point twenty-one gigawatts.')
-  ->escapeHtml();
+    ->message('George. One point twenty-one gigawatts.')
+    ->escapeHtml();
 ```
 
 **Repeater** - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
@@ -441,15 +444,15 @@ use WordPlate\Acf\Fields\Repeater;
 use WordPlate\Acf\Fields\Text;
 
 Repeater::make('Employees')
-  ->instructions('Add the employees.')
-  ->fields([
-      Text::make('Name'),
-      Image::make('Profile Picture'),
-  ])
-  ->min(2)
-  ->buttonLabel('Add employee')
-  ->layout('table') // block, row or table
-  ->required();
+    ->instructions('Add the employees.')
+    ->fields([
+        Text::make('Name'),
+        Image::make('Profile Picture'),
+    ])
+    ->min(2)
+    ->buttonLabel('Add employee')
+    ->layout('table') // block, row or table
+    ->required();
 ```
 
 **Tab** - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections. Any fields or groups added after a acf_tab will become a child to that tab. Setting 'endpoint' to true on a tab will create a new group of tabs.
@@ -460,8 +463,8 @@ use WordPlate\Acf\Fields\Tab;
 Tab::make('Tab 1'),
 Tab::make('Tab 2'),
 Tab::make('Tab 3')
-  ->placement('top') // top or left
-  ->endpoint(), // This will make a break in the tabs and create a new group of tabs.
+    ->placement('top') // top or left
+    ->endpoint(), // This will make a break in the tabs and create a new group of tabs.
 ```
 
 ### Relational Fields
@@ -472,7 +475,7 @@ Tab::make('Tab 3')
 use WordPlate\Acf\Fields\Link;
 
 Link::make('Read More Link')
-  ->required();
+    ->required();
 ```
 
 **Page Link** - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
@@ -481,12 +484,12 @@ Link::make('Read More Link')
 use WordPlate\Acf\Fields\PageLink;
 
 PageLink::make('Contact Link')
-  ->postTypes(['contact'])
-  ->taxonomies(['category:city'])
-  ->allowArchives()
-  ->allowNull()
-  ->multiple()
-  ->required();
+    ->postTypes(['contact'])
+    ->taxonomies(['category:city'])
+    ->allowArchives()
+    ->allowNull()
+    ->multiple()
+    ->required();
 ```
 
 **Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.
@@ -495,11 +498,11 @@ PageLink::make('Contact Link')
 use WordPlate\Acf\Fields\PostObject;
 
 PostObject::make('Animal')
-  ->instructions('Select an animal')
-  ->postTypes(['animal'])
-  ->allowNull()
-  ->multiple()
-  ->required();
+    ->instructions('Select an animal')
+    ->postTypes(['animal'])
+    ->allowNull()
+    ->multiple()
+    ->required();
 ```
 
 **Relationship** - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field.
@@ -508,16 +511,16 @@ PostObject::make('Animal')
 use WordPlate\Acf\Fields\Relationship;
 
 Relationship::make('Contacts')
-  ->instructions('Add the contacts.')
-  ->postTypes(['contact'])
-  ->filters([
-    'search', 
-    'post_type',
-    'taxonomy'
-  ])
-  ->min(3)
-  ->max(6)
-  ->required();
+    ->instructions('Add the contacts.')
+    ->postTypes(['contact'])
+    ->filters([
+        'search', 
+        'post_type',
+        'taxonomy'
+    ])
+    ->min(3)
+    ->max(6)
+    ->required();
 ```
 
 **Taxonomy** - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms.
@@ -526,13 +529,13 @@ Relationship::make('Contacts')
 use WordPlate\Acf\Fields\Taxonomy;
 
 Taxonomy::make('Cinemas')
-  ->instructions('Select one or more cinema terms.')
-  ->taxonomy('cinema')
-  ->fieldType('checkbox') // checkbox, multi_select, radio or select
-  ->addTerms() // Allow new terms to be created whilst editing.
-  ->loadTerms() // Load value from posts terms.
-  ->saveTerms() // Connect selected terms to the post.
-  ->returnFormat('id'); // id or object
+    ->instructions('Select one or more cinema terms.')
+    ->taxonomy('cinema')
+    ->fieldType('checkbox') // checkbox, multi_select, radio or select
+    ->addTerms() // Allow new terms to be created whilst editing
+    ->loadTerms() // Load value from posts terms
+    ->saveTerms() // Connect selected terms to the post
+    ->returnFormat('id'); // id or object
 ```
 
 **User** - The user field creates a select field for all your users.
@@ -541,12 +544,13 @@ Taxonomy::make('Cinemas')
 use WordPlate\Acf\Fields\User;
 
 User::make('User')
-  ->roles([
-     'administrator',
-      'author'
-      // Filter field to certain account roles. Available roles are 'administrator', 'author', 'subscriber, 'contributor' and 'editor'. Deafult is no filter.
-  ])
-  ->returnFormat('object');
+    ->roles([
+        'administrator',
+        'author'
+    ])
+    ->returnFormat('object');
+
+// Available roles are administrator, author, subscriber, contributor and editor. Deafult is no filter.
 ```
 
 ## Helpers
@@ -564,18 +568,18 @@ use WordPlate\Acf\Fields\Select;
 use WordPlate\Acf\Fields\Url;
 
 Select::make('Type')
-  ->choices([
-      'document' => 'Document',
-      'link' => 'Link to resource',
-  ]),
+    ->choices([
+        'document' => 'Document',
+        'link' => 'Link to resource',
+    ]),
 File::make('Document', 'file')
-  ->conditionalLogic([
-      ConditionalLogic::if('type')->equals('Document')
-  ]),
+    ->conditionalLogic([
+        ConditionalLogic::if('type')->equals('Document')
+    ]),
 Url::make('Link', 'url')
-  ->conditionalLogic([
-      ConditionalLogic::if('type')->equals('Link to resource')
-  ]),
+    ->conditionalLogic([
+        ConditionalLogic::if('type')->equals('Link to resource')
+    ]),
 ```
 
 ### Location
@@ -585,8 +589,7 @@ The location function help you write [custom location rules](https://www.advance
 ```php
 use WordPlate\Acf\Location;
 
-Location::if('post_type', 'post')
-  ->and('post_type', '!=', 'post');
+Location::if('post_type', 'post')->and('post_type', '!=', 'post');
 ```
 
 ## Theming
