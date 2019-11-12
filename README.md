@@ -12,6 +12,15 @@ If you're working with multiple developers on a WordPress application with custo
 [![Latest Version](https://badgen.net/github/release/wordplate/acf)](https://github.com/wordplate/acf/releases)
 [![License](https://badgen.net/packagist/license/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
 
+- [Installation](#installation)
+- [Usage](#usage)
+- [Fields](#location)
+- [Location](#location)
+- [Conditional Logic](#conditional-logic)
+- [Theming](#theming)
+- [Installing ACF with Composer](#installing-acf-with-composer)
+- [Resources](#resources)
+
 ## Installation
 
 Require this package, with [Composer](https://getcomposer.org), in the root directory of your project.
@@ -553,13 +562,19 @@ User::make('User')
 // Available roles are administrator, author, subscriber, contributor and editor. Deafult is no filter.
 ```
 
-## Helpers
+## Location
 
-This package provides helper functions for [conditional logic](#conditional-logic), [layout](#layout) and [location](#location) to help you write less code.
+The location class let you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys.
 
-### Conditional Logic
+```php
+use WordPlate\Acf\Location;
 
-The conditional function help you write [conditional logic](#methods) without knowing the fields `key` value.
+Location::if('post_type', 'post')->and('post_type', '!=', 'post');
+```
+
+## Conditional Logic
+
+The conditional class help you write conditional logic without knowing the fields `key` value.
 
 ```php
 use WordPlate\Acf\ConditionalLogic;
@@ -580,16 +595,6 @@ Url::make('Link', 'url')
     ->conditionalLogic([
         ConditionalLogic::if('type')->equals('Link to resource')
     ]),
-```
-
-### Location
-
-The location function help you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys.
-
-```php
-use WordPlate\Acf\Location;
-
-Location::if('post_type', 'post')->and('post_type', '!=', 'post');
 ```
 
 ## Theming
