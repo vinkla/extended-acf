@@ -20,7 +20,7 @@ Require this package, with [Composer](https://getcomposer.org), in the root dire
 $ composer require wordplate/acf
 ```
 
-Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that this package supports ACF version 5.6 or later.
+Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that this package supports ACF version 5.6 or later. If you want to install ACF Pro with Composer, [please scroll down](#installing-acf-with-composer).
 
 ## Usage
 
@@ -57,7 +57,7 @@ Text::make('Title', 'heading')
   ->required();
 ```
 
-[Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about the field settings.
+Setting such as `wrapper`, `append` and `prepend` are supported on most fields but not listed in the documentation below. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about field settings.
 
 ### Basic Fields
 
@@ -611,7 +611,7 @@ Instead of passing the `option` key to the `get_field` function we can now use t
 echo option('github-url');
 ```
 
-## ACF ❤ Composer
+## Installing ACF with Composer
 
 If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `your-acf-key` with your ACF Pro key and run `composer install`. Composer should now install the plugin to the `plugins` directory.
 
