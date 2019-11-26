@@ -161,7 +161,7 @@ ButtonGroup::make('Color')
         'cyan' => 'Cyan',
         'hotpink' => 'Hotpink',
     ])
-    ->defaultValue('hotpink')
+    ->defaultValue('Hotpink')
     ->required();
 ```
 
@@ -176,7 +176,7 @@ Checkbox::make('Color')
         'cyan' => 'Cyan',
         'hotpink' => 'Hotpink',
     ])
-    ->defaultValue('cyan')
+    ->defaultValue('Cyan')
     ->required();
 ```
 
@@ -191,7 +191,7 @@ Radio::make('Color')
         'cyan' => 'Cyan',
         'hotpink' => 'Hotpink',
     ])
-    ->defaultValue('hotpink')
+    ->defaultValue('Hotpink')
     ->required();
 ```
 
@@ -206,7 +206,7 @@ Select::make('Color')
         'cyan' => 'Cyan',
         'hotpink' => 'Hotpink',
     ])
-    ->defaultValue('cyan')
+    ->defaultValue('Cyan')
     ->required();
 ```
 
