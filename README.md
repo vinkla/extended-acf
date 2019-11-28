@@ -399,7 +399,7 @@ Accordion::make('Endpoint')
   ]);
   ```
 
-**Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of [layouts](#layout) with full control over the order.
+**Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
 ```php
 use WordPlate\Acf\Fields\FlexibleContent;
 use WordPlate\Acf\Fields\Layout;
