@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 7.1.2 (released 2019-11-28)
+
+- Added default value to text field
+
 ## 7.1.1 (released 2019-11-06)
 
 - Fixes error with conditional logic key
