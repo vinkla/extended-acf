@@ -18,5 +18,5 @@ function register_field_group()
 
 function sanitize_title($value)
 {
-    return strtolower($value);
+    return str_replace(' ', '-', strtolower($value));
 }

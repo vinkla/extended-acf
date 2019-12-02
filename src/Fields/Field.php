@@ -124,6 +124,16 @@ abstract class Field
             }, $this->config->get('sub_fields')));
         }
 
+        if ($this->config->has('collapsed')) {
+            foreach ($this->config->get('sub_fields', []) as $field) {
+                if ($field['name'] === $this->config->get('collapsed')) {
+                    $this->config->set('collapsed', $field['key']);
+
+                    break;
+                }
+            }
+        }
+
         $this->config->set('key', Key::generate($key, $this->keyPrefix));
 
         return $this->config->all();

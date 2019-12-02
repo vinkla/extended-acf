@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 7.2.0 (upcoming)
+
+- Added collapsed to repeater field
+- Added default value to true_false field
+
 ## 7.1.2 (released 2019-11-28)
 
 - Added default value to text field

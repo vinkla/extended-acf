@@ -37,4 +37,18 @@ class Repeater extends Field
      * @var string
      */
     protected $type = 'repeater';
+
+    /**
+     * Select a sub field to show when row is collapsed.
+     *
+     * @param string $name
+     *
+     * @return self
+     */
+    public function collapsed(string $name): self
+    {
+        $this->config->set('collapsed', $name);
+
+        return $this;
+    }
 }

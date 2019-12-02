@@ -459,6 +459,7 @@ Repeater::make('Employees')
         Image::make('Profile Picture'),
     ])
     ->min(2)
+    ->collapsed('name')
     ->buttonLabel('Add employee')
     ->layout('table') // block, row or table
     ->required();

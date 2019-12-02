@@ -15,6 +15,7 @@ namespace WordPlate\Tests\Acf\Fields;
 
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Fields\Repeater;
+use WordPlate\Acf\Fields\Text;
 
 class RepeaterTest extends TestCase
 {
@@ -28,5 +29,17 @@ class RepeaterTest extends TestCase
     {
         $field = Repeater::make('Repeater Button label')->buttonLabel('Add Item')->toArray();
         $this->assertSame('Add Item', $field['button_label']);
+    }
+
+    public function testCollapsed()
+    {
+        $field = Repeater::make('Repeater Collapsed')
+            ->fields([
+                Text::make('Title'),
+            ])
+            ->collapsed('title')
+            ->toArray();
+
+        $this->assertSame('field_15a7e5e1', $field['collapsed']);
     }
 }
