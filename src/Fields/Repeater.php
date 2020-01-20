@@ -29,7 +29,14 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Repeater extends Field
 {
-    use ButtonLabel, ConditionalLogic, Instructions, Layout, MinMax, SubFields, Required, Wrapper;
+    use ButtonLabel;
+    use ConditionalLogic;
+    use Instructions;
+    use Layout;
+    use MinMax;
+    use SubFields;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

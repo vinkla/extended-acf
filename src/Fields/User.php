@@ -28,7 +28,13 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class User extends Field
 {
-    use ConditionalLogic, Instructions, Multiple, Nullable, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic;
+    use Instructions;
+    use Multiple;
+    use Nullable;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
     /**
      * The field type.

@@ -27,7 +27,12 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Select extends Field
 {
-    use Choices, DefaultValue, ConditionalLogic, Instructions, Required, Wrapper;
+    use Choices;
+    use DefaultValue;
+    use ConditionalLogic;
+    use Instructions;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

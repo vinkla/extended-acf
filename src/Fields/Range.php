@@ -28,7 +28,13 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Range extends Field
 {
-    use ConditionalLogic, Instructions, MinMax, Step, Pending, Required, Wrapper;
+    use ConditionalLogic;
+    use Instructions;
+    use MinMax;
+    use Step;
+    use Pending;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

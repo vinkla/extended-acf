@@ -36,7 +36,7 @@ class HelpersTest extends TestCase
      */
     public function testField()
     {
-        require __DIR__.'/functions.php';
+        require __DIR__ . '/functions.php';
         $this->assertSame('marty', field('marty', 11));
         $this->assertNull(field('marty'));
     }
@@ -46,7 +46,7 @@ class HelpersTest extends TestCase
      */
     public function testOption()
     {
-        require __DIR__.'/functions.php';
+        require __DIR__ . '/functions.php';
         $this->assertSame('marty', option('marty'));
     }
 

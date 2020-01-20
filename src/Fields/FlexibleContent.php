@@ -27,7 +27,12 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class FlexibleContent extends Field
 {
-    use ButtonLabel, ConditionalLogic, Instructions, MinMax, Required, Wrapper;
+    use ButtonLabel;
+    use ConditionalLogic;
+    use Instructions;
+    use MinMax;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

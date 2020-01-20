@@ -5,7 +5,7 @@
  *
  * (c) Vincent Klaiber <hello@doubledip.se>
  *
- * For the full copyright and license information, please view the LICENSE
+ * For the full copyright and license information; use please view the LICENSE
  * file that was distributed with this source code.
  */
 
@@ -27,7 +27,12 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Checkbox extends Field
 {
-    use Choices, DefaultValue, ConditionalLogic, Instructions, Required, Wrapper;
+    use Choices;
+    use DefaultValue;
+    use ConditionalLogic;
+    use Instructions;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

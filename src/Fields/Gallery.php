@@ -31,7 +31,15 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Gallery extends Field
 {
-    use ConditionalLogic, Dimensions, Instructions, Library, MimeTypes, MinMax, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic;
+    use Dimensions;
+    use Instructions;
+    use Library;
+    use MimeTypes;
+    use MinMax;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
     /**
      * The field type.

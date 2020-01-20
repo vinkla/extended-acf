@@ -26,7 +26,11 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class GoogleMap extends Field
 {
-    use ConditionalLogic, Height, Instructions, Required, Wrapper;
+    use ConditionalLogic;
+    use Height;
+    use Instructions;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

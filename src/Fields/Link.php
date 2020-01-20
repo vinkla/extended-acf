@@ -26,7 +26,11 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Link extends Field
 {
-    use ConditionalLogic, Instructions, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic;
+    use Instructions;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
     /**
      * The field type.

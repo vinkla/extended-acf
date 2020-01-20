@@ -28,7 +28,13 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Textarea extends Field
 {
-    use ConditionalLogic, DefaultValue, Instructions, NewLines, Placeholder, Required, Wrapper;
+    use ConditionalLogic;
+    use DefaultValue;
+    use Instructions;
+    use NewLines;
+    use Placeholder;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

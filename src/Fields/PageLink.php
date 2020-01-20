@@ -28,7 +28,13 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class PageLink extends Field
 {
-    use ConditionalLogic, FilterBy, Instructions, Multiple, Nullable, Required, Wrapper;
+    use ConditionalLogic;
+    use FilterBy;
+    use Instructions;
+    use Multiple;
+    use Nullable;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

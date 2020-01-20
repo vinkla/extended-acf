@@ -28,7 +28,13 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Text extends Field
 {
-    use ConditionalLogic, DefaultValue, Instructions, Pending, Placeholder, Required, Wrapper;
+    use ConditionalLogic;
+    use DefaultValue;
+    use Instructions;
+    use Pending;
+    use Placeholder;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

@@ -29,7 +29,14 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class PostObject extends Field
 {
-    use ConditionalLogic, FilterBy, Instructions, Multiple, Nullable, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic;
+    use FilterBy;
+    use Instructions;
+    use Multiple;
+    use Nullable;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
     /**
      * The field type.

@@ -28,7 +28,12 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Taxonomy extends Field
 {
-    use ConditionalLogic, Instructions, Nullable, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic;
+    use Instructions;
+    use Nullable;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
     /**
      * The field type.

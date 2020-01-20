@@ -27,7 +27,12 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Group extends Field
 {
-    use ConditionalLogic, Instructions, Layout, SubFields, Required, Wrapper;
+    use ConditionalLogic;
+    use Instructions;
+    use Layout;
+    use SubFields;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

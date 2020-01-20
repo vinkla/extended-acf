@@ -29,7 +29,14 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Image extends Field
 {
-    use ConditionalLogic, Dimensions, Instructions, Library, MimeTypes, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic;
+    use Dimensions;
+    use Instructions;
+    use Library;
+    use MimeTypes;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
     /**
      * The field type.

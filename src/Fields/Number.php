@@ -29,7 +29,14 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Number extends Field
 {
-    use ConditionalLogic, Instructions, MinMax, Pending, Placeholder, Step, Required, Wrapper;
+    use ConditionalLogic;
+    use Instructions;
+    use MinMax;
+    use Pending;
+    use Placeholder;
+    use Step;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

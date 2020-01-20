@@ -27,7 +27,12 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Password extends Field
 {
-    use ConditionalLogic, Instructions, Pending, Placeholder, Required, Wrapper;
+    use ConditionalLogic;
+    use Instructions;
+    use Pending;
+    use Placeholder;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

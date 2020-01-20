@@ -27,7 +27,11 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Wysiwyg extends Field
 {
-    use ConditionalLogic, DefaultValue, Instructions, Required, Wrapper;
+    use ConditionalLogic;
+    use DefaultValue;
+    use Instructions;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

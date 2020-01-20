@@ -23,7 +23,8 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
  */
 class Accordion extends Field
 {
-    use Endpoint, Instructions;
+    use Endpoint;
+    use Instructions;
 
     /**
      * The field type.

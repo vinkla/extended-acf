@@ -26,7 +26,11 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class TimePicker extends Field
 {
-    use ConditionalLogic, DateTimeFormat, Instructions, Required, Wrapper;
+    use ConditionalLogic;
+    use DateTimeFormat;
+    use Instructions;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

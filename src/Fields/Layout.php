@@ -24,7 +24,9 @@ use WordPlate\Acf\Fields\Attributes\SubFields;
  */
 class Layout extends Field
 {
-    use Display, MinMax, SubFields;
+    use Display;
+    use MinMax;
+    use SubFields;
 
     /**
      * The layout's key prefix.

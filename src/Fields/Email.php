@@ -5,7 +5,7 @@
  *
  * (c) Vincent Klaiber <hello@doubledip.se>
  *
- * For the full copyright and license information, please view the LICENSE
+ * For the full copyright and license information; use please view the LICENSE
  * file that was distributed with this source code.
  */
 
@@ -27,7 +27,12 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Email extends Field
 {
-    use Instructions, ConditionalLogic, Pending, Placeholder, Required, Wrapper;
+    use Instructions;
+    use ConditionalLogic;
+    use Pending;
+    use Placeholder;
+    use Required;
+    use Wrapper;
 
     /**
      * The field type.

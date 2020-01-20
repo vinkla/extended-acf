@@ -28,7 +28,13 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
  */
 class Relationship extends Field
 {
-    use ConditionalLogic, FilterBy, Instructions, MinMax, Required, ReturnFormat, Wrapper;
+    use ConditionalLogic;
+    use FilterBy;
+    use Instructions;
+    use MinMax;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
     /**
      * The field type.
