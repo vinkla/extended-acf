@@ -34,7 +34,7 @@ class TrueFalseTest extends TestCase
 
     public function testUiLabels()
     {
-        $field = TrueFalse::make('UI')->ui('Hello', 'World')->toArray();
+        $field = TrueFalse::make('UI2')->ui('Hello', 'World')->toArray();
         $this->assertTrue($field['ui']);
         $this->assertEquals($field['ui_on_text'], 'Hello');
         $this->assertEquals($field['ui_off_text'], 'World');
