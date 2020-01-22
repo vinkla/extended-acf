@@ -44,14 +44,14 @@ class TrueFalse extends Field
      *
      * @return self
      */
-    public function ui(?string $onLabel = null, ?string $offLabel = null): self
+    public function ui(?string $onText = null, ?string $offText = null): self
     {
         $this->config->set('ui', true);
-        if ($onLabel !== null) {
-            $this->config->set('ui_on_text', $onLabel);
+        if ($onText !== null) {
+            $this->config->set('ui_on_text', $onText);
         }
-        if ($offLabel !== null) {
-            $this->config->set('ui_off_text', $offLabel);
+        if ($offText !== null) {
+            $this->config->set('ui_off_text', $offText);
         }
 
         return $this;
