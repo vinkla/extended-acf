@@ -44,7 +44,7 @@ class Text extends Field
     protected $type = 'text';
 
     /**
-     * Set the character limit
+     * Set the character limit.
      *
      * @return self
      */
