@@ -102,6 +102,6 @@ class TextTest extends TestCase
     public function testMaxLength()
     {
         $field = Text::make('Title with length')->maxLength(10)->toArray();
-        $this->assertEquals($field['maxLength'], 10);
+        $this->assertEquals($field['maxlength'], 10);
     }
 }

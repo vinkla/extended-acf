@@ -50,7 +50,7 @@ class Text extends Field
      */
     public function maxLength(int $length): self
     {
-        $this->config->set('maxLength', $length);
+        $this->config->set('maxlength', $length);
 
         return $this;
     }
