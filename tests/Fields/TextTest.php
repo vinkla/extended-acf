@@ -98,4 +98,10 @@ class TextTest extends TestCase
         $field = Text::make('Append')->append('suffix')->toArray();
         $this->assertSame('suffix', $field['append']);
     }
+
+    public function testMaxLength()
+    {
+        $field = Text::make('Title with length')->maxLength(10)->toArray();
+        $this->assertEquals($field['maxLength'], 10);
+    }
 }

@@ -42,4 +42,16 @@ class Text extends Field
      * @var string
      */
     protected $type = 'text';
+
+    /**
+     * Set the character limit
+     *
+     * @return self
+     */
+    public function maxLength(int $length): self
+    {
+        $this->config->set('maxLength', $length);
+
+        return $this;
+    }
 }
