@@ -122,6 +122,7 @@ use WordPlate\Acf\Fields\Text;
 
 Text::make('Name')
     ->instructions('Add the employees name.')
+    ->characterLimit(100)
     ->required();
 ```
 

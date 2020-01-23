@@ -41,7 +41,7 @@ class Text extends Field
      *
      * @return self
      */
-    public function maxLength(int $length): self
+    public function characterLimit(int $length): self
     {
         $this->config->set('maxlength', $length);
 
