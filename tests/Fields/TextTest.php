@@ -105,7 +105,8 @@ class TextTest extends TestCase
         $this->assertEquals($field['maxlength'], 10);
     }
 
-    public function testSet() {
+    public function testSet()
+    {
         $field = Text::make('Title with arbitrary field')->set('hello', 'world')->toArray();
         $this->assertEquals($field['hello'], 'world');
     }
