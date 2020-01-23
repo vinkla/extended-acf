@@ -13,11 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
-/**
- * This is the config repository class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class Config
 {
     /**

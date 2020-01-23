@@ -20,11 +20,6 @@ use WordPlate\Acf\Fields\Attributes\Placeholder;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the email field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class Email extends Field
 {
     use Instructions;

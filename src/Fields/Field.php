@@ -16,11 +16,6 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Config;
 use WordPlate\Acf\Key;
 
-/**
- * This is the abstract field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 abstract class Field
 {
     /**

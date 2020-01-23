@@ -13,11 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
-/**
- * This is the default value trait.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 trait DefaultValue
 {
     /**

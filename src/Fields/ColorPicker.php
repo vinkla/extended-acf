@@ -19,11 +19,6 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the color picker field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class ColorPicker extends Field
 {
     use ConditionalLogic;

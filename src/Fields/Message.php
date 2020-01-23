@@ -15,11 +15,6 @@ namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\NewLines;
 
-/**
- * This is the message field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class Message extends Field
 {
     use NewLines;

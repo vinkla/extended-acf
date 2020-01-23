@@ -22,11 +22,6 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the post object field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class PostObject extends Field
 {
     use ConditionalLogic;

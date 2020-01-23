@@ -15,11 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 use InvalidArgumentException;
 
-/**
- * This is the layout trait.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 trait Layout
 {
     /**

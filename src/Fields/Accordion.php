@@ -16,11 +16,6 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Attributes\Endpoint;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 
-/**
- * This is the accordion field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class Accordion extends Field
 {
     use Endpoint;

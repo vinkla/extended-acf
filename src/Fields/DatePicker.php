@@ -20,11 +20,6 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\WeekDay;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the date picker field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class DatePicker extends Field
 {
     use ConditionalLogic;

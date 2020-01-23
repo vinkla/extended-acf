@@ -13,11 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
-/**
- * This is the instructions trait.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 trait Instructions
 {
     /**

@@ -21,11 +21,6 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the user field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class User extends Field
 {
     use ConditionalLogic;

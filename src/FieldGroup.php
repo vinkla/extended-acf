@@ -15,11 +15,6 @@ namespace WordPlate\Acf;
 
 use InvalidArgumentException;
 
-/**
- * This is the field group class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class FieldGroup
 {
     /**

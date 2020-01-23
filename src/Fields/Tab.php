@@ -16,11 +16,6 @@ namespace WordPlate\Acf\Fields;
 use InvalidArgumentException;
 use WordPlate\Acf\Fields\Attributes\Endpoint;
 
-/**
- * This is the tab field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class Tab extends Field
 {
     use Endpoint;

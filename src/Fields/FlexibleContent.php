@@ -20,11 +20,6 @@ use WordPlate\Acf\Fields\Attributes\MinMax;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the flexible content field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class FlexibleContent extends Field
 {
     use ButtonLabel;

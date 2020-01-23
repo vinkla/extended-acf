@@ -20,11 +20,6 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the select field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class Select extends Field
 {
     use Choices;

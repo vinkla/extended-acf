@@ -15,11 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 use InvalidArgumentException;
 
-/**
- * This is the new lines trait.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 trait NewLines
 {
     /**

@@ -22,11 +22,6 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the file field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class File extends Field
 {
     use ConditionalLogic;
