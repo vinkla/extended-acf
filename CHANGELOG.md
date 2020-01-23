@@ -3,7 +3,7 @@
 ## 8.0.0 (upcoming)
 
 - Added `fileSize` to image and gallery fields
-- Added option allow null values for `width`, `height` and `fileSize`
+- Added option to allow null values for `width`, `height` and `fileSize`
 - Added `maxLength` to text field
 - Added text labels to `stylisedUi`
 - Renamed `ui` to `stylisedUi`
