@@ -48,7 +48,7 @@ class FileTest extends TestCase
         $this->assertSame('400 KB', $field['min_size']);
         $this->assertSame(5, $field['max_size']);
 
-        $field = File::make('Min File Size')->fileSize(10, null)->toArray();
+        $field = File::make('Min File Size')->fileSize(10)->toArray();
         $this->assertArrayNotHasKey('max_size', $field);
 
         $field = File::make('Max File Size')->fileSize(null, 20)->toArray();
