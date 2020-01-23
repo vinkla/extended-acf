@@ -23,15 +23,19 @@ trait Dimensions
     /**
      * Set the image min and max height.
      *
-     * @param int $min
-     * @param int $max
+     * @param int|null $min
+     * @param int|null $max
      *
      * @return self
      */
-    public function height(int $min, int $max): self
+    public function height(?int $min = null, ?int $max = null): self
     {
-        $this->config->set('min_height', $min);
-        $this->config->set('max_height', $max);
+        if ($min !== null) {
+            $this->config->set('min_height', $min);
+        }
+        if ($max !== null) {
+            $this->config->set('max_height', $max);
+        }
 
         return $this;
     }
@@ -39,15 +43,19 @@ trait Dimensions
     /**
      * Set the image min and max width.
      *
-     * @param int $min
-     * @param int $max
+     * @param int|null $min
+     * @param int|null $max
      *
      * @return self
      */
-    public function width(int $min, int $max): self
+    public function width(?int $min = null, ?int $max = null): self
     {
-        $this->config->set('min_width', $min);
-        $this->config->set('max_width', $max);
+        if ($min !== null) {
+            $this->config->set('min_width', $min);
+        }
+        if ($max !== null) {
+            $this->config->set('max_width', $max);
+        }
 
         return $this;
     }
