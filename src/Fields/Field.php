@@ -56,7 +56,7 @@ abstract class Field
     {
         $this->config = new Config([
             'label' => $label,
-            'name' => $name ?? sanitize_title($label),
+            'name'  => $name ?? sanitize_title($label),
         ]);
     }
 
@@ -71,6 +71,21 @@ abstract class Field
     public static function make(string $label, ?string $name = null): self
     {
         return new static($label, $name);
+    }
+
+    /**
+     * Set an arbitrary value in the config
+     *
+     * @param string $key
+     * @param mixed $value
+     *
+     * @return self
+     */
+    public function set(string $key, $value): self
+    {
+        $this->config->set($key, $value);
+
+        return $this;
     }
 
     /**
