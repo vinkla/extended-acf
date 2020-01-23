@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 8.0.0 (upcoming)
+
+- Added `fileSize` to image and gallery fields
+- Added option allow null values for `width`, `height` and `fileSize`
+- Added `maxLength` to text field
+- Added text labels to `stylisedUi`
+- Renamed `ui` to `stylisedUi`
+- Renamed `size` to `fileSize`
+
 ## 7.2.0 (released 2019-12-02)
 
 - Added collapsed to repeater field
