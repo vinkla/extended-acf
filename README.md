@@ -218,7 +218,7 @@ use WordPlate\Acf\Fields\TrueFalse;
 TrueFalse::make('Social Media', 'display-social-media')
     ->instructions('Select whether to display social media links or not.')
     ->defaultValue(false)
-    ->ui()
+    ->stylisedUi() // optinal on and off text labels
     ->required();
 ```
 

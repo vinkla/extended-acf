@@ -47,7 +47,7 @@ class TrueFalse extends Field
      *
      * @return self
      */
-    public function ui(?string $onText = null, ?string $offText = null): self
+    public function stylisedUi(?string $onText = null, ?string $offText = null): self
     {
         $this->config->set('ui', true);
 
