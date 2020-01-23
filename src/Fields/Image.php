@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\Dimensions;
+use WordPlate\Acf\Fields\Attributes\FileSize;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Library;
 use WordPlate\Acf\Fields\Attributes\MimeTypes;
@@ -31,6 +32,7 @@ class Image extends Field
 {
     use ConditionalLogic;
     use Dimensions;
+    use FileSize;
     use Instructions;
     use Library;
     use MimeTypes;

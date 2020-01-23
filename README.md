@@ -234,7 +234,7 @@ File::make('Resturant Menu', 'menu')
     ->defaultValue(false)
     ->mimeTypes(['pdf'])
     ->library('all')
-    ->size('400 KB', 5) // MB if entered as int
+    ->fileSize('400 KB', 5) // MB if entered as int
     ->returnFormat('array')
     ->required();
 ```
@@ -251,6 +251,7 @@ Gallery::make('Images')
     ->width(1000, 2000)
     ->min(1)
     ->max(6)
+    ->fileSize('400 KB', 5) // MB if entered as int
     ->library('all')
     ->returnFormat('array')
     ->required();
@@ -266,6 +267,7 @@ Image::make('Background Image')
     ->mimeTypes(['jpg', 'jpeg', 'png'])
     ->height(500, 1400)
     ->width(1000, 2000)
+    ->fileSize('400 KB', 5) // MB if entered as int
     ->library('all')
     ->returnFormat('array')
     ->previewSize('medium') // thumbnail, medium or large
