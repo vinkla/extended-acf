@@ -22,6 +22,8 @@ trait Library
      *
      * @param string $library
      *
+     * @throws \InvalidArgumentException
+     *
      * @return self
      */
     public function library(string $library): self

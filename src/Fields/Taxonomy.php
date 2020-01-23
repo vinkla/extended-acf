@@ -40,6 +40,8 @@ class Taxonomy extends Field
      *
      * @param string $fieldType
      *
+     * @throws \InvalidArgumentException
+     *
      * @return self
      */
     public function appearance(string $fieldType): self

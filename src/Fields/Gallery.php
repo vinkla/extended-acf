@@ -48,6 +48,8 @@ class Gallery extends Field
      *
      * @param string $insert
      *
+     * @throws \InvalidArgumentException
+     *
      * @return self
      */
     public function insert(string $insert): self

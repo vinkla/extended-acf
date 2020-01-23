@@ -29,6 +29,8 @@ class FieldGroup
      *
      * @param array $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return void
      */
     public function __construct(array $config)

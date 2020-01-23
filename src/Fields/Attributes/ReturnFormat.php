@@ -22,6 +22,8 @@ trait ReturnFormat
      *
      * @param string $format
      *
+     * @throws \InvalidArgumentException
+     *
      * @return self
      */
     public function returnFormat(string $format): self

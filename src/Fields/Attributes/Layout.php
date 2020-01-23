@@ -22,6 +22,8 @@ trait Layout
      *
      * @param string $layout
      *
+     * @throws \InvalidArgumentException
+     *
      * @return self
      */
     public function layout(string $layout): self
