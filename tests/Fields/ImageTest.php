@@ -41,46 +41,4 @@ class ImageTest extends TestCase
 
         Image::make('Invalid Library')->library('test')->toArray();
     }
-
-    public function testHeight()
-    {
-        $field = Image::make('ImageHeight')->height(10, 20)->toArray();
-        $this->assertSame(10, $field['min_height']);
-        $this->assertSame(20, $field['max_height']);
-    }
-
-    public function testWidth()
-    {
-        $field = Image::make('ImageWidth')->width(10, 20)->toArray();
-        $this->assertSame(10, $field['min_width']);
-        $this->assertSame(20, $field['max_width']);
-    }
-
-    public function testMinHeight()
-    {
-        $field = Image::make('ImageMinHeight')->height(10)->toArray();
-        $this->assertSame(10, $field['min_height']);
-        $this->assertArrayNotHasKey('max_height', $field);
-    }
-
-    public function testMinWidth()
-    {
-        $field = Image::make('ImageMinWidth')->width(10)->toArray();
-        $this->assertSame(10, $field['min_width']);
-        $this->assertArrayNotHasKey('max_width', $field);
-    }
-
-    public function testMaxHeight()
-    {
-        $field = Image::make('ImageMaxHeight')->height(null, 10)->toArray();
-        $this->assertArrayNotHasKey('min_height', $field);
-        $this->assertSame(10, $field['max_height']);
-    }
-
-    public function testMaxWidth()
-    {
-        $field = Image::make('ImageMaxWidth')->width(null, 10)->toArray();
-        $this->assertArrayNotHasKey('min_width', $field);
-        $this->assertSame(10, $field['max_width']);
-    }
 }

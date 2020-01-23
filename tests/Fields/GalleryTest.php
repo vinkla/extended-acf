@@ -41,6 +41,12 @@ class GalleryTest extends TestCase
         $field = Gallery::make('Height')->height(10, 20)->toArray();
         $this->assertSame(10, $field['min_height']);
         $this->assertSame(20, $field['max_height']);
+
+        $field = Gallery::make('Min Height')->height(30)->toArray();
+        $this->assertSame(30, $field['min_height']);
+
+        $field = Gallery::make('Max Height')->height(null, 40)->toArray();
+        $this->assertSame(40, $field['max_height']);
     }
 
     public function testWidth()
@@ -48,5 +54,11 @@ class GalleryTest extends TestCase
         $field = Gallery::make('Width')->width(10, 20)->toArray();
         $this->assertSame(10, $field['min_width']);
         $this->assertSame(20, $field['max_width']);
+
+        $field = Gallery::make('Min Width')->width(30)->toArray();
+        $this->assertSame(30, $field['min_width']);
+
+        $field = Gallery::make('Max Width')->width(null, 40)->toArray();
+        $this->assertSame(40, $field['max_width']);
     }
 }
