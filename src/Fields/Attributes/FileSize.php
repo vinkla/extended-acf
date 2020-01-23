@@ -23,7 +23,7 @@ trait FileSize
      *
      * @return self
      */
-    public function fileSize($min = null, $max  = null): self
+    public function fileSize($min = null, $max = null): self
     {
         if ($min !== null) {
             $this->config->set('min_size', $min);
