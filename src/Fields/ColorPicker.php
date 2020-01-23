@@ -28,8 +28,6 @@ class ColorPicker extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'color_picker';

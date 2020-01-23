@@ -30,8 +30,6 @@ class DatePicker extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'date_picker';

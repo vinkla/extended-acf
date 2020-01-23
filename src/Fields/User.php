@@ -32,8 +32,6 @@ class User extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'user';

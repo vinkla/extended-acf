@@ -20,8 +20,6 @@ class Message extends Field
     use NewLines;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'message';

@@ -30,8 +30,6 @@ class FlexibleContent extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'flexible_content';

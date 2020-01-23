@@ -21,8 +21,6 @@ class Tab extends Field
     use Endpoint;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'tab';

@@ -30,8 +30,6 @@ class Radio extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'radio';

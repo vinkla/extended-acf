@@ -22,8 +22,6 @@ class Accordion extends Field
     use Instructions;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'accordion';

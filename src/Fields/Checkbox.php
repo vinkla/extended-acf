@@ -30,8 +30,6 @@ class Checkbox extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'checkbox';
