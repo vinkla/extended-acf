@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
+use WordPlate\Acf\Fields\Attributes\CharacterLimit;
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
 use WordPlate\Acf\Fields\Attributes\Instructions;
@@ -23,6 +24,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class Text extends Field
 {
+    use CharacterLimit;
     use ConditionalLogic;
     use DefaultValue;
     use Instructions;
@@ -35,11 +37,4 @@ class Text extends Field
      * @var string
      */
     protected $type = 'text';
-
-    public function characterLimit(int $length): self
-    {
-        $this->config->set('maxlength', $length);
-
-        return $this;
-    }
 }
