@@ -8,6 +8,7 @@
 - Added text labels to `stylisedUi`
 - Renamed `ui` to `stylisedUi`
 - Renamed `size` to `fileSize`
+- Renamed `multiple` to `allowMultiple`
 
 ## 7.2.0 (released 2019-12-02)
 
