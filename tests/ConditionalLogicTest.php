@@ -16,11 +16,6 @@ namespace WordPlate\Tests\Acf;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\ConditionalLogic;
 
-/**
- * This is the conditional logic test class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class ConditionalLogicTest extends TestCase
 {
     public function testGreaterThan()

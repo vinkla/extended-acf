@@ -17,11 +17,6 @@ use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Key;
 
-/**
- * This is the key test class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class KeyTest extends TestCase
 {
     public function testGenerate()

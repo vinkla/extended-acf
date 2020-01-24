@@ -19,11 +19,6 @@ use WordPlate\Acf\FieldGroup;
 use WordPlate\Acf\Fields\Text;
 use WordPlate\Acf\Location;
 
-/**
- * This is the field group test class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class FieldGroupTest extends TestCase
 {
     public function testFields()

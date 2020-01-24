@@ -16,11 +16,6 @@ namespace WordPlate\Tests\Acf;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Config;
 
-/**
- * This is the config test class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class ConfigTest extends TestCase
 {
     public function testGet()

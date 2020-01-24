@@ -16,11 +16,6 @@ namespace WordPlate\Tests\Acf;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Location;
 
-/**
- * This is the location test class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class LocationTest extends TestCase
 {
     public function testIf()
