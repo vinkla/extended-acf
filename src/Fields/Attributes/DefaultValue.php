@@ -16,11 +16,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 trait DefaultValue
 {
     /**
-     * Set the default value.
-     *
      * @param mixed $value
-     *
-     * @return self
      */
     public function defaultValue($value): self
     {

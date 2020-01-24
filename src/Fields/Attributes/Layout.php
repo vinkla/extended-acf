@@ -18,13 +18,7 @@ use InvalidArgumentException;
 trait Layout
 {
     /**
-     * Set the layout style.
-     *
-     * @param string $layout
-     *
      * @throws \InvalidArgumentException
-     *
-     * @return self
      */
     public function layout(string $layout): self
     {

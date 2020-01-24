@@ -36,11 +36,6 @@ class PageLink extends Field
      */
     protected $type = 'page_link';
 
-    /**
-     * Allow archives to be listed.
-     *
-     * @return self
-     */
     public function allowArchives(): self
     {
         $this->config->set('allow_archives', true);

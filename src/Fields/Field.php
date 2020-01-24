@@ -19,34 +19,20 @@ use WordPlate\Acf\Key;
 abstract class Field
 {
     /**
-     * The field's config.
-     *
      * @var \WordPlate\Acf\Config
      */
     protected $config;
 
     /**
-     * The field's key prefix.
-     *
      * @var string
      */
     protected $keyPrefix = 'field';
 
     /**
-     * The field's parent key.
-     *
      * @var string
      */
     protected $parentKey;
 
-    /**
-     * Create a new field instance.
-     *
-     * @param string $label
-     * @param string $name
-     *
-     * @return void
-     */
     public function __construct(string $label, ?string $name = null)
     {
         $this->config = new Config([
@@ -55,36 +41,16 @@ abstract class Field
         ]);
     }
 
-    /**
-     * Make a new field instance.
-     *
-     * @param string $label
-     * @param string $name
-     *
-     * @return self
-     */
     public static function make(string $label, ?string $name = null): self
     {
         return new static($label, $name);
     }
 
-    /**
-     * Set the field's parent key.
-     *
-     * @param string $parentKey
-     *
-     * @return void
-     */
     public function setParentKey(string $parentKey): void
     {
         $this->parentKey = $parentKey;
     }
 
-    /**
-     * Return the field config as an array.
-     *
-     * @return array
-     */
     public function toArray(): array
     {
         $key = sprintf('%s_%s', $this->parentKey, Key::sanitize($this->config->get('name')));

@@ -36,13 +36,6 @@ class User extends Field
      */
     protected $type = 'user';
 
-    /**
-     * Filter users by roles.
-     *
-     * @param array $roles
-     *
-     * @return self
-     */
     public function roles(array $roles): self
     {
         $this->config->set('role', $roles);

@@ -25,13 +25,6 @@ class Tab extends Field
      */
     protected $type = 'tab';
 
-    /**
-     * Set the placement position.
-     *
-     * @param string $placement
-     *
-     * @return self
-     */
     public function placement(string $placement): self
     {
         if (!in_array($placement, ['left', 'top'])) {

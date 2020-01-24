@@ -36,13 +36,6 @@ class Relationship extends Field
      */
     protected $type = 'relationship';
 
-    /**
-     * Set the selected elements that will be displayed in each result.
-     *
-     * @param array $elements
-     *
-     * @return self
-     */
     public function elements(array $elements): self
     {
         $this->config->set('elements', $elements);
@@ -50,13 +43,6 @@ class Relationship extends Field
         return $this;
     }
 
-    /**
-     * Set the enabled filters.
-     *
-     * @param array $filters
-     *
-     * @return self
-     */
     public function filters(array $filters): self
     {
         $this->config->set('filters', $filters);

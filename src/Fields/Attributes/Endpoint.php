@@ -15,11 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Endpoint
 {
-    /**
-     * Define an endpoint for the previous tabs to stop.
-     *
-     * @return self
-     */
     public function endpoint(): self
     {
         $this->config->set('endpoint', true);

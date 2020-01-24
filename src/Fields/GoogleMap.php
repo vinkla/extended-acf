@@ -32,14 +32,6 @@ class GoogleMap extends Field
      */
     protected $type = 'google_map';
 
-    /**
-     * Set the center of the map.
-     *
-     * @param float $latitude
-     * @param float $longitude
-     *
-     * @return self
-     */
     public function center(float $latitude, float $longitude): self
     {
         $this->config->set('center_lat', $latitude);
@@ -48,13 +40,6 @@ class GoogleMap extends Field
         return $this;
     }
 
-    /**
-     * Set the zoom level of the map.
-     *
-     * @param int $zoom
-     *
-     * @return self
-     */
     public function zoom(int $zoom): self
     {
         $this->config->set('zoom', $zoom);

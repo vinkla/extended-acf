@@ -44,13 +44,7 @@ class Gallery extends Field
     protected $type = 'gallery';
 
     /**
-     * Set the insert behaviour.
-     *
-     * @param string $insert
-     *
      * @throws \InvalidArgumentException
-     *
-     * @return self
      */
     public function insert(string $insert): self
     {

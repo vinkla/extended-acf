@@ -15,13 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Step
 {
-    /**
-     * Set the step number.
-     *
-     * @param int $step
-     *
-     * @return self
-     */
     public function step(int $step): self
     {
         $this->config->set('step', $step);

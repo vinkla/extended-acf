@@ -15,13 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Placeholder
 {
-    /**
-     * Set the placeholder text.
-     *
-     * @param string $placeholder
-     *
-     * @return self
-     */
     public function placeholder(string $placeholder): self
     {
         $this->config->set('placeholder', $placeholder);

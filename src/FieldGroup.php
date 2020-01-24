@@ -18,21 +18,10 @@ use InvalidArgumentException;
 class FieldGroup
 {
     /**
-     * The field group's config.
-     *
      * @var \WordPlate\Acf\Config
      */
     protected $config;
 
-    /**
-     * Create a new field group instance.
-     *
-     * @param array $config
-     *
-     * @throws \InvalidArgumentException
-     *
-     * @return void
-     */
     public function __construct(array $config)
     {
         $requiredKeys = ['title', 'fields', 'location'];
@@ -46,11 +35,6 @@ class FieldGroup
         $this->config = new Config($config);
     }
 
-    /**
-     * Return the field group config as an array.
-     *
-     * @return array
-     */
     public function toArray(): array
     {
         if ($this->config->has('key')) {

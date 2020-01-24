@@ -32,14 +32,6 @@ class TrueFalse extends Field
      */
     protected $type = 'true_false';
 
-    /**
-     * Enable stylised UI.
-     *
-     * @param string|null $onText
-     * @param string|null $offText
-     *
-     * @return self
-     */
     public function stylisedUi(?string $onText = null, ?string $offText = null): self
     {
         $this->config->set('ui', true);

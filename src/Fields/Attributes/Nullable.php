@@ -15,11 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Nullable
 {
-    /**
-     * Enable nullable values.
-     *
-     * @return self
-     */
     public function allowNull(): self
     {
         $this->config->set('allow_null', true);

@@ -36,13 +36,6 @@ class Textarea extends Field
      */
     protected $type = 'textarea';
 
-    /**
-     * Set the maximum character limit.
-     *
-     * @param int $limit
-     *
-     * @return self
-     */
     public function characterLimit(int $limit): self
     {
         $this->config->set('maxlength', $limit);
@@ -50,13 +43,6 @@ class Textarea extends Field
         return $this;
     }
 
-    /**
-     * Set the default number of rows.
-     *
-     * @param int $rows
-     *
-     * @return self
-     */
     public function rows(int $rows): self
     {
         $this->config->set('rows', $rows);

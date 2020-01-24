@@ -18,13 +18,7 @@ use InvalidArgumentException;
 trait Library
 {
     /**
-     * Set the library property.
-     *
-     * @param string $library
-     *
      * @throws \InvalidArgumentException
-     *
-     * @return self
      */
     public function library(string $library): self
     {

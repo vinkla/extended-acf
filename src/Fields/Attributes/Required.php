@@ -15,11 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Required
 {
-    /**
-     * Set the field as required.
-     *
-     * @return self
-     */
     public function required(): self
     {
         $this->config->set('required', true);

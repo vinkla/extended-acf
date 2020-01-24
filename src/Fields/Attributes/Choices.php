@@ -15,13 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Choices
 {
-    /**
-     * Set the choices array and optional default value.
-     *
-     * @param array $choices
-     *
-     * @return self
-     */
     public function choices(array $choices): self
     {
         $this->config->set('choices', $choices);

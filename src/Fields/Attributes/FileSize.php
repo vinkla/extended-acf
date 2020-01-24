@@ -16,12 +16,8 @@ namespace WordPlate\Acf\Fields\Attributes;
 trait FileSize
 {
     /**
-     * Set the minimum and maximum file size.
-     *
-     * @param int|string $min
-     * @param int|string $max
-     *
-     * @return self
+     * @param int|string|null $min
+     * @param int|string|null $max
      */
     public function fileSize($min = null, $max = null): self
     {

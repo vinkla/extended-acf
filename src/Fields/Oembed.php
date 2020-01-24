@@ -32,13 +32,6 @@ class Oembed extends Field
      */
     protected $type = 'oembed';
 
-    /**
-     * Set the width.
-     *
-     * @param int $width
-     *
-     * @return self
-     */
     public function width(int $width): self
     {
         $this->config->set('width', $width);

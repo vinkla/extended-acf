@@ -24,13 +24,6 @@ class Message extends Field
      */
     protected $type = 'message';
 
-    /**
-     * Set the message content.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function message(string $message): self
     {
         $this->config->set('message', $message);
@@ -38,11 +31,6 @@ class Message extends Field
         return $this;
     }
 
-    /**
-     * Enable escaped HTML.
-     *
-     * @return self
-     */
     public function escapeHtml(): self
     {
         $this->config->set('esc_html', true);

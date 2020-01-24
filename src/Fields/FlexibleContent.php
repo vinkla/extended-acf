@@ -34,13 +34,6 @@ class FlexibleContent extends Field
      */
     protected $type = 'flexible_content';
 
-    /**
-     * Add layouts to flexible content.
-     *
-     * @param array $layouts
-     *
-     * @return self
-     */
     public function layouts(array $layouts): self
     {
         $this->config->set('layouts', $layouts);

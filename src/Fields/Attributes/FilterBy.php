@@ -15,13 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait FilterBy
 {
-    /**
-     * Filter by post types.
-     *
-     * @param array $postTypes
-     *
-     * @return self
-     */
     public function postTypes(array $postTypes): self
     {
         $this->config->set('post_type', $postTypes);
@@ -29,13 +22,6 @@ trait FilterBy
         return $this;
     }
 
-    /**
-     * Filter by taxonomies.
-     *
-     * @param array $postTypes
-     *
-     * @return self
-     */
     public function taxonomies(array $taxonomies): self
     {
         $this->config->set('taxonomy', $taxonomies);

@@ -24,8 +24,6 @@ class Layout extends Field
     use SubFields;
 
     /**
-     * The layout's key prefix.
-     *
      * @var string
      */
     protected $keyPrefix = 'layout';

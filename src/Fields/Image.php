@@ -40,13 +40,6 @@ class Image extends Field
      */
     protected $type = 'image';
 
-    /**
-     * Set the preview size.
-     *
-     * @param string $size
-     *
-     * @return self
-     */
     public function previewSize(string $size): self
     {
         $this->config->set('preview_size', $size);

@@ -18,13 +18,7 @@ use InvalidArgumentException;
 trait ReturnFormat
 {
     /**
-     * Set the return format.
-     *
-     * @param string $format
-     *
      * @throws \InvalidArgumentException
-     *
-     * @return self
      */
     public function returnFormat(string $format): self
     {

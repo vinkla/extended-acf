@@ -15,13 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait MimeTypes
 {
-    /**
-     * Set the allowed file types.
-     *
-     * @param array $mimeTypes
-     *
-     * @return self
-     */
     public function mimeTypes(array $mimeTypes): self
     {
         $this->config->set('mime_types', implode(',', $mimeTypes));

@@ -15,11 +15,6 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Pending
 {
-    /**
-     * Append before the input.
-     *
-     * @return self
-     */
     public function append(string $value): self
     {
         $this->config->set('append', $value);
@@ -27,11 +22,6 @@ trait Pending
         return $this;
     }
 
-    /**
-     * Prepend before the input.
-     *
-     * @return self
-     */
     public function prepend(string $value): self
     {
         $this->config->set('prepend', $value);

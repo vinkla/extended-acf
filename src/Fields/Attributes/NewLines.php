@@ -18,13 +18,7 @@ use InvalidArgumentException;
 trait NewLines
 {
     /**
-     * Set the new lines behaviour.
-     *
-     * @param string $newLines
-     *
      * @throws \InvalidArgumentException
-     *
-     * @return self
      */
     public function newLines(string $newLines): self
     {

@@ -33,13 +33,6 @@ class Wysiwyg extends Field
      */
     protected $type = 'wysiwyg';
 
-    /**
-     * Toggle media upload capability.
-     *
-     * @param bool $mediaUpload
-     *
-     * @return self
-     */
     public function mediaUpload(bool $mediaUpload): self
     {
         $this->config->set('media_upload', $mediaUpload);
@@ -48,11 +41,7 @@ class Wysiwyg extends Field
     }
 
     /**
-     * Set default tabs layout.
-     *
-     * @param string $tabs
-     *
-     * @return self
+     * @throws \InvalidArgumentException
      */
     public function tabs(string $tabs): self
     {
