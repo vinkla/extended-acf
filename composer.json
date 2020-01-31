@@ -2,24 +2,22 @@
     "name": "wordplate/acf",
     "description": "An Advanced Custom Fields helper for WordPlate",
     "keywords": [
-        "wordplate",
         "acf",
-        "wordpress",
         "advanced",
         "custom",
-        "fields"
+        "fields",
+        "wordplate",
+        "wordpress"
     ],
     "license": "MIT",
     "authors": [
         {
             "name": "Vincent Klaiber",
-            "email": "hello@doubledip.se",
-            "homepage": "https://doubledip.se"
+            "email": "hello@doubledip.se"
         },
         {
             "name": "Chris Andersson",
-            "email": "hello@puredazzle.se",
-            "homepage": "https://puredazzle.se"
+            "email": "hello@puredazzle.se"
         }
     ],
     "require": {
