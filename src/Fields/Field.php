@@ -41,6 +41,7 @@ abstract class Field
         ]);
     }
 
+    /** @return static */
     public static function make(string $label, ?string $name = null): self
     {
         return new static($label, $name);
