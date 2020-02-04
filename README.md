@@ -18,6 +18,7 @@ If you're working with multiple developers on a WordPress application with custo
 - [Location](#location)
 - [Conditional Logic](#conditional-logic)
 - [Theming](#theming)
+- [Custom Fields](#custom-fields)
 - [Installing ACF with Composer](#installing-acf-with-composer)
 - [Resources](#resources)
 
@@ -621,6 +622,36 @@ Instead of passing the `option` key to the `get_field` function we can now use t
 
 ```php
 echo option('github-url');
+```
+
+## Custom Fields
+
+If your application use fields which isn't part of ACF, you may extend and create custom helper classes. Lets say you've a field for OpenStreetMap. Create a new class which extends the `Field` class:
+
+```php
+namespace Application\Fields;
+
+use WordPlate\Acf\Fields\Attributes\Instructions;
+use WordPlate\Acf\Fields\Attributes\Required;
+
+class OpenStreetMap extends Field
+{
+    use Instructions;
+    use Required;
+
+    protected $type = 'open_street_map';
+}
+```
+
+Notice that we've imported traits which inlcude the `required()` and `instructions()` methods. We've also added the `$type` property in order to let ACF know which field we're working with. You may now add any additional methods to this class which you will need such as `latitude()`, `longitude()` or `zoom()`. 
+
+When you're ready you can import use it like any other field included in this package:
+
+```php
+use Application\Fields\OpenStreetMap;
+
+OpenStreetMap::make('Map')
+  ->zoom(10);
 ```
 
 ## Installing ACF with Composer
