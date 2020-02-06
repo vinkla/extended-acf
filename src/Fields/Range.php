@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
+use WordPlate\Acf\Fields\Attributes\DefaultValue;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\MinMax;
 use WordPlate\Acf\Fields\Attributes\Pending;
@@ -24,6 +25,7 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
 class Range extends Field
 {
     use ConditionalLogic;
+    use DefaultValue;
     use Instructions;
     use MinMax;
     use Step;
