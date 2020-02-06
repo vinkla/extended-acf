@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.1.0
+
+- Added default values to number and range fields
+
 ## 8.0.0
 
 - Added `fileSize` to image and gallery fields
