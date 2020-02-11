@@ -500,7 +500,7 @@ use WordPlate\Acf\Fields\PageLink;
 PageLink::make('Contact Link')
     ->postTypes(['contact'])
     ->taxonomies(['category:city'])
-    ->allowArchives()
+    ->allowArchives() // optionally pass 'false' to disallow archives
     ->allowNull()
     ->allowMultiple()
     ->required();
