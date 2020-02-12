@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.1.1
+
+- Add ability to disallow archives for page link field
+
 ## 8.1.0
 
 - Added default values to number and range fields
