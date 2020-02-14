@@ -22,7 +22,7 @@ trait ReturnFormat
      */
     public function returnFormat(string $format): self
     {
-        if (!in_array($format, ['array', 'id', 'object', 'url'])) {
+        if (!in_array($format, ['array', 'id', 'label', 'object', 'url', 'value'])) {
             throw new InvalidArgumentException("Invalid argument return format [$format].");
         }
 

@@ -164,6 +164,7 @@ ButtonGroup::make('Color')
         'hotpink' => 'Hotpink',
     ])
     ->defaultValue('hotpink')
+    ->returnFormat('value') // value, label or array
     ->required();
 ```
 
@@ -179,6 +180,7 @@ Checkbox::make('Color')
         'hotpink' => 'Hotpink',
     ])
     ->defaultValue('cyan')
+    ->returnFormat('value') // value, label or array
     ->required();
 ```
 
@@ -194,6 +196,7 @@ Radio::make('Color')
         'hotpink' => 'Hotpink',
     ])
     ->defaultValue('hotpink')
+    ->returnFormat('value') // value, label or array
     ->required();
 ```
 
@@ -209,6 +212,7 @@ Select::make('Color')
         'hotpink' => 'Hotpink',
     ])
     ->defaultValue('cyan')
+    ->returnFormat('value') // value, label or array
     ->required();
 ```
 

@@ -18,6 +18,7 @@ use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
+use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class Radio extends Field
@@ -27,6 +28,7 @@ class Radio extends Field
     use ConditionalLogic;
     use Instructions;
     use Required;
+    use ReturnFormat;
     use Wrapper;
 
     /**

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.2.0
+
+- Added return format to button group, select, radio and checkbox fields
+
 ## 8.1.1
 
 - Add ability to disallow archives for page link field
