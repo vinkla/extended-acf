@@ -8,7 +8,7 @@ If you're working with multiple developers on a WordPress application with custo
 
 [![Build Status](https://badgen.net/travis/wordplate/acf/master)](https://travis-ci.org/wordplate/acf)
 [![Coverage Status](https://badgen.net/codecov/c/github/wordplate/acf)](https://codecov.io/github/wordplate/acf)
-[![Total Downloads](https://badgen.net/packagist/dt/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
+[![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
 [![Latest Version](https://badgen.net/github/release/wordplate/acf)](https://github.com/wordplate/acf/releases)
 [![License](https://badgen.net/packagist/license/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
 
