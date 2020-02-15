@@ -1,6 +1,6 @@
 {
     "name": "wordplate/acf",
-    "description": "An Advanced Custom Fields helper for WordPlate",
+    "description": "Register advanced custom fields with object oriented PHP",
     "keywords": [
         "acf",
         "advanced",
