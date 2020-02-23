@@ -6,11 +6,9 @@
 
 Working with multiple developers on a WordPress application with ACF it can be hard to keep track of changes made to the fields. This package will help you register advanced custom fields with PHP. All fields have their own class that automagically create unique field keys based on their parent field group. All fields exists within the theme and can be added to version control.
 
-[![Build Status](https://badgen.net/travis/wordplate/acf/master)](https://travis-ci.org/wordplate/acf)
-[![Coverage Status](https://badgen.net/codecov/c/github/wordplate/acf)](https://codecov.io/github/wordplate/acf)
-[![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
+[![Build Status](https://badgen.net/github/status/wordplate/acf/master)](https://github.com/wordplate/acf/actions)
+[![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/wordplate/acf/stats)
 [![Latest Version](https://badgen.net/github/release/wordplate/acf)](https://github.com/wordplate/acf/releases)
-[![License](https://badgen.net/packagist/license/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
 
 - [Installation](#installation)
 - [Usage](#usage)
