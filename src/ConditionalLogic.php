@@ -31,7 +31,7 @@ class ConditionalLogic
     protected $parentKey;
 
     /**
-     * @var string
+     * @var mixed
      */
     protected $value;
 
