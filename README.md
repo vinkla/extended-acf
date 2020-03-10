@@ -8,7 +8,7 @@ Working with multiple developers on a WordPress application with ACF it can be h
 
 [![Build Status](https://badgen.net/github/checks/wordplate/acf?label=build&icon=github)](https://github.com/wordplate/acf/actions)
 [![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/wordplate/acf/stats)
-[![Latest Version](https://badgen.net/github/release/wordplate/acf)](https://github.com/wordplate/acf/releases)
+[![Latest Version](https://badgen.net/packagist/v/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
 
 - [Installation](#installation)
 - [Usage](#usage)
