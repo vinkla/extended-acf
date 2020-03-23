@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.2.1
+
+- Added `allowNull` method to select field
+
 ## 8.2.0
 
 - Added return format to button group, select, radio and checkbox fields
