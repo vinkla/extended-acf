@@ -547,7 +547,7 @@ use WordPlate\Acf\Fields\Taxonomy;
 Taxonomy::make('Cinemas')
     ->instructions('Select one or more cinema terms.')
     ->taxonomy('cinema')
-    ->fieldType('checkbox') // checkbox, multi_select, radio or select
+    ->appearance('checkbox') // checkbox, multi_select, radio or select
     ->addTerms() // Allow new terms to be created whilst editing
     ->loadTerms() // Load value from posts terms
     ->saveTerms() // Connect selected terms to the post
