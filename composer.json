@@ -1,57 +1,56 @@
 {
-  "name": "wordplate/acf",
-  "description": "Register advanced custom fields with object oriented PHP",
-  "keywords": [
-    "acf",
-    "advanced",
-    "custom",
-    "fields",
-    "wordplate",
-    "wordpress"
-  ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Vincent Klaiber",
-      "email": "hello@doubledip.se"
+    "name": "wordplate/acf",
+    "description": "Register advanced custom fields with object oriented PHP",
+    "keywords": [
+        "acf",
+        "advanced",
+        "custom",
+        "fields",
+        "wordplate",
+        "wordpress"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincent Klaiber",
+            "email": "hello@doubledip.se"
+        },
+        {
+            "name": "Chris Andersson",
+            "email": "hello@puredazzle.se"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
     },
-    {
-      "name": "Chris Andersson",
-      "email": "hello@puredazzle.se"
-    }
-  ],
-  "require": {
-    "php": "^7.2"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^8.0",
-    "squizlabs/php_codesniffer": "^3.5",
-    "symfony/string": "^5.0"
-  },
-  "config": {
-    "preferred-install": "dist"
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "8.3-dev"
-    }
-  },
-  "autoload": {
-    "psr-4": {
-      "WordPlate\\Acf\\": "src/"
+    "require-dev": {
+      "phpunit/phpunit": "^8.0",
+      "squizlabs/php_codesniffer": "^3.5"
     },
-    "files": [
-      "src/helpers.php"
-    ]
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "WordPlate\\Tests\\Acf\\": "tests/"
+    "config": {
+        "preferred-install": "dist"
     },
-    "files": [
-      "tests/helpers.php"
-    ]
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+    "extra": {
+        "branch-alias": {
+            "dev-master": "8.3-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "WordPlate\\Acf\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WordPlate\\Tests\\Acf\\": "tests/"
+        },
+        "files": [
+            "tests/helpers.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

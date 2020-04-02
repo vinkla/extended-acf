@@ -13,14 +13,22 @@ declare(strict_types=1);
 
 namespace WordPlate\Tests\Acf\Fields;
 
+use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Fields\Accordion;
-use WordPlate\Tests\Acf\Fields\Attributes\Endpoint;
 
-class AccordionTest extends FieldTestCase
+class AccordionTest extends TestCase
 {
-    use Endpoint;
+    public function testType()
+    {
+        $field = Accordion::make('Accordion')->toArray();
+        $this->assertSame('accordion', $field['type']);
+    }
 
-    public $field = Accordion::class;
+    public function testEndpoint()
+    {
+        $field = Accordion::make('Accordion Endpoint')->endpoint()->toArray();
+        $this->assertTrue($field['endpoint']);
+    }
 
     public function testMultiExpand()
     {

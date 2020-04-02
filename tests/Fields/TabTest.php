@@ -14,14 +14,16 @@ declare(strict_types=1);
 namespace WordPlate\Tests\Acf\Fields;
 
 use InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\Fields\Tab;
-use WordPlate\Tests\Acf\Fields\Attributes\Endpoint;
 
-class TabTest extends FieldTestCase
+class TabTest extends TestCase
 {
-    use Endpoint;
-
-    public $field = Tab::class;
+    public function testType()
+    {
+        $field = Tab::make('Tab')->toArray();
+        $this->assertSame('tab', $field['type']);
+    }
 
     public function testPlacement()
     {
