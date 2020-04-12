@@ -4,7 +4,7 @@
 
 > Register [advanced custom fields](https://www.advancedcustomfields.com) with object oriented PHP.
 
-Extended ACF provides an object oriented API to register fields, groups and layouts in ACF. If you register your fields in your theme you don't have to worry about working with other developers since all fields are under version control. Oh, and you don't have to worry about unique field keys.
+Extended ACF provides an object oriented API to register fields, groups and layouts with ACF. If you register fields in your theme, you can safely rely on version control when working with other developers. Oh, and you don't have to worry about unique field keys.
 
 [![Build Status](https://badgen.net/github/checks/wordplate/acf?label=build&icon=github)](https://github.com/wordplate/acf/actions)
 [![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/wordplate/acf/stats)
