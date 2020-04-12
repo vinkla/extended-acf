@@ -1,10 +1,10 @@
-# ACF
+# Extended ACF
 
-![acf](https://user-images.githubusercontent.com/499192/34915298-1782a500-f924-11e7-85a7-dc7de6aacc14.png)
+![Extended ACF](https://user-images.githubusercontent.com/499192/34915298-1782a500-f924-11e7-85a7-dc7de6aacc14.png)
 
 > Register [advanced custom fields](https://www.advancedcustomfields.com) with object oriented PHP.
 
-Working with multiple developers on a WordPress application with ACF it can be hard to keep track of changes made to the fields. This package will help you register advanced custom fields with PHP. All fields have their own class that automagically create unique field keys based on their parent field group. All fields exists within the theme and can be added to version control.
+Extended ACF provides an object oriented API to register fields, groups and layouts in ACF. If you register your fields in your theme you don't have to worry about working with other developers since all fields are under version control. Oh, and you don't have to worry about unique field keys.
 
 [![Build Status](https://badgen.net/github/checks/wordplate/acf?label=build&icon=github)](https://github.com/wordplate/acf/actions)
 [![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/wordplate/acf/stats)
