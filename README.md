@@ -12,7 +12,7 @@ Extended ACF provides an object oriented API to register fields, groups and layo
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Fields](#location)
+- [Fields](#fields)
 - [Location](#location)
 - [Conditional Logic](#conditional-logic)
 - [Theming](#theming)
