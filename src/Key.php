@@ -18,20 +18,10 @@ use InvalidArgumentException;
 class Key
 {
     /**
-     * The unique key list.
-     *
-     * @var string[]
+     * @var array
      */
     protected static $keys = [];
 
-    /**
-     * Generate a new field, group or layout key.
-     *
-     * @param string $key
-     * @param string $prefix
-     *
-     * @return string
-     */
     public static function generate(string $key, string $prefix): string
     {
         $key = sprintf('%s_%s', $prefix, static::hash($key));
@@ -43,41 +33,18 @@ class Key
         return $key;
     }
 
-    /**
-     * Hash a given string using the FNV-1a algorithm.
-     *
-     * @see https://softwareengineering.stackexchange.com/a/145633
-     *
-     * @param string $key
-     *
-     * @return string
-     */
     public static function hash(string $key): string
     {
         return hash('fnv1a32', $key);
     }
 
-    /**
-     * Sanitize key and convert to snake case.
-     *
-     * @param string $key
-     *
-     * @return string
-     */
     public static function sanitize(string $key): string
     {
         return str_replace('-', '_', sanitize_title($key));
     }
 
     /**
-     * Validate a given key's uniqness.
-     *
-     * @param string $key
-     * @param string $prefix
-     *
      * @throws \InvalidArgumentException
-     *
-     * @return string
      */
     public static function validate(string $key, string $prefix): string
     {
