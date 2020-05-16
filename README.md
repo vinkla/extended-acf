@@ -6,7 +6,7 @@
 
 Extended ACF provides an object oriented API to register fields, groups and layouts with ACF. If you register fields in your theme, you can safely rely on version control when working with other developers. Oh, and you don't have to worry about unique field keys.
 
-[![Build Status](https://badgen.net/github/checks/wordplate/acf?label=build&icon=github)](https://github.com/wordplate/acf/actions)
+[![Build Status](https://badgen.net/github/checks/wordplate/acf?label=build&icon=github)](https://github.com/wordplate/extended-acf/actions)
 [![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/wordplate/acf/stats)
 [![Latest Version](https://badgen.net/packagist/v/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
 
