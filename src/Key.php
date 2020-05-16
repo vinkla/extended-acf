@@ -17,9 +17,6 @@ use InvalidArgumentException;
 
 class Key
 {
-    /**
-     * @var array
-     */
     protected static $keys = [];
 
     public static function generate(string $key, string $prefix): string
@@ -43,9 +40,7 @@ class Key
         return str_replace('-', '_', sanitize_title($key));
     }
 
-    /**
-     * @throws \InvalidArgumentException
-     */
+    /** @throws \InvalidArgumentException */
     public static function validate(string $key, string $prefix): string
     {
         // Validate if the key is unique or not.

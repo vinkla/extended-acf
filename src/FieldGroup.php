@@ -17,9 +17,7 @@ use InvalidArgumentException;
 
 class FieldGroup
 {
-    /**
-     * @var \WordPlate\Acf\Config
-     */
+    /** @var \WordPlate\Acf\Config */
     protected $config;
 
     public function __construct(array $config)

@@ -24,9 +24,7 @@ class ConditionalLogic
     /** @var string */
     protected $parentKey;
 
-    /**
-     * @var mixed
-     */
+    /** @var mixed */
     protected $value;
 
     public function __construct(string $name)
@@ -55,9 +53,7 @@ class ConditionalLogic
         return $this;
     }
 
-    /**
-     * @param mixed $value
-     */
+    /** @param mixed $value */
     public function equals($value): self
     {
         $this->operator = '==';
@@ -66,9 +62,7 @@ class ConditionalLogic
         return $this;
     }
 
-    /**
-     * @param mixed $value
-     */
+    /** @param mixed $value */
     public function notEquals($value): self
     {
         $this->operator = '!=';
@@ -77,9 +71,7 @@ class ConditionalLogic
         return $this;
     }
 
-    /**
-     * @param mixed $value
-     */
+    /** @param mixed $value */
     public function contains($value): self
     {
         $this->operator = '==contains';
