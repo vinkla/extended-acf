@@ -31,9 +31,6 @@ class Relationship extends Field
     use ReturnFormat;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'relationship';
 
     public function elements(array $elements): self

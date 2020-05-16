@@ -29,9 +29,6 @@ class FlexibleContent extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'flexible_content';
 
     public function layouts(array $layouts): self

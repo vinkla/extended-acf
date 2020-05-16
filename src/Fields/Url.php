@@ -29,8 +29,5 @@ class Url extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'url';
 }

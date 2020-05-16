@@ -18,20 +18,17 @@ use WordPlate\Acf\Key;
 
 abstract class Field
 {
-    /**
-     * @var \WordPlate\Acf\Config
-     */
+    /** @var \WordPlate\Acf\Config */
     protected $config;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $keyPrefix = 'field';
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $parentKey;
+
+    /** @var string */
+    protected $type;
 
     public function __construct(string $label, ?string $name = null)
     {
@@ -56,7 +53,7 @@ abstract class Field
     {
         $key = sprintf('%s_%s', $this->parentKey, Key::sanitize($this->config->get('name')));
 
-        if (property_exists($this, 'type')) {
+        if (!empty($this->type)) {
             $this->config->set('type', $this->type);
         }
 

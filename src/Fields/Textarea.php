@@ -33,9 +33,6 @@ class Textarea extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'textarea';
 
     public function rows(int $rows): self

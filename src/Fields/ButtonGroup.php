@@ -31,8 +31,5 @@ class ButtonGroup extends Field
     use ReturnFormat;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'button_group';
 }

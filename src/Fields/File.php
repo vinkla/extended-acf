@@ -33,8 +33,5 @@ class File extends Field
     use ReturnFormat;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'file';
 }

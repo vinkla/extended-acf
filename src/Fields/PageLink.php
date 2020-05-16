@@ -31,9 +31,6 @@ class PageLink extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'page_link';
 
     public function allowArchives(bool $value = true): self

@@ -27,8 +27,5 @@ class ColorPicker extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'color_picker';
 }

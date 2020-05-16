@@ -29,8 +29,5 @@ class Group extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'group';
 }

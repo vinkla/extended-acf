@@ -29,8 +29,5 @@ class Email extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'email';
 }

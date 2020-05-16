@@ -20,9 +20,6 @@ class Tab extends Field
 {
     use Endpoint;
 
-    /**
-     * @var string
-     */
     protected $type = 'tab';
 
     public function placement(string $placement): self

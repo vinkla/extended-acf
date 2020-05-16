@@ -33,8 +33,5 @@ class PostObject extends Field
     use ReturnFormat;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'post_object';
 }

@@ -15,19 +15,13 @@ namespace WordPlate\Acf;
 
 class ConditionalLogic
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $name;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $operator;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $parentKey;
 
     /**

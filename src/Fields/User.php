@@ -31,9 +31,6 @@ class User extends Field
     use ReturnFormat;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'user';
 
     public function roles(array $roles): self

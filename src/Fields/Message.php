@@ -19,9 +19,6 @@ class Message extends Field
 {
     use NewLines;
 
-    /**
-     * @var string
-     */
     protected $type = 'message';
 
     public function message(string $message): self

@@ -29,8 +29,5 @@ class Password extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'password';
 }

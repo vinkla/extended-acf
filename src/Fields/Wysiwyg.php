@@ -28,9 +28,6 @@ class Wysiwyg extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'wysiwyg';
 
     public function mediaUpload(bool $mediaUpload): self

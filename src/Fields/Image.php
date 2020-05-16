@@ -35,9 +35,6 @@ class Image extends Field
     use ReturnFormat;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'image';
 
     public function previewSize(string $size): self

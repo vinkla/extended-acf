@@ -23,8 +23,5 @@ class Layout extends Field
     use MinMax;
     use SubFields;
 
-    /**
-     * @var string
-     */
     protected $keyPrefix = 'layout';
 }

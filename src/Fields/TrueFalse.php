@@ -27,9 +27,6 @@ class TrueFalse extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'true_false';
 
     public function stylisedUi(?string $onText = null, ?string $offText = null): self

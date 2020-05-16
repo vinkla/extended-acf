@@ -33,8 +33,5 @@ class Select extends Field
     use ReturnFormat;
     use Wrapper;
 
-    /**
-     * @var string
-     */
     protected $type = 'select';
 }
