@@ -27,15 +27,12 @@ class CheckboxTest extends TestCase
 
     public function testLayout()
     {
-        $field = Checkbox::make('Checkbox with layout')->layout('horizontal')->toArray();
+        $field = Checkbox::make('Checkbox Layout')->layout('horizontal')->toArray();
         $this->assertSame('horizontal', $field['layout']);
-    }
 
-    public function testLayoutException()
-    {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid argument layout [invalid_layout].');
+        $this->expectExceptionMessage('Invalid argument layout [test].');
 
-        Checkbox::make('Checkbox')->layout('invalid_layout');
+        Checkbox::make('Invalid Checkbox Layout')->layout('test');
     }
 }
