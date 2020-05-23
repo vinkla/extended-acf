@@ -17,6 +17,7 @@ use WordPlate\Acf\Fields\Attributes\Choices;
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
 use WordPlate\Acf\Fields\Attributes\Instructions;
+use WordPlate\Acf\Fields\Attributes\Multiple;
 use WordPlate\Acf\Fields\Attributes\Nullable;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
@@ -28,6 +29,7 @@ class Select extends Field
     use DefaultValue;
     use ConditionalLogic;
     use Instructions;
+    use Multiple;
     use Nullable;
     use Required;
     use ReturnFormat;
