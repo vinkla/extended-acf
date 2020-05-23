@@ -211,6 +211,7 @@ Select::make('Color')
     ])
     ->defaultValue('cyan')
     ->returnFormat('value') // value, label or array
+    ->allowMultiple()
     ->required();
 ```
 
