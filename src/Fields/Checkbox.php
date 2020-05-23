@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
+use InvalidArgumentException;
 use WordPlate\Acf\Fields\Attributes\Choices;
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
@@ -32,4 +33,15 @@ class Checkbox extends Field
     use Wrapper;
 
     protected $type = 'checkbox';
+
+    public function layout(string $layout): self
+    {
+        if (!in_array($layout, ['vertical', 'horizontal'])) {
+            throw new InvalidArgumentException("Invalid argument layout [$layout].");
+        }
+
+        $this->config->set('layout', $layout);
+
+        return $this;
+    }
 }

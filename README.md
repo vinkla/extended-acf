@@ -179,6 +179,7 @@ Checkbox::make('Color')
     ])
     ->defaultValue('cyan')
     ->returnFormat('value') // value, label or array
+    ->layout('horizontal') // vertical or horizontal
     ->required();
 ```
 
