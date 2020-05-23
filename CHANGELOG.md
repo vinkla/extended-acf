@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 8.3.0
+
+- Added `layout` to checkbox field
+- Added `allowMultiple` to select field
+
 ## 8.2.1
 
 - Added `allowNull` method to select field
