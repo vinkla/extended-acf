@@ -51,7 +51,7 @@ register_extended_field_group([
 ]);
 ```
 
-[Visit the official documentation to read more about the field group settings.](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings)
+Find more examples in the [examples directory](examples) or [visit the official ACF documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings) to read more about the field group settings.
 
 ## Fields
 
