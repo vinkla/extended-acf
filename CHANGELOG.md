@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 8.4.0
+
+- Added `layout` to radio field
+- Added `layout` to button_group field
+- Added `message` to true_false field
+- Added `stylisedUi` to select field
+
 ## 8.3.0
 
 - Added `layout` to checkbox field
