@@ -36,4 +36,12 @@ class Select extends Field
     use Wrapper;
 
     protected $type = 'select';
+
+    public function stylisedUi(bool $useAjax = false): self
+    {
+        $this->config->set('ui', true);
+        $this->config->set('ajax', $useAjax);
+
+        return $this;
+    }
 }

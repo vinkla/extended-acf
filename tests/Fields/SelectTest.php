@@ -20,7 +20,14 @@ class SelectTest extends TestCase
 {
     public function testType()
     {
-        $field = Select::make('Select')->toArray();
+        $field = Select::make('Select Type')->toArray();
         $this->assertSame('select', $field['type']);
+    }
+
+    public function testStylisedUi()
+    {
+        $field = Select::make('Select Stylised UI')->stylisedUi(true)->toArray();
+        $this->assertTrue($field['ui']);
+        $this->assertTrue($field['ajax']);
     }
 }
