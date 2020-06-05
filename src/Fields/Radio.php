@@ -16,6 +16,7 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Attributes\Choices;
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
+use WordPlate\Acf\Fields\Attributes\DirectionLayout;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
@@ -25,6 +26,7 @@ class Radio extends Field
 {
     use Choices;
     use DefaultValue;
+    use DirectionLayout;
     use ConditionalLogic;
     use Instructions;
     use Required;
@@ -32,15 +34,4 @@ class Radio extends Field
     use Wrapper;
 
     protected $type = 'radio';
-
-    public function layout(string $layout): self
-    {
-        if (!in_array($layout, ['vertical', 'horizontal'])) {
-            throw new InvalidArgumentException("Invalid argument layout [$layout].");
-        }
-
-        $this->config->set('layout', $layout);
-
-        return $this;
-    }
 }
