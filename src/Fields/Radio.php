@@ -32,4 +32,15 @@ class Radio extends Field
     use Wrapper;
 
     protected $type = 'radio';
+
+    public function layout(string $layout): self
+    {
+        if (!in_array($layout, ['vertical', 'horizontal'])) {
+            throw new InvalidArgumentException("Invalid argument layout [$layout].");
+        }
+
+        $this->config->set('layout', $layout);
+
+        return $this;
+    }
 }
