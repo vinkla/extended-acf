@@ -13,20 +13,15 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
+use WordPlate\Acf\Fields\Attributes\Message as MessageAttribute;
 use WordPlate\Acf\Fields\Attributes\NewLines;
 
 class Message extends Field
 {
+    use MessageAttribute;
     use NewLines;
 
     protected $type = 'message';
-
-    public function message(string $message): self
-    {
-        $this->config->set('message', $message);
-
-        return $this;
-    }
 
     public function escapeHtml(): self
     {

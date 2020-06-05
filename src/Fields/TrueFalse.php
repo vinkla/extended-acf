@@ -16,6 +16,7 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
 use WordPlate\Acf\Fields\Attributes\Instructions;
+use WordPlate\Acf\Fields\Attributes\Message;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
@@ -24,17 +25,11 @@ class TrueFalse extends Field
     use ConditionalLogic;
     use DefaultValue;
     use Instructions;
+    use Message;
     use Required;
     use Wrapper;
 
     protected $type = 'true_false';
-
-    public function message(string $message): self
-    {
-        $this->config->set('message', $message);
-
-        return $this;
-    }
 
     public function stylisedUi(?string $onText = null, ?string $offText = null): self
     {
