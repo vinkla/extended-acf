@@ -16,6 +16,7 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Attributes\Choices;
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
+use WordPlate\Acf\Fields\Attributes\DirectionLayout;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
@@ -25,6 +26,7 @@ class ButtonGroup extends Field
 {
     use Choices;
     use DefaultValue;
+    use DirectionLayout;
     use ConditionalLogic;
     use Instructions;
     use Required;
