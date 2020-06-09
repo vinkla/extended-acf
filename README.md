@@ -598,11 +598,11 @@ Select::make('Type')
     ]),
 File::make('Document', 'file')
     ->conditionalLogic([
-        ConditionalLogic::if('type')->equals('Document')
+        ConditionalLogic::if('type')->equals('document')
     ]),
 Url::make('Link', 'url')
     ->conditionalLogic([
-        ConditionalLogic::if('type')->equals('Link to resource')
+        ConditionalLogic::if('type')->equals('link')
     ]),
 ```
 
