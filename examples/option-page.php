@@ -9,7 +9,7 @@ use WordPlate\Acf\Fields\Wysiwyg;
 use WordPlate\Acf\Location;
 
 acf_add_options_page([
-    'icon_url' => 'dashicons-star-filled',
+    'icon_url' => 'dashicons-star-filled', // https://developer.wordpress.org/resource/dashicons/
     'menu_slug' => 'cookie',
     'page_title' => 'Cookie',
     'position' => 21,

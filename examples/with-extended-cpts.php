@@ -31,6 +31,8 @@ register_extended_taxonomy('topic', 'faq', [
     'show_in_rest' => true,
 ]);
 
+// In this example we use the title as the question.
+
 register_extended_field_group([
     'title' => 'FAQ',
     'fields' => [
