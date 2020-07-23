@@ -17,9 +17,7 @@ use InvalidArgumentException;
 
 trait ReturnFormat
 {
-    /**
-     * @throws \InvalidArgumentException
-     */
+    /** @throws \InvalidArgumentException */
     public function returnFormat(string $format): self
     {
         if (!in_array($format, ['array', 'id', 'label', 'object', 'url', 'value'])) {

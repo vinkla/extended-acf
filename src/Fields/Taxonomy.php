@@ -32,9 +32,7 @@ class Taxonomy extends Field
 
     protected $type = 'taxonomy';
 
-    /**
-     * @throws \InvalidArgumentException
-     */
+    /** @throws \InvalidArgumentException */
     public function appearance(string $fieldType): self
     {
         if (!in_array($fieldType, ['checkbox', 'multi_select', 'select', 'radio'])) {

@@ -37,9 +37,7 @@ class Wysiwyg extends Field
         return $this;
     }
 
-    /**
-     * @throws \InvalidArgumentException
-     */
+    /** @throws \InvalidArgumentException */
     public function tabs(string $tabs): self
     {
         if (!in_array($tabs, ['all', 'visual', 'text'])) {
