@@ -13,12 +13,14 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
+use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\Message as MessageAttribute;
 use WordPlate\Acf\Fields\Attributes\NewLines;
 
 class Message extends Field
 {
     use MessageAttribute;
+    use ConditionalLogic;
     use NewLines;
 
     protected $type = 'message';
