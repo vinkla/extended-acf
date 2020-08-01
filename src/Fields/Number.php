@@ -19,6 +19,7 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\MinMax;
 use WordPlate\Acf\Fields\Attributes\Pending;
 use WordPlate\Acf\Fields\Attributes\Placeholder;
+use WordPlate\Acf\Fields\Attributes\ReadOnly;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Step;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
@@ -32,6 +33,7 @@ class Number extends Field
     use Pending;
     use Placeholder;
     use Step;
+    use ReadOnly;
     use Required;
     use Wrapper;
 
