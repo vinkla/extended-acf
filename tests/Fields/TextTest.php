@@ -48,7 +48,7 @@ class TextTest extends TestCase
 
     public function testReadOnly()
     {
-        $field = Text::make('Text Read Only')->readonly()->toArray();
+        $field = Text::make('Text Read Only')->readOnly()->toArray();
         $this->assertTrue($field['readonly']);
     }
 
