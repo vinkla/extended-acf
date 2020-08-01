@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 8.5.0 (not yet released)
+
+- Added `readOnly` to text fields
+- Added `conditionalLogic` to message and tab fields
+
 ## 8.4.0
 
 - Added `layout` to radio field
