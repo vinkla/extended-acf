@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
+use WordPlate\Acf\Fields\Attributes\Disabled;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Placeholder;
 use WordPlate\Acf\Fields\Attributes\Required;
@@ -24,6 +25,7 @@ class Url extends Field
 {
     use ConditionalLogic;
     use DefaultValue;
+    use Disabled;
     use Instructions;
     use Placeholder;
     use Required;

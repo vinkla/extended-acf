@@ -52,6 +52,12 @@ class TextTest extends TestCase
         $this->assertTrue($field['required']);
     }
 
+    public function testDisabled()
+    {
+        $field = Text::make('Text Disabled')->disabled()->toArray();
+        $this->assertTrue($field['disabled']);
+    }
+
     public function testInstructions()
     {
         $field = Text::make('Heading')->instructions('Add the text content')->toArray();

@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
+use WordPlate\Acf\Fields\Attributes\Disabled;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Pending;
 use WordPlate\Acf\Fields\Attributes\Placeholder;
@@ -22,8 +23,9 @@ use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class Email extends Field
 {
-    use Instructions;
     use ConditionalLogic;
+    use Disabled;
+    use Instructions;
     use Pending;
     use Placeholder;
     use Required;
