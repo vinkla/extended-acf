@@ -4,6 +4,7 @@
 
 - Added `readOnly` to text fields
 - Added `conditionalLogic` to message and tab fields
+- Added `disabled` to supported fields
 
 ## 8.4.0
 
@@ -11,7 +12,6 @@
 - Added `layout` to button_group field
 - Added `message` to true_false field
 - Added `stylisedUi` to select field
-- Added `disabled` to supported fields
 
 ## 8.3.0
 
