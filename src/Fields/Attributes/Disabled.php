@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
-trait Disable
+trait Disabled
 {
-    public function disable(): self
+    public function disabled(): self
     {
         $this->config->set('disabled', true);
 
