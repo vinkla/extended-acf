@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
+use WordPlate\Acf\Fields\Attributes\Disabled;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\MinMax;
 use WordPlate\Acf\Fields\Attributes\Pending;
@@ -28,6 +29,7 @@ class Number extends Field
 {
     use ConditionalLogic;
     use DefaultValue;
+    use Disabled;
     use Instructions;
     use MinMax;
     use Pending;

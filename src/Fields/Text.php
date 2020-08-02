@@ -16,6 +16,7 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Attributes\CharacterLimit;
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
+use WordPlate\Acf\Fields\Attributes\Disabled;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Pending;
 use WordPlate\Acf\Fields\Attributes\Placeholder;
@@ -28,6 +29,7 @@ class Text extends Field
     use CharacterLimit;
     use ConditionalLogic;
     use DefaultValue;
+    use Disabled;
     use Instructions;
     use Pending;
     use Placeholder;

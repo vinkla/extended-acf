@@ -16,6 +16,7 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Attributes\Choices;
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
+use WordPlate\Acf\Fields\Attributes\Disabled;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Multiple;
 use WordPlate\Acf\Fields\Attributes\Nullable;
@@ -27,6 +28,7 @@ class Select extends Field
 {
     use Choices;
     use DefaultValue;
+    use Disabled;
     use ConditionalLogic;
     use Instructions;
     use Multiple;
