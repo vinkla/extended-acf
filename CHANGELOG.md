@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 8.5.0 (not yet released)
+## 8.5.0
 
 - Added `readOnly` to text fields
 - Added `conditionalLogic` to message and tab fields
