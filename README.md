@@ -328,6 +328,18 @@ DatePicker::make('Birthday')
     ->required();
 ```
 
+**Time Picker** - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
+
+```php
+use WordPlate\Acf\Fields\TimePicker;
+
+TimePicker::make('Start Time', 'time')
+    ->instructions('Add the start time.')
+    ->displayFormat('H:i')
+    ->returnFormat('H:i')
+    ->required();
+```
+
 **Date Time Picker** - The [date time picker field](https://www.advancedcustomfields.com/resources/date-time-picker) creates a jQuery date & time selection popup.
 
 ```php
@@ -349,18 +361,6 @@ GoogleMap::make('Address', 'address')
     ->instructions('Add the Google Map address.')
     ->center(57.456286, 18.377716)
     ->zoom(14)
-    ->required();
-```
-
-**Time Picker** - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
-
-```php
-use WordPlate\Acf\Fields\DateTimePicker;
-
-DateTimePicker::make('Start Time', 'time')
-    ->instructions('Add the start time.')
-    ->displayFormat('H:i')
-    ->returnFormat('H:i')
     ->required();
 ```
 
