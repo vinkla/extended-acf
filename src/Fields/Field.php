@@ -44,6 +44,13 @@ abstract class Field
         return new static($label, $name);
     }
 
+    public function customConfig(string $key, $value): self
+    {
+        $this->config->set($key, $value);
+
+        return $this;
+    }
+
     public function setParentKey(string $parentKey): void
     {
         $this->parentKey = $parentKey;
