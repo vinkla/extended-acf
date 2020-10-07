@@ -16,6 +16,7 @@ Extended ACF provides an object oriented API to register fields, groups and layo
 - [Location](#location)
 - [Conditional Logic](#conditional-logic)
 - [Theming](#theming)
+- [Custom Configuration](#custom-configuration)
 - [Custom Fields](#custom-fields)
 - [Installing ACF with Composer](#installing-acf-with-composer)
 - [Resources](#resources)
@@ -628,12 +629,32 @@ Instead of passing the `option` key to the `get_field` function we can now use t
 echo option('github-url');
 ```
 
+## Custom Configuration
+
+If your application use third-party plugins which extend the default ACF fields, you may extend the default field classes. Lets say you've want to add a configuration key to the select field. Create a new class which extends the base `WordPlate\Acf\Fields\Select` class:
+
+```php
+namespace App\Fields;
+
+use WordPlate\Acf\Fields\Select as Field;
+
+class Select extends Field
+{
+    public function myNewConfig(string $value): self
+    {
+        $this->config->set('my-new-config', $value);
+
+        return $this;
+    }
+}
+```
+
 ## Custom Fields
 
 If your application use fields which isn't part of ACF, you may extend and create custom helper classes. Lets say you've a field for OpenStreetMap. Create a new class which extends the base `WordPlate\Acf\Fields\Field` class:
 
 ```php
-namespace Application\Fields;
+namespace App\Fields;
 
 use WordPlate\Acf\Fields\Field;
 use WordPlate\Acf\Fields\Attributes\Instructions;
@@ -648,12 +669,12 @@ class OpenStreetMap extends Field
 }
 ```
 
-Notice that we've imported traits which inlcude the `required()` and `instructions()` methods. We've also added the `$type` property in order to let ACF know which field we're working with. You may now add any additional methods to this class which you will need such as `latitude()`, `longitude()`, `zoom()`, etc. 
+Notice that we've imported traits which include the `required()` and `instructions()` methods. We've also added the `$type` property in order to let ACF know which field we're working with. You may now add any additional methods to this class which you will need such as `latitude()`, `longitude()`, `zoom()`, etc. 
 
 When you're ready you can import use it like any other field included in this package:
 
 ```php
-use Application\Fields\OpenStreetMap;
+use App\Fields\OpenStreetMap;
 
 OpenStreetMap::make('Map')
   ->latitude(56.474)
