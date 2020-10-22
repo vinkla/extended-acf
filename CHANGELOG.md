@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.5.1
+
+- Added float support to `step` on range field
+
 ## 8.5.0
 
 - Added `readOnly` to text fields
