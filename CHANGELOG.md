@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.6.0
+
+- Updated minimum PHP version to 7.3
+
 ## 8.5.1
 
 - Added float support to `step` on range field

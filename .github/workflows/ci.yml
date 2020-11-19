@@ -8,17 +8,16 @@ jobs:
 
     strategy:
       matrix:
-        php: [7.2, 7.3, 7.4]
+        php: [7.3, 7.4]
 
     name: PHP ${{ matrix.php }}
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php }}
-        coverage: xdebug
-    - run: composer install --prefer-dist --no-interaction
-    - run: vendor/bin/phpunit --coverage-text
-    - run: vendor/bin/phpcs --standard=PSR12 --colors -n src tests
-
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: xdebug
+      - run: composer install --prefer-dist --no-interaction
+      - run: vendor/bin/phpunit --coverage-text
+      - run: vendor/bin/phpcs --standard=PSR12 --colors -n src tests
