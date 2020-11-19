@@ -238,7 +238,6 @@ use WordPlate\Acf\Fields\File;
 
 File::make('Resturant Menu', 'menu')
     ->instructions('Add the menu <strong>pdf</strong> file.')
-    ->defaultValue(false)
     ->mimeTypes(['pdf'])
     ->library('all') // all or uploadedTo
     ->fileSize('400 KB', 5) // MB if entered as int
