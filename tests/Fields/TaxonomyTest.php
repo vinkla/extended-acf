@@ -42,6 +42,12 @@ class TaxonomyTest extends TestCase
         $this->assertTrue($field['add_term']);
     }
 
+    public function testDisableCreateTerms()
+    {
+        $field = Taxonomy::make('Taxonomy Undefined Create Terms')->createTerms(false)->toArray();
+        $this->assertFalse($field['add_term']);
+    }
+
     public function testLoadTerms()
     {
         $field = Taxonomy::make('Taxonomy Load Terms')->loadTerms()->toArray();

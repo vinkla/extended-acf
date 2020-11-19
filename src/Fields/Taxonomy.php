@@ -44,9 +44,9 @@ class Taxonomy extends Field
         return $this;
     }
 
-    public function createTerms(): self
+    public function createTerms(bool $isAllowed = true): self
     {
-        $this->config->set('add_term', true);
+        $this->config->set('add_term', $isAllowed);
 
         return $this;
     }
