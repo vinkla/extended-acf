@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Unreleased
+
+- Renamed Taxonomy field's `createTerm` to `addTerm` and added boolean argument
+- Added boolean argument to Taxonomy field's `loadTerms`
+- Added boolean argument to Taxonomy field's `saveTerms`
+
 ## 8.6.0
 
 - Updated minimum PHP version to 7.3
@@ -73,7 +79,7 @@
 ## 7.0.0
 
 - Added new field classes API
-- Removed acf_* helper functions
+- Removed acf\_\* helper functions
 - Removed is_layout helper functions
 
 ## 6.0.0
@@ -157,7 +163,7 @@
 
 ## 0.2.1
 
-- Added duplicate key exception 
+- Added duplicate key exception
 
 ## 0.2.0
 

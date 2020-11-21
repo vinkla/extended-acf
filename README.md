@@ -551,9 +551,9 @@ Taxonomy::make('Cinemas')
     ->instructions('Select one or more cinema terms.')
     ->taxonomy('cinema')
     ->appearance('checkbox') // checkbox, multi_select, radio or select
-    ->createTerms(true) // Allow new terms to be created whilst editing. true (default) or false
-    ->loadTerms() // Load value from posts terms
-    ->saveTerms() // Connect selected terms to the post
+    ->addTerm(true) // Allow new terms to be created whilst editing (true or false)
+    ->loadTerms(true) // Load value from posts terms (true or false)
+    ->saveTerms(true) // Connect selected terms to the post (true or false)
     ->returnFormat('id'); // id or object
 ```
 
