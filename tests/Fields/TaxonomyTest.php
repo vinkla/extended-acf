@@ -36,22 +36,22 @@ class TaxonomyTest extends TestCase
         Taxonomy::make('Invalid Taxonomy Appearance')->appearance('test')->toArray();
     }
 
-    public function testCreateTerms()
+    public function testCanAddTerm()
     {
-        $field = Taxonomy::make('Taxonomy Create Terms')->createTerms()->toArray();
-        $this->assertTrue($field['add_term']);
+        $field = Taxonomy::make('Taxonomy Add Term')->addTerm(false)->toArray();
+        $this->assertFalse($field['add_term']);
     }
 
     public function testLoadTerms()
     {
-        $field = Taxonomy::make('Taxonomy Load Terms')->loadTerms()->toArray();
-        $this->assertTrue($field['load_terms']);
+        $field = Taxonomy::make('Taxonomy Load Terms')->loadTerms(false)->toArray();
+        $this->assertFalse($field['load_terms']);
     }
 
-    public function testSaveTerms()
+    public function testShouldSaveTerms()
     {
-        $field = Taxonomy::make('Taxonomy Save Terms')->saveTerms()->toArray();
-        $this->assertTrue($field['save_terms']);
+        $field = Taxonomy::make('Taxonomy Save Terms')->saveTerms(false)->toArray();
+        $this->assertFalse($field['save_terms']);
     }
 
     public function testTaxonomy()

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+- Renamed taxonomy field's `createTerm` to `addTerm`
+- Added boolean argument to taxonomy field's `loadTerms`, `saveTerms` and `addTerm`
+
 ## 8.6.0
 
 - Updated minimum PHP version to 7.3
