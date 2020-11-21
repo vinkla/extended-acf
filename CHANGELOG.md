@@ -79,7 +79,7 @@
 ## 7.0.0
 
 - Added new field classes API
-- Removed acf\_\* helper functions
+- Removed acf_* helper functions
 - Removed is_layout helper functions
 
 ## 6.0.0
@@ -163,7 +163,7 @@
 
 ## 0.2.1
 
-- Added duplicate key exception
+- Added duplicate key exception 
 
 ## 0.2.0
 
