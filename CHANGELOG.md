@@ -2,9 +2,8 @@
 
 ## Unreleased
 
-- Renamed Taxonomy field's `createTerm` to `addTerm` and added boolean argument
-- Added boolean argument to Taxonomy field's `loadTerms`
-- Added boolean argument to Taxonomy field's `saveTerms`
+- Renamed taxonomy field's `createTerm` to `addTerm`
+- Added boolean argument to taxonomy field's `loadTerms`, `saveTerms` and `addTerm`
 
 ## 8.6.0
 

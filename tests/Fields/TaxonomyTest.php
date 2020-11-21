@@ -38,37 +38,19 @@ class TaxonomyTest extends TestCase
 
     public function testCanAddTerm()
     {
-        $field = Taxonomy::make('Taxonomy Can Add Term')->addTerm(true)->toArray();
-        $this->assertTrue($field['add_term']);
-    }
-
-    public function testCannotAddTerm()
-    {
-        $field = Taxonomy::make('Taxonomy Cannot Add Term')->addTerm(false)->toArray();
+        $field = Taxonomy::make('Taxonomy Add Term')->addTerm(false)->toArray();
         $this->assertFalse($field['add_term']);
     }
 
-    public function testShouldLoadTerms()
+    public function testLoadTerms()
     {
-        $field = Taxonomy::make('Taxonomy Should Load Terms')->loadTerms(true)->toArray();
-        $this->assertTrue($field['load_terms']);
-    }
-
-    public function testShouldNotLoadTerms()
-    {
-        $field = Taxonomy::make('Taxonomy Should Not Load Terms')->loadTerms(false)->toArray();
+        $field = Taxonomy::make('Taxonomy Load Terms')->loadTerms(false)->toArray();
         $this->assertFalse($field['load_terms']);
     }
 
     public function testShouldSaveTerms()
     {
-        $field = Taxonomy::make('Taxonomy Should Save Terms')->saveTerms(true)->toArray();
-        $this->assertTrue($field['save_terms']);
-    }
-
-    public function testShouldNotSaveTerms()
-    {
-        $field = Taxonomy::make('Taxonomy Should Not Save Terms')->saveTerms(false)->toArray();
+        $field = Taxonomy::make('Taxonomy Save Terms')->saveTerms(false)->toArray();
         $this->assertFalse($field['save_terms']);
     }
 
