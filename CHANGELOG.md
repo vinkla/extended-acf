@@ -4,6 +4,7 @@
 
 - Renamed taxonomy field's `createTerm` to `addTerm`
 - Added boolean argument to taxonomy field's `loadTerms`, `saveTerms` and `addTerm`
+- Added `previewSize` to gallery field
 
 ## 8.6.0
 

@@ -21,6 +21,7 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Library;
 use WordPlate\Acf\Fields\Attributes\MimeTypes;
 use WordPlate\Acf\Fields\Attributes\MinMax;
+use WordPlate\Acf\Fields\Attributes\PreviewSize;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
@@ -34,6 +35,7 @@ class Gallery extends Field
     use Library;
     use MimeTypes;
     use MinMax;
+    use PreviewSize;
     use Required;
     use ReturnFormat;
     use Wrapper;

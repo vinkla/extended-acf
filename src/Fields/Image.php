@@ -19,6 +19,7 @@ use WordPlate\Acf\Fields\Attributes\FileSize;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Library;
 use WordPlate\Acf\Fields\Attributes\MimeTypes;
+use WordPlate\Acf\Fields\Attributes\PreviewSize;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
@@ -31,16 +32,10 @@ class Image extends Field
     use Instructions;
     use Library;
     use MimeTypes;
+    use PreviewSize;
     use Required;
     use ReturnFormat;
     use Wrapper;
 
     protected $type = 'image';
-
-    public function previewSize(string $size): self
-    {
-        $this->config->set('preview_size', $size);
-
-        return $this;
-    }
 }

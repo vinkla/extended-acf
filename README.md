@@ -260,6 +260,7 @@ Gallery::make('Images')
     ->fileSize('400 KB', 5) // MB if entered as int
     ->library('all') // all or uploadedTo
     ->returnFormat('array')
+    ->previewSize('medium') // thumbnail, medium or large
     ->required();
 ```
 
