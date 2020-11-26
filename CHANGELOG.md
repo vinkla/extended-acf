@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## Unreleased
+## 9.0.0
 
+- Added PHP 8.0 support
 - Renamed taxonomy field's `createTerm` to `addTerm`
 - Added boolean argument to taxonomy field's `loadTerms`, `saveTerms` and `addTerm`
 - Added `previewSize` to gallery field
