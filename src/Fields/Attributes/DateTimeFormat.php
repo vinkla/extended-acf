@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait DateTimeFormat
 {
+    /** @see https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters */
     public function displayFormat(string $format): self
     {
         $this->config->set('display_format', $format);
@@ -22,6 +23,7 @@ trait DateTimeFormat
         return $this;
     }
 
+    /** @see https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters */
     public function returnFormat(string $format): self
     {
         $this->config->set('return_format', $format);
