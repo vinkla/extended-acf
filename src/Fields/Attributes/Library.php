@@ -17,7 +17,10 @@ use InvalidArgumentException;
 
 trait Library
 {
-    /** @throws \InvalidArgumentException */
+    /**
+     * @param string $library all or uploadedTo
+     * @throws \InvalidArgumentException
+     */
     public function library(string $library): self
     {
         if (!in_array($library, ['all', 'uploadedTo'])) {

@@ -17,6 +17,10 @@ use InvalidArgumentException;
 
 trait DirectionLayout
 {
+    /**
+     * @param string $layout vertical or horizontal
+     * @throws \InvalidArgumentException
+     */
     public function layout(string $layout): self
     {
         if (!in_array($layout, ['vertical', 'horizontal'])) {

@@ -42,7 +42,10 @@ class Gallery extends Field
 
     protected $type = 'gallery';
 
-    /** @throws \InvalidArgumentException */
+    /**
+     * @param string $insert append or prepend
+     * @throws \InvalidArgumentException
+     */
     public function insert(string $insert): self
     {
         if (!in_array($insert, ['append', 'prepend'])) {

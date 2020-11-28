@@ -27,10 +27,5 @@ class TimePicker extends Field
     use Required;
     use Wrapper;
 
-    /**
-     * The field type.
-     *
-     * @var string
-     */
     protected $type = 'time_picker';
 }

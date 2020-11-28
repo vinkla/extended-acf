@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait PreviewSize
 {
+    /** @param string $size thumbnail, medium, medium_large, large or full */
     public function previewSize(string $size): self
     {
         $this->config->set('preview_size', $size);

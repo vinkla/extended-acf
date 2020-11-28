@@ -17,7 +17,10 @@ use InvalidArgumentException;
 
 trait Layout
 {
-    /** @throws \InvalidArgumentException */
+    /**
+     * @param string $layout block, row or table
+     * @throws \InvalidArgumentException
+     */
     public function layout(string $layout): self
     {
         if (!in_array($layout, ['block', 'row', 'table'])) {

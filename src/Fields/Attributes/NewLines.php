@@ -17,7 +17,10 @@ use InvalidArgumentException;
 
 trait NewLines
 {
-    /** @throws \InvalidArgumentException */
+    /**
+     * @param string $newLines br or wpautop
+     * @throws \InvalidArgumentException
+     */
     public function newLines(string $newLines): self
     {
         if (!in_array($newLines, ['br', 'wpautop'])) {

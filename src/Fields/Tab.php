@@ -24,6 +24,10 @@ class Tab extends Field
 
     protected $type = 'tab';
 
+    /**
+     * @param string $placement left or top
+     * @throws \InvalidArgumentException
+     */
     public function placement(string $placement): self
     {
         if (!in_array($placement, ['left', 'top'])) {
