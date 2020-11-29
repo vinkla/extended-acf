@@ -30,7 +30,7 @@ class ButtonGroup extends Field
     use ConditionalLogic;
     use Instructions;
     use Required;
-    use ReturnFormat;
+    use ReturnFormat; // value, label, array
     use Wrapper;
 
     protected $type = 'button_group';

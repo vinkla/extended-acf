@@ -27,7 +27,7 @@ class Taxonomy extends Field
     use Instructions;
     use Nullable;
     use Required;
-    use ReturnFormat;
+    use ReturnFormat; // object, id
     use Wrapper;
 
     protected $type = 'taxonomy';

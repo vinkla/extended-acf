@@ -28,7 +28,7 @@ class Relationship extends Field
     use Instructions;
     use MinMax;
     use Required;
-    use ReturnFormat;
+    use ReturnFormat; // object, id
     use Wrapper;
 
     protected $type = 'relationship';

@@ -28,7 +28,7 @@ class User extends Field
     use Multiple;
     use Nullable;
     use Required;
-    use ReturnFormat;
+    use ReturnFormat; // array, object, id
     use Wrapper;
 
     protected $type = 'user';

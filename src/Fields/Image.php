@@ -34,7 +34,7 @@ class Image extends Field
     use MimeTypes;
     use PreviewSize;
     use Required;
-    use ReturnFormat;
+    use ReturnFormat; // array, id, url
     use Wrapper;
 
     protected $type = 'image';

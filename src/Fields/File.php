@@ -30,7 +30,7 @@ class File extends Field
     use Library;
     use MimeTypes;
     use Required;
-    use ReturnFormat;
+    use ReturnFormat; // array, id, url
     use Wrapper;
 
     protected $type = 'file';
