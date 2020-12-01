@@ -21,13 +21,13 @@ class Key
 
     public static function generate(string $key, string $prefix): string
     {
-        $key = sprintf('%s_%s', $prefix, static::hash($key));
+        $hashedKey = sprintf('%s_%s', $prefix, static::hash($key));
 
-        static::validate($key, $prefix);
+        static::validate($hashedKey, $prefix, $key);
 
-        static::$keys[] = $key;
+        static::$keys[] = $hashedKey;
 
-        return $key;
+        return $hashedKey;
     }
 
     public static function hash(string $key): string
@@ -41,10 +41,15 @@ class Key
     }
 
     /** @throws \InvalidArgumentException */
-    public static function validate(string $key, string $prefix): string
+    public static function validate(string $key, string $prefix, string $originalKey = null): string
     {
+        // TODO: $originalKey can't be null in the next major version.
+
         // Validate if the key is unique or not.
         if (in_array($key, self::$keys)) {
+            // TODO: Remove the hashed $key in the error message in next major version.
+            $key = $originalKey ?? $key;
+
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
 
