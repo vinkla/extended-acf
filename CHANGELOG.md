@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 9.1.0 (unreleased)
+## 9.1.0
 
 - Added return format documentation
 - Added plain key text in duplicated keys error message
