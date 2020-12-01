@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait WeekDay
 {
+    /** @return static */
     public function weekStartsOn(int $day): self
     {
         $this->config->set('first_day', $day);

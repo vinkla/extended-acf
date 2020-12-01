@@ -20,6 +20,7 @@ trait Library
     /**
      * @param string $library all or uploadedTo
      * @throws \InvalidArgumentException
+     * @return static
      */
     public function library(string $library): self
     {

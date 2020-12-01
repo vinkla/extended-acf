@@ -32,11 +32,13 @@ class ConditionalLogic
         $this->name = $name;
     }
 
+    /** @return static */
     public static function if(string $name): self
     {
         return new self($name);
     }
 
+    /** @return static */
     public function greaterThan(int $value): self
     {
         $this->operator = '>';
@@ -45,6 +47,7 @@ class ConditionalLogic
         return $this;
     }
 
+    /** @return static */
     public function lessThan(int $value): self
     {
         $this->operator = '<';
@@ -53,7 +56,10 @@ class ConditionalLogic
         return $this;
     }
 
-    /** @param mixed $value */
+    /**
+     * @param mixed $value
+     * @return static
+     */
     public function equals($value): self
     {
         $this->operator = '==';
@@ -62,7 +68,10 @@ class ConditionalLogic
         return $this;
     }
 
-    /** @param mixed $value */
+    /**
+     * @param mixed $value
+     * @return static
+     */
     public function notEquals($value): self
     {
         $this->operator = '!=';
@@ -71,7 +80,10 @@ class ConditionalLogic
         return $this;
     }
 
-    /** @param mixed $value */
+    /**
+     * @param mixed $value
+     * @return static
+     */
     public function contains($value): self
     {
         $this->operator = '==contains';
@@ -80,6 +92,7 @@ class ConditionalLogic
         return $this;
     }
 
+    /** @return static */
     public function empty(): self
     {
         $this->operator = '==empty';
@@ -87,6 +100,7 @@ class ConditionalLogic
         return $this;
     }
 
+    /** @return static */
     public function notEmpty(): self
     {
         $this->operator = '!=empty';

@@ -35,6 +35,7 @@ class Repeater extends Field
 
     protected $type = 'repeater';
 
+    /** @return static */
     public function collapsed(string $name): self
     {
         $this->config->set('collapsed', $name);

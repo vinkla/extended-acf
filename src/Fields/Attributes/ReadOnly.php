@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait ReadOnly
 {
+    /** @return static */
     public function readOnly(): self
     {
         $this->config->set('readonly', true);

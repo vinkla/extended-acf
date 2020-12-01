@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Endpoint
 {
+    /** @return static */
     public function endpoint(): self
     {
         $this->config->set('endpoint', true);

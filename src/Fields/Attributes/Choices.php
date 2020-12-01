@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Choices
 {
+    /** @return static */
     public function choices(array $choices): self
     {
         $this->config->set('choices', $choices);

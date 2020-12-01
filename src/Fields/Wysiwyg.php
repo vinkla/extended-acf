@@ -30,6 +30,7 @@ class Wysiwyg extends Field
 
     protected $type = 'wysiwyg';
 
+    /** @return static */
     public function mediaUpload(bool $mediaUpload): self
     {
         $this->config->set('media_upload', $mediaUpload);
@@ -40,6 +41,7 @@ class Wysiwyg extends Field
     /**
      * @param string $tabs all, visual or text
      * @throws \InvalidArgumentException
+     * @return static
      */
     public function tabs(string $tabs): self
     {
@@ -52,6 +54,7 @@ class Wysiwyg extends Field
         return $this;
     }
 
+    /** @return static */
     public function toolbar(string $toolbar): self
     {
         $this->config->set('toolbar', $toolbar);

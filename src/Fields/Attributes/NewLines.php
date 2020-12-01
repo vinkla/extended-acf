@@ -20,6 +20,7 @@ trait NewLines
     /**
      * @param string $newLines br or wpautop
      * @throws \InvalidArgumentException
+     * @return static
      */
     public function newLines(string $newLines): self
     {

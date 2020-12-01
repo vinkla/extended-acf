@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait MimeTypes
 {
+    /** @return static */
     public function mimeTypes(array $mimeTypes): self
     {
         $this->config->set('mime_types', implode(',', $mimeTypes));

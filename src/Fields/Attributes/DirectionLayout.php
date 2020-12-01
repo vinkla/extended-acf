@@ -20,6 +20,7 @@ trait DirectionLayout
     /**
      * @param string $layout vertical or horizontal
      * @throws \InvalidArgumentException
+     * @return static
      */
     public function layout(string $layout): self
     {

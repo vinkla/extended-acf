@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Wrapper
 {
+    /** @return static */
     public function wrapper(array $wrapper): self
     {
         $this->config->set('wrapper', $wrapper);

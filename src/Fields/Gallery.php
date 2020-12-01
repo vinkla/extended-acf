@@ -45,6 +45,7 @@ class Gallery extends Field
     /**
      * @param string $insert append or prepend
      * @throws \InvalidArgumentException
+     * @return static
      */
     public function insert(string $insert): self
     {

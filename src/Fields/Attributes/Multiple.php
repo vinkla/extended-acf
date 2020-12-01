@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Multiple
 {
+    /** @return static */
     public function allowMultiple(): self
     {
         $this->config->set('multiple', true);

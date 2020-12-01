@@ -18,6 +18,7 @@ trait FileSize
     /**
      * @param int|string|null $min
      * @param int|string|null $max
+     * @return static
      */
     public function fileSize($min = null, $max = null): self
     {

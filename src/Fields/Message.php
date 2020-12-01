@@ -25,6 +25,7 @@ class Message extends Field
 
     protected $type = 'message';
 
+    /** @return static */
     public function escapeHtml(): self
     {
         $this->config->set('esc_html', true);

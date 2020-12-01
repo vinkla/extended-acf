@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Dimensions
 {
+    /** @return static */
     public function height(?int $min = null, ?int $max = null): self
     {
         if ($min !== null) {
@@ -28,6 +29,7 @@ trait Dimensions
         return $this;
     }
 
+    /** @return static */
     public function width(?int $min = null, ?int $max = null): self
     {
         if ($min !== null) {

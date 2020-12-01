@@ -23,6 +23,7 @@ class Accordion extends Field
 
     protected $type = 'accordion';
 
+    /** @return static */
     public function multiExpand(): self
     {
         $this->config->set('multi_expand', true);
@@ -30,6 +31,7 @@ class Accordion extends Field
         return $this;
     }
 
+    /** @return static */
     public function open(): self
     {
         $this->config->set('open', true);

@@ -20,6 +20,7 @@ trait ReturnFormat
     /**
      * @param string $format array, id, label, object, url or value
      * @throws \InvalidArgumentException
+     * @return static
      */
     public function returnFormat(string $format): self
     {

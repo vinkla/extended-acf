@@ -33,6 +33,7 @@ class User extends Field
 
     protected $type = 'user';
 
+    /** @return static */
     public function roles(array $roles): self
     {
         $this->config->set('role', $roles);

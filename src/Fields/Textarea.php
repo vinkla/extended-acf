@@ -39,6 +39,7 @@ class Textarea extends Field
 
     protected $type = 'textarea';
 
+    /** @return static */
     public function rows(int $rows): self
     {
         $this->config->set('rows', $rows);

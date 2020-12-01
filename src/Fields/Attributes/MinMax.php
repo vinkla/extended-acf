@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait MinMax
 {
+    /** @return static */
     public function max(int $max): self
     {
         $this->config->set('max', $max);
@@ -22,6 +23,7 @@ trait MinMax
         return $this;
     }
 
+    /** @return static */
     public function min(int $min): self
     {
         $this->config->set('min', $min);

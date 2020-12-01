@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Disabled
 {
+    /** @return static */
     public function disabled(): self
     {
         $this->config->set('disabled', true);

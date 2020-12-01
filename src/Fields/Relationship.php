@@ -33,6 +33,7 @@ class Relationship extends Field
 
     protected $type = 'relationship';
 
+    /** @return static */
     public function elements(array $elements): self
     {
         $this->config->set('elements', $elements);
@@ -40,6 +41,7 @@ class Relationship extends Field
         return $this;
     }
 
+    /** @return static */
     public function filters(array $filters): self
     {
         $this->config->set('filters', $filters);

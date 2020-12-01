@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Step
 {
+    /** @return static */
     public function step(float $step): self
     {
         $this->config->set('step', $step);

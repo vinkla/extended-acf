@@ -31,6 +31,7 @@ class FlexibleContent extends Field
 
     protected $type = 'flexible_content';
 
+    /** @return static */
     public function layouts(array $layouts): self
     {
         $this->config->set('layouts', $layouts);

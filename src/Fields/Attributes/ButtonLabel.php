@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait ButtonLabel
 {
+    /** @return static */
     public function buttonLabel(string $label): self
     {
         $this->config->set('button_label', $label);

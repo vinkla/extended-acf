@@ -20,6 +20,7 @@ trait Layout
     /**
      * @param string $layout block, row or table
      * @throws \InvalidArgumentException
+     * @return static
      */
     public function layout(string $layout): self
     {

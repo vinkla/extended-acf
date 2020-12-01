@@ -15,6 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Message
 {
+    /** @return static */
     public function message(string $message): self
     {
         $this->config->set('message', $message);

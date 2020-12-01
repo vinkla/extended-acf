@@ -35,6 +35,7 @@ class Taxonomy extends Field
     /**
      * @param string $fieldType checkbox, multi_select, select or radio
      * @throws \InvalidArgumentException
+     * @return static
      */
     public function appearance(string $fieldType): self
     {
@@ -47,6 +48,7 @@ class Taxonomy extends Field
         return $this;
     }
 
+    /** @return static */
     public function addTerm(bool $addTerm = true): self
     {
         $this->config->set('add_term', $addTerm);
@@ -54,6 +56,7 @@ class Taxonomy extends Field
         return $this;
     }
 
+    /** @return static */
     public function loadTerms(bool $loadTerms = true): self
     {
         $this->config->set('load_terms', $loadTerms);
@@ -61,6 +64,7 @@ class Taxonomy extends Field
         return $this;
     }
 
+    /** @return static */
     public function saveTerms(bool $saveTerms = true): self
     {
         $this->config->set('save_terms', $saveTerms);

@@ -27,6 +27,7 @@ class Tab extends Field
     /**
      * @param string $placement left or top
      * @throws \InvalidArgumentException
+     * @return static
      */
     public function placement(string $placement): self
     {
