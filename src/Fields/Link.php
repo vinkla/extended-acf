@@ -24,7 +24,7 @@ class Link extends Field
     use ConditionalLogic;
     use Instructions;
     use Required;
-    use ReturnFormat; // array, url
+    use ReturnFormat;
     use Wrapper;
 
     protected $type = 'link';

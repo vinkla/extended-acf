@@ -30,7 +30,7 @@ class PostObject extends Field
     use Multiple;
     use Nullable;
     use Required;
-    use ReturnFormat; // object, id
+    use ReturnFormat;
     use Wrapper;
 
     protected $type = 'post_object';

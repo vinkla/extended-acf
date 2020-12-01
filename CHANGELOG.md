@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 9.1.0 (unreleased)
+
+- Added return format documentation
+- Added plain key text in duplicated keys error message
+- Added static return type hint for better intellisense
+- Added suggestions on location methods for better intellisense
+- Added suggestions on multiple fields and attributes for better intellisense
+
 ## 9.0.0
 
 - Added PHP 8.0 support

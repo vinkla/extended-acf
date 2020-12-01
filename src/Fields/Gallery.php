@@ -37,7 +37,7 @@ class Gallery extends Field
     use MinMax;
     use PreviewSize;
     use Required;
-    use ReturnFormat; // array, id, url
+    use ReturnFormat;
     use Wrapper;
 
     protected $type = 'gallery';

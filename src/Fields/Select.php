@@ -34,7 +34,7 @@ class Select extends Field
     use Multiple;
     use Nullable;
     use Required;
-    use ReturnFormat; // value, label, array
+    use ReturnFormat;
     use Wrapper;
 
     protected $type = 'select';

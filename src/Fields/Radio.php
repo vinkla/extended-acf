@@ -32,7 +32,7 @@ class Radio extends Field
     use ConditionalLogic;
     use Instructions;
     use Required;
-    use ReturnFormat; // value, label, array
+    use ReturnFormat;
     use Wrapper;
 
     protected $type = 'radio';
