@@ -300,7 +300,7 @@ Wysiwyg::make('Content')
     ->instructions('Add the text content.')
     ->mediaUpload(false)
     ->tabs('visual')
-    ->toolbar('simple')
+    ->toolbar('simple') // toolbar name in snake_case
     ->required();
 ```
 
