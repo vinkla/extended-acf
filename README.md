@@ -1,6 +1,6 @@
-# Extended ACF
-
 ![Extended ACF](https://user-images.githubusercontent.com/499192/34915298-1782a500-f924-11e7-85a7-dc7de6aacc14.png)
+
+# Extended ACF
 
 > Register [advanced custom fields](https://www.advancedcustomfields.com) with object oriented PHP.
 
