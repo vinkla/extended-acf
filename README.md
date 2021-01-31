@@ -539,6 +539,7 @@ Relationship::make('Contacts')
         'post_type',
         'taxonomy'
     ])
+    ->elements(['featured_image'])
     ->min(3)
     ->max(6)
     ->returnFormat('id') // id or object
