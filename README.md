@@ -535,7 +535,7 @@ Relationship::make('Contacts')
     ->instructions('Add the contacts.')
     ->postTypes(['contact'])
     ->filters([
-      'search', 
+        'search', 
         'post_type',
         'taxonomy'
     ])
