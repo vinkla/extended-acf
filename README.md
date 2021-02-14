@@ -163,7 +163,7 @@ ButtonGroup::make('Color')
         'hotpink' => 'Hotpink',
     ])
     ->defaultValue('hotpink')
-    ->returnFormat('value') // array, label or value
+    ->returnFormat('value') // array, label or value (default)
     ->required();
 ```
 
@@ -179,7 +179,7 @@ Checkbox::make('Color')
         'hotpink' => 'Hotpink',
     ])
     ->defaultValue('cyan')
-    ->returnFormat('value') // array, label or value
+    ->returnFormat('value') // array, label or value (default)
     ->layout('horizontal') // vertical or horizontal
     ->required();
 ```
@@ -196,7 +196,7 @@ Radio::make('Color')
         'hotpink' => 'Hotpink',
     ])
     ->defaultValue('hotpink')
-    ->returnFormat('value') // array, label or value
+    ->returnFormat('value') // array, label or value (default)
     ->required();
 ```
 
@@ -212,7 +212,7 @@ Select::make('Color')
         'hotpink' => 'Hotpink',
     ])
     ->defaultValue('cyan')
-    ->returnFormat('value') // array, label or value
+    ->returnFormat('value') // array, label or value (default)
     ->allowMultiple()
     ->required();
 ```
@@ -241,7 +241,7 @@ File::make('Resturant Menu', 'menu')
     ->mimeTypes(['pdf'])
     ->library('all') // all or uploadedTo
     ->fileSize('400 KB', 5) // MB if entered as int
-    ->returnFormat('array') // array, id, url
+    ->returnFormat('array') // id, url or array (default)
     ->required();
 ```
 
@@ -259,7 +259,7 @@ Gallery::make('Images')
     ->max(6)
     ->fileSize('400 KB', 5) // MB if entered as int
     ->library('all') // all or uploadedTo
-    ->returnFormat('array') // array, id, url
+    ->returnFormat('array') // id, url or array (default)
     ->previewSize('medium') // thumbnail, medium or large
     ->required();
 ```
@@ -276,7 +276,7 @@ Image::make('Background Image')
     ->width(1000, 2000)
     ->fileSize('400 KB', 5) // MB if entered as int
     ->library('all') // all or uploadedTo
-    ->returnFormat('array') // array, id, url
+    ->returnFormat('array') // id, url or array (default)
     ->previewSize('medium') // thumbnail, medium or large
     ->required();
 ```
@@ -494,7 +494,7 @@ Tab::make('Tab 3')
 use WordPlate\Acf\Fields\Link;
 
 Link::make('Read More Link')
-    ->returnFormat('array') // array or url
+    ->returnFormat('array') // url or array (default)
     ->required();
 ```
 
@@ -522,7 +522,7 @@ PostObject::make('Animal')
     ->postTypes(['animal'])
     ->allowNull()
     ->allowMultiple()
-    ->returnFormat('id') // id or object
+    ->returnFormat('object') // id or object (default)
     ->required();
 ```
 
@@ -542,7 +542,7 @@ Relationship::make('Contacts')
     ->elements(['featured_image'])
     ->min(3)
     ->max(6)
-    ->returnFormat('id') // id or object
+    ->returnFormat('object') // id or object (default)
     ->required();
 ```
 
@@ -558,7 +558,7 @@ Taxonomy::make('Cinemas')
     ->addTerm(true) // Allow new terms to be created whilst editing (true or false)
     ->loadTerms(true) // Load value from posts terms (true or false)
     ->saveTerms(true) // Connect selected terms to the post (true or false)
-    ->returnFormat('id'); // id or object
+    ->returnFormat('id'); // object or id (default)
 ```
 
 **User** - The user field creates a select field for all your users.
@@ -571,7 +571,7 @@ User::make('User')
         'administrator',
         'author'
     ])
-    ->returnFormat('object'); // array, id or object
+    ->returnFormat('array'); // id, object or array (default)
 
 // Available roles are administrator, author, subscriber, contributor and editor. Deafult is no filter.
 ```
