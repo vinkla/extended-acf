@@ -706,16 +706,3 @@ If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with 
     }
 ]
 ```
-
-## Resources
-
-Below you'll find a list of articles which can help you getting started and advance your custom fields knowledge.
-
-- [A Beginner’s Guide to Advanced Custom Fields](https://www.advancedcustomfields.com/blog/beginners-guide-advanced-custom-fields)
-- [Best Practices when Designing Custom Fields](https://www.advancedcustomfields.com/blog/best-practices-designing-custom-fields)
-- [Organizing Custom Fields Inside of WordPress with ACF](https://www.advancedcustomfields.com/blog/organizing-custom-fields-inside-wordpress-acf)
-- [Wait, ACF Has Settings?](https://www.advancedcustomfields.com/blog/acf-has-settings)
-
-## License
-
-[MIT](LICENSE) © [Vincent Klaiber](https://vinkla.dev/)
