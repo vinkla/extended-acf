@@ -18,8 +18,6 @@ Extended ACF provides an object oriented API to register fields, groups and layo
 - [Theming](#theming)
 - [Custom Configuration](#custom-configuration)
 - [Custom Fields](#custom-fields)
-- [Installing ACF with Composer](#installing-acf-with-composer)
-- [Resources](#resources)
 
 ## Installation
 
@@ -29,7 +27,28 @@ Require this package, with [Composer](https://getcomposer.org), in the root dire
 $ composer require wordplate/acf
 ```
 
-Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that this package supports ACF version 5.6 or later. If you want to install ACF Pro with Composer, [please scroll down](#installing-acf-with-composer).
+Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that this package supports ACF version 5.6 or higher.
+
+### Installing ACF with Composer
+
+If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `YOUR-ACF-KEY` with your ACF Pro key and run `composer install`. Composer should now install the plugin to the `plugins` directory. You'll need to update the version number when a new version of ACF Pro is available.
+
+```json
+"repositories": [
+    {
+        "type": "package",
+        "package": {
+            "name": "wpackagist-plugin/advanced-custom-fields-pro",
+            "type": "wordpress-plugin",
+            "version": "5.9.0",
+            "dist": {
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=YOUR-ACF-KEY&t=5.9.0",
+                "type": "zip"
+            }
+        }
+    }
+]
+```
 
 ## Usage
 
@@ -684,25 +703,4 @@ OpenStreetMap::make('Map')
   ->latitude(56.474)
   ->longitude(11.863)
   ->zoom(10);
-```
-
-## Installing ACF with Composer
-
-If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `your-acf-key` with your ACF Pro key and run `composer install`. Composer should now install the plugin to the `plugins` directory.
-
-```json
-"repositories": [
-    {
-        "type": "package",
-        "package": {
-            "name": "wpackagist-plugin/advanced-custom-fields-pro",
-            "type": "wordpress-plugin",
-            "version": "5.9.0",
-            "dist": {
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=your-acf-key&t=5.9.0",
-                "type": "zip"
-            }
-        }
-    }
-]
 ```
