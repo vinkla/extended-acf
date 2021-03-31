@@ -52,10 +52,9 @@ class Key
             array_pop($parentKeyPieces);
 
             $potentialParentKey = join('_', $parentKeyPieces);
+            $potentialKey = sprintf('%s_%s', $potentialParentKey, $key);
 
-            $rawKey = sprintf('%s_%s', $potentialParentKey, $key);
-
-            if (array_key_exists($rawKey, self::$keys)) {
+            if (array_key_exists($potentialKey, self::$keys)) {
                 return $potentialParentKey;
             }
         }
