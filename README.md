@@ -4,7 +4,7 @@
 
 > Register [advanced custom fields](https://www.advancedcustomfields.com) with object oriented PHP.
 
-Extended ACF provides an object oriented API to register fields, groups and layouts with ACF. If you register fields in your theme, you can safely rely on version control when working with other developers. Oh, and you don't have to worry about unique field keys.
+Extended ACF provides an object oriented API to register groups and fields with ACF. If you register fields in your theme, you can safely rely on version control when working with other developers. Oh, and you don't have to worry about unique field keys.
 
 [![Build Status](https://badgen.net/github/checks/wordplate/extended-acf?label=build&icon=github)](https://github.com/wordplate/extended-acf/actions)
 [![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/wordplate/acf/stats)
@@ -21,17 +21,17 @@ Extended ACF provides an object oriented API to register fields, groups and layo
 
 ## Installation
 
-Require this package, with [Composer](https://getcomposer.org), in the root directory of your project.
+Require this package, with Composer, in the root directory of your project.
 
 ```bash
-$ composer require wordplate/acf
+composer require wordplate/acf
 ```
 
 Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that this package supports ACF version 5.6 or higher.
 
 #### Installing ACF Pro with Composer (optional)
 
-If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `YOUR-ACF-KEY` with your license key and run `composer install`.
+If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer, you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `YOUR-ACF-KEY` with your license key and run `composer install`.
 
 ```json
 "repositories": [
@@ -52,7 +52,7 @@ If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with 
 
 ## Usage
 
-Use the `register_extended_field_group()` function to register a new field group in ACF. It uses the [`register_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function behind the scenes. The difference is that it appends the `key` value to field groups and fields. Below you'll find an example of a field group.
+Use the `register_extended_field_group()` function to register a new field group. It extends the default [`register_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function provided in the ACF plugin. The difference is that it appends the `key` value to field groups and fields. Below you'll find an example of a field group.
 
 ```php
 use WordPlate\Acf\Fields\Image;
@@ -75,7 +75,7 @@ Find more examples in the [examples directory](examples) or [visit the official 
 
 ## Fields
 
-All fields have their responding class except the clone field. All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. The `name` can only contain alphanumeric characters, underscore (_) and dash (-). Further down this page you'll find a list of available field types.
+All fields have their responding class (except the clone field). All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. The `name` can only contain alphanumeric characters, underscore (_) and dash (-).
 
 ```php
 use WordPlate\Acf\Fields\Text;
@@ -85,7 +85,7 @@ Text::make('Title', 'heading')
     ->required();
 ```
 
-Setting such as `wrapper`, `append` and `prepend` are supported on almost all fields but not listed in the documentation below. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about field settings.
+Further down this page you'll find a list of available field types. Setting such as `wrapper`, `append` and `prepend` are supported on almost all fields but not listed in the documentation below. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about field settings.
 
 ### Basic Fields
 
@@ -597,7 +597,7 @@ User::make('User')
 
 ## Location
 
-The location class let you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys.
+The location class let you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys. If no `operator` is given it will use the `operator` as the `key`.
 
 ```php
 use WordPlate\Acf\Location;
@@ -607,7 +607,7 @@ Location::if('post_type', 'post')->and('post_type', '!=', 'post');
 
 ## Conditional Logic
 
-The conditional class help you write conditional logic without knowing the fields `key` value.
+The conditional class help you write conditional logic [without knowing](https://media.giphy.com/media/SbtWGvMSmJIaV8faS8/source.gif) the fields `key` value.
 
 ```php
 use WordPlate\Acf\ConditionalLogic;
@@ -632,11 +632,11 @@ Url::make('Link', 'url')
 
 ## Theming
 
-This package provides two helpers to make theming with custom fields much cleaner.
+This package provides two helper function to make theming with custom fields much cleaner.
 
 ### Field
 
-Instead of fetching data with `get_field` and `get_sub_field` you can use the `field` helper function. It works as the `get_field` function except that it checks if the given field name is a sub field first.
+Instead of fetching data with `get_field` and `get_sub_field` you can use the `field` helper function. It checks if field exist as a sub field and then as a "normal" field.
 
 ```php
 echo field('title');
@@ -646,7 +646,7 @@ echo field('title');
 
 ### Option
 
-Instead of passing the `option` key to the `get_field` function we can now use the new option function. It will automagically use the `get_field` function with the `option` key.
+Instead of passing the `option` key to the `get_field` function, you may use the `option` function. It will automagically use the `get_field` function with the `option` key.
 
 ```php
 echo option('github-url');
@@ -654,7 +654,7 @@ echo option('github-url');
 
 ## Custom Configuration
 
-If your application use third-party plugins which extend the default ACF fields, you may extend the default field classes. Lets say you've want to add a configuration key to the select field. Create a new class which extends the base `WordPlate\Acf\Fields\Select` class:
+If your application use third-party plugins which extend the default fields, you can extend the field classes in this package. Lets say you've want to add a configuration key to the select field. Create a new class which extends the base `WordPlate\Acf\Fields\Select` class:
 
 ```php
 namespace App\Fields;
@@ -674,7 +674,7 @@ class Select extends Field
 
 ## Custom Fields
 
-If your application use fields which isn't part of ACF, you may extend and create custom helper classes. Lets say you've a field for OpenStreetMap. Create a new class which extends the base `WordPlate\Acf\Fields\Field` class:
+If your application use fields which isn't a default field in ACF, you may extend and create custom field classes. Lets say you've a field for Open Street Map. Create a new class which extends the base `WordPlate\Acf\Fields\Field` class:
 
 ```php
 namespace App\Fields;
@@ -692,7 +692,7 @@ class OpenStreetMap extends Field
 }
 ```
 
-Notice that we've imported traits which include the `required()` and `instructions()` methods. We've also added the `$type` property in order to let ACF know which field we're working with. You may now add any additional methods to this class which you will need such as `latitude()`, `longitude()`, `zoom()`, etc. 
+Notice that we've imported traits which include the `required()` and `instructions()` methods. We've also added the `$type` property in order to let ACF know which field we're working with. You may now add any additional methods to this class which you will need such as `latitude()`, `longitude()`, `zoom()`, etc.
 
 When you're ready you can import use it like any other field included in this package:
 
