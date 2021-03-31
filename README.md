@@ -632,17 +632,15 @@ Url::make('Link', 'url')
 
 ## Theming
 
-This package provides two helper function to make theming with custom fields much cleaner.
+This package provides two helper functions to make theming with custom fields much cleaner.
 
 ### Field
 
-Instead of fetching data with `get_field` and `get_sub_field` you can use the `field` helper function. It checks if field exist as a sub field and then as a "normal" field.
+Instead of fetching data with `get_field` and `get_sub_field` you can use the `field` helper function. It checks if field exist as a sub field and then as a "normal" field. Note that this will not work if nested fields in the same field group share the same name.
 
 ```php
 echo field('title');
 ```
-
-> **Note:** This will not work if nested fields in a field group share the same name.
 
 ### Option
 
