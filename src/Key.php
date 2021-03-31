@@ -22,7 +22,6 @@ class Key
     /** @throws \InvalidArgumentException */
     public static function generate(string $key, string $prefix): string
     {
-        // Validate if the key is unique or not.
         if (array_key_exists($key, self::$keys)) {
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
