@@ -71,7 +71,12 @@ register_extended_field_group([
 ]);
 ```
 
-Find more examples in the [examples directory](examples) or [visit the official ACF documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings) to read more about the field group settings.
+Visit the official [ACF documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings) to read more about the field group settings. Find more examples in the examples directory:
+
+- [Register custom post type](examples/custom-post-type.php)
+- [Register custom post type with Extended CPT](examples/with-extended-cpts.php)
+- [Register Gutenberg block](examples/gutenberg-block.php)
+- [Register option page](examples/gutenberg-block.php)
 
 ## Fields
 
