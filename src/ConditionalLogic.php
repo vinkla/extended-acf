@@ -110,7 +110,7 @@ class ConditionalLogic
 
     public function setParentKey(string $parentKey): void
     {
-        $this->parentKey = $parentKey;
+        $this->parentKey = Key::resolveParentKey($parentKey, $this->name, 'field');
     }
 
     public function toArray(): array

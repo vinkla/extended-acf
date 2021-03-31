@@ -35,14 +35,6 @@ class KeyTest extends TestCase
         Key::generate('video', 'layout');
     }
 
-    public function testValidatePrefix()
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The key must be prefixed with [layout].');
-
-        Key::validate('video', 'layout');
-    }
-
     public function testSanitize()
     {
         $this->assertSame('group_test', Key::sanitize('GROUP-TEST'));

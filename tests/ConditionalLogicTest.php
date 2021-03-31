@@ -15,6 +15,11 @@ namespace WordPlate\Tests\Acf;
 
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\ConditionalLogic;
+use WordPlate\Acf\FieldGroup;
+use WordPlate\Acf\Fields\Repeater;
+use WordPlate\Acf\Fields\Select;
+use WordPlate\Acf\Fields\Text;
+use WordPlate\Acf\Location;
 
 class ConditionalLogicTest extends TestCase
 {
@@ -77,5 +82,34 @@ class ConditionalLogicTest extends TestCase
         $logic->setParentKey('field');
 
         $this->assertSame('!=empty', $logic->toArray()['operator']);
+    }
+
+    public function testResolvedParentKey()
+    {
+        $fieldGroup = new FieldGroup([
+            'title' => 'Resolved Parent Key',
+            'fields' => [
+                Select::make('Select')
+                    ->choices([
+                        'red' => 'Red',
+                    ])
+                    ->defaultValue('red'),
+                Repeater::make('Repeater')
+                    ->fields([
+                        Text::make('Red')
+                            ->conditionalLogic([
+                                ConditionalLogic::if('select')->equals('red'),
+                            ]),
+                    ])
+            ],
+            'location' => []
+        ]);
+
+        $config = $fieldGroup->toArray();
+
+        $this->assertSame(
+            $config['fields'][0]['key'],
+            $config['fields'][1]['sub_fields'][0]['conditional_logic'][0][0]['field']
+        );
     }
 }

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 10.0.0 (unreleased)
+
+- Fixed issue with conditional logic in repeaters
+
 ## 9.1.0
 
 - Added return format documentation
