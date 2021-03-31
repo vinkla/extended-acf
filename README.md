@@ -80,7 +80,7 @@ Visit the official [ACF documentation](https://www.advancedcustomfields.com/reso
 
 ## Fields
 
-All fields have their responding class (except the clone field). All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. The `name` can only contain alphanumeric characters, underscore (_) and dash (-).
+All fields have their responding class (except the clone field). All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. The `name` can only contain alphanumeric characters, underscores and dashes.
 
 ```php
 use WordPlate\Acf\Fields\Text;
