@@ -19,13 +19,17 @@ class Key
 {
     protected static $keys = [];
 
+    /** @throws \InvalidArgumentException */
     public static function generate(string $key, string $prefix): string
     {
+        // Validate if the key is unique or not.
+        if (array_key_exists($key, self::$keys)) {
+            throw new InvalidArgumentException("The key [$key] is not unique.");
+        }
+
         $hashedKey = sprintf('%s_%s', $prefix, static::hash($key));
 
-        static::validate($hashedKey, $prefix, $key);
-
-        static::$keys[] = $hashedKey;
+        static::$keys[$key] = $hashedKey;
 
         return $hashedKey;
     }
@@ -40,24 +44,22 @@ class Key
         return str_replace('-', '_', sanitize_title($key));
     }
 
-    /** @throws \InvalidArgumentException */
-    public static function validate(string $key, string $prefix, string $originalKey = null): string
+    public static function resolveParentKey($parentKey, $key)
     {
-        // TODO: $originalKey can't be null in the next major version.
+        $parentKeyPieces = explode('_', $parentKey);
 
-        // Validate if the key is unique or not.
-        if (in_array($key, self::$keys)) {
-            // TODO: Remove the hashed $key in the error message in next major version.
-            $key = $originalKey ?? $key;
+        while (count($parentKeyPieces) > 1) {
+            array_pop($parentKeyPieces);
 
-            throw new InvalidArgumentException("The key [$key] is not unique.");
+            $potentialParentKey = join('_', $parentKeyPieces);
+
+            $rawKey = sprintf('%s_%s', $potentialParentKey, $key);
+
+            if (array_key_exists($rawKey, self::$keys)) {
+                return $potentialParentKey;
+            }
         }
 
-        // Validate if the key contains the the given prefix or not.
-        if (strpos($key, $prefix) === false) {
-            throw new InvalidArgumentException("The key must be prefixed with [$prefix].");
-        }
-
-        return $key;
+        return $parentKey;
     }
 }
