@@ -36,7 +36,6 @@ class FieldGroup
     public function toArray(): array
     {
         if ($this->config->has('key')) {
-            // TODO: Add key prefix validation.
             $key = Key::sanitize($this->config->get('key'));
         } else {
             $key = Key::sanitize($this->config->get('title'));

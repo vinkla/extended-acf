@@ -56,7 +56,7 @@ Find more examples in the [examples directory](examples) or [visit the official 
 
 ## Fields
 
-All fields have their responding class except the clone field. All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. Furthur down this page you'll find a list of available field types.
+All fields have their responding class except the clone field. All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. The `name` can only contain alphanumeric characters, underscore (_) and dash (-). Further down this page you'll find a list of available field types.
 
 ```php
 use WordPlate\Acf\Fields\Text;
@@ -66,7 +66,7 @@ Text::make('Title', 'heading')
     ->required();
 ```
 
-Setting such as `wrapper`, `append` and `prepend` are supported on most fields but not listed in the documentation below. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about field settings.
+Setting such as `wrapper`, `append` and `prepend` are supported on almost all fields but not listed in the documentation below. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about field settings.
 
 ### Basic Fields
 
