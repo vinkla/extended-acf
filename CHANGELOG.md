@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 10.0.0 (unreleased)
+## 9.2.0 (unreleased)
 
 - Fixed issue with conditional logic in repeaters
 
