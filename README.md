@@ -60,18 +60,16 @@ use WordPlate\Acf\Fields\Text;
 use WordPlate\Acf\Location;
 
 add_action('acf/init', function() {
-
-  register_extended_field_group([
-      'title' => 'About',
-      'fields' => [
-          Image::make('Image'),
-          Text::make('Title'),
-      ],
-      'location' => [
-          Location::if('post_type', 'page')
-      ],
-  ]);
-  
+    register_extended_field_group([
+        'title' => 'About',
+        'fields' => [
+            Image::make('Image'),
+            Text::make('Title'),
+        ],
+        'location' => [
+            Location::if('post_type', 'page')
+        ],
+    ]);
 });
 ```
 
