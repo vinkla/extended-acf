@@ -68,10 +68,8 @@ if (!function_exists('register_extended_field_group')) {
      */
     function register_extended_field_group(array $config): void
     {
-        if (function_exists('register_field_group')) {
-            $fieldGroup = new FieldGroup($config);
+        $fieldGroup = new FieldGroup($config);
 
-            register_field_group($fieldGroup->toArray());
-        }
+        register_field_group($fieldGroup->toArray());
     }
 }

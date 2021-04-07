@@ -59,16 +59,20 @@ use WordPlate\Acf\Fields\Image;
 use WordPlate\Acf\Fields\Text;
 use WordPlate\Acf\Location;
 
-register_extended_field_group([
-    'title' => 'About',
-    'fields' => [
-        Image::make('Image'),
-        Text::make('Title'),
-    ],
-    'location' => [
-        Location::if('post_type', 'page')
-    ],
-]);
+add_action('acf/init', function() {
+
+  register_extended_field_group([
+      'title' => 'About',
+      'fields' => [
+          Image::make('Image'),
+          Text::make('Title'),
+      ],
+      'location' => [
+          Location::if('post_type', 'page')
+      ],
+  ]);
+  
+});
 ```
 
 Visit the official [ACF documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings) to read more about the field group settings. Find more examples in the examples directory:
