@@ -19,6 +19,7 @@ use WordPlate\Acf\Fields\Attributes\DefaultValue;
 use WordPlate\Acf\Fields\Attributes\DirectionLayout;
 use WordPlate\Acf\Fields\Attributes\Disabled;
 use WordPlate\Acf\Fields\Attributes\Instructions;
+use WordPlate\Acf\Fields\Attributes\Nullable;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
@@ -31,6 +32,7 @@ class Radio extends Field
     use DirectionLayout;
     use ConditionalLogic;
     use Instructions;
+    use Nullable;
     use Required;
     use ReturnFormat;
     use Wrapper;
