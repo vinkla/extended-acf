@@ -4,7 +4,7 @@
 
 - Added `allowNull` to radio button field
 - Fixed issue with conditional logic in repeaters
-- Removed check if register_field_group exists
+- Removed check if `register_field_group` exists
 - Removed key validation from key class
 
 ## 9.1.0
