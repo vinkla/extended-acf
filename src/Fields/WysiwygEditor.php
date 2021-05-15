@@ -20,7 +20,7 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-class Wysiwyg extends Field
+class WysiwygEditor extends Field
 {
     use ConditionalLogic;
     use DefaultValue;
