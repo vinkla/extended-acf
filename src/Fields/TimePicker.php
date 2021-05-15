@@ -15,15 +15,19 @@ namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\DateTimeFormat;
+use WordPlate\Acf\Fields\Attributes\Disabled;
 use WordPlate\Acf\Fields\Attributes\Instructions;
+use WordPlate\Acf\Fields\Attributes\ReadOnly;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
 class TimePicker extends Field
 {
     use ConditionalLogic;
+    use Disabled;
     use DateTimeFormat;
     use Instructions;
+    use ReadOnly;
     use Required;
     use Wrapper;
 

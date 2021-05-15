@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Next
+
+- Added `readonly` and `disabled` to date fields
+
 ## 10.0.0
 
 - Added `allowNull` to radio button field
