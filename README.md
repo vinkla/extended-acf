@@ -213,9 +213,9 @@ Checkbox::make('Color')
 **Radio** - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
 
 ```php
-use WordPlate\Acf\Fields\Radio;
+use WordPlate\Acf\Fields\RadioButton;
 
-Radio::make('Color')
+RadioButton::make('Color')
     ->instructions('Select the text color.')
     ->choices([
         'cyan' => 'Cyan',
@@ -320,9 +320,9 @@ Oembed::make('Tweet')
 **WYSIWYG** - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
 
 ```php
-use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Fields\WysiwygEditor;
 
-Wysiwyg::make('Content')
+WysiwygEditor::make('Content')
     ->instructions('Add the text content.')
     ->mediaUpload(false)
     ->tabs('visual')

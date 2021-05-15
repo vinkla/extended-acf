@@ -3,6 +3,8 @@
 ## Next
 
 - Added `readonly` and `disabled` to date fields
+- Rename `Radio` class to `RadioButton`
+- Rename `Wysiwyg` class to `WysiwygEditor`
 
 ## 10.0.0
 
