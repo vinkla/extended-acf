@@ -24,7 +24,7 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-class Radio extends Field
+class RadioButton extends Field
 {
     use Choices;
     use DefaultValue;
