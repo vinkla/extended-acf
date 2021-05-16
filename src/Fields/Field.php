@@ -33,7 +33,7 @@ abstract class Field
     public function __construct(string $label, ?string $name = null)
     {
         if ($name === null) {
-            $name = str_replace('-', '_', sanitize_title($label));
+            $name = Key::sanitize($label);
         }
 
         $this->config = new Config([
