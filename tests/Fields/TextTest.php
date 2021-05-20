@@ -30,8 +30,8 @@ class TextTest extends TestCase
         $field = Text::make('Email')->toArray();
         $this->assertSame('email', $field['name']);
 
-        $field = Text::make('Category', 'tag')->toArray();
-        $this->assertSame('tag', $field['name']);
+        $field = Text::make('Category Tag', 'category_tag')->toArray();
+        $this->assertSame('category_tag', $field['name']);
     }
 
     public function testKey()

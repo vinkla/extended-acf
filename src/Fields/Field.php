@@ -34,7 +34,7 @@ abstract class Field
     {
         $this->config = new Config([
             'label' => $label,
-            'name' => $name ?? sanitize_title($label),
+            'name' => $name ?? Key::sanitize($label),
         ]);
     }
 

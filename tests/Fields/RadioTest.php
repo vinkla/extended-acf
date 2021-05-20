@@ -14,13 +14,13 @@ declare(strict_types=1);
 namespace WordPlate\Tests\Acf\Fields;
 
 use PHPUnit\Framework\TestCase;
-use WordPlate\Acf\Fields\Radio;
+use WordPlate\Acf\Fields\RadioButton;
 
-class RadioTest extends TestCase
+class RadioButtonTest extends TestCase
 {
     public function testType()
     {
-        $field = Radio::make('Radio')->toArray();
+        $field = RadioButton::make('Radio Button')->toArray();
         $this->assertSame('radio', $field['type']);
     }
 }

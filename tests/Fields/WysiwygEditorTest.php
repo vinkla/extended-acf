@@ -15,36 +15,36 @@ namespace WordPlate\Tests\Acf\Fields;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Fields\WysiwygEditor;
 
-class WysiwygTest extends TestCase
+class WysiwygEditorTest extends TestCase
 {
     public function testType()
     {
-        $field = Wysiwyg::make('Wysiwyg')->toArray();
+        $field = WysiwygEditor::make('Wysiwyg Editor')->toArray();
         $this->assertSame('wysiwyg', $field['type']);
     }
 
     public function testMediaUpload()
     {
-        $field = Wysiwyg::make('Wysiwyg Media Upload')->mediaUpload(false)->toArray();
+        $field = WysiwygEditor::make('Wysiwyg Editor Media Upload')->mediaUpload(false)->toArray();
         $this->assertFalse($field['media_upload']);
     }
 
     public function testTabs()
     {
-        $field = Wysiwyg::make('Wysiwyg Tabs')->tabs('visual')->toArray();
+        $field = WysiwygEditor::make('Wysiwyg Editor Tabs')->tabs('visual')->toArray();
         $this->assertSame('visual', $field['tabs']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument tabs [test].');
 
-        $field = Wysiwyg::make('Wysiwyg Inavlid Tabs')->tabs('test')->toArray();
+        $field = WysiwygEditor::make('Wysiwyg Editor Inavlid Tabs')->tabs('test')->toArray();
     }
 
     public function testToolbar()
     {
-        $field = Wysiwyg::make('Wysiwyg Toolbar')->toolbar('basic')->toArray();
+        $field = WysiwygEditor::make('Wysiwyg Editor Toolbar')->toolbar('basic')->toArray();
         $this->assertSame('basic', $field['toolbar']);
     }
 }
