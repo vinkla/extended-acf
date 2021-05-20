@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Next
+## 11.0.0
 
 - Added `readonly` and `disabled` to date fields
 - Rename `Radio` class to `RadioButton`
