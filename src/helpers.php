@@ -21,6 +21,8 @@ if (!function_exists('field')) {
      * @param int|\WP_Post|null $post
      *
      * @return mixed
+     *
+     * @deprecated Will be removed in a future WordPlate version.
      */
     function field(string $name, $post = null)
     {
@@ -45,6 +47,8 @@ if (!function_exists('option')) {
      * @param string $name
      *
      * @return mixed
+     *
+     * @deprecated Will be removed in a future WordPlate version.
      */
     function option(string $name)
     {

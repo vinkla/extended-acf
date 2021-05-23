@@ -1,10 +1,14 @@
 # CHANGELOG
 
+## 11.0.1
+
+- Deprecated `field` and `option` helper functions
+
 ## 11.0.0
 
 - Added `readonly` and `disabled` to date fields
-- Rename `Radio` class to `RadioButton`
-- Rename `Wysiwyg` class to `WysiwygEditor`
+- Renamed `Radio` class to `RadioButton`
+- Renamed `Wysiwyg` class to `WysiwygEditor`
 - Updated field label to name conversion from `kebab-case` to `snake_case`
 
 ## 10.0.0
