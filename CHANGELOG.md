@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Next
+
+- Added `enableOpacity` to color picker field
+
 ## 11.0.1
 
 - Deprecated `field` and `option` helper functions

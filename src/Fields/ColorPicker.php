@@ -28,4 +28,12 @@ class ColorPicker extends Field
     use Wrapper;
 
     protected $type = 'color_picker';
+
+    /** @return static */
+    public function enableOpacity(): self
+    {
+        $this->config->set('enable_opacity', true);
+
+        return $this;
+    }
 }
