@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Next
+## 11.1.0
 
 - Added `enableOpacity` to color picker field
 
