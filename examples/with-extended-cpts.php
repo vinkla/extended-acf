@@ -4,7 +4,7 @@
 // and taxanomies. Please see the repository for more information:
 // https://github.com/johnbillion/extended-cpts
 
-use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Fields\WysiwygEditor;
 use WordPlate\Acf\Location;
 
 register_extended_post_type('faq', [
@@ -36,7 +36,7 @@ register_extended_taxonomy('topic', 'faq', [
 register_extended_field_group([
     'title' => 'FAQ',
     'fields' => [
-        Wysiwyg::make('Answer')
+        WysiwygEditor::make('Answer')
             ->instructions('Add the question answer.')
             ->mediaUpload(false)
             ->toolbar('faq')
