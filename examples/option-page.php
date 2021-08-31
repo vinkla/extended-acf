@@ -5,7 +5,7 @@
 // https://www.advancedcustomfields.com/resources/acf_add_options_page/
 
 use WordPlate\Acf\Fields\Text;
-use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Fields\WysiwygEditor;
 use WordPlate\Acf\Location;
 
 acf_add_options_page([
@@ -18,7 +18,7 @@ acf_add_options_page([
 register_extended_field_group([
     'title' => 'Cookie',
     'fields' => [
-        Wysiwyg::make('Text', 'cookie_text')
+        WysiwygEditor::make('Text', 'cookie_text')
             ->instructions('Add the cookie disclaimer text.')
             ->mediaUpload(false)
             ->toolbar('link')
