@@ -26,7 +26,7 @@ Require this package, with Composer, in the root directory of your project.
 composer require wordplate/acf
 ```
 
-Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that this package supports ACF version 5.6 or higher.
+Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that you'll need the latest version of ACF in order to use all features in this package.
 
 #### Installing ACF Pro with Composer (optional)
 
