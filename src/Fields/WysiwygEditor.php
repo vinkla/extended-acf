@@ -31,6 +31,14 @@ class WysiwygEditor extends Field
     protected $type = 'wysiwyg';
 
     /** @return static */
+    public function delay(): self
+    {
+        $this->config->set('delay', true);
+
+        return $this;
+    }
+
+    /** @return static */
     public function mediaUpload(bool $mediaUpload): self
     {
         $this->config->set('media_upload', $mediaUpload);
@@ -58,14 +66,6 @@ class WysiwygEditor extends Field
     public function toolbar(string $toolbar): self
     {
         $this->config->set('toolbar', $toolbar);
-
-        return $this;
-    }
-
-    /** @return static */
-    public function delay(): self
-    {
-        $this->config->set('delay', true);
 
         return $this;
     }

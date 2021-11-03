@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 11.2.0
+
+- Added `delay` to wysiwyg editor field
+
 ## 11.1.0
 
 - Added `enableOpacity` to color picker field

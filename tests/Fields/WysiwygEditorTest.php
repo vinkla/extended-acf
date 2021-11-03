@@ -25,6 +25,12 @@ class WysiwygEditorTest extends TestCase
         $this->assertSame('wysiwyg', $field['type']);
     }
 
+    public function testDelay()
+    {
+        $field = WysiwygEditor::make('Wysiwyg Editor Delay')->delay()->toArray();
+        $this->assertTrue($field['delay']);
+    }
+
     public function testMediaUpload()
     {
         $field = WysiwygEditor::make('Wysiwyg Editor Media Upload')->mediaUpload(false)->toArray();
@@ -46,11 +52,5 @@ class WysiwygEditorTest extends TestCase
     {
         $field = WysiwygEditor::make('Wysiwyg Editor Toolbar')->toolbar('basic')->toArray();
         $this->assertSame('basic', $field['toolbar']);
-    }
-
-    public function testDelay()
-    {
-        $field = WysiwygEditor::make('Wysiwyg Editor Delay')->delay()->toArray();
-        $this->assertSame(true, $field['delay']);
     }
 }
