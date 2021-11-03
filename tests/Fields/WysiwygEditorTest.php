@@ -39,12 +39,18 @@ class WysiwygEditorTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument tabs [test].');
 
-        $field = WysiwygEditor::make('Wysiwyg Editor Inavlid Tabs')->tabs('test')->toArray();
+        $field = WysiwygEditor::make('Wysiwyg Editor Invalid Tabs')->tabs('test')->toArray();
     }
 
     public function testToolbar()
     {
         $field = WysiwygEditor::make('Wysiwyg Editor Toolbar')->toolbar('basic')->toArray();
         $this->assertSame('basic', $field['toolbar']);
+    }
+
+    public function testDelay()
+    {
+        $field = WysiwygEditor::make('Wysiwyg Editor Delay')->delay()->toArray();
+        $this->assertSame(true, $field['delay']);
     }
 }

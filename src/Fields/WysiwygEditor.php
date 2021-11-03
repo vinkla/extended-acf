@@ -61,4 +61,12 @@ class WysiwygEditor extends Field
 
         return $this;
     }
+
+    /** @return static */
+    public function delay(): self
+    {
+        $this->config->set('delay', true);
+
+        return $this;
+    }
 }
