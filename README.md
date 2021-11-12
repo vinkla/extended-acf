@@ -608,7 +608,7 @@ The location class let you write [custom location rules](https://www.advancedcus
 ```php
 use WordPlate\Acf\Location;
 
-Location::if('post_type')->equals('post')->and('post_type')->notEquals('!=', 'post');
+Location::if('post_type')->equals('post')->and('post_type')->notEquals('post');
 ```
 
 ## Conditional Logic
