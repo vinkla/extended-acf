@@ -31,10 +31,9 @@ class PageLink extends Field
     use Required;
     use Wrapper;
 
-    protected $type = 'page_link';
+    protected ?string $type = 'page_link';
 
-    /** @return static */
-    public function allowArchives(bool $value = true): self
+    public function allowArchives(bool $value = true): static
     {
         $this->config->set('allow_archives', $value);
 

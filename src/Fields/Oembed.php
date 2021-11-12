@@ -27,10 +27,9 @@ class Oembed extends Field
     use Required;
     use Wrapper;
 
-    protected $type = 'oembed';
+    protected ?string $type = 'oembed';
 
-    /** @return static */
-    public function width(int $width): self
+    public function width(int $width): static
     {
         $this->config->set('width', $width);
 

@@ -15,8 +15,7 @@ namespace WordPlate\Acf;
 
 class Config
 {
-    /** @var array */
-    protected $items;
+    protected array $items;
 
     public function __construct(array $items)
     {
@@ -28,17 +27,12 @@ class Config
         return array_key_exists($key, $this->items);
     }
 
-    /** @param mixed $value */
-    public function set(string $key, $value): void
+    public function set(string $key, mixed $value): void
     {
         $this->items[$key] = $value;
     }
 
-    /**
-     * @param mixed $default
-     * @return mixed
-     */
-    public function get(string $key, $default = null)
+    public function get(string $key, mixed $default = null): mixed
     {
         return $this->items[$key] ?? $default;
     }

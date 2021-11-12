@@ -15,16 +15,14 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait MinMax
 {
-    /** @return static */
-    public function max(int $max): self
+    public function max(int $max): static
     {
         $this->config->set('max', $max);
 
         return $this;
     }
 
-    /** @return static */
-    public function min(int $min): self
+    public function min(int $min): static
     {
         $this->config->set('min', $min);
 

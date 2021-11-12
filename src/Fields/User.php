@@ -31,10 +31,9 @@ class User extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected $type = 'user';
+    protected ?string $type = 'user';
 
-    /** @return static */
-    public function roles(array $roles): self
+    public function roles(array $roles): static
     {
         $this->config->set('role', $roles);
 

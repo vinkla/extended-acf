@@ -33,5 +33,5 @@ class DatePicker extends Field
     use WeekDay;
     use Wrapper;
 
-    protected $type = 'date_picker';
+    protected ?string $type = 'date_picker';
 }

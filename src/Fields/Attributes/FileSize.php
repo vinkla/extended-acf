@@ -15,12 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait FileSize
 {
-    /**
-     * @param int|string|null $min
-     * @param int|string|null $max
-     * @return static
-     */
-    public function fileSize($min = null, $max = null): self
+    public function fileSize(int|string|null $min = null, int|string|null $max = null): static
     {
         if ($min !== null) {
             $this->config->set('min_size', $min);

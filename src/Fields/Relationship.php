@@ -31,18 +31,16 @@ class Relationship extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected $type = 'relationship';
+    protected ?string $type = 'relationship';
 
-    /** @return static */
-    public function elements(array $elements): self
+    public function elements(array $elements): static
     {
         $this->config->set('elements', $elements);
 
         return $this;
     }
 
-    /** @return static */
-    public function filters(array $filters): self
+    public function filters(array $filters): static
     {
         $this->config->set('filters', $filters);
 

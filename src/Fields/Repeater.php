@@ -33,10 +33,9 @@ class Repeater extends Field
     use Required;
     use Wrapper;
 
-    protected $type = 'repeater';
+    protected ?string $type = 'repeater';
 
-    /** @return static */
-    public function collapsed(string $name): self
+    public function collapsed(string $name): static
     {
         $this->config->set('collapsed', $name);
 

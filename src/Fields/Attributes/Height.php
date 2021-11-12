@@ -15,8 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Height
 {
-    /** @return static */
-    public function height(int $height): self
+    public function height(int $height): static
     {
         $this->config->set('height', $height);
 

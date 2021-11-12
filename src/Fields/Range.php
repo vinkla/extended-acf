@@ -35,5 +35,5 @@ class Range extends Field
     use Required;
     use Wrapper;
 
-    protected $type = 'range';
+    protected ?string $type = 'range';
 }

@@ -20,9 +20,8 @@ trait NewLines
     /**
      * @param string $newLines br or wpautop
      * @throws \InvalidArgumentException
-     * @return static
      */
-    public function newLines(string $newLines): self
+    public function newLines(string $newLines): static
     {
         if (!in_array($newLines, ['br', 'wpautop'])) {
             throw new InvalidArgumentException("Invalid argument new lines [$newLines].");

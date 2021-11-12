@@ -37,10 +37,9 @@ class Textarea extends Field
     use Required;
     use Wrapper;
 
-    protected $type = 'textarea';
+    protected ?string $type = 'textarea';
 
-    /** @return static */
-    public function rows(int $rows): self
+    public function rows(int $rows): static
     {
         $this->config->set('rows', $rows);
 

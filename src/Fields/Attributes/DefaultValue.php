@@ -15,11 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait DefaultValue
 {
-    /**
-     * @param mixed $value
-     * @return static
-     */
-    public function defaultValue($value): self
+    public function defaultValue(mixed $value): static
     {
         $this->config->set('default_value', $value);
 

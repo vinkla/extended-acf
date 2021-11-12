@@ -22,14 +22,13 @@ class Tab extends Field
     use ConditionalLogic;
     use Endpoint;
 
-    protected $type = 'tab';
+    protected ?string $type = 'tab';
 
     /**
      * @param string $placement left or top
      * @throws \InvalidArgumentException
-     * @return static
      */
-    public function placement(string $placement): self
+    public function placement(string $placement): static
     {
         if (!in_array($placement, ['left', 'top'])) {
             throw new InvalidArgumentException("Invalid argument placement [$placement].");

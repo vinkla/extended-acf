@@ -17,8 +17,7 @@ use InvalidArgumentException;
 
 class FieldGroup
 {
-    /** @var \WordPlate\Acf\Config */
-    protected $config;
+    protected Config $config;
 
     public function __construct(array $config)
     {
@@ -32,7 +31,7 @@ class FieldGroup
 
         $this->config = new Config($config);
     }
-
+    /** @internal */
     public function toArray(): array
     {
         if ($this->config->has('key')) {

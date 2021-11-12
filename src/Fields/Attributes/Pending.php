@@ -15,16 +15,14 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Pending
 {
-    /** @return static */
-    public function append(string $value): self
+    public function append(string $value): static
     {
         $this->config->set('append', $value);
 
         return $this;
     }
 
-    /** @return static */
-    public function prepend(string $value): self
+    public function prepend(string $value): static
     {
         $this->config->set('prepend', $value);
 

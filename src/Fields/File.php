@@ -33,5 +33,5 @@ class File extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected $type = 'file';
+    protected ?string $type = 'file';
 }

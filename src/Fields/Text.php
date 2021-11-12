@@ -37,5 +37,5 @@ class Text extends Field
     use Required;
     use Wrapper;
 
-    protected $type = 'text';
+    protected ?string $type = 'text';
 }

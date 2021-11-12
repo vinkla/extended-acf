@@ -15,8 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait ConditionalLogic
 {
-    /** @return static */
-    public function conditionalLogic(array $rules): self
+    public function conditionalLogic(array $rules): static
     {
         $conditionalLogic = $this->config->get('conditional_logic', []);
 

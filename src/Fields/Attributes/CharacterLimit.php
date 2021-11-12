@@ -15,8 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait CharacterLimit
 {
-    /** @return static */
-    public function characterLimit(int $limit): self
+    public function characterLimit(int $limit): static
     {
         $this->config->set('maxlength', $limit);
 

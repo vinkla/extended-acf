@@ -20,9 +20,8 @@ trait Library
     /**
      * @param string $library all or uploadedTo
      * @throws \InvalidArgumentException
-     * @return static
      */
-    public function library(string $library): self
+    public function library(string $library): static
     {
         if (!in_array($library, ['all', 'uploadedTo'])) {
             throw new InvalidArgumentException("Invalid argument library [$library].");

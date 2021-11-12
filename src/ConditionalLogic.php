@@ -15,31 +15,22 @@ namespace WordPlate\Acf;
 
 class ConditionalLogic
 {
-    /** @var string */
-    protected $name;
-
-    /** @var string */
-    protected $operator;
-
-    /** @var string */
-    protected $parentKey;
-
-    /** @var mixed */
-    protected $value;
+    protected string $name;
+    protected ?string $operator = null;
+    protected ?string $parentKey = null;
+    protected mixed $value = null;
 
     public function __construct(string $name)
     {
         $this->name = $name;
     }
 
-    /** @return static */
-    public static function if(string $name): self
+    public static function if(string $name): static
     {
         return new self($name);
     }
 
-    /** @return static */
-    public function greaterThan(int $value): self
+    public function greaterThan(int $value): static
     {
         $this->operator = '>';
         $this->value = $value;
@@ -47,8 +38,7 @@ class ConditionalLogic
         return $this;
     }
 
-    /** @return static */
-    public function lessThan(int $value): self
+    public function lessThan(int $value): static
     {
         $this->operator = '<';
         $this->value = $value;
@@ -56,11 +46,7 @@ class ConditionalLogic
         return $this;
     }
 
-    /**
-     * @param mixed $value
-     * @return static
-     */
-    public function equals($value): self
+    public function equals(mixed $value): static
     {
         $this->operator = '==';
         $this->value = $value;
@@ -68,11 +54,7 @@ class ConditionalLogic
         return $this;
     }
 
-    /**
-     * @param mixed $value
-     * @return static
-     */
-    public function notEquals($value): self
+    public function notEquals(mixed $value): static
     {
         $this->operator = '!=';
         $this->value = $value;
@@ -80,11 +62,7 @@ class ConditionalLogic
         return $this;
     }
 
-    /**
-     * @param mixed $value
-     * @return static
-     */
-    public function contains($value): self
+    public function contains(mixed $value): static
     {
         $this->operator = '==contains';
         $this->value = $value;
@@ -92,16 +70,14 @@ class ConditionalLogic
         return $this;
     }
 
-    /** @return static */
-    public function empty(): self
+    public function empty(): static
     {
         $this->operator = '==empty';
 
         return $this;
     }
 
-    /** @return static */
-    public function notEmpty(): self
+    public function notEmpty(): static
     {
         $this->operator = '!=empty';
 
@@ -113,6 +89,7 @@ class ConditionalLogic
         $this->parentKey = Key::resolveParentKey($parentKey, Key::sanitize($this->name));
     }
 
+    /** @internal */
     public function toArray(): array
     {
         $key = sprintf('%s_%s', $this->parentKey, Key::sanitize($this->name));

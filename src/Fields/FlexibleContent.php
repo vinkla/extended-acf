@@ -29,10 +29,9 @@ class FlexibleContent extends Field
     use Required;
     use Wrapper;
 
-    protected $type = 'flexible_content';
+    protected ?string $type = 'flexible_content';
 
-    /** @return static */
-    public function layouts(array $layouts): self
+    public function layouts(array $layouts): static
     {
         $this->config->set('layouts', $layouts);
 

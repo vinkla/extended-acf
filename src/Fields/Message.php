@@ -23,10 +23,9 @@ class Message extends Field
     use ConditionalLogic;
     use NewLines;
 
-    protected $type = 'message';
+    protected ?string $type = 'message';
 
-    /** @return static */
-    public function escapeHtml(): self
+    public function escapeHtml(): static
     {
         $this->config->set('esc_html', true);
 

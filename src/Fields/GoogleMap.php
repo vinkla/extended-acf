@@ -27,10 +27,9 @@ class GoogleMap extends Field
     use Required;
     use Wrapper;
 
-    protected $type = 'google_map';
+    protected ?string $type = 'google_map';
 
-    /** @return static */
-    public function center(float $latitude, float $longitude): self
+    public function center(float $latitude, float $longitude): static
     {
         $this->config->set('center_lat', $latitude);
         $this->config->set('center_lng', $longitude);
@@ -38,8 +37,7 @@ class GoogleMap extends Field
         return $this;
     }
 
-    /** @return static */
-    public function zoom(int $zoom): self
+    public function zoom(int $zoom): static
     {
         $this->config->set('zoom', $zoom);
 

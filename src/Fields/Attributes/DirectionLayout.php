@@ -20,9 +20,8 @@ trait DirectionLayout
     /**
      * @param string $layout vertical or horizontal
      * @throws \InvalidArgumentException
-     * @return static
      */
-    public function layout(string $layout): self
+    public function layout(string $layout): static
     {
         if (!in_array($layout, ['vertical', 'horizontal'])) {
             throw new InvalidArgumentException("Invalid argument layout [$layout].");

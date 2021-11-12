@@ -18,17 +18,10 @@ use WordPlate\Acf\Key;
 
 abstract class Field
 {
-    /** @var \WordPlate\Acf\Config */
-    protected $config;
-
-    /** @var string */
-    protected $keyPrefix = 'field';
-
-    /** @var string */
-    protected $parentKey;
-
-    /** @var string */
-    protected $type;
+    protected Config $config;
+    protected string $keyPrefix = 'field';
+    protected ?string $parentKey = null;
+    protected ?string $type = null;
 
     public function __construct(string $label, ?string $name = null)
     {
@@ -38,17 +31,18 @@ abstract class Field
         ]);
     }
 
-    /** @return static */
-    public static function make(string $label, ?string $name = null): self
+    public static function make(string $label, ?string $name = null): static
     {
         return new static($label, $name);
     }
 
+    /** @internal */
     public function setParentKey(string $parentKey): void
     {
         $this->parentKey = $parentKey;
     }
 
+    /** @internal */
     public function toArray(): array
     {
         $key = sprintf('%s_%s', $this->parentKey, Key::sanitize($this->config->get('name')));

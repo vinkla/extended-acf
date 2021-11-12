@@ -15,8 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Placeholder
 {
-    /** @return static */
-    public function placeholder(string $placeholder): self
+    public function placeholder(string $placeholder): static
     {
         $this->config->set('placeholder', $placeholder);
 

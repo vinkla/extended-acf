@@ -15,8 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait Instructions
 {
-    /** @return static */
-    public function instructions(string $instructions): self
+    public function instructions(string $instructions): static
     {
         $this->config->set('instructions', $instructions);
 

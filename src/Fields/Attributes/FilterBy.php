@@ -15,16 +15,14 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait FilterBy
 {
-    /** @return static */
-    public function postTypes(array $postTypes): self
+    public function postTypes(array $postTypes): static
     {
         $this->config->set('post_type', $postTypes);
 
         return $this;
     }
 
-    /** @return static */
-    public function taxonomies(array $taxonomies): self
+    public function taxonomies(array $taxonomies): static
     {
         $this->config->set('taxonomy', $taxonomies);
 

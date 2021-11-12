@@ -20,9 +20,8 @@ trait ReturnFormat
     /**
      * @param string $format array, id, label, object, url or value
      * @throws \InvalidArgumentException
-     * @return static
      */
-    public function returnFormat(string $format): self
+    public function returnFormat(string $format): static
     {
         if (!in_array($format, ['array', 'id', 'label', 'object', 'url', 'value'])) {
             throw new InvalidArgumentException("Invalid argument return format [$format].");

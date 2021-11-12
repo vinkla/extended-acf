@@ -15,8 +15,7 @@ namespace WordPlate\Acf\Fields\Attributes;
 
 trait SubFields
 {
-    /** @return static */
-    public function fields(array $fields): self
+    public function fields(array $fields): static
     {
         $this->config->set('sub_fields', $fields);
 

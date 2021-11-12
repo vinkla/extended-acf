@@ -21,18 +21,16 @@ class Accordion extends Field
     use Endpoint;
     use Instructions;
 
-    protected $type = 'accordion';
+    protected ?string $type = 'accordion';
 
-    /** @return static */
-    public function multiExpand(): self
+    public function multiExpand(): static
     {
         $this->config->set('multi_expand', true);
 
         return $this;
     }
 
-    /** @return static */
-    public function open(): self
+    public function open(): static
     {
         $this->config->set('open', true);
 

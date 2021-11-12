@@ -29,10 +29,9 @@ class TrueFalse extends Field
     use Required;
     use Wrapper;
 
-    protected $type = 'true_false';
+    protected ?string $type = 'true_false';
 
-    /** @return static */
-    public function stylisedUi(?string $onText = null, ?string $offText = null): self
+    public function stylisedUi(string|null $onText = null, string|null $offText = null): static
     {
         $this->config->set('ui', true);
 

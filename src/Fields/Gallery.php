@@ -40,14 +40,13 @@ class Gallery extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected $type = 'gallery';
+    protected ?string $type = 'gallery';
 
     /**
      * @param string $insert append or prepend
      * @throws \InvalidArgumentException
-     * @return static
      */
-    public function insert(string $insert): self
+    public function insert(string $insert): static
     {
         if (!in_array($insert, ['append', 'prepend'])) {
             throw new InvalidArgumentException("Invalid argument insert [$insert]");

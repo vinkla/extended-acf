@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Next
+
+- Updated minimum PHP version to 8.0
+- Updated type hints and return types
+- Removed `field` and `option` helper functions
+
 ## 11.2.0
 
 - Added `delay` to wysiwyg editor field

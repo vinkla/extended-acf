@@ -17,9 +17,8 @@ trait PreviewSize
 {
     /**
      * @param string $size thumbnail, medium, medium_large, large or full
-     * @return static
      */
-    public function previewSize(string $size): self
+    public function previewSize(string $size): static
     {
         $this->config->set('preview_size', $size);
 

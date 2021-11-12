@@ -28,18 +28,16 @@ class WysiwygEditor extends Field
     use Required;
     use Wrapper;
 
-    protected $type = 'wysiwyg';
+    protected ?string $type = 'wysiwyg';
 
-    /** @return static */
-    public function delay(): self
+    public function delay(): static
     {
         $this->config->set('delay', true);
 
         return $this;
     }
 
-    /** @return static */
-    public function mediaUpload(bool $mediaUpload): self
+    public function mediaUpload(bool $mediaUpload): static
     {
         $this->config->set('media_upload', $mediaUpload);
 
@@ -49,9 +47,8 @@ class WysiwygEditor extends Field
     /**
      * @param string $tabs all, visual or text
      * @throws \InvalidArgumentException
-     * @return static
      */
-    public function tabs(string $tabs): self
+    public function tabs(string $tabs): static
     {
         if (!in_array($tabs, ['all', 'visual', 'text'])) {
             throw new InvalidArgumentException("Invalid argument tabs [$tabs].");
@@ -62,8 +59,7 @@ class WysiwygEditor extends Field
         return $this;
     }
 
-    /** @return static */
-    public function toolbar(string $toolbar): self
+    public function toolbar(string $toolbar): static
     {
         $this->config->set('toolbar', $toolbar);
 

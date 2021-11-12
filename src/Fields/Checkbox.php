@@ -35,5 +35,5 @@ class Checkbox extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected $type = 'checkbox';
+    protected ?string $type = 'checkbox';
 }

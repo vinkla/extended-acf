@@ -20,9 +20,8 @@ trait Layout
     /**
      * @param string $layout block, row or table
      * @throws \InvalidArgumentException
-     * @return static
      */
-    public function layout(string $layout): self
+    public function layout(string $layout): static
     {
         if (!in_array($layout, ['block', 'row', 'table'])) {
             throw new InvalidArgumentException("Invalid argument layout [$layout].");

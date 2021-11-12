@@ -30,14 +30,13 @@ class Taxonomy extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected $type = 'taxonomy';
+    protected ?string $type = 'taxonomy';
 
     /**
      * @param string $fieldType checkbox, multi_select, select or radio
      * @throws \InvalidArgumentException
-     * @return static
      */
-    public function appearance(string $fieldType): self
+    public function appearance(string $fieldType): static
     {
         if (!in_array($fieldType, ['checkbox', 'multi_select', 'select', 'radio'])) {
             throw new InvalidArgumentException("Invalid argument field type [$fieldType].");
@@ -48,31 +47,28 @@ class Taxonomy extends Field
         return $this;
     }
 
-    /** @return static */
-    public function addTerm(bool $addTerm = true): self
+    public function addTerm(bool $addTerm = true): static
     {
         $this->config->set('add_term', $addTerm);
 
         return $this;
     }
 
-    /** @return static */
-    public function loadTerms(bool $loadTerms = true): self
+    public function loadTerms(bool $loadTerms = true): static
     {
         $this->config->set('load_terms', $loadTerms);
 
         return $this;
     }
 
-    /** @return static */
-    public function saveTerms(bool $saveTerms = true): self
+    public function saveTerms(bool $saveTerms = true): static
     {
         $this->config->set('save_terms', $saveTerms);
 
         return $this;
     }
 
-    public function taxonomy(string $taxonomy): self
+    public function taxonomy(string $taxonomy): static
     {
         $this->config->set('taxonomy', $taxonomy);
 

@@ -37,9 +37,9 @@ class Select extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected $type = 'select';
+    protected ?string $type = 'select';
 
-    public function stylisedUi(bool $useAjax = false): self
+    public function stylisedUi(bool $useAjax = false): static
     {
         $this->config->set('ui', true);
         $this->config->set('ajax', $useAjax);

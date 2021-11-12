@@ -17,7 +17,7 @@ use InvalidArgumentException;
 
 class Key
 {
-    protected static $keys = [];
+    protected static array $keys = [];
 
     /** @throws \InvalidArgumentException */
     public static function generate(string $key, string $prefix): string
