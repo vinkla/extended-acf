@@ -39,9 +39,9 @@ If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with 
         "package": {
             "name": "wpackagist-plugin/advanced-custom-fields-pro",
             "type": "wordpress-plugin",
-            "version": "5.10.1",
+            "version": "5.11",
             "dist": {
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=YOUR-ACF-KEY&t=5.10.1",
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=YOUR-ACF-KEY&t=5.11",
                 "type": "zip"
             }
         }
@@ -684,7 +684,7 @@ When you're ready you can import use it like any other field included in this pa
 use App\Fields\OpenStreetMap;
 
 OpenStreetMap::make('Map')
-  ->latitude(56.474)
-  ->longitude(11.863)
-  ->zoom(10);
+    ->latitude(56.474)
+    ->longitude(11.863)
+    ->zoom(10);
 ```
