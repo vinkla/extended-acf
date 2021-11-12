@@ -33,5 +33,5 @@ class Email extends Field
     use Required;
     use Wrapper;
 
-    protected ?string $type = 'email';
+    protected string|null $type = 'email';
 }

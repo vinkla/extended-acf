@@ -40,7 +40,7 @@ class Gallery extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected ?string $type = 'gallery';
+    protected string|null $type = 'gallery';
 
     /**
      * @param string $insert append or prepend

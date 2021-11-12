@@ -28,7 +28,7 @@ class WysiwygEditor extends Field
     use Required;
     use Wrapper;
 
-    protected ?string $type = 'wysiwyg';
+    protected string|null $type = 'wysiwyg';
 
     public function delay(): static
     {

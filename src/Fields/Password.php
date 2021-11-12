@@ -31,5 +31,5 @@ class Password extends Field
     use Required;
     use Wrapper;
 
-    protected ?string $type = 'password';
+    protected string|null $type = 'password';
 }

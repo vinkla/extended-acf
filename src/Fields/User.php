@@ -31,7 +31,7 @@ class User extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected ?string $type = 'user';
+    protected string|null $type = 'user';
 
     public function roles(array $roles): static
     {

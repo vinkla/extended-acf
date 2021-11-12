@@ -21,7 +21,7 @@ class Accordion extends Field
     use Endpoint;
     use Instructions;
 
-    protected ?string $type = 'accordion';
+    protected string|null $type = 'accordion';
 
     public function multiExpand(): static
     {

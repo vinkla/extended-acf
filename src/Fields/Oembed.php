@@ -27,7 +27,7 @@ class Oembed extends Field
     use Required;
     use Wrapper;
 
-    protected ?string $type = 'oembed';
+    protected string|null $type = 'oembed';
 
     public function width(int $width): static
     {

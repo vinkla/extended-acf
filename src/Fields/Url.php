@@ -33,5 +33,5 @@ class Url extends Field
     use Required;
     use Wrapper;
 
-    protected ?string $type = 'url';
+    protected string|null $type = 'url';
 }

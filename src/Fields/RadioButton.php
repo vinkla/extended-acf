@@ -37,5 +37,5 @@ class RadioButton extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected ?string $type = 'radio';
+    protected string|null $type = 'radio';
 }

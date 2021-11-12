@@ -16,8 +16,8 @@ namespace WordPlate\Acf;
 class ConditionalLogic
 {
     protected string $name;
-    protected ?string $operator = null;
-    protected ?string $parentKey = null;
+    protected string|null $operator = null;
+    protected string|null $parentKey = null;
     protected mixed $value = null;
 
     public function __construct(string $name)

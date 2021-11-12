@@ -27,5 +27,5 @@ class Link extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected ?string $type = 'link';
+    protected string|null $type = 'link';
 }

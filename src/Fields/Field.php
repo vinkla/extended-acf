@@ -20,10 +20,10 @@ abstract class Field
 {
     protected Config $config;
     protected string $keyPrefix = 'field';
-    protected ?string $parentKey = null;
-    protected ?string $type = null;
+    protected string|null $parentKey = null;
+    protected string|null $type = null;
 
-    public function __construct(string $label, ?string $name = null)
+    public function __construct(string $label, string|null $name = null)
     {
         $this->config = new Config([
             'label' => $label,
@@ -31,7 +31,7 @@ abstract class Field
         ]);
     }
 
-    public static function make(string $label, ?string $name = null): static
+    public static function make(string $label, string|null $name = null): static
     {
         return new static($label, $name);
     }

@@ -37,7 +37,7 @@ class Select extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected ?string $type = 'select';
+    protected string|null $type = 'select';
 
     public function stylisedUi(bool $useAjax = false): static
     {

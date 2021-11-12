@@ -30,7 +30,7 @@ class Taxonomy extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected ?string $type = 'taxonomy';
+    protected string|null $type = 'taxonomy';
 
     /**
      * @param string $fieldType checkbox, multi_select, select or radio

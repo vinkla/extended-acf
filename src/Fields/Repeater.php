@@ -33,7 +33,7 @@ class Repeater extends Field
     use Required;
     use Wrapper;
 
-    protected ?string $type = 'repeater';
+    protected string|null $type = 'repeater';
 
     public function collapsed(string $name): static
     {

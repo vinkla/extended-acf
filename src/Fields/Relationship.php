@@ -31,7 +31,7 @@ class Relationship extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected ?string $type = 'relationship';
+    protected string|null $type = 'relationship';
 
     public function elements(array $elements): static
     {

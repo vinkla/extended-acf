@@ -18,13 +18,13 @@ class Location
     protected $rules = [];
 
     /** @param string $param post_type, post_template, post_status, post_format, post_category, post_taxonomy, post, page_template, page_type, page_parent, page, current_user, current_user_role, user_form, user_role, taxonomy, attachment, comment, widget, nav_menu, nav_menu, nav_menu_item, block or options_page */
-    public function __construct(string $param, string $operator, ?string $value = null)
+    public function __construct(string $param, string $operator, string|null $value = null)
     {
         $this->rules[] = compact('param', 'operator', 'value');
     }
 
     /** @param string $param post_type, post_template, post_status, post_format, post_category, post_taxonomy, post, page_template, page_type, page_parent, page, current_user, current_user_role, user_form, user_role, taxonomy, attachment, comment, widget, nav_menu, nav_menu, nav_menu_item, block or options_page */
-    public static function if(string $param, string $operator, ?string $value = null): static
+    public static function if(string $param, string $operator, string|null $value = null): static
     {
         if (func_num_args() === 2) {
             $value = $operator;
@@ -35,7 +35,7 @@ class Location
     }
 
     /** @param string $param post_type, post_template, post_status, post_format, post_category, post_taxonomy, post, page_template, page_type, page_parent, page, current_user, current_user_role, user_form, user_role, taxonomy, attachment, comment, widget, nav_menu, nav_menu, nav_menu_item, block or options_page */
-    public function and(string $param, string $operator, ?string $value = null): static
+    public function and(string $param, string $operator, string|null $value = null): static
     {
         if (func_num_args() === 2) {
             $value = $operator;

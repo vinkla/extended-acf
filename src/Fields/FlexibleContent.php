@@ -29,7 +29,7 @@ class FlexibleContent extends Field
     use Required;
     use Wrapper;
 
-    protected ?string $type = 'flexible_content';
+    protected string|null $type = 'flexible_content';
 
     public function layouts(array $layouts): static
     {

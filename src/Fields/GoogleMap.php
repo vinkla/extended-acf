@@ -27,7 +27,7 @@ class GoogleMap extends Field
     use Required;
     use Wrapper;
 
-    protected ?string $type = 'google_map';
+    protected string|null $type = 'google_map';
 
     public function center(float $latitude, float $longitude): static
     {

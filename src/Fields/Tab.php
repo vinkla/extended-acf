@@ -22,7 +22,7 @@ class Tab extends Field
     use ConditionalLogic;
     use Endpoint;
 
-    protected ?string $type = 'tab';
+    protected string|null $type = 'tab';
 
     /**
      * @param string $placement left or top

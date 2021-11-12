@@ -37,5 +37,5 @@ class Image extends Field
     use ReturnFormat;
     use Wrapper;
 
-    protected ?string $type = 'image';
+    protected string|null $type = 'image';
 }

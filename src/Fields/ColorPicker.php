@@ -27,7 +27,7 @@ class ColorPicker extends Field
     use Required;
     use Wrapper;
 
-    protected ?string $type = 'color_picker';
+    protected string|null $type = 'color_picker';
 
     public function enableOpacity(): static
     {

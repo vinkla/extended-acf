@@ -23,7 +23,7 @@ class Message extends Field
     use ConditionalLogic;
     use NewLines;
 
-    protected ?string $type = 'message';
+    protected string|null $type = 'message';
 
     public function escapeHtml(): static
     {
