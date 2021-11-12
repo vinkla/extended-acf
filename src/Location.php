@@ -15,34 +15,42 @@ namespace WordPlate\Acf;
 
 class Location
 {
-    protected $rules = [];
-
-    /** @param string $param post_type, post_template, post_status, post_format, post_category, post_taxonomy, post, page_template, page_type, page_parent, page, current_user, current_user_role, user_form, user_role, taxonomy, attachment, comment, widget, nav_menu, nav_menu, nav_menu_item, block or options_page */
-    public function __construct(string $param, string $operator, string|null $value = null)
-    {
-        $this->rules[] = compact('param', 'operator', 'value');
+    public function __construct(
+        protected array $rules = []
+    ) {
+        //
     }
 
     /** @param string $param post_type, post_template, post_status, post_format, post_category, post_taxonomy, post, page_template, page_type, page_parent, page, current_user, current_user_role, user_form, user_role, taxonomy, attachment, comment, widget, nav_menu, nav_menu, nav_menu_item, block or options_page */
-    public static function if(string $param, string $operator, string|null $value = null): static
+    public static function if(string $param): static
     {
-        if (func_num_args() === 2) {
-            $value = $operator;
-            $operator = '==';
-        }
+        return new self([['param' => $param]]);
+    }
 
-        return new self($param, $operator, $value);
+    public function equals(string|null $value = null): static
+    {
+        $key = array_key_last($this->rules);
+
+        $this->rules[$key]['operator'] = '==';
+        $this->rules[$key]['value'] = $value;
+
+        return $this;
+    }
+
+    public function notEquals(string|null $value = null): static
+    {
+        $key = array_key_last($this->rules);
+
+        $this->rules[$key]['operator'] = '!=';
+        $this->rules[$key]['value'] = $value;
+
+        return $this;
     }
 
     /** @param string $param post_type, post_template, post_status, post_format, post_category, post_taxonomy, post, page_template, page_type, page_parent, page, current_user, current_user_role, user_form, user_role, taxonomy, attachment, comment, widget, nav_menu, nav_menu, nav_menu_item, block or options_page */
-    public function and(string $param, string $operator, string|null $value = null): static
+    public function and(string $param): static
     {
-        if (func_num_args() === 2) {
-            $value = $operator;
-            $operator = '==';
-        }
-
-        $this->rules[] = compact('param', 'operator', 'value');
+        $this->rules[] = ['param' => $param];
 
         return $this;
     }

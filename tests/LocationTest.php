@@ -28,8 +28,7 @@ class LocationTest extends TestCase
             ],
         ];
 
-        $this->assertSame($location, Location::if('post_type', 'post')->toArray());
-        $this->assertSame($location, Location::if('post_type', '==', 'post')->toArray());
+        $this->assertSame($location, Location::if('post_type')->equals('post')->toArray());
     }
 
     public function testAnd()
@@ -42,11 +41,11 @@ class LocationTest extends TestCase
             ],
             [
                 'param' => 'post_type',
-                'operator' => '==',
+                'operator' => '!=',
                 'value' => 'employee',
             ],
         ];
 
-        $this->assertSame($location, Location::if('post_type', 'post')->and('post_type', 'employee')->toArray());
+        $this->assertSame($location, Location::if('post_type')->equals('post')->and('post_type')->notEquals('employee')->toArray());
     }
 }

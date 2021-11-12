@@ -66,7 +66,7 @@ add_action('acf/init', function() {
             Text::make('Title'),
         ],
         'location' => [
-            Location::if('post_type', 'page')
+            Location::if('post_type')->equals('page')
         ],
     ]);
 });
@@ -608,7 +608,7 @@ The location class let you write [custom location rules](https://www.advancedcus
 ```php
 use WordPlate\Acf\Location;
 
-Location::if('post_type', 'post')->and('post_type', '!=', 'post');
+Location::if('post_type')->equals('post')->and('post_type')->notEquals('!=', 'post');
 ```
 
 ## Conditional Logic
