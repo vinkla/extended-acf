@@ -20,7 +20,7 @@ class RadioButtonTest extends TestCase
 {
     public function testType()
     {
-        $field = RadioButton::make('Radio Button')->toArray();
+        $field = RadioButton::make('Radio Button')->getSettings();
         $this->assertSame('radio', $field['type']);
     }
 }

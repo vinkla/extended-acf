@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\FilterBy;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\MinMax;
-use WordPlate\Acf\Fields\Attributes\Required;
-use WordPlate\Acf\Fields\Attributes\ReturnFormat;
-use WordPlate\Acf\Fields\Attributes\Wrapper;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\FilterBy;
+use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\MinMax;
+use WordPlate\Acf\Fields\Settings\Required;
+use WordPlate\Acf\Fields\Settings\ReturnFormat;
+use WordPlate\Acf\Fields\Settings\Wrapper;
 
 class Relationship extends Field
 {
@@ -35,14 +35,14 @@ class Relationship extends Field
 
     public function elements(array $elements): static
     {
-        $this->config->set('elements', $elements);
+        $this->settings['elements'] = $elements;
 
         return $this;
     }
 
     public function filters(array $filters): static
     {
-        $this->config->set('filters', $filters);
+        $this->settings['filters'] = $filters;
 
         return $this;
     }

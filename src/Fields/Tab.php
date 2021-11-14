@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace WordPlate\Acf\Fields;
 
 use InvalidArgumentException;
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\Endpoint;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\Endpoint;
 
 class Tab extends Field
 {
@@ -34,7 +34,7 @@ class Tab extends Field
             throw new InvalidArgumentException("Invalid argument placement [$placement].");
         }
 
-        $this->config->set('placement', $placement);
+        $this->settings['placement'] = $placement;
 
         return $this;
     }

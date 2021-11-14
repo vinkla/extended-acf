@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\Height;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\Required;
-use WordPlate\Acf\Fields\Attributes\Wrapper;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\Height;
+use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\Required;
+use WordPlate\Acf\Fields\Settings\Wrapper;
 
 class Oembed extends Field
 {
@@ -31,7 +31,7 @@ class Oembed extends Field
 
     public function width(int $width): static
     {
-        $this->config->set('width', $width);
+        $this->settings['width'] = $width;
 
         return $this;
     }

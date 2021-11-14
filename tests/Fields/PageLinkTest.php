@@ -20,19 +20,19 @@ class PageLinkTest extends TestCase
 {
     public function testType()
     {
-        $field = PageLink::make('Page Link')->toArray();
+        $field = PageLink::make('Page Link')->getSettings();
         $this->assertSame('page_link', $field['type']);
     }
 
     public function testAllowArchives()
     {
-        $field = PageLink::make('Page Link Archives')->allowArchives()->toArray();
+        $field = PageLink::make('Page Link Archives')->allowArchives()->getSettings();
         $this->assertTrue($field['allow_archives']);
     }
 
     public function testDisallowArchives()
     {
-        $field = PageLink::make('Page Link Non-archives')->allowArchives(false)->toArray();
+        $field = PageLink::make('Page Link Non-archives')->allowArchives(false)->getSettings();
         $this->assertFalse($field['allow_archives']);
     }
 }

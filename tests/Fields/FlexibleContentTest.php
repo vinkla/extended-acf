@@ -22,13 +22,13 @@ class FlexibleContentTest extends TestCase
 {
     public function testType()
     {
-        $field = FlexibleContent::make('Flexible Content')->toArray();
+        $field = FlexibleContent::make('Flexible Content')->getSettings();
         $this->assertSame('flexible_content', $field['type']);
     }
 
     public function testLabels()
     {
-        $field = FlexibleContent::make('Flexible Content Labels')->layouts([])->toArray();
+        $field = FlexibleContent::make('Flexible Content Labels')->layouts([])->getSettings();
         $this->assertSame([], $field['layouts']);
     }
 
@@ -41,7 +41,7 @@ class FlexibleContentTest extends TestCase
                         Text::make('Title'),
                     ]),
             ])
-            ->toArray();
+            ->getSettings();
 
         $this->assertSame('Image', $field['layouts'][0]['label']);
         $this->assertSame('Title', $field['layouts'][0]['sub_fields'][0]['label']);

@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\FilterBy;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\Multiple;
-use WordPlate\Acf\Fields\Attributes\Nullable;
-use WordPlate\Acf\Fields\Attributes\Required;
-use WordPlate\Acf\Fields\Attributes\Wrapper;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\FilterBy;
+use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\Multiple;
+use WordPlate\Acf\Fields\Settings\Nullable;
+use WordPlate\Acf\Fields\Settings\Required;
+use WordPlate\Acf\Fields\Settings\Wrapper;
 
 class PageLink extends Field
 {
@@ -35,7 +35,7 @@ class PageLink extends Field
 
     public function allowArchives(bool $value = true): static
     {
-        $this->config->set('allow_archives', $value);
+        $this->settings['allow_archives'] = $value;
 
         return $this;
     }

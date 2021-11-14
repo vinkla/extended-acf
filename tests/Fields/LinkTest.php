@@ -20,7 +20,7 @@ class LinkTest extends TestCase
 {
     public function testType()
     {
-        $field = Link::make('Link')->toArray();
+        $field = Link::make('Link')->getSettings();
         $this->assertSame('link', $field['type']);
     }
 }

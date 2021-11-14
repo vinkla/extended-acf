@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Fields\Attributes\Endpoint;
-use WordPlate\Acf\Fields\Attributes\Instructions;
+use WordPlate\Acf\Fields\Settings\Endpoint;
+use WordPlate\Acf\Fields\Settings\Instructions;
 
 class Accordion extends Field
 {
@@ -25,14 +25,14 @@ class Accordion extends Field
 
     public function multiExpand(): static
     {
-        $this->config->set('multi_expand', true);
+        $this->settings['multi_expand'] = true;
 
         return $this;
     }
 
     public function open(): static
     {
-        $this->config->set('open', true);
+        $this->settings['open'] = true;
 
         return $this;
     }

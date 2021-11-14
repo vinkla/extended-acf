@@ -17,45 +17,30 @@ use InvalidArgumentException;
 
 class FieldGroup
 {
-    protected Config $config;
-
-    public function __construct(array $config)
+    public function __construct(protected array $settings)
     {
         $requiredKeys = ['title', 'fields', 'location'];
 
         foreach ($requiredKeys as $key) {
-            if (!array_key_exists($key, $config)) {
-                throw new InvalidArgumentException("Missing field group configuration key [$key].");
+            if (!array_key_exists($key, $settings)) {
+                throw new InvalidArgumentException("Missing field group setting [$key].");
             }
         }
-
-        $this->config = new Config($config);
     }
+
     /** @internal */
-    public function toArray(): array
+    public function getSettings(): array
     {
-        if ($this->config->has('key')) {
-            $key = Key::sanitize($this->config->get('key'));
-        } else {
-            $key = Key::sanitize($this->config->get('title'));
-        }
+        $key = Key::sanitize($this->settings['key'] ?? $this->settings['title']);
 
-        if (!$this->config->has('style')) {
-            $this->config->set('style', 'seamless');
-        }
+        $this->settings['style'] = $this->settings['style'] ?? 'seamless';
 
-        $this->config->set('fields', array_map(function ($field) use ($key) {
-            $field->setParentKey($key);
+        $this->settings['fields'] = array_map(fn ($field) => $field->getSettings($key), $this->settings['fields']);
 
-            return $field->toArray();
-        }, $this->config->get('fields')));
+        $this->settings['location'] = array_map(fn ($location) => $location->toArray(), $this->settings['location']);
 
-        $this->config->set('location', array_map(function ($location) {
-            return $location->toArray();
-        }, $this->config->get('location')));
+        $this->settings['key'] = Key::generate($key, 'group');
 
-        $this->config->set('key', Key::generate($key, 'group'));
-
-        return $this->config->all();
+        return $this->settings;
     }
 }

@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\Message as MessageAttribute;
-use WordPlate\Acf\Fields\Attributes\NewLines;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\Message as MessageAttribute;
+use WordPlate\Acf\Fields\Settings\NewLines;
 
 class Message extends Field
 {
@@ -27,7 +27,7 @@ class Message extends Field
 
     public function escapeHtml(): static
     {
-        $this->config->set('esc_html', true);
+        $this->settings['esc_html'] = true;
 
         return $this;
     }

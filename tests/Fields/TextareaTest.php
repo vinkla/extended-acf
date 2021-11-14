@@ -21,30 +21,30 @@ class TextareaTest extends TestCase
 {
     public function testType()
     {
-        $field = Textarea::make('Textarea')->toArray();
+        $field = Textarea::make('Textarea')->getSettings();
         $this->assertSame('textarea', $field['type']);
     }
 
     public function testCharacterLimit()
     {
-        $field = Textarea::make('Character Limit')->characterLimit(100)->toArray();
+        $field = Textarea::make('Character Limit')->characterLimit(100)->getSettings();
         $this->assertSame(100, $field['maxlength']);
     }
 
     public function testNewLines()
     {
-        $field = Textarea::make('Description')->newLines('br')->toArray();
+        $field = Textarea::make('Description')->newLines('br')->getSettings();
         $this->assertSame('br', $field['new_lines']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument new lines [test].');
 
-        Textarea::make('Message')->newLines('test')->toArray();
+        Textarea::make('Message')->newLines('test')->getSettings();
     }
 
     public function testRows()
     {
-        $field = Textarea::make('Rows')->rows(10)->toArray();
+        $field = Textarea::make('Rows')->rows(10)->getSettings();
         $this->assertSame(10, $field['rows']);
     }
 }

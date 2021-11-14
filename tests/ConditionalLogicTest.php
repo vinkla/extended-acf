@@ -26,62 +26,55 @@ class ConditionalLogicTest extends TestCase
     public function testGreaterThan()
     {
         $logic = ConditionalLogic::if('age')->greaterThan(10);
-        $logic->setParentKey('field');
 
-        $this->assertSame('>', $logic->toArray()['operator']);
-        $this->assertSame(10, $logic->toArray()['value']);
+        $this->assertSame('>', $logic->getSettings('field')['operator']);
+        $this->assertSame(10, $logic->getSettings('field')['value']);
     }
 
     public function testLessThan()
     {
         $logic = ConditionalLogic::if('age')->lessThan(10);
-        $logic->setParentKey('field');
 
-        $this->assertSame('<', $logic->toArray()['operator']);
-        $this->assertSame(10, $logic->toArray()['value']);
+        $this->assertSame('<', $logic->getSettings('field')['operator']);
+        $this->assertSame(10, $logic->getSettings('field')['value']);
     }
 
     public function testEquals()
     {
         $logic = ConditionalLogic::if('age')->equals(18);
-        $logic->setParentKey('field');
 
-        $this->assertSame('==', $logic->toArray()['operator']);
-        $this->assertSame(18, $logic->toArray()['value']);
+        $this->assertSame('==', $logic->getSettings('field')['operator']);
+        $this->assertSame(18, $logic->getSettings('field')['value']);
     }
 
     public function testNotEquals()
     {
         $logic = ConditionalLogic::if('age')->notEquals(18);
-        $logic->setParentKey('field');
 
-        $this->assertSame('!=', $logic->toArray()['operator']);
-        $this->assertSame(18, $logic->toArray()['value']);
+        $this->assertSame('!=', $logic->getSettings('field')['operator']);
+        $this->assertSame(18, $logic->getSettings('field')['value']);
     }
 
     public function testContains()
     {
         $logic = ConditionalLogic::if('age')->contains(20);
-        $logic->setParentKey('field');
 
-        $this->assertSame('==contains', $logic->toArray()['operator']);
-        $this->assertSame(20, $logic->toArray()['value']);
+        $this->assertSame('==contains', $logic->getSettings('field')['operator']);
+        $this->assertSame(20, $logic->getSettings('field')['value']);
     }
 
     public function testEmpty()
     {
         $logic = ConditionalLogic::if('age')->empty();
-        $logic->setParentKey('field');
 
-        $this->assertSame('==empty', $logic->toArray()['operator']);
+        $this->assertSame('==empty', $logic->getSettings('field')['operator']);
     }
 
     public function testNotEmpty()
     {
         $logic = ConditionalLogic::if('age')->notEmpty();
-        $logic->setParentKey('field');
 
-        $this->assertSame('!=empty', $logic->toArray()['operator']);
+        $this->assertSame('!=empty', $logic->getSettings('field')['operator']);
     }
 
     public function testResolvedParentKey()
@@ -105,7 +98,7 @@ class ConditionalLogicTest extends TestCase
             'location' => []
         ]);
 
-        $config = $fieldGroup->toArray();
+        $config = $fieldGroup->getSettings();
 
         $this->assertSame(
             $config['fields'][0]['key'],

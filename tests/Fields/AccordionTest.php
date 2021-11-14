@@ -20,25 +20,25 @@ class AccordionTest extends TestCase
 {
     public function testType()
     {
-        $field = Accordion::make('Accordion')->toArray();
+        $field = Accordion::make('Accordion')->getSettings();
         $this->assertSame('accordion', $field['type']);
     }
 
     public function testEndpoint()
     {
-        $field = Accordion::make('Accordion Endpoint')->endpoint()->toArray();
+        $field = Accordion::make('Accordion Endpoint')->endpoint()->getSettings();
         $this->assertTrue($field['endpoint']);
     }
 
     public function testMultiExpand()
     {
-        $field = Accordion::make('Accordion Multi Expand')->multiExpand()->toArray();
+        $field = Accordion::make('Accordion Multi Expand')->multiExpand()->getSettings();
         $this->assertTrue($field['multi_expand']);
     }
 
     public function testOpen()
     {
-        $field = Accordion::make('Accordion Open')->open()->toArray();
+        $field = Accordion::make('Accordion Open')->open()->getSettings();
         $this->assertTrue($field['open']);
     }
 }

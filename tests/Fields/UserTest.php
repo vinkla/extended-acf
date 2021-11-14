@@ -20,13 +20,13 @@ class UserTest extends TestCase
 {
     public function testType()
     {
-        $field = User::make('User')->toArray();
+        $field = User::make('User')->getSettings();
         $this->assertSame('user', $field['type']);
     }
 
     public function testRoles()
     {
-        $field = User::make('User Filter Role')->roles(['editor'])->toArray();
+        $field = User::make('User Filter Role')->roles(['editor'])->getSettings();
         $this->assertSame(['editor'], $field['role']);
     }
 }

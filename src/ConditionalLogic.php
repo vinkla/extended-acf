@@ -17,7 +17,6 @@ class ConditionalLogic
 {
     protected string $name;
     protected string|null $operator = null;
-    protected string|null $parentKey = null;
     protected mixed $value = null;
 
     public function __construct(string $name)
@@ -84,15 +83,12 @@ class ConditionalLogic
         return $this;
     }
 
-    public function setParentKey(string $parentKey): void
-    {
-        $this->parentKey = Key::resolveParentKey($parentKey, Key::sanitize($this->name));
-    }
-
     /** @internal */
-    public function toArray(): array
+    public function getSettings(string|null $parentKey = null): array
     {
-        $key = sprintf('%s_%s', $this->parentKey, Key::sanitize($this->name));
+        $parentKey = Key::resolveParentKey($parentKey, Key::sanitize($this->name));
+
+        $key = sprintf('%s_%s', $parentKey, Key::sanitize($this->name));
 
         $rule = [
             'field' => sprintf('field_%s', Key::hash($key)),

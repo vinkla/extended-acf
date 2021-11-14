@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\DefaultValue;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\Message;
-use WordPlate\Acf\Fields\Attributes\Required;
-use WordPlate\Acf\Fields\Attributes\Wrapper;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\DefaultValue;
+use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\Message;
+use WordPlate\Acf\Fields\Settings\Required;
+use WordPlate\Acf\Fields\Settings\Wrapper;
 
 class TrueFalse extends Field
 {
@@ -33,14 +33,14 @@ class TrueFalse extends Field
 
     public function stylisedUi(string|null $onText = null, string|null $offText = null): static
     {
-        $this->config->set('ui', true);
+        $this->settings['ui'] = true;
 
         if ($onText !== null) {
-            $this->config->set('ui_on_text', $onText);
+            $this->settings['ui_on_text'] = $onText;
         }
 
         if ($offText !== null) {
-            $this->config->set('ui_off_text', $offText);
+            $this->settings['ui_off_text'] = $offText;
         }
 
         return $this;

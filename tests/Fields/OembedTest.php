@@ -20,19 +20,19 @@ class OembedTest extends TestCase
 {
     public function testType()
     {
-        $field = Oembed::make('Oembed')->toArray();
+        $field = Oembed::make('Oembed')->getSettings();
         $this->assertSame('oembed', $field['type']);
     }
 
     public function testHeight()
     {
-        $field = Oembed::make('Oembed Height')->height(100)->toArray();
+        $field = Oembed::make('Oembed Height')->height(100)->getSettings();
         $this->assertSame(100, $field['height']);
     }
 
     public function testWidth()
     {
-        $field = Oembed::make('Oembed Width')->width(200)->toArray();
+        $field = Oembed::make('Oembed Width')->width(200)->getSettings();
         $this->assertSame(200, $field['width']);
     }
 }

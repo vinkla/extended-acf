@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace WordPlate\Acf\Fields;
 
 use InvalidArgumentException;
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\DefaultValue;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\Required;
-use WordPlate\Acf\Fields\Attributes\Wrapper;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\DefaultValue;
+use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\Required;
+use WordPlate\Acf\Fields\Settings\Wrapper;
 
 class WysiwygEditor extends Field
 {
@@ -32,14 +32,14 @@ class WysiwygEditor extends Field
 
     public function delay(): static
     {
-        $this->config->set('delay', true);
+        $this->settings['delay'] = true;
 
         return $this;
     }
 
     public function mediaUpload(bool $mediaUpload): static
     {
-        $this->config->set('media_upload', $mediaUpload);
+        $this->settings['media_upload'] = $mediaUpload;
 
         return $this;
     }
@@ -54,14 +54,14 @@ class WysiwygEditor extends Field
             throw new InvalidArgumentException("Invalid argument tabs [$tabs].");
         }
 
-        $this->config->set('tabs', $tabs);
+        $this->settings['tabs'] = $tabs;
 
         return $this;
     }
 
     public function toolbar(string $toolbar): static
     {
-        $this->config->set('toolbar', $toolbar);
+        $this->settings['toolbar'] = $toolbar;
 
         return $this;
     }

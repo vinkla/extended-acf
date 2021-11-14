@@ -14,12 +14,12 @@ declare(strict_types=1);
 namespace WordPlate\Acf\Fields;
 
 use InvalidArgumentException;
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\Nullable;
-use WordPlate\Acf\Fields\Attributes\Required;
-use WordPlate\Acf\Fields\Attributes\ReturnFormat;
-use WordPlate\Acf\Fields\Attributes\Wrapper;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\Nullable;
+use WordPlate\Acf\Fields\Settings\Required;
+use WordPlate\Acf\Fields\Settings\ReturnFormat;
+use WordPlate\Acf\Fields\Settings\Wrapper;
 
 class Taxonomy extends Field
 {
@@ -42,35 +42,35 @@ class Taxonomy extends Field
             throw new InvalidArgumentException("Invalid argument field type [$fieldType].");
         }
 
-        $this->config->set('field_type', $fieldType);
+        $this->settings['field_type'] = $fieldType;
 
         return $this;
     }
 
     public function addTerm(bool $addTerm = true): static
     {
-        $this->config->set('add_term', $addTerm);
+        $this->settings['add_term'] = $addTerm;
 
         return $this;
     }
 
     public function loadTerms(bool $loadTerms = true): static
     {
-        $this->config->set('load_terms', $loadTerms);
+        $this->settings['load_terms'] = $loadTerms;
 
         return $this;
     }
 
     public function saveTerms(bool $saveTerms = true): static
     {
-        $this->config->set('save_terms', $saveTerms);
+        $this->settings['save_terms'] = $saveTerms;
 
         return $this;
     }
 
     public function taxonomy(string $taxonomy): static
     {
-        $this->config->set('taxonomy', $taxonomy);
+        $this->settings['taxonomy'] = $taxonomy;
 
         return $this;
     }

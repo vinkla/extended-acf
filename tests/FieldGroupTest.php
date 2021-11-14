@@ -31,20 +31,20 @@ class FieldGroupTest extends TestCase
             'location' => [],
         ]);
 
-        $fields = $fieldGroup->toArray()['fields'];
+        $fields = $fieldGroup->getSettings()['fields'];
         $this->assertArrayHasKey('key', $fields[0]);
     }
 
     public function testKey()
     {
         $fieldGroup = new FieldGroup(['title' => 'Apartment', 'fields' => [], 'location' => []]);
-        $this->assertSame('group_b1c2ce91', $fieldGroup->toArray()['key']);
+        $this->assertSame('group_b1c2ce91', $fieldGroup->getSettings()['key']);
     }
 
     public function testCustomKey()
     {
         $fieldGroup = new FieldGroup(['key' => 'house', 'title' => 'Apartment', 'fields' => [], 'location' => []]);
-        $this->assertSame('group_0cfb455b', $fieldGroup->toArray()['key']);
+        $this->assertSame('group_0cfb455b', $fieldGroup->getSettings()['key']);
     }
 
     public function testLocation()
@@ -57,23 +57,23 @@ class FieldGroupTest extends TestCase
             ],
         ]);
 
-        $location = $fieldGroup->toArray()['location'];
+        $location = $fieldGroup->getSettings()['location'];
         $this->assertArrayHasKey('param', $location[0][0]);
     }
 
     public function testStyle()
     {
         $fieldGroup = new FieldGroup(['title' => 'Employee', 'fields' => [], 'location' => []]);
-        $this->assertSame('seamless', $fieldGroup->toArray()['style']);
+        $this->assertSame('seamless', $fieldGroup->getSettings()['style']);
 
         $fieldGroup = new FieldGroup(['title' => 'Student', 'fields' => [], 'location' => [], 'style' => 'default']);
-        $this->assertSame('default', $fieldGroup->toArray()['style']);
+        $this->assertSame('default', $fieldGroup->getSettings()['style']);
     }
 
     public function testRequiredKeys()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Missing field group configuration key [title].');
+        $this->expectExceptionMessage('Missing field group setting [title].');
         new FieldGroup(['fields' => [], 'location' => []]);
     }
 }

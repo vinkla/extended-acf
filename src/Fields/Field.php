@@ -13,22 +13,20 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Config;
 use WordPlate\Acf\Key;
 
 abstract class Field
 {
-    protected Config $config;
+    protected array $settings;
     protected string $keyPrefix = 'field';
-    protected string|null $parentKey = null;
     protected string|null $type = null;
 
     public function __construct(string $label, string|null $name = null)
     {
-        $this->config = new Config([
+        $this->settings = [
             'label' => $label,
             'name' => $name ?? Key::sanitize($label),
-        ]);
+        ];
     }
 
     public static function make(string $label, string|null $name = null): static
@@ -37,58 +35,39 @@ abstract class Field
     }
 
     /** @internal */
-    public function setParentKey(string $parentKey): void
+    public function getSettings(string|null $parentKey = null): array
     {
-        $this->parentKey = $parentKey;
-    }
+        $key = sprintf('%s_%s', $parentKey, Key::sanitize($this->settings['name']));
 
-    /** @internal */
-    public function toArray(): array
-    {
-        $key = sprintf('%s_%s', $this->parentKey, Key::sanitize($this->config->get('name')));
-
-        if (!empty($this->type)) {
-            $this->config->set('type', $this->type);
+        if ($this->type !== null) {
+            $this->settings['type'] = $this->type;
         }
 
-        if ($this->config->has('conditional_logic')) {
-            $this->config->set('conditional_logic', array_map(function ($rules) {
-                return array_map(function ($rule) {
-                    $rule->setParentKey($this->parentKey);
-
-                    return $rule->toArray();
-                }, $rules);
-            }, $this->config->get('conditional_logic')));
+        if (isset($this->settings['conditional_logic'])) {
+            $this->settings['conditional_logic'] = array_map(function ($rules) use ($parentKey) {
+                return array_map(fn ($rule) => $rule->getSettings($parentKey), $rules);
+            }, $this->settings['conditional_logic']);
         }
 
-        if ($this->config->has('layouts')) {
-            $this->config->set('layouts', array_map(function ($layout) use ($key) {
-                $layout->setParentKey($key);
-
-                return $layout->toArray();
-            }, $this->config->get('layouts')));
+        if (isset($this->settings['layouts'])) {
+            $this->settings['layouts'] = array_map(fn ($layout) => $layout->getSettings($key), $this->settings['layouts']);
         }
 
-        if ($this->config->has('sub_fields')) {
-            $this->config->set('sub_fields', array_map(function ($field) use ($key) {
-                $field->setParentKey($key);
-
-                return $field->toArray();
-            }, $this->config->get('sub_fields')));
+        if (isset($this->settings['sub_fields'])) {
+            $this->settings['sub_fields'] = array_map(fn ($field) => $field->getSettings($key), $this->settings['sub_fields']);
         }
 
-        if ($this->config->has('collapsed')) {
-            foreach ($this->config->get('sub_fields', []) as $field) {
-                if ($field['name'] === $this->config->get('collapsed')) {
-                    $this->config->set('collapsed', $field['key']);
-
+        if (isset($this->settings['collapsed'], $this->settings['sub_fields'])) {
+            foreach ($this->settings['sub_fields'] as $field) {
+                if ($field['name'] === $this->settings['collapsed']) {
+                    $this->settings['collapsed'] = $field['key'];
                     break;
                 }
             }
         }
 
-        $this->config->set('key', Key::generate($key, $this->keyPrefix));
+        $this->settings['key'] = Key::generate($key, $this->keyPrefix);
 
-        return $this->config->all();
+        return $this->settings;
     }
 }

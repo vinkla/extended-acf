@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\Disabled;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\Pending;
-use WordPlate\Acf\Fields\Attributes\Placeholder;
-use WordPlate\Acf\Fields\Attributes\ReadOnly;
-use WordPlate\Acf\Fields\Attributes\Required;
-use WordPlate\Acf\Fields\Attributes\Wrapper;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\Disabled;
+use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\Pending;
+use WordPlate\Acf\Fields\Settings\Placeholder;
+use WordPlate\Acf\Fields\Settings\ReadOnly;
+use WordPlate\Acf\Fields\Settings\Required;
+use WordPlate\Acf\Fields\Settings\Wrapper;
 
 class Email extends Field
 {

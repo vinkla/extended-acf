@@ -20,13 +20,13 @@ class SelectTest extends TestCase
 {
     public function testType()
     {
-        $field = Select::make('Select Type')->toArray();
+        $field = Select::make('Select Type')->getSettings();
         $this->assertSame('select', $field['type']);
     }
 
     public function testStylisedUi()
     {
-        $field = Select::make('Select Stylised UI')->stylisedUi(true)->toArray();
+        $field = Select::make('Select Stylised UI')->stylisedUi(true)->getSettings();
         $this->assertTrue($field['ui']);
         $this->assertTrue($field['ajax']);
     }

@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Fields\Attributes\ButtonLabel;
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\Layout;
-use WordPlate\Acf\Fields\Attributes\MinMax;
-use WordPlate\Acf\Fields\Attributes\Required;
-use WordPlate\Acf\Fields\Attributes\SubFields;
-use WordPlate\Acf\Fields\Attributes\Wrapper;
+use WordPlate\Acf\Fields\Settings\ButtonLabel;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\Layout;
+use WordPlate\Acf\Fields\Settings\MinMax;
+use WordPlate\Acf\Fields\Settings\Required;
+use WordPlate\Acf\Fields\Settings\SubFields;
+use WordPlate\Acf\Fields\Settings\Wrapper;
 
 class Repeater extends Field
 {
@@ -37,7 +37,7 @@ class Repeater extends Field
 
     public function collapsed(string $name): static
     {
-        $this->config->set('collapsed', $name);
+        $this->settings['collapsed'] = $name;
 
         return $this;
     }
