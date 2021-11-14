@@ -17,7 +17,7 @@ trait Required
 {
     public function required(): static
     {
-        $this->config->set('required', true);
+        $this->settings['required'] = true;
 
         return $this;
     }

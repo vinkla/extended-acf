@@ -17,7 +17,7 @@ trait MimeTypes
 {
     public function mimeTypes(array $mimeTypes): static
     {
-        $this->config->set('mime_types', implode(',', $mimeTypes));
+        $this->settings['mime_types'] = implode(',', $mimeTypes);
 
         return $this;
     }

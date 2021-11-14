@@ -17,7 +17,7 @@ trait ButtonLabel
 {
     public function buttonLabel(string $label): static
     {
-        $this->config->set('button_label', $label);
+        $this->settings['button_label'] = $label;
 
         return $this;
     }

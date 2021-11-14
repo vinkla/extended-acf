@@ -35,14 +35,14 @@ class Relationship extends Field
 
     public function elements(array $elements): static
     {
-        $this->config->set('elements', $elements);
+        $this->settings['elements'] = $elements;
 
         return $this;
     }
 
     public function filters(array $filters): static
     {
-        $this->config->set('filters', $filters);
+        $this->settings['filters'] = $filters;
 
         return $this;
     }

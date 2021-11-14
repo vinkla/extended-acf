@@ -17,14 +17,14 @@ trait Pending
 {
     public function append(string $value): static
     {
-        $this->config->set('append', $value);
+        $this->settings['append'] = $value;
 
         return $this;
     }
 
     public function prepend(string $value): static
     {
-        $this->config->set('prepend', $value);
+        $this->settings['prepend'] = $value;
 
         return $this;
     }

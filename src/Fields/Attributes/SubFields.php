@@ -17,7 +17,7 @@ trait SubFields
 {
     public function fields(array $fields): static
     {
-        $this->config->set('sub_fields', $fields);
+        $this->settings['sub_fields'] = $fields;
 
         return $this;
     }

@@ -17,14 +17,14 @@ trait MinMax
 {
     public function max(int $max): static
     {
-        $this->config->set('max', $max);
+        $this->settings['max'] = $max;
 
         return $this;
     }
 
     public function min(int $min): static
     {
-        $this->config->set('min', $min);
+        $this->settings['min'] = $min;
 
         return $this;
     }

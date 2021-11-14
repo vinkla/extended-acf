@@ -17,11 +17,11 @@ trait ConditionalLogic
 {
     public function conditionalLogic(array $rules): static
     {
-        $conditionalLogic = $this->config->get('conditional_logic', []);
+        $conditionalLogic = $this->settings['conditional_logic'] ?? [];
 
         $conditionalLogic[] = $rules;
 
-        $this->config->set('conditional_logic', $conditionalLogic);
+        $this->settings['conditional_logic'] = $conditionalLogic;
 
         return $this;
     }

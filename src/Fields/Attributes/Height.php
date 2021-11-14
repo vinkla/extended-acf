@@ -17,7 +17,7 @@ trait Height
 {
     public function height(int $height): static
     {
-        $this->config->set('height', $height);
+        $this->settings['height'] = $height;
 
         return $this;
     }

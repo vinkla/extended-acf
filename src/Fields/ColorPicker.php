@@ -31,7 +31,7 @@ class ColorPicker extends Field
 
     public function enableOpacity(): static
     {
-        $this->config->set('enable_opacity', true);
+        $this->settings['enable_opacity'] = true;
 
         return $this;
     }

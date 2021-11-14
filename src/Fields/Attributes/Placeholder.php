@@ -17,7 +17,7 @@ trait Placeholder
 {
     public function placeholder(string $placeholder): static
     {
-        $this->config->set('placeholder', $placeholder);
+        $this->settings['placeholder'] = $placeholder;
 
         return $this;
     }

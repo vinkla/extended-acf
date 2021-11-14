@@ -17,7 +17,7 @@ trait Message
 {
     public function message(string $message): static
     {
-        $this->config->set('message', $message);
+        $this->settings['message'] = $message;
 
         return $this;
     }

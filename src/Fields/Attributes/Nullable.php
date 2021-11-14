@@ -17,7 +17,7 @@ trait Nullable
 {
     public function allowNull(): static
     {
-        $this->config->set('allow_null', true);
+        $this->settings['allow_null'] = true;
 
         return $this;
     }

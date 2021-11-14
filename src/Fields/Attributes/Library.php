@@ -27,7 +27,7 @@ trait Library
             throw new InvalidArgumentException("Invalid argument library [$library].");
         }
 
-        $this->config->set('library', $library);
+        $this->settings['library'] = $library;
 
         return $this;
     }

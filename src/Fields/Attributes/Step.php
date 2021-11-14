@@ -17,7 +17,7 @@ trait Step
 {
     public function step(float $step): static
     {
-        $this->config->set('step', $step);
+        $this->settings['step'] = $step;
 
         return $this;
     }

@@ -17,7 +17,7 @@ trait WeekDay
 {
     public function weekStartsOn(int $day): static
     {
-        $this->config->set('first_day', $day);
+        $this->settings['first_day'] = $day;
 
         return $this;
     }

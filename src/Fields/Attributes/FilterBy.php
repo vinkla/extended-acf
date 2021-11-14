@@ -17,14 +17,14 @@ trait FilterBy
 {
     public function postTypes(array $postTypes): static
     {
-        $this->config->set('post_type', $postTypes);
+        $this->settings['post_type'] = $postTypes;
 
         return $this;
     }
 
     public function taxonomies(array $taxonomies): static
     {
-        $this->config->set('taxonomy', $taxonomies);
+        $this->settings['taxonomy'] = $taxonomies;
 
         return $this;
     }

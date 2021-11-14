@@ -18,11 +18,11 @@ trait FileSize
     public function fileSize(int|string|null $min = null, int|string|null $max = null): static
     {
         if ($min !== null) {
-            $this->config->set('min_size', $min);
+            $this->settings['min_size'] = $min;
         }
 
         if ($max !== null) {
-            $this->config->set('max_size', $max);
+            $this->settings['max_size'] = $max;
         }
 
         return $this;

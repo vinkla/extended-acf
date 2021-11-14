@@ -41,8 +41,8 @@ class Select extends Field
 
     public function stylisedUi(bool $useAjax = false): static
     {
-        $this->config->set('ui', true);
-        $this->config->set('ajax', $useAjax);
+        $this->settings['ui'] = true;
+        $this->settings['ajax'] = $useAjax;
 
         return $this;
     }

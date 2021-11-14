@@ -17,7 +17,7 @@ trait CharacterLimit
 {
     public function characterLimit(int $limit): static
     {
-        $this->config->set('maxlength', $limit);
+        $this->settings['maxlength'] = $limit;
 
         return $this;
     }

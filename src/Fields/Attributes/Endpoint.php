@@ -17,7 +17,7 @@ trait Endpoint
 {
     public function endpoint(): static
     {
-        $this->config->set('endpoint', true);
+        $this->settings['endpoint'] = true;
 
         return $this;
     }

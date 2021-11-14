@@ -27,7 +27,7 @@ trait DirectionLayout
             throw new InvalidArgumentException("Invalid argument layout [$layout].");
         }
 
-        $this->config->set('layout', $layout);
+        $this->settings['layout'] = $layout;
 
         return $this;
     }

@@ -42,35 +42,35 @@ class Taxonomy extends Field
             throw new InvalidArgumentException("Invalid argument field type [$fieldType].");
         }
 
-        $this->config->set('field_type', $fieldType);
+        $this->settings['field_type'] = $fieldType;
 
         return $this;
     }
 
     public function addTerm(bool $addTerm = true): static
     {
-        $this->config->set('add_term', $addTerm);
+        $this->settings['add_term'] = $addTerm;
 
         return $this;
     }
 
     public function loadTerms(bool $loadTerms = true): static
     {
-        $this->config->set('load_terms', $loadTerms);
+        $this->settings['load_terms'] = $loadTerms;
 
         return $this;
     }
 
     public function saveTerms(bool $saveTerms = true): static
     {
-        $this->config->set('save_terms', $saveTerms);
+        $this->settings['save_terms'] = $saveTerms;
 
         return $this;
     }
 
     public function taxonomy(string $taxonomy): static
     {
-        $this->config->set('taxonomy', $taxonomy);
+        $this->settings['taxonomy'] = $taxonomy;
 
         return $this;
     }

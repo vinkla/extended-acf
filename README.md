@@ -647,9 +647,9 @@ use WordPlate\Acf\Fields\Select as Field;
 
 class Select extends Field
 {
-    public function myNewConfig(string $value): self
+    public function myNewSetting(string $value): self
     {
-        $this->config->set('my-new-config', $value);
+        $this->settings['my-new-settings'] = $value;
 
         return $this;
     }

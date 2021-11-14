@@ -17,7 +17,7 @@ trait DefaultValue
 {
     public function defaultValue(mixed $value): static
     {
-        $this->config->set('default_value', $value);
+        $this->settings['default_value'] = $value;
 
         return $this;
     }

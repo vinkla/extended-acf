@@ -31,15 +31,15 @@ class GoogleMap extends Field
 
     public function center(float $latitude, float $longitude): static
     {
-        $this->config->set('center_lat', $latitude);
-        $this->config->set('center_lng', $longitude);
+        $this->settings['center_lat'] = $latitude;
+        $this->settings['center_lng'] = $longitude;
 
         return $this;
     }
 
     public function zoom(int $zoom): static
     {
-        $this->config->set('zoom', $zoom);
+        $this->settings['zoom'] = $zoom;
 
         return $this;
     }

@@ -52,7 +52,7 @@ class Gallery extends Field
             throw new InvalidArgumentException("Invalid argument insert [$insert]");
         }
 
-        $this->config->set('insert', $insert);
+        $this->settings['insert'] = $insert;
 
         return $this;
     }

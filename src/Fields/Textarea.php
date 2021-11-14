@@ -41,7 +41,7 @@ class Textarea extends Field
 
     public function rows(int $rows): static
     {
-        $this->config->set('rows', $rows);
+        $this->settings['rows'] = $rows;
 
         return $this;
     }

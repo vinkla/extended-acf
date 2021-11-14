@@ -34,7 +34,7 @@ class Tab extends Field
             throw new InvalidArgumentException("Invalid argument placement [$placement].");
         }
 
-        $this->config->set('placement', $placement);
+        $this->settings['placement'] = $placement;
 
         return $this;
     }

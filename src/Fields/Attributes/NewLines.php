@@ -27,7 +27,7 @@ trait NewLines
             throw new InvalidArgumentException("Invalid argument new lines [$newLines].");
         }
 
-        $this->config->set('new_lines', $newLines);
+        $this->settings['new_lines'] = $newLines;
 
         return $this;
     }

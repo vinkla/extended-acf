@@ -33,7 +33,7 @@ class FlexibleContent extends Field
 
     public function layouts(array $layouts): static
     {
-        $this->config->set('layouts', $layouts);
+        $this->settings['layouts'] = $layouts;
 
         return $this;
     }

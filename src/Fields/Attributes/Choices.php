@@ -17,7 +17,7 @@ trait Choices
 {
     public function choices(array $choices): static
     {
-        $this->config->set('choices', $choices);
+        $this->settings['choices'] = $choices;
 
         return $this;
     }

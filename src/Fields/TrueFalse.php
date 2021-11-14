@@ -33,14 +33,14 @@ class TrueFalse extends Field
 
     public function stylisedUi(string|null $onText = null, string|null $offText = null): static
     {
-        $this->config->set('ui', true);
+        $this->settings['ui'] = true;
 
         if ($onText !== null) {
-            $this->config->set('ui_on_text', $onText);
+            $this->settings['ui_on_text'] = $onText;
         }
 
         if ($offText !== null) {
-            $this->config->set('ui_off_text', $offText);
+            $this->settings['ui_off_text'] = $offText;
         }
 
         return $this;

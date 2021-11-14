@@ -20,7 +20,7 @@ trait PreviewSize
      */
     public function previewSize(string $size): static
     {
-        $this->config->set('preview_size', $size);
+        $this->settings['preview_size'] = $size;
 
         return $this;
     }

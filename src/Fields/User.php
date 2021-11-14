@@ -35,7 +35,7 @@ class User extends Field
 
     public function roles(array $roles): static
     {
-        $this->config->set('role', $roles);
+        $this->settings['role'] = $roles;
 
         return $this;
     }

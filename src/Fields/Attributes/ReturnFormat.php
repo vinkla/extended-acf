@@ -27,7 +27,8 @@ trait ReturnFormat
             throw new InvalidArgumentException("Invalid argument return format [$format].");
         }
 
-        $this->config->set('return_format', $format);
+        // TODO: Split this into multiple traits.
+        $this->settings['return_format'] = $format;
 
         return $this;
     }

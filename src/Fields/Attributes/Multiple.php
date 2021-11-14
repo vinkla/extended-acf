@@ -17,7 +17,7 @@ trait Multiple
 {
     public function allowMultiple(): static
     {
-        $this->config->set('multiple', true);
+        $this->settings['multiple'] = true;
 
         return $this;
     }

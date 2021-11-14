@@ -32,14 +32,14 @@ class WysiwygEditor extends Field
 
     public function delay(): static
     {
-        $this->config->set('delay', true);
+        $this->settings['delay'] = true;
 
         return $this;
     }
 
     public function mediaUpload(bool $mediaUpload): static
     {
-        $this->config->set('media_upload', $mediaUpload);
+        $this->settings['media_upload'] = $mediaUpload;
 
         return $this;
     }
@@ -54,14 +54,14 @@ class WysiwygEditor extends Field
             throw new InvalidArgumentException("Invalid argument tabs [$tabs].");
         }
 
-        $this->config->set('tabs', $tabs);
+        $this->settings['tabs'] = $tabs;
 
         return $this;
     }
 
     public function toolbar(string $toolbar): static
     {
-        $this->config->set('toolbar', $toolbar);
+        $this->settings['toolbar'] = $toolbar;
 
         return $this;
     }

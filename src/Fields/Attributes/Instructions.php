@@ -17,7 +17,7 @@ trait Instructions
 {
     public function instructions(string $instructions): static
     {
-        $this->config->set('instructions', $instructions);
+        $this->settings['instructions'] = $instructions;
 
         return $this;
     }

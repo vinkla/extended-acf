@@ -17,7 +17,7 @@ trait Disabled
 {
     public function disabled(): static
     {
-        $this->config->set('disabled', true);
+        $this->settings['disabled'] = true;
 
         return $this;
     }

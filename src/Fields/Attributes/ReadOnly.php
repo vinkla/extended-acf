@@ -17,7 +17,7 @@ trait ReadOnly
 {
     public function readOnly(): static
     {
-        $this->config->set('readonly', true);
+        $this->settings['readonly'] = true;
 
         return $this;
     }

@@ -18,7 +18,7 @@ trait DateTimeFormat
     /** @see https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters */
     public function displayFormat(string $format): static
     {
-        $this->config->set('display_format', $format);
+        $this->settings['display_format'] = $format;
 
         return $this;
     }
@@ -26,7 +26,7 @@ trait DateTimeFormat
     /** @see https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters */
     public function returnFormat(string $format): static
     {
-        $this->config->set('return_format', $format);
+        $this->settings['return_format'] = $format;
 
         return $this;
     }

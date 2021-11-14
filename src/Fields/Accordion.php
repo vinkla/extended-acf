@@ -25,14 +25,14 @@ class Accordion extends Field
 
     public function multiExpand(): static
     {
-        $this->config->set('multi_expand', true);
+        $this->settings['multi_expand'] = true;
 
         return $this;
     }
 
     public function open(): static
     {
-        $this->config->set('open', true);
+        $this->settings['open'] = true;
 
         return $this;
     }

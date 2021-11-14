@@ -37,7 +37,7 @@ class Repeater extends Field
 
     public function collapsed(string $name): static
     {
-        $this->config->set('collapsed', $name);
+        $this->settings['collapsed'] = $name;
 
         return $this;
     }
