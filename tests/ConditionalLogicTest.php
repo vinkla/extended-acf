@@ -105,7 +105,7 @@ class ConditionalLogicTest extends TestCase
             'location' => []
         ]);
 
-        $config = $fieldGroup->toArray();
+        $config = $fieldGroup->getSettings();
 
         $this->assertSame(
             $config['fields'][0]['key'],
