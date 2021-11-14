@@ -17,7 +17,6 @@ trait ReadOnly
 {
     public function readOnly(): static
     {
-        // TODO: Rename attributes namespace to settings.
         $this->settings['readonly'] = true;
 
         return $this;
