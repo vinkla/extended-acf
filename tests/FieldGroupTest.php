@@ -73,7 +73,7 @@ class FieldGroupTest extends TestCase
     public function testRequiredKeys()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Missing field group configuration key [title].');
+        $this->expectExceptionMessage('Missing field group setting [title].');
         new FieldGroup(['fields' => [], 'location' => []]);
     }
 }

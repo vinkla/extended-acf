@@ -23,7 +23,7 @@ class FieldGroup
 
         foreach ($requiredKeys as $key) {
             if (!array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Missing field group configuration key [$key].");
+                throw new InvalidArgumentException("Missing field group setting [$key].");
             }
         }
     }
@@ -31,11 +31,7 @@ class FieldGroup
     /** @internal */
     public function getSettings(): array
     {
-        if (isset($this->settings['key'])) {
-            $key = Key::sanitize($this->settings['key']);
-        } else {
-            $key = Key::sanitize($this->settings['title']);
-        }
+        $key = Key::sanitize($this->settings['key'] ?? $this->settings['title']);
 
         if (isset($this->settings['style']) === false) {
             $this->settings['style'] = 'seamless';
