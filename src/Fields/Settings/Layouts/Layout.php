@@ -11,19 +11,19 @@
 
 declare(strict_types=1);
 
-namespace WordPlate\Acf\Fields\Settings;
+namespace WordPlate\Acf\Fields\Settings\Layouts;
 
 use InvalidArgumentException;
 
-trait DirectionLayout
+trait Layout
 {
     /**
-     * @param string $layout vertical or horizontal
+     * @param string $layout block, row or table
      * @throws \InvalidArgumentException
      */
     public function layout(string $layout): static
     {
-        if (!in_array($layout, ['vertical', 'horizontal'])) {
+        if (!in_array($layout, ['block', 'row', 'table'])) {
             throw new InvalidArgumentException("Invalid argument layout [$layout].");
         }
 

@@ -16,9 +16,9 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Settings\Choices;
 use WordPlate\Acf\Fields\Settings\ConditionalLogic;
 use WordPlate\Acf\Fields\Settings\DefaultValue;
-use WordPlate\Acf\Fields\Settings\DirectionLayout;
 use WordPlate\Acf\Fields\Settings\Disabled;
 use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\Layouts\Direction as Layout;
 use WordPlate\Acf\Fields\Settings\Nullable;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\ReturnFormat;
@@ -27,15 +27,16 @@ use WordPlate\Acf\Fields\Settings\Wrapper;
 class RadioButton extends Field
 {
     use Choices;
+    use ConditionalLogic;
     use DefaultValue;
     use Disabled;
-    use DirectionLayout;
-    use ConditionalLogic;
     use Instructions;
+    use Layout;
     use Nullable;
     use Required;
     use ReturnFormat;
     use Wrapper;
 
+    // TODO: Add other and save other settings.
     protected string|null $type = 'radio';
 }

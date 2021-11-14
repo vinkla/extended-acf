@@ -15,7 +15,7 @@ namespace WordPlate\Acf\Fields;
 
 use WordPlate\Acf\Fields\Settings\ConditionalLogic;
 use WordPlate\Acf\Fields\Settings\Instructions;
-use WordPlate\Acf\Fields\Settings\Layout;
+use WordPlate\Acf\Fields\Settings\Layouts\Layout;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\SubFields;
 use WordPlate\Acf\Fields\Settings\Wrapper;
