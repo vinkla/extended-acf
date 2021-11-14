@@ -14,17 +14,17 @@ declare(strict_types=1);
 namespace WordPlate\Acf\Fields;
 
 use InvalidArgumentException;
-use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
-use WordPlate\Acf\Fields\Attributes\Dimensions;
-use WordPlate\Acf\Fields\Attributes\FileSize;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\Library;
-use WordPlate\Acf\Fields\Attributes\MimeTypes;
-use WordPlate\Acf\Fields\Attributes\MinMax;
-use WordPlate\Acf\Fields\Attributes\PreviewSize;
-use WordPlate\Acf\Fields\Attributes\Required;
-use WordPlate\Acf\Fields\Attributes\ReturnFormat;
-use WordPlate\Acf\Fields\Attributes\Wrapper;
+use WordPlate\Acf\Fields\Settings\ConditionalLogic;
+use WordPlate\Acf\Fields\Settings\Dimensions;
+use WordPlate\Acf\Fields\Settings\FileSize;
+use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\Library;
+use WordPlate\Acf\Fields\Settings\MimeTypes;
+use WordPlate\Acf\Fields\Settings\MinMax;
+use WordPlate\Acf\Fields\Settings\PreviewSize;
+use WordPlate\Acf\Fields\Settings\Required;
+use WordPlate\Acf\Fields\Settings\ReturnFormat;
+use WordPlate\Acf\Fields\Settings\Wrapper;
 
 class Gallery extends Field
 {

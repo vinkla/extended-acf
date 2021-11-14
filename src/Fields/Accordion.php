@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Fields\Attributes\Endpoint;
-use WordPlate\Acf\Fields\Attributes\Instructions;
+use WordPlate\Acf\Fields\Settings\Endpoint;
+use WordPlate\Acf\Fields\Settings\Instructions;
 
 class Accordion extends Field
 {
