@@ -20,19 +20,19 @@ class MessageTest extends TestCase
 {
     public function testType()
     {
-        $field = Message::make('Message')->toArray();
+        $field = Message::make('Message')->getSettings();
         $this->assertSame('message', $field['type']);
     }
 
     public function testEscapeHtml()
     {
-        $field = Message::make('Message Escape HTML')->escapeHtml()->toArray();
+        $field = Message::make('Message Escape HTML')->escapeHtml()->getSettings();
         $this->assertTrue($field['esc_html']);
     }
 
     public function testMessage()
     {
-        $field = Message::make('Message Content')->message('The Content')->toArray();
+        $field = Message::make('Message Content')->message('The Content')->getSettings();
         $this->assertSame('The Content', $field['message']);
     }
 }

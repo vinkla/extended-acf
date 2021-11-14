@@ -33,15 +33,9 @@ class FieldGroup
     {
         $key = Key::sanitize($this->settings['key'] ?? $this->settings['title']);
 
-        if (isset($this->settings['style']) === false) {
-            $this->settings['style'] = 'seamless';
-        }
+        $this->settings['style'] = $this->settings['style'] ?? 'seamless';
 
-        $this->settings['fields'] = array_map(function ($field) use ($key) {
-            $field->setParentKey($key);
-
-            return $field->toArray();
-        }, $this->settings['fields']);
+        $this->settings['fields'] = array_map(fn ($field) => $field->getSettings($key), $this->settings['fields']);
 
         $this->settings['location'] = array_map(fn ($location) => $location->toArray(), $this->settings['location']);
 

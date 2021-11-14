@@ -20,14 +20,14 @@ class ButtonGroupTest extends TestCase
 {
     public function testType()
     {
-        $field = ButtonGroup::make('Button Group')->toArray();
+        $field = ButtonGroup::make('Button Group')->getSettings();
         $this->assertSame('button_group', $field['type']);
     }
 
     public function testChoices()
     {
         $choices = ['blue' => 'Blue Pill', 'red' => 'Red Pill'];
-        $field = ButtonGroup::make('Choices')->choices($choices)->toArray();
+        $field = ButtonGroup::make('Choices')->choices($choices)->getSettings();
         $this->assertSame($choices, $field['choices']);
     }
 }

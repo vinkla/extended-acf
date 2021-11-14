@@ -21,24 +21,24 @@ class ImageTest extends TestCase
 {
     public function testType()
     {
-        $field = Image::make('Image')->toArray();
+        $field = Image::make('Image')->getSettings();
         $this->assertSame('image', $field['type']);
     }
 
     public function testPreviewSize()
     {
-        $field = Image::make('Preview Size')->previewSize('large')->toArray();
+        $field = Image::make('Preview Size')->previewSize('large')->getSettings();
         $this->assertSame('large', $field['preview_size']);
     }
 
     public function testLibrary()
     {
-        $field = Image::make('Library')->library('all')->toArray();
+        $field = Image::make('Library')->library('all')->getSettings();
         $this->assertSame('all', $field['library']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument library [test].');
 
-        Image::make('Invalid Library')->library('test')->toArray();
+        Image::make('Invalid Library')->library('test')->getSettings();
     }
 }

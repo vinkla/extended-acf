@@ -19,7 +19,6 @@ abstract class Field
 {
     protected array $settings;
     protected string $keyPrefix = 'field';
-    protected string|null $parentKey = null;
     protected string|null $type = null;
 
     public function __construct(string $label, string|null $name = null)
@@ -36,46 +35,26 @@ abstract class Field
     }
 
     /** @internal */
-    public function setParentKey(string $parentKey): void
+    public function getSettings(string|null $parentKey = null): array
     {
-        $this->parentKey = $parentKey;
-    }
+        $key = sprintf('%s_%s', $parentKey, Key::sanitize($this->settings['name']));
 
-    /** @internal */
-    public function toArray(): array
-    {
-        $key = sprintf('%s_%s', $this->parentKey, Key::sanitize($this->settings['name']));
-
-        if (empty($this->type) === false) {
+        if ($this->type !== null) {
             $this->settings['type'] = $this->type;
         }
 
         if (isset($this->settings['conditional_logic'])) {
-            $this->settings['conditional_logic'] = array_map(function ($rules) {
-                return array_map(function ($rule) {
-                    $rule->setParentKey($this->parentKey);
-
-                    // TODO: Rethink parent keys.
-
-                    return $rule->toArray();
-                }, $rules);
+            $this->settings['conditional_logic'] = array_map(function ($rules) use ($parentKey) {
+                return array_map(fn ($rule) => $rule->getSettings($parentKey), $rules);
             }, $this->settings['conditional_logic']);
         }
 
         if (isset($this->settings['layouts'])) {
-            $this->settings['layouts'] = array_map(function ($layout) use ($key) {
-                $layout->setParentKey($key);
-
-                return $layout->toArray();
-            }, $this->settings['layouts']);
+            $this->settings['layouts'] = array_map(fn ($layout) => $layout->getSettings($key), $this->settings['layouts']);
         }
 
         if (isset($this->settings['sub_fields'])) {
-            $this->settings['sub_fields'] = array_map(function ($field) use ($key) {
-                $field->setParentKey($key);
-
-                return $field->toArray();
-            }, $this->settings['sub_fields']);
+            $this->settings['sub_fields'] = array_map(fn ($field) => $field->getSettings($key), $this->settings['sub_fields']);
         }
 
         if (isset($this->settings['collapsed'], $this->settings['sub_fields'])) {

@@ -21,37 +21,37 @@ class FileTest extends TestCase
 {
     public function testType()
     {
-        $field = File::make('File')->toArray();
+        $field = File::make('File')->getSettings();
         $this->assertSame('file', $field['type']);
     }
 
     public function testMimeTypes()
     {
-        $field = File::make('Mime Types')->mimeTypes(['jpg', 'pdf'])->toArray();
+        $field = File::make('Mime Types')->mimeTypes(['jpg', 'pdf'])->getSettings();
         $this->assertSame('jpg,pdf', $field['mime_types']);
     }
 
     public function testReturnFormat()
     {
-        $field = File::make('Return Format')->returnFormat('array')->toArray();
+        $field = File::make('Return Format')->returnFormat('array')->getSettings();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument return format [test].');
 
-        File::make('Invalid Return Format')->returnFormat('test')->toArray();
+        File::make('Invalid Return Format')->returnFormat('test')->getSettings();
     }
 
     public function testFileSize()
     {
-        $field = File::make('File Size')->fileSize('400 KB', 5)->toArray();
+        $field = File::make('File Size')->fileSize('400 KB', 5)->getSettings();
         $this->assertSame('400 KB', $field['min_size']);
         $this->assertSame(5, $field['max_size']);
 
-        $field = File::make('Min File Size')->fileSize(10)->toArray();
+        $field = File::make('Min File Size')->fileSize(10)->getSettings();
         $this->assertArrayNotHasKey('max_size', $field);
 
-        $field = File::make('Max File Size')->fileSize(null, 20)->toArray();
+        $field = File::make('Max File Size')->fileSize(null, 20)->getSettings();
         $this->assertArrayNotHasKey('min_size', $field);
     }
 }

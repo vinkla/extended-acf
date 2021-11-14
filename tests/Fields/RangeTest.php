@@ -20,13 +20,13 @@ class RangeTest extends TestCase
 {
     public function testType()
     {
-        $field = Range::make('Range')->toArray();
+        $field = Range::make('Range')->getSettings();
         $this->assertSame('range', $field['type']);
     }
 
     public function testStep()
     {
-        $field = Range::make('Range Step')->step(5.2)->toArray();
+        $field = Range::make('Range Step')->step(5.2)->getSettings();
         $this->assertSame(5.2, $field['step']);
     }
 }

@@ -21,13 +21,13 @@ class RepeaterTest extends TestCase
 {
     public function testType()
     {
-        $field = Repeater::make('Repeater')->toArray();
+        $field = Repeater::make('Repeater')->getSettings();
         $this->assertSame('repeater', $field['type']);
     }
 
     public function testButtonLabel()
     {
-        $field = Repeater::make('Repeater Button label')->buttonLabel('Add Item')->toArray();
+        $field = Repeater::make('Repeater Button label')->buttonLabel('Add Item')->getSettings();
         $this->assertSame('Add Item', $field['button_label']);
     }
 
@@ -38,7 +38,7 @@ class RepeaterTest extends TestCase
                 Text::make('Title'),
             ])
             ->collapsed('title')
-            ->toArray();
+            ->getSettings();
 
         $this->assertSame('field_15a7e5e1', $field['collapsed']);
     }
