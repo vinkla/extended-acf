@@ -61,6 +61,14 @@ class ConditionalLogic
         return $this;
     }
 
+    public function pattern(string $pattern): static
+    {
+        $this->operator = '==pattern';
+        $this->value = $pattern;
+
+        return $this;
+    }
+
     public function contains(mixed $value): static
     {
         $this->operator = '==contains';

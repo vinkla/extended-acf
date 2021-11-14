@@ -55,6 +55,14 @@ class ConditionalLogicTest extends TestCase
         $this->assertSame(18, $logic->getSettings('field')['value']);
     }
 
+    public function testPattern()
+    {
+        $logic = ConditionalLogic::if('age')->pattern('[a-z0-9]');
+
+        $this->assertSame('==pattern', $logic->getSettings('field')['operator']);
+        $this->assertSame('[a-z0-9]', $logic->getSettings('field')['value']);
+    }
+
     public function testContains()
     {
         $logic = ConditionalLogic::if('age')->contains(20);
