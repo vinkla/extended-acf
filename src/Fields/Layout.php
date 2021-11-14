@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields;
 
-use WordPlate\Acf\Fields\Settings\Layouts\Display;
+use WordPlate\Acf\Fields\Settings\Layout as Display;
 use WordPlate\Acf\Fields\Settings\MinMax;
 use WordPlate\Acf\Fields\Settings\SubFields;
 

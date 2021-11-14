@@ -11,11 +11,11 @@
 
 declare(strict_types=1);
 
-namespace WordPlate\Acf\Fields\Settings\Layouts;
+namespace WordPlate\Acf\Fields\Settings;
 
 use InvalidArgumentException;
 
-trait Display
+trait Layout
 {
     /**
      * @param string $layout block, row or table
@@ -27,7 +27,10 @@ trait Display
             throw new InvalidArgumentException("Invalid argument layout [$layout].");
         }
 
-        $this->settings['display'] = $layout;
+        // TODO: Split this into multiple traits.
+        $key = __CLASS__ === 'WordPlate\Acf\Fields\Layout' ? 'display' : 'layout';
+
+        $this->settings[$key] = $layout;
 
         return $this;
     }

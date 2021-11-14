@@ -16,7 +16,7 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Fields\Settings\ButtonLabel;
 use WordPlate\Acf\Fields\Settings\ConditionalLogic;
 use WordPlate\Acf\Fields\Settings\Instructions;
-use WordPlate\Acf\Fields\Settings\Layouts\Display as Layout;
+use WordPlate\Acf\Fields\Settings\Layout;
 use WordPlate\Acf\Fields\Settings\MinMax;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\SubFields;
