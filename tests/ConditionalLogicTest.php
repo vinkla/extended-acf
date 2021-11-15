@@ -31,8 +31,6 @@ class ConditionalLogicTest extends TestCase
             'value' => 10,
         ];
 
-
-        $this->assertSame($conditionalLogic, ConditionalLogic::where('age', 10)->get('field'));
         $this->assertSame($conditionalLogic, ConditionalLogic::where('age', '==', 10)->get('field'));
     }
 

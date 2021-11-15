@@ -25,13 +25,8 @@ class ConditionalLogic
     }
 
     /** @throws \InvalidArgumentException */
-    public static function where(string $name, mixed $operator, mixed $value = null): static
+    public static function where(string $name, string $operator, mixed $value = null): static
     {
-        if (func_num_args() === 2) {
-            $value = $operator;
-            $operator = '==';
-        }
-
         $allowedOperators = [
             '>',
             '<',

@@ -86,10 +86,10 @@ class TextTest extends TestCase
     {
         $field = Text::make('Conditional Logic')
             ->conditionalLogic([
-                ConditionalLogic::if('type')->empty(),
+                ConditionalLogic::where('type', '==empty'),
             ])
             ->conditionalLogic([
-                ConditionalLogic::if('title')->contains('ACF'),
+                ConditionalLogic::where('title', '==contains', 'ACF'),
             ]);
 
         $field = $field->get('group');
