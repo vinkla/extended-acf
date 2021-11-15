@@ -13,76 +13,35 @@ declare(strict_types=1);
 
 namespace WordPlate\Tests\Acf;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\ConditionalLogic;
 use WordPlate\Acf\FieldGroup;
 use WordPlate\Acf\Fields\Repeater;
 use WordPlate\Acf\Fields\Select;
 use WordPlate\Acf\Fields\Text;
-use WordPlate\Acf\Location;
 
 class ConditionalLogicTest extends TestCase
 {
-    public function testGreaterThan()
+    public function testConditionalLogic()
     {
-        $logic = ConditionalLogic::if('age')->greaterThan(10);
+        $conditionalLogic = [
+            'field' => 'field_f5456193',
+            'operator' => '==',
+            'value' => 10,
+        ];
 
-        $this->assertSame('>', $logic->get('field')['operator']);
-        $this->assertSame(10, $logic->get('field')['value']);
+
+        $this->assertSame($conditionalLogic, ConditionalLogic::where('age', 10)->get('field'));
+        $this->assertSame($conditionalLogic, ConditionalLogic::where('age', '==', 10)->get('field'));
     }
 
-    public function testLessThan()
+    public function testInvalidOperator()
     {
-        $logic = ConditionalLogic::if('age')->lessThan(10);
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid conditional logic operator [wrong].');
 
-        $this->assertSame('<', $logic->get('field')['operator']);
-        $this->assertSame(10, $logic->get('field')['value']);
-    }
-
-    public function testEquals()
-    {
-        $logic = ConditionalLogic::if('age')->equals(18);
-
-        $this->assertSame('==', $logic->get('field')['operator']);
-        $this->assertSame(18, $logic->get('field')['value']);
-    }
-
-    public function testNotEquals()
-    {
-        $logic = ConditionalLogic::if('age')->notEquals(18);
-
-        $this->assertSame('!=', $logic->get('field')['operator']);
-        $this->assertSame(18, $logic->get('field')['value']);
-    }
-
-    public function testPattern()
-    {
-        $logic = ConditionalLogic::if('age')->pattern('[a-z0-9]');
-
-        $this->assertSame('==pattern', $logic->get('field')['operator']);
-        $this->assertSame('[a-z0-9]', $logic->get('field')['value']);
-    }
-
-    public function testContains()
-    {
-        $logic = ConditionalLogic::if('age')->contains(20);
-
-        $this->assertSame('==contains', $logic->get('field')['operator']);
-        $this->assertSame(20, $logic->get('field')['value']);
-    }
-
-    public function testEmpty()
-    {
-        $logic = ConditionalLogic::if('age')->empty();
-
-        $this->assertSame('==empty', $logic->get('field')['operator']);
-    }
-
-    public function testNotEmpty()
-    {
-        $logic = ConditionalLogic::if('age')->notEmpty();
-
-        $this->assertSame('!=empty', $logic->get('field')['operator']);
+        ConditionalLogic::where('age', 'wrong', 10);
     }
 
     public function testResolvedParentKey()
@@ -99,7 +58,7 @@ class ConditionalLogicTest extends TestCase
                     ->fields([
                         Text::make('Red')
                             ->conditionalLogic([
-                                ConditionalLogic::if('select')->equals('red'),
+                                ConditionalLogic::where('select', '==', 'red'),
                             ]),
                     ])
             ],

@@ -3,6 +3,7 @@
 ## Next
 
 - Removed `field` and `option` helper functions
+- Updated conditional logic API
 - Updated location method `if` to `where`
 - Updated minimum PHP version to 8.0
 - Updated type hints and return types

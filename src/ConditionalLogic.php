@@ -13,82 +13,41 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf;
 
+use InvalidArgumentException;
+
 class ConditionalLogic
 {
-    protected string $name;
-    protected string|null $operator = null;
-    protected mixed $value = null;
-
-    public function __construct(string $name)
-    {
-        $this->name = $name;
+    public function __construct(
+        protected string $name,
+        protected string $operator,
+        protected mixed $value = null
+    ) {
     }
 
-    public static function if(string $name): static
+    /** @throws \InvalidArgumentException */
+    public static function where(string $name, mixed $operator, mixed $value = null): static
     {
-        return new self($name);
-    }
+        if (func_num_args() === 2) {
+            $value = $operator;
+            $operator = '==';
+        }
 
-    public function greaterThan(int $value): static
-    {
-        $this->operator = '>';
-        $this->value = $value;
+        $allowedOperators = [
+            '>',
+            '<',
+            '==',
+            '!=',
+            '==pattern',
+            '==contains',
+            '==empty',
+            '!=empty',
+        ];
 
-        return $this;
-    }
+        if (in_array($operator, $allowedOperators) === false) {
+            throw new InvalidArgumentException("Invalid conditional logic operator [$operator].");
+        }
 
-    public function lessThan(int $value): static
-    {
-        $this->operator = '<';
-        $this->value = $value;
-
-        return $this;
-    }
-
-    public function equals(mixed $value): static
-    {
-        $this->operator = '==';
-        $this->value = $value;
-
-        return $this;
-    }
-
-    public function notEquals(mixed $value): static
-    {
-        $this->operator = '!=';
-        $this->value = $value;
-
-        return $this;
-    }
-
-    public function pattern(string $pattern): static
-    {
-        $this->operator = '==pattern';
-        $this->value = $pattern;
-
-        return $this;
-    }
-
-    public function contains(mixed $value): static
-    {
-        $this->operator = '==contains';
-        $this->value = $value;
-
-        return $this;
-    }
-
-    public function empty(): static
-    {
-        $this->operator = '==empty';
-
-        return $this;
-    }
-
-    public function notEmpty(): static
-    {
-        $this->operator = '!=empty';
-
-        return $this;
+        return new self($name, $operator, $value);
     }
 
     /** @internal */
