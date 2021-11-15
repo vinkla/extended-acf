@@ -19,6 +19,6 @@ if (!function_exists('register_extended_field_group')) {
     {
         $fieldGroup = new FieldGroup($config);
 
-        register_field_group($fieldGroup->getSettings());
+        register_field_group($fieldGroup->get());
     }
 }
