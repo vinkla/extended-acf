@@ -15,7 +15,7 @@ namespace WordPlate\Acf\Fields\Settings;
 
 trait Dimensions
 {
-    public function height(?int $min = null, ?int $max = null): static
+    public function height(int|null $min = null, int|null $max = null): static
     {
         if ($min !== null) {
             $this->settings['min_height'] = $min;
@@ -28,7 +28,7 @@ trait Dimensions
         return $this;
     }
 
-    public function width(?int $min = null, ?int $max = null): static
+    public function width(int|null $min = null, int|null $max = null): static
     {
         if ($min !== null) {
             $this->settings['min_width'] = $min;

@@ -8,6 +8,7 @@
 - Updated minimum PHP version to 8.0
 - Updated type hints and return types
 - Removed `field` and `option` helper functions
+- Removed `setParentKey` methods
 - Removed configuration class
 
 ## 11.2.0
