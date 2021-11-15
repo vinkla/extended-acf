@@ -2,11 +2,13 @@
 
 ## Next
 
-- Removed `field` and `option` helper functions
-- Updated conditional logic API
+- Updated `toArray` method to `get` 
+- Updated conditional logic methods
 - Updated location method `if` to `where`
 - Updated minimum PHP version to 8.0
 - Updated type hints and return types
+- Removed `field` and `option` helper functions
+- Removed configuration class
 
 ## 11.2.0
 
