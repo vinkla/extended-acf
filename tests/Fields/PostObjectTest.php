@@ -20,31 +20,31 @@ class PostObjectTest extends TestCase
 {
     public function testType()
     {
-        $field = PostObject::make('Post Object')->getSettings();
+        $field = PostObject::make('Post Object')->get();
         $this->assertSame('post_object', $field['type']);
     }
 
     public function testMultiple()
     {
-        $field = PostObject::make('Post Object Multiple')->allowMultiple()->getSettings();
+        $field = PostObject::make('Post Object Multiple')->allowMultiple()->get();
         $this->assertTrue($field['multiple']);
     }
 
     public function testAllowNull()
     {
-        $field = PostObject::make('Post Object Nullable')->allowNull()->getSettings();
+        $field = PostObject::make('Post Object Nullable')->allowNull()->get();
         $this->assertTrue($field['allow_null']);
     }
 
     public function testPostTypes()
     {
-        $field = PostObject::make('Post Object Filter Post Type')->postTypes(['page'])->getSettings();
+        $field = PostObject::make('Post Object Filter Post Type')->postTypes(['page'])->get();
         $this->assertSame(['page'], $field['post_type']);
     }
 
     public function testTaxonomies()
     {
-        $field = PostObject::make('Post Object Filter Taxonomy')->taxonomies(['category:untitled'])->getSettings();
+        $field = PostObject::make('Post Object Filter Taxonomy')->taxonomies(['category:untitled'])->get();
         $this->assertSame(['category:untitled'], $field['taxonomy']);
     }
 }

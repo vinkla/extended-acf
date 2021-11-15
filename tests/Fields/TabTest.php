@@ -21,18 +21,18 @@ class TabTest extends TestCase
 {
     public function testType()
     {
-        $field = Tab::make('Tab')->getSettings();
+        $field = Tab::make('Tab')->get();
         $this->assertSame('tab', $field['type']);
     }
 
     public function testPlacement()
     {
-        $field = Tab::make('Tab Placement')->placement('top')->getSettings();
+        $field = Tab::make('Tab Placement')->placement('top')->get();
         $this->assertSame('top', $field['placement']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument placement [test].');
 
-        Tab::make('Invalid Tab Placement')->placement('test')->getSettings();
+        Tab::make('Invalid Tab Placement')->placement('test')->get();
     }
 }

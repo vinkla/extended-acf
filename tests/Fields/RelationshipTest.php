@@ -20,19 +20,19 @@ class RelationshipTest extends TestCase
 {
     public function testType()
     {
-        $field = Relationship::make('Relationship')->getSettings();
+        $field = Relationship::make('Relationship')->get();
         $this->assertSame('relationship', $field['type']);
     }
 
     public function testElements()
     {
-        $field = Relationship::make('Relationship Elements')->elements(['featured_image'])->getSettings();
+        $field = Relationship::make('Relationship Elements')->elements(['featured_image'])->get();
         $this->assertSame(['featured_image'], $field['elements']);
     }
 
     public function testFilters()
     {
-        $field = Relationship::make('Relationship Filters')->filters(['search'])->getSettings();
+        $field = Relationship::make('Relationship Filters')->filters(['search'])->get();
         $this->assertSame(['search'], $field['filters']);
     }
 }

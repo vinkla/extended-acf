@@ -20,13 +20,13 @@ class ColorPickerTest extends TestCase
 {
     public function testType()
     {
-        $field = ColorPicker::make('Color Picker')->getSettings();
+        $field = ColorPicker::make('Color Picker')->get();
         $this->assertSame('color_picker', $field['type']);
     }
 
     public function testEnableOpacity()
     {
-        $field = ColorPicker::make('Color Picker Enable Opacity')->enableOpacity()->getSettings();
+        $field = ColorPicker::make('Color Picker Enable Opacity')->enableOpacity()->get();
         $this->assertTrue($field['enable_opacity']);
     }
 }

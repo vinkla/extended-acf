@@ -21,64 +21,64 @@ class TextTest extends TestCase
 {
     public function testLabel()
     {
-        $field = Text::make('Name')->getSettings();
+        $field = Text::make('Name')->get();
         $this->assertSame('Name', $field['label']);
     }
 
     public function testName()
     {
-        $field = Text::make('Email')->getSettings();
+        $field = Text::make('Email')->get();
         $this->assertSame('email', $field['name']);
 
-        $field = Text::make('Category Tag', 'category_tag')->getSettings();
+        $field = Text::make('Category Tag', 'category_tag')->get();
         $this->assertSame('category_tag', $field['name']);
     }
 
     public function testKey()
     {
-        $field = Text::make('Phone')->getSettings();
+        $field = Text::make('Phone')->get();
         $this->assertSame('field_16217cde', $field['key']);
     }
 
     public function testType()
     {
-        $field = Text::make('Text')->getSettings();
+        $field = Text::make('Text')->get();
         $this->assertSame('text', $field['type']);
     }
 
     public function testReadOnly()
     {
-        $field = Text::make('Text Read Only')->readOnly()->getSettings();
+        $field = Text::make('Text Read Only')->readOnly()->get();
         $this->assertTrue($field['readonly']);
     }
 
     public function testRequired()
     {
-        $field = Text::make('Title')->required()->getSettings();
+        $field = Text::make('Title')->required()->get();
         $this->assertTrue($field['required']);
     }
 
     public function testDisabled()
     {
-        $field = Text::make('Text Disabled')->disabled()->getSettings();
+        $field = Text::make('Text Disabled')->disabled()->get();
         $this->assertTrue($field['disabled']);
     }
 
     public function testInstructions()
     {
-        $field = Text::make('Heading')->instructions('Add the text content')->getSettings();
+        $field = Text::make('Heading')->instructions('Add the text content')->get();
         $this->assertSame('Add the text content', $field['instructions']);
     }
 
     public function testPlaceholder()
     {
-        $field = Text::make('Placeholder')->placeholder('ACF')->getSettings();
+        $field = Text::make('Placeholder')->placeholder('ACF')->get();
         $this->assertSame('ACF', $field['placeholder']);
     }
 
     public function testWrapper()
     {
-        $field = Text::make('Status')->wrapper(['id' => 'status'])->getSettings();
+        $field = Text::make('Status')->wrapper(['id' => 'status'])->get();
         $this->assertSame(['id' => 'status'], $field['wrapper']);
     }
 
@@ -92,7 +92,7 @@ class TextTest extends TestCase
                 ConditionalLogic::if('title')->contains('ACF'),
             ]);
 
-        $field = $field->getSettings('group');
+        $field = $field->get('group');
 
         $this->assertSame('==empty', $field['conditional_logic'][0][0]['operator']);
         $this->assertSame('==contains', $field['conditional_logic'][1][0]['operator']);
@@ -100,13 +100,13 @@ class TextTest extends TestCase
 
     public function testPrepend()
     {
-        $field = Text::make('Prepend')->prepend('prefix')->getSettings();
+        $field = Text::make('Prepend')->prepend('prefix')->get();
         $this->assertSame('prefix', $field['prepend']);
     }
 
     public function testAppend()
     {
-        $field = Text::make('Append')->append('suffix')->getSettings();
+        $field = Text::make('Append')->append('suffix')->get();
         $this->assertSame('suffix', $field['append']);
     }
 }

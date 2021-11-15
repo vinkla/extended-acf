@@ -21,44 +21,44 @@ class GalleryTest extends TestCase
 {
     public function testType()
     {
-        $field = Gallery::make('Gallery')->getSettings();
+        $field = Gallery::make('Gallery')->get();
         $this->assertSame('gallery', $field['type']);
     }
 
     public function testInsert()
     {
-        $field = Gallery::make('Insert')->insert('prepend')->getSettings();
+        $field = Gallery::make('Insert')->insert('prepend')->get();
         $this->assertSame('prepend', $field['insert']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument insert [test]');
 
-        Gallery::make('Invalid Insert')->insert('test')->getSettings();
+        Gallery::make('Invalid Insert')->insert('test')->get();
     }
 
     public function testHeight()
     {
-        $field = Gallery::make('Height')->height(10, 20)->getSettings();
+        $field = Gallery::make('Height')->height(10, 20)->get();
         $this->assertSame(10, $field['min_height']);
         $this->assertSame(20, $field['max_height']);
 
-        $field = Gallery::make('Min Height')->height(30)->getSettings();
+        $field = Gallery::make('Min Height')->height(30)->get();
         $this->assertArrayNotHasKey('max_height', $field);
 
-        $field = Gallery::make('Max Height')->height(null, 40)->getSettings();
+        $field = Gallery::make('Max Height')->height(null, 40)->get();
         $this->assertArrayNotHasKey('min_height', $field);
     }
 
     public function testWidth()
     {
-        $field = Gallery::make('Width')->width(10, 20)->getSettings();
+        $field = Gallery::make('Width')->width(10, 20)->get();
         $this->assertSame(10, $field['min_width']);
         $this->assertSame(20, $field['max_width']);
 
-        $field = Gallery::make('Min Width')->width(30)->getSettings();
+        $field = Gallery::make('Min Width')->width(30)->get();
         $this->assertArrayNotHasKey('max_width', $field);
 
-        $field = Gallery::make('Max Width')->width(null, 40)->getSettings();
+        $field = Gallery::make('Max Width')->width(null, 40)->get();
         $this->assertArrayNotHasKey('min_width', $field);
     }
 }

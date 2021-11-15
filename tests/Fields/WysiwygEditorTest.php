@@ -21,36 +21,36 @@ class WysiwygEditorTest extends TestCase
 {
     public function testType()
     {
-        $field = WysiwygEditor::make('Wysiwyg Editor')->getSettings();
+        $field = WysiwygEditor::make('Wysiwyg Editor')->get();
         $this->assertSame('wysiwyg', $field['type']);
     }
 
     public function testDelay()
     {
-        $field = WysiwygEditor::make('Wysiwyg Editor Delay')->delay()->getSettings();
+        $field = WysiwygEditor::make('Wysiwyg Editor Delay')->delay()->get();
         $this->assertTrue($field['delay']);
     }
 
     public function testMediaUpload()
     {
-        $field = WysiwygEditor::make('Wysiwyg Editor Media Upload')->mediaUpload(false)->getSettings();
+        $field = WysiwygEditor::make('Wysiwyg Editor Media Upload')->mediaUpload(false)->get();
         $this->assertFalse($field['media_upload']);
     }
 
     public function testTabs()
     {
-        $field = WysiwygEditor::make('Wysiwyg Editor Tabs')->tabs('visual')->getSettings();
+        $field = WysiwygEditor::make('Wysiwyg Editor Tabs')->tabs('visual')->get();
         $this->assertSame('visual', $field['tabs']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument tabs [test].');
 
-        $field = WysiwygEditor::make('Wysiwyg Editor Invalid Tabs')->tabs('test')->getSettings();
+        $field = WysiwygEditor::make('Wysiwyg Editor Invalid Tabs')->tabs('test')->get();
     }
 
     public function testToolbar()
     {
-        $field = WysiwygEditor::make('Wysiwyg Editor Toolbar')->toolbar('basic')->getSettings();
+        $field = WysiwygEditor::make('Wysiwyg Editor Toolbar')->toolbar('basic')->get();
         $this->assertSame('basic', $field['toolbar']);
     }
 }

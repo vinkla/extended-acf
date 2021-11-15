@@ -20,20 +20,20 @@ class GoogleMapTest extends TestCase
 {
     public function testType()
     {
-        $field = GoogleMap::make('Google Map')->getSettings();
+        $field = GoogleMap::make('Google Map')->get();
         $this->assertSame('google_map', $field['type']);
     }
 
     public function testCenter()
     {
-        $field = GoogleMap::make('Google Map Center')->center(11.11, 22.22)->getSettings();
+        $field = GoogleMap::make('Google Map Center')->center(11.11, 22.22)->get();
         $this->assertSame(11.11, $field['center_lat']);
         $this->assertSame(22.22, $field['center_lng']);
     }
 
     public function testZoom()
     {
-        $field = GoogleMap::make('Google Map Zoom')->zoom(14)->getSettings();
+        $field = GoogleMap::make('Google Map Zoom')->zoom(14)->get();
         $this->assertSame(14, $field['zoom']);
     }
 }

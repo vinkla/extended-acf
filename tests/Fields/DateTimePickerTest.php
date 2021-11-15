@@ -20,7 +20,7 @@ class DateTimePickerTest extends TestCase
 {
     public function testType()
     {
-        $field = DateTimePicker::make('Date Time Picker')->getSettings();
+        $field = DateTimePicker::make('Date Time Picker')->get();
         $this->assertSame('date_time_picker', $field['type']);
     }
 }

@@ -31,20 +31,20 @@ class FieldGroupTest extends TestCase
             'location' => [],
         ]);
 
-        $fields = $fieldGroup->getSettings()['fields'];
+        $fields = $fieldGroup->get()['fields'];
         $this->assertArrayHasKey('key', $fields[0]);
     }
 
     public function testKey()
     {
         $fieldGroup = new FieldGroup(['title' => 'Apartment', 'fields' => [], 'location' => []]);
-        $this->assertSame('group_b1c2ce91', $fieldGroup->getSettings()['key']);
+        $this->assertSame('group_b1c2ce91', $fieldGroup->get()['key']);
     }
 
     public function testCustomKey()
     {
         $fieldGroup = new FieldGroup(['key' => 'house', 'title' => 'Apartment', 'fields' => [], 'location' => []]);
-        $this->assertSame('group_0cfb455b', $fieldGroup->getSettings()['key']);
+        $this->assertSame('group_0cfb455b', $fieldGroup->get()['key']);
     }
 
     public function testLocation()
@@ -57,17 +57,17 @@ class FieldGroupTest extends TestCase
             ],
         ]);
 
-        $location = $fieldGroup->getSettings()['location'];
+        $location = $fieldGroup->get()['location'];
         $this->assertArrayHasKey('param', $location[0][0]);
     }
 
     public function testStyle()
     {
         $fieldGroup = new FieldGroup(['title' => 'Employee', 'fields' => [], 'location' => []]);
-        $this->assertSame('seamless', $fieldGroup->getSettings()['style']);
+        $this->assertSame('seamless', $fieldGroup->get()['style']);
 
         $fieldGroup = new FieldGroup(['title' => 'Student', 'fields' => [], 'location' => [], 'style' => 'default']);
-        $this->assertSame('default', $fieldGroup->getSettings()['style']);
+        $this->assertSame('default', $fieldGroup->get()['style']);
     }
 
     public function testRequiredKeys()

@@ -29,15 +29,15 @@ class FieldGroup
     }
 
     /** @internal */
-    public function getSettings(): array
+    public function get(): array
     {
         $key = Key::sanitize($this->settings['key'] ?? $this->settings['title']);
 
         $this->settings['style'] = $this->settings['style'] ?? 'seamless';
 
-        $this->settings['fields'] = array_map(fn ($field) => $field->getSettings($key), $this->settings['fields']);
+        $this->settings['fields'] = array_map(fn ($field) => $field->get($key), $this->settings['fields']);
 
-        $this->settings['location'] = array_map(fn ($location) => $location->getSettings(), $this->settings['location']);
+        $this->settings['location'] = array_map(fn ($location) => $location->get(), $this->settings['location']);
 
         $this->settings['key'] = Key::generate($key, 'group');
 

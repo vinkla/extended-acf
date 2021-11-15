@@ -20,7 +20,7 @@ class PasswordTest extends TestCase
 {
     public function testType()
     {
-        $field = Password::make('Password')->getSettings();
+        $field = Password::make('Password')->get();
         $this->assertSame('password', $field['type']);
     }
 }

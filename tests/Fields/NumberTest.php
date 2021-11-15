@@ -20,19 +20,19 @@ class NumberTest extends TestCase
 {
     public function testType()
     {
-        $field = Number::make('Number')->getSettings();
+        $field = Number::make('Number')->get();
         $this->assertSame('number', $field['type']);
     }
 
     public function testMax()
     {
-        $field = Number::make('Max')->max(10)->getSettings();
+        $field = Number::make('Max')->max(10)->get();
         $this->assertSame(10, $field['max']);
     }
 
     public function testMin()
     {
-        $field = Number::make('Min')->min(5)->getSettings();
+        $field = Number::make('Min')->min(5)->get();
         $this->assertSame(5, $field['min']);
     }
 }

@@ -20,13 +20,13 @@ class TrueFalseTest extends TestCase
 {
     public function testType()
     {
-        $field = TrueFalse::make('True False')->getSettings();
+        $field = TrueFalse::make('True False')->get();
         $this->assertSame('true_false', $field['type']);
     }
 
     public function testStylisedUi()
     {
-        $field = TrueFalse::make('UI')->stylisedUi('Wax on', 'Wax off')->getSettings();
+        $field = TrueFalse::make('UI')->stylisedUi('Wax on', 'Wax off')->get();
         $this->assertTrue($field['ui']);
         $this->assertEquals($field['ui_on_text'], 'Wax on');
         $this->assertEquals($field['ui_off_text'], 'Wax off');

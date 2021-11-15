@@ -20,7 +20,7 @@ class LayoutTest extends TestCase
 {
     public function testDisplay()
     {
-        $layout = Layout::make('Layout')->layout('block')->getSettings();
+        $layout = Layout::make('Layout')->layout('block')->get();
         $this->assertSame('block', $layout['display']);
     }
 }

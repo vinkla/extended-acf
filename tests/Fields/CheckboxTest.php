@@ -21,13 +21,13 @@ class CheckboxTest extends TestCase
 {
     public function testType()
     {
-        $field = Checkbox::make('Checkbox')->getSettings();
+        $field = Checkbox::make('Checkbox')->get();
         $this->assertSame('checkbox', $field['type']);
     }
 
     public function testLayout()
     {
-        $field = Checkbox::make('Checkbox Layout')->layout('horizontal')->getSettings();
+        $field = Checkbox::make('Checkbox Layout')->layout('horizontal')->get();
         $this->assertSame('horizontal', $field['layout']);
 
         $this->expectException(InvalidArgumentException::class);

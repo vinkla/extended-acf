@@ -20,7 +20,7 @@ class EmailTest extends TestCase
 {
     public function testType()
     {
-        $field = Email::make('Email Address')->getSettings();
+        $field = Email::make('Email Address')->get();
         $this->assertSame('email', $field['type']);
     }
 }

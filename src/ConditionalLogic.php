@@ -92,7 +92,7 @@ class ConditionalLogic
     }
 
     /** @internal */
-    public function getSettings(string|null $parentKey = null): array
+    public function get(string|null $parentKey = null): array
     {
         $parentKey = Key::resolveParentKey($parentKey, Key::sanitize($this->name));
 

@@ -22,7 +22,7 @@ class GroupTest extends TestCase
 {
     public function testType()
     {
-        $field = Group::make('Group')->getSettings();
+        $field = Group::make('Group')->get();
         $this->assertSame('group', $field['type']);
     }
 
@@ -32,19 +32,19 @@ class GroupTest extends TestCase
             ->fields([
                 Text::make('Title'),
             ])
-            ->getSettings();
+            ->get();
 
         $this->assertSame('Title', $field['sub_fields'][0]['label']);
     }
 
     public function testLayout()
     {
-        $field = Group::make('Group Layout')->layout('block')->getSettings();
+        $field = Group::make('Group Layout')->layout('block')->get();
         $this->assertSame('block', $field['layout']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument layout [test].');
 
-        Group::make('Invalid Group Layout')->layout('test')->getSettings();
+        Group::make('Invalid Group Layout')->layout('test')->get();
     }
 }

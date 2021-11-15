@@ -20,7 +20,7 @@ class TimePickerTest extends TestCase
 {
     public function testType()
     {
-        $field = TimePicker::make('Time Picker')->getSettings();
+        $field = TimePicker::make('Time Picker')->get();
         $this->assertSame('time_picker', $field['type']);
     }
 }
