@@ -24,7 +24,7 @@ class Location
     }
 
     /** @param string $param post_type, post_template, post_status, post_format, post_category, post_taxonomy, post, page_template, page_type, page_parent, page, current_user, current_user_role, user_form, user_role, taxonomy, attachment, comment, widget, nav_menu, nav_menu, nav_menu_item, block or options_page */
-    public static function if(string $param, string $operator, string|null $value = null): static
+    public static function where(string $param, string $operator, string|null $value = null): static
     {
         if (func_num_args() === 2) {
             $value = $operator;
@@ -48,7 +48,7 @@ class Location
     }
 
     /** @internal */
-    public function toArray(): array
+    public function get(): array
     {
         return $this->rules;
     }

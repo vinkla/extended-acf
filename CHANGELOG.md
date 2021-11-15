@@ -2,9 +2,10 @@
 
 ## Next
 
+- Removed `field` and `option` helper functions
+- Updated location method `if` to `where`
 - Updated minimum PHP version to 8.0
 - Updated type hints and return types
-- Removed `field` and `option` helper functions
 
 ## 11.2.0
 

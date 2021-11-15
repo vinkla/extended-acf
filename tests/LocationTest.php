@@ -18,7 +18,7 @@ use WordPlate\Acf\Location;
 
 class LocationTest extends TestCase
 {
-    public function testIf()
+    public function testWhere()
     {
         $location = [
             [
@@ -28,8 +28,8 @@ class LocationTest extends TestCase
             ],
         ];
 
-        $this->assertSame($location, Location::if('post_type', 'post')->toArray());
-        $this->assertSame($location, Location::if('post_type', '==', 'post')->toArray());
+        $this->assertSame($location, Location::where('post_type', 'post')->get());
+        $this->assertSame($location, Location::where('post_type', '==', 'post')->get());
     }
 
     public function testAnd()
@@ -47,6 +47,6 @@ class LocationTest extends TestCase
             ],
         ];
 
-        $this->assertSame($location, Location::if('post_type', 'post')->and('post_type', 'employee')->toArray());
+        $this->assertSame($location, Location::where('post_type', 'post')->and('post_type', 'employee')->get());
     }
 }

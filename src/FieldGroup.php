@@ -37,7 +37,7 @@ class FieldGroup
 
         $this->settings['fields'] = array_map(fn ($field) => $field->getSettings($key), $this->settings['fields']);
 
-        $this->settings['location'] = array_map(fn ($location) => $location->toArray(), $this->settings['location']);
+        $this->settings['location'] = array_map(fn ($location) => $location->getSettings(), $this->settings['location']);
 
         $this->settings['key'] = Key::generate($key, 'group');
 

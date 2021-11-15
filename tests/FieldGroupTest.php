@@ -53,7 +53,7 @@ class FieldGroupTest extends TestCase
             'title' => 'Plant',
             'fields' => [],
             'location' => [
-                Location::if('post_type', 'page'),
+                Location::where('post_type', 'page'),
             ],
         ]);
 
