@@ -2,13 +2,15 @@
 
 ## Next
 
-- Updated `toArray` method to `get` 
-- Updated conditional logic methods
-- Updated location method `if` to `where`
 - Updated minimum PHP version to 8.0
 - Updated type hints and return types
+- Renamed `Attributes` namespace to `Settings`
+- Renamed `toArray` method to `get` 
+- Renamed conditional logic method `if` to `where`
+- Renamed location method `if` to `where`
 - Removed `field` and `option` helper functions
 - Removed `setParentKey` methods
+- Removed conditional logic comparison methods
 - Removed configuration class
 
 ## 11.2.0
