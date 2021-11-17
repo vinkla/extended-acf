@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 12.0.1
+
+- Removed field group class
+
 ## 12.0.0
 
 - Updated minimum PHP version to 8.0

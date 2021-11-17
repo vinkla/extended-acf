@@ -44,7 +44,7 @@ class ConditionalLogicTest extends TestCase
 
     public function testResolvedParentKey()
     {
-        $fieldGroup = new FieldGroup([
+        $settings = register_extended_field_group([
             'title' => 'Resolved Parent Key',
             'fields' => [
                 Select::make('Select')
@@ -63,11 +63,9 @@ class ConditionalLogicTest extends TestCase
             'location' => []
         ]);
 
-        $config = $fieldGroup->get();
-
         $this->assertSame(
-            $config['fields'][0]['key'],
-            $config['fields'][1]['sub_fields'][0]['conditional_logic'][0][0]['field']
+            $settings['fields'][0]['key'],
+            $settings['fields'][1]['sub_fields'][0]['conditional_logic'][0][0]['field']
         );
     }
 }

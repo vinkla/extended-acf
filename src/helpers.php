@@ -11,14 +11,32 @@
 
 declare(strict_types=1);
 
-use WordPlate\Acf\FieldGroup;
+use WordPlate\Acf\Key;
 
 if (!function_exists('register_extended_field_group')) {
-    /** Register ACF field group. */
-    function register_extended_field_group(array $config): void
+    /** @throws \InvalidArgumentException */
+    function register_extended_field_group(array $settings): array
     {
-        $fieldGroup = new FieldGroup($config);
+        $requiredKeys = ['title', 'fields', 'location'];
 
-        register_field_group($fieldGroup->get());
+        foreach ($requiredKeys as $key) {
+            if (!array_key_exists($key, $settings)) {
+                throw new InvalidArgumentException("Missing field group setting [$key].");
+            }
+        }
+
+        $key = Key::sanitize($settings['key'] ?? $settings['title']);
+
+        $settings['style'] = $settings['style'] ?? 'seamless';
+
+        $settings['fields'] = array_map(fn ($field) => $field->get($key), $settings['fields']);
+
+        $settings['location'] = array_map(fn ($location) => $location->get(), $settings['location']);
+
+        $settings['key'] = Key::generate($key, 'group');
+
+        register_field_group($settings);
+
+        return $settings;
     }
 }

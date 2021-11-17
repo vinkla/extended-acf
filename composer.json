@@ -32,7 +32,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "12-dev"
+            "dev-master": "12.1-dev"
         }
     },
     "autoload": {
