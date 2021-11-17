@@ -44,6 +44,6 @@ register_extended_field_group([
             ->required(),
     ],
     'location' => [
-        Location::if('post_type', 'faq'),
+        Location::where('post_type', 'faq'),
     ],
 ]);

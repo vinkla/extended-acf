@@ -21,6 +21,6 @@ register_extended_field_group([
             ->returnFormat('object')
     ],
     'location' => [
-        Location::if('block', 'acf/employee')
+        Location::where('block', 'acf/employee')
     ],
 ]);

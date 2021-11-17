@@ -29,6 +29,6 @@ register_extended_field_group([
             ->required(),
     ],
     'location' => [
-        Location::if('options_page', 'cookie'),
+        Location::where('options_page', 'cookie'),
     ],
 ]);

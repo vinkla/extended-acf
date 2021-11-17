@@ -17,6 +17,6 @@ register_extended_field_group([
             ->instructions('Add the employee phone number.'),
     ],
     'location' => [
-        Location::if('post_type', 'employee'),
+        Location::where('post_type', 'employee'),
     ],
 ]);

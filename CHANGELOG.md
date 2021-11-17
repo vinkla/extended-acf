@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Next
+## 12.0.0
 
 - Updated minimum PHP version to 8.0
 - Updated type hints and return types

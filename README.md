@@ -26,7 +26,7 @@ Require this package, with Composer, in the root directory of your project.
 composer require wordplate/acf
 ```
 
-Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin. Please note that you'll need the latest version of ACF in order to use all features in this package.
+Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin.
 
 #### Installing ACF Pro with Composer (optional)
 
@@ -66,7 +66,7 @@ add_action('acf/init', function() {
             Text::make('Title'),
         ],
         'location' => [
-            Location::if('post_type', 'page')
+            Location::where('post_type', 'page')
         ],
     ]);
 });
@@ -90,8 +90,6 @@ Text::make('Title', 'heading')
     ->instructions('Add the text value')
     ->required();
 ```
-
-Further down this page you'll find a list of available field types. Setting such as `wrapper`, `append` and `prepend` are supported on almost all fields but not listed in the documentation below. [Visit the official documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#field-settings) to read more about field settings.
 
 ### Basic Fields
 
@@ -250,7 +248,7 @@ use WordPlate\Acf\Fields\TrueFalse;
 TrueFalse::make('Social Media', 'display-social-media')
     ->instructions('Select whether to display social media links or not.')
     ->defaultValue(false)
-    ->stylisedUi() // optinal on and off text labels
+    ->stylisedUi() // optional on and off text labels
     ->required();
 ```
 
@@ -414,24 +412,25 @@ Accordion::make('Endpoint')
 
 **Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields or groups. This field doesn't have a custom field class. Instead create a new file with your field and import it using `require` where you need it.
 
-- `occupation.php`
+`occupation.php`
 
-  ```php
-  use WordPlate\Acf\Fields\Text;
+```php
+use WordPlate\Acf\Fields\Text;
 
-  return Text::make('Occupation')
-      ->instructions('Add the employees occupation.')
-      ->required();
-  ```
-- `employee.php`
+return Text::make('Occupation')
+    ->instructions('Add the employees occupation.')
+    ->required();
+```
 
-  ```php
-  register_extended_field_group([
-      'fields' => [
-          require __DIR__.'/fields/occupation.php';
-      ]
-  ]);
-  ```
+`employee.php`
+
+```php
+register_extended_field_group([
+    'fields' => [
+        require __DIR__.'/fields/occupation.php';
+    ]
+]);
+```
 
 **Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
 ```php
@@ -598,22 +597,22 @@ User::make('User')
     ])
     ->returnFormat('array'); // id, object or array (default)
 
-// Available roles are administrator, author, subscriber, contributor and editor. Deafult is no filter.
+// Available roles are administrator, author, subscriber, contributor and editor. Default is no filter.
 ```
 
 ## Location
 
-The location class let you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys. If no `operator` is given it will use the `operator` as the `key`.
+The location class let you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys. If no `operator` is given it will use the `operator` as the `value`.
 
 ```php
 use WordPlate\Acf\Location;
 
-Location::if('post_type', 'post')->and('post_type', '!=', 'post');
+Location::where('post_type', 'post')->and('post_type', '!=', 'post');
 ```
 
 ## Conditional Logic
 
-The conditional class help you write conditional logic [without knowing](https://media.giphy.com/media/SbtWGvMSmJIaV8faS8/source.gif) the fields `key` value.
+The conditional class help you write conditional logic [without knowing](https://media.giphy.com/media/SbtWGvMSmJIaV8faS8/source.gif) the field keys.
 
 ```php
 use WordPlate\Acf\ConditionalLogic;
@@ -628,17 +627,17 @@ Select::make('Type')
     ]),
 File::make('Document', 'file')
     ->conditionalLogic([
-        ConditionalLogic::if('type')->equals('document')
+        ConditionalLogic::where('type', '==', 'document') // available operators are ==, !=, >, < ==pattern, ==contains, ==empty, !=empty
     ]),
 Url::make('Link', 'url')
     ->conditionalLogic([
-        ConditionalLogic::if('type')->equals('link')
+        ConditionalLogic::where('type', '==', 'link')
     ]),
 ```
 
 ## Custom Configuration
 
-If your application use third-party plugins which extend the default fields, you can extend the field classes in this package. Lets say you've want to add a configuration key to the select field. Create a new class which extends the base `WordPlate\Acf\Fields\Select` class:
+If you want to add custom settings to the fields, you can extend the field classes available in this library.
 
 ```php
 namespace App\Fields;
@@ -658,14 +657,14 @@ class Select extends Field
 
 ## Custom Fields
 
-If your application use fields which isn't a default field in ACF, you may extend and create custom field classes. Lets say you've a field for Open Street Map. Create a new class which extends the base `WordPlate\Acf\Fields\Field` class:
+If you want to create custom field classes you may extend the [base field class](src/Fields/Field.php). You may also import [available setting traits](src/Fields/Settings) in order to add common methods such as `required()` and `intstructions()`.
 
 ```php
 namespace App\Fields;
 
 use WordPlate\Acf\Fields\Field;
-use WordPlate\Acf\Fields\Attributes\Instructions;
-use WordPlate\Acf\Fields\Attributes\Required;
+use WordPlate\Acf\Fields\Settings\Instructions;
+use WordPlate\Acf\Fields\Settings\Required;
 
 class OpenStreetMap extends Field
 {
@@ -673,12 +672,31 @@ class OpenStreetMap extends Field
     use Required;
 
     protected $type = 'open_street_map';
+
+    public function latitude(float $latitude): static
+    {
+        $this->settings['latitude'] = $latitude;
+
+        return $this;
+    }
+    
+    public function longitude(float $longitude): static
+    {
+        $this->settings['longitude'] = $longitude;
+
+        return $this;
+    }
+    
+    public function zoom(float $zoom): static
+    {
+        $this->settings['zoom'] = $zoom;
+
+        return $this;
+    }
 }
 ```
 
-Notice that we've imported traits which include the `required()` and `instructions()` methods. We've also added the `$type` property in order to let ACF know which field we're working with. You may now add any additional methods to this class which you will need such as `latitude()`, `longitude()`, `zoom()`, etc.
-
-When you're ready you can import use it like any other field included in this package:
+When you're ready you can import use your field like any other field available in this library:
 
 ```php
 use App\Fields\OpenStreetMap;
