@@ -627,7 +627,7 @@ Select::make('Type')
     ]),
 File::make('Document', 'file')
     ->conditionalLogic([
-        ConditionalLogic::where('type', '==', 'document') // available operators are ==, !=, >, < ==pattern, ==contains, ==empty, !=empty
+        ConditionalLogic::where('type', '==', 'document') // available operators are ==, !=, >, <, ==pattern, ==contains, ==empty, !=empty
     ]),
 Url::make('Link', 'url')
     ->conditionalLogic([
