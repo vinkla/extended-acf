@@ -16,6 +16,7 @@
 - Removed `setParentKey` methods
 - Removed conditional logic comparison methods
 - Removed configuration class
+- Removed field group class
 
 ## 11.2.0
 
