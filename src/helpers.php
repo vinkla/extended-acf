@@ -27,7 +27,7 @@ if (!function_exists('register_extended_field_group')) {
 
         $key = Key::sanitize($settings['key'] ?? $settings['title']);
 
-        $settings['style'] = $settings['style'] ?? 'seamless';
+        $settings['style'] ??= 'seamless';
 
         $settings['fields'] = array_map(fn ($field) => $field->get($key), $settings['fields']);
 
