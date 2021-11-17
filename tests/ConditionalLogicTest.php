@@ -16,7 +16,6 @@ namespace WordPlate\Tests\Acf;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Acf\ConditionalLogic;
-use WordPlate\Acf\FieldGroup;
 use WordPlate\Acf\Fields\Repeater;
 use WordPlate\Acf\Fields\Select;
 use WordPlate\Acf\Fields\Text;
