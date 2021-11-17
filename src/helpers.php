@@ -20,7 +20,7 @@ if (!function_exists('register_extended_field_group')) {
         $requiredKeys = ['title', 'fields', 'location'];
 
         foreach ($requiredKeys as $key) {
-            if (!array_key_exists($key, $settings)) {
+            if (array_key_exists($key, $settings) === false) {
                 throw new InvalidArgumentException("Missing field group setting [$key].");
             }
         }
