@@ -20,7 +20,7 @@ use WordPlate\Acf\Fields\Settings\Disabled;
 use WordPlate\Acf\Fields\Settings\Instructions;
 use WordPlate\Acf\Fields\Settings\Pending;
 use WordPlate\Acf\Fields\Settings\Placeholder;
-use WordPlate\Acf\Fields\Settings\ReadOnly;
+use WordPlate\Acf\Fields\Settings\Writable;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\Wrapper;
 
@@ -33,9 +33,9 @@ class Text extends Field
     use Instructions;
     use Pending;
     use Placeholder;
-    use ReadOnly;
     use Required;
     use Wrapper;
+    use Writable;
 
     protected string|null $type = 'text';
 }

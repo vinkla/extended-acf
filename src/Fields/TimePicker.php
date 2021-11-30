@@ -17,7 +17,7 @@ use WordPlate\Acf\Fields\Settings\ConditionalLogic;
 use WordPlate\Acf\Fields\Settings\DateTimeFormat;
 use WordPlate\Acf\Fields\Settings\Disabled;
 use WordPlate\Acf\Fields\Settings\Instructions;
-use WordPlate\Acf\Fields\Settings\ReadOnly;
+use WordPlate\Acf\Fields\Settings\Writable;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\Wrapper;
 
@@ -27,9 +27,9 @@ class TimePicker extends Field
     use Disabled;
     use DateTimeFormat;
     use Instructions;
-    use ReadOnly;
     use Required;
     use Wrapper;
+    use Writable;
 
     protected string|null $type = 'time_picker';
 }

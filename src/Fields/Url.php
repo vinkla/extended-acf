@@ -18,7 +18,7 @@ use WordPlate\Acf\Fields\Settings\DefaultValue;
 use WordPlate\Acf\Fields\Settings\Disabled;
 use WordPlate\Acf\Fields\Settings\Instructions;
 use WordPlate\Acf\Fields\Settings\Placeholder;
-use WordPlate\Acf\Fields\Settings\ReadOnly;
+use WordPlate\Acf\Fields\Settings\Writable;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\Wrapper;
 
@@ -29,9 +29,9 @@ class Url extends Field
     use Disabled;
     use Instructions;
     use Placeholder;
-    use ReadOnly;
     use Required;
     use Wrapper;
+    use Writable;
 
     protected string|null $type = 'url';
 }

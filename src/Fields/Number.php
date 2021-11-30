@@ -20,7 +20,7 @@ use WordPlate\Acf\Fields\Settings\Instructions;
 use WordPlate\Acf\Fields\Settings\MinMax;
 use WordPlate\Acf\Fields\Settings\Pending;
 use WordPlate\Acf\Fields\Settings\Placeholder;
-use WordPlate\Acf\Fields\Settings\ReadOnly;
+use WordPlate\Acf\Fields\Settings\Writable;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\Step;
 use WordPlate\Acf\Fields\Settings\Wrapper;
@@ -35,9 +35,9 @@ class Number extends Field
     use Pending;
     use Placeholder;
     use Step;
-    use ReadOnly;
     use Required;
     use Wrapper;
+    use Writable;
 
     protected string|null $type = 'number';
 }

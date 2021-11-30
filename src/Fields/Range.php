@@ -19,6 +19,7 @@ use WordPlate\Acf\Fields\Settings\Disabled;
 use WordPlate\Acf\Fields\Settings\Instructions;
 use WordPlate\Acf\Fields\Settings\MinMax;
 use WordPlate\Acf\Fields\Settings\Pending;
+use WordPlate\Acf\Fields\Settings\Writable;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\Step;
 use WordPlate\Acf\Fields\Settings\Wrapper;
@@ -34,6 +35,7 @@ class Range extends Field
     use Pending;
     use Required;
     use Wrapper;
+    use Writable;
 
     protected string|null $type = 'range';
 }

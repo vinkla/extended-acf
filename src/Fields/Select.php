@@ -20,6 +20,7 @@ use WordPlate\Acf\Fields\Settings\Disabled;
 use WordPlate\Acf\Fields\Settings\Instructions;
 use WordPlate\Acf\Fields\Settings\Multiple;
 use WordPlate\Acf\Fields\Settings\Nullable;
+use WordPlate\Acf\Fields\Settings\Writable;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\ReturnFormat;
 use WordPlate\Acf\Fields\Settings\Wrapper;
@@ -36,6 +37,7 @@ class Select extends Field
     use Required;
     use ReturnFormat;
     use Wrapper;
+    use Writable;
 
     protected string|null $type = 'select';
 

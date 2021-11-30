@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Settings;
 
-trait ReadOnly
+trait Writable
 {
     public function readOnly(): static
     {
