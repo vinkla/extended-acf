@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 12.0.2
+
+- Renamed reserved word `ReadOnly` to `Writable`
+
 ## 12.0.1
 
 - Removed field group class
