@@ -17,7 +17,7 @@ use WordPlate\Acf\Fields\Settings\ConditionalLogic;
 use WordPlate\Acf\Fields\Settings\DateTimeFormat;
 use WordPlate\Acf\Fields\Settings\Disabled;
 use WordPlate\Acf\Fields\Settings\Instructions;
-use WordPlate\Acf\Fields\Settings\ReadOnly;
+use WordPlate\Acf\Fields\Settings\Writable;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\WeekDay;
 use WordPlate\Acf\Fields\Settings\Wrapper;
@@ -28,10 +28,10 @@ class DateTimePicker extends Field
     use DateTimeFormat;
     use Disabled;
     use Instructions;
-    use ReadOnly;
     use Required;
     use WeekDay;
     use Wrapper;
+    use Writable;
 
     protected string|null $type = 'date_time_picker';
 }
