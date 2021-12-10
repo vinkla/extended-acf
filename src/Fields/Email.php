@@ -21,6 +21,7 @@ use WordPlate\Acf\Fields\Settings\Placeholder;
 use WordPlate\Acf\Fields\Settings\Writable;
 use WordPlate\Acf\Fields\Settings\Required;
 use WordPlate\Acf\Fields\Settings\Wrapper;
+use WordPlate\Acf\Fields\Settings\DefaultValue;
 
 class Email extends Field
 {
@@ -32,6 +33,7 @@ class Email extends Field
     use Required;
     use Wrapper;
     use Writable;
+    use DefaultValue;
 
     protected string|null $type = 'email';
 }
