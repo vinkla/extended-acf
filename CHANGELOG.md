@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 12.0.3
+
+- Added default value to email field
+
 ## 12.0.2
 
 - Renamed reserved word `ReadOnly` to `Writable`
