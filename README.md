@@ -610,6 +610,8 @@ use WordPlate\Acf\Location;
 Location::where('post_type', 'post')->and('post_type', '!=', 'post');
 ```
 
+> **Note:** The `if` method changed name in version 12 to `where`.
+
 ## Conditional Logic
 
 The conditional class help you write conditional logic [without knowing](https://media.giphy.com/media/SbtWGvMSmJIaV8faS8/source.gif) the field keys.
