@@ -39,9 +39,9 @@ If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with 
         "package": {
             "name": "wpackagist-plugin/advanced-custom-fields-pro",
             "type": "wordpress-plugin",
-            "version": "5.11",
+            "version": "5.12",
             "dist": {
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=YOUR-ACF-KEY&t=5.11",
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=YOUR-ACF-KEY&t=5.12",
                 "type": "zip"
             }
         }
@@ -245,7 +245,7 @@ Select::make('Color')
 ```php
 use WordPlate\Acf\Fields\TrueFalse;
 
-TrueFalse::make('Social Media', 'display-social-media')
+TrueFalse::make('Social Media', 'display_social_media')
     ->instructions('Select whether to display social media links or not.')
     ->defaultValue(false)
     ->stylisedUi() // optional on and off text labels
@@ -438,7 +438,7 @@ use WordPlate\Acf\Fields\FlexibleContent;
 use WordPlate\Acf\Fields\Layout;
 use WordPlate\Acf\Fields\Text;
 
-FlexibleContent::make('Components', 'page-components')
+FlexibleContent::make('Components', 'page_components')
     ->instructions('Add the employees occupation.')
     ->buttonLabel('Add a page component')
     ->layouts([
