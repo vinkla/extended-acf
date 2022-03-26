@@ -28,6 +28,7 @@ composer require wordplate/acf
 
 Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin.
 
+
 #### Installing ACF Pro with Composer (optional)
 
 If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer, you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `YOUR-ACF-KEY` with your license key and run `composer install`.
@@ -47,6 +48,40 @@ If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with 
         }
     }
 ]
+```
+##### Using private-composer-installer
+
+If you want to keep your ACF key hidden from your composer.json file, you may use the [private-composer-installer](https://github.com/ffraenz/private-composer-installer#wordpress-plugins) Composer plugin.
+
+Add key to your .env file:
+```env
+ACF_KEY=YOUR_KEY_HERE
+```
+
+Update your composer.json:
+```json
+"require": {
+    ...
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.0.0"
+},
+"repositories": [
+    ...
+    {
+    "type": "package",
+        "package": {
+            "name": "advanced-custom-fields/advanced-custom-fields-pro",
+            "version": "5.7.12",
+            "type": "wordpress-plugin",
+            "dist": {
+               "type": "zip",
+                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_KEY}&t={%version}"
+            },
+            "require": {
+                "ffraenz/private-composer-installer": "^5.0"
+            }
+        }
+    }
+],
 ```
 
 ## Usage
