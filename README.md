@@ -50,7 +50,7 @@ If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with 
 ]
 ```
 
-Optionally, if you want to keep your ACF key hidden from your `composer.json` file, you may use the [private-composer-installer](https://github.com/ffraenz/private-composer-installer#wordpress-plugins) Composer plugin.
+Optionally, if you want to keep your ACF key hidden from your `composer.json` file, you may use the [private-composer-installer](https://github.com/ffraenz/private-composer-installer#wordpress-plugins) plugin.
 
 ## Usage
 
