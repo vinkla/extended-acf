@@ -75,6 +75,10 @@ add_action('acf/init', function() {
 });
 ```
 
+> **Note:** If you are running PHP 7.4 or less, Composer will install Extended ACF v11, and the above snippet will trigger an `Uncaught Error: Call to undefined method WordPlate\Acf\Location::where()` error, because v11 uses a different syntax for Location. Replace `Location::where` with `Location::if` and you're good to go.
+
+## Settings
+
 Visit the official [ACF documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings) to read more about the field group settings. Find more examples in the examples directory:
 
 - [Register custom post type](examples/custom-post-type.php)
