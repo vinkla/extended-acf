@@ -1,5 +1,11 @@
 ![Extended ACF](https://user-images.githubusercontent.com/499192/34915298-1782a500-f924-11e7-85a7-dc7de6aacc14.png)
 
+> :warning: **This package has been renamed to** `vinkla/extended-acf` in version 13. Update your `composer.json` file to use the name.
+
+> :warning: **The namespace has changed to** `Extended\ACF`. Update your project field groups to use the new namespace.
+
+> The functionality is intact and the logic hasn't changed.
+
 # Extended ACF
 
 > Register [advanced custom fields](https://www.advancedcustomfields.com) with object oriented PHP.
@@ -7,7 +13,7 @@
 Extended ACF provides an object oriented API to register groups and fields with ACF. If you register fields in your theme, you can safely rely on version control when working with other developers. Oh, and you don't have to worry about unique field keys.
 
 [![Build Status](https://badgen.net/github/checks/vinkla/extended-acf?label=build&icon=github)](https://github.com/vinkla/extended-acf/actions)
-[![Monthly Downloads](https://badgen.net/packagist/dm/vinkla/extended-acf)](https://packagist.org/packages/vinkla/extended-acf/stats)
+[![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/vinkla/extended-acf/stats)
 [![Latest Version](https://badgen.net/packagist/v/vinkla/extended-acf)](https://packagist.org/packages/vinkla/extended-acf)
 
 - [Installation](#installation)
