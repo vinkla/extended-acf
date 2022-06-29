@@ -1,4 +1,4 @@
-> :warning: This package **has been renamed** to `vinkla/extended-acf` in version 13.
+> :warning: This package **has been renamed** to `vinkla/extended-acf` since version 13.
 
 > :warning: The **namespace has changed** to `Extended\ACF`.
 
