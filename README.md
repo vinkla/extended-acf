@@ -1,10 +1,11 @@
-![Extended ACF](https://user-images.githubusercontent.com/499192/34915298-1782a500-f924-11e7-85a7-dc7de6aacc14.png)
-
 > :warning: **This package has been renamed to** `vinkla/extended-acf` in version 13. Update your `composer.json` file to use the name.
 
 > :warning: **The namespace has changed to** `Extended\ACF`. Update your project field groups to use the new namespace.
 
-> The functionality is intact and the logic hasn't changed.
+> :warning: The package works as before and **nothing else has changed**.
+
+![Extended ACF](https://user-images.githubusercontent.com/499192/34915298-1782a500-f924-11e7-85a7-dc7de6aacc14.png)
+
 
 # Extended ACF
 
