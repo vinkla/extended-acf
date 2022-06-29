@@ -6,21 +6,21 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @see https://github.com/wordplate/extended-acf
+ * @see https://github.com/vinkla/extended-acf
  */
 
 declare(strict_types=1);
 
-namespace WordPlate\Acf\Fields;
+namespace Extended\ACF\Fields;
 
-use WordPlate\Acf\Fields\Settings\ButtonLabel;
-use WordPlate\Acf\Fields\Settings\ConditionalLogic;
-use WordPlate\Acf\Fields\Settings\Instructions;
-use WordPlate\Acf\Fields\Settings\Layout;
-use WordPlate\Acf\Fields\Settings\MinMax;
-use WordPlate\Acf\Fields\Settings\Required;
-use WordPlate\Acf\Fields\Settings\SubFields;
-use WordPlate\Acf\Fields\Settings\Wrapper;
+use Extended\ACF\Fields\Settings\ButtonLabel;
+use Extended\ACF\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\Layout;
+use Extended\ACF\Fields\Settings\MinMax;
+use Extended\ACF\Fields\Settings\Required;
+use Extended\ACF\Fields\Settings\SubFields;
+use Extended\ACF\Fields\Settings\Wrapper;
 
 class Repeater extends Field
 {

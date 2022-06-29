@@ -1,8 +1,8 @@
 <?php
 
-use WordPlate\Acf\Fields\Email;
-use WordPlate\Acf\Fields\Text;
-use WordPlate\Acf\Location;
+use Extended\ACF\Fields\Email;
+use Extended\ACF\Fields\Text;
+use Extended\ACF\Location;
 
 register_extended_field_group([
     'title' => 'Employee',

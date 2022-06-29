@@ -1,12 +1,12 @@
 {
-    "name": "wordplate/acf",
+    "name": "vinkla/extended-acf",
     "description": "Register advanced custom fields with object oriented PHP",
     "keywords": [
         "acf",
         "advanced",
         "custom",
+        "extended",
         "fields",
-        "wordplate",
         "wordpress"
     ],
     "license": "MIT",
@@ -14,10 +14,6 @@
         {
             "name": "Vincent Klaiber",
             "email": "hello@doubledip.se"
-        },
-        {
-            "name": "Chris Andersson",
-            "email": "hello@puredazzle.se"
         }
     ],
     "require": {
@@ -32,12 +28,12 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "12.1-dev"
+            "dev-master": "13.0-dev"
         }
     },
     "autoload": {
         "psr-4": {
-            "WordPlate\\Acf\\": "src/"
+            "Extended\\ACF\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -45,7 +41,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "WordPlate\\Tests\\Acf\\": "tests/"
+            "Extedned\\Tests\\ACF\\": "tests/"
         },
         "files": [
             "tests/helpers.php"

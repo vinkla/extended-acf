@@ -6,24 +6,24 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @see https://github.com/wordplate/extended-acf
+ * @see https://github.com/vinkla/extended-acf
  */
 
 declare(strict_types=1);
 
-namespace WordPlate\Acf\Fields;
+namespace Extended\ACF\Fields;
 
-use WordPlate\Acf\Fields\Settings\Choices;
-use WordPlate\Acf\Fields\Settings\ConditionalLogic;
-use WordPlate\Acf\Fields\Settings\DefaultValue;
-use WordPlate\Acf\Fields\Settings\Disabled;
-use WordPlate\Acf\Fields\Settings\Instructions;
-use WordPlate\Acf\Fields\Settings\Multiple;
-use WordPlate\Acf\Fields\Settings\Nullable;
-use WordPlate\Acf\Fields\Settings\Writable;
-use WordPlate\Acf\Fields\Settings\Required;
-use WordPlate\Acf\Fields\Settings\ReturnFormat;
-use WordPlate\Acf\Fields\Settings\Wrapper;
+use Extended\ACF\Fields\Settings\Choices;
+use Extended\ACF\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Fields\Settings\DefaultValue;
+use Extended\ACF\Fields\Settings\Disabled;
+use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\Multiple;
+use Extended\ACF\Fields\Settings\Nullable;
+use Extended\ACF\Fields\Settings\Required;
+use Extended\ACF\Fields\Settings\ReturnFormat;
+use Extended\ACF\Fields\Settings\Wrapper;
+use Extended\ACF\Fields\Settings\Writable;
 
 class Select extends Field
 {

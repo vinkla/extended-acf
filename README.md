@@ -6,7 +6,7 @@
 
 Extended ACF provides an object oriented API to register groups and fields with ACF. If you register fields in your theme, you can safely rely on version control when working with other developers. Oh, and you don't have to worry about unique field keys.
 
-[![Build Status](https://badgen.net/github/checks/wordplate/extended-acf?label=build&icon=github)](https://github.com/wordplate/extended-acf/actions)
+[![Build Status](https://badgen.net/github/checks/vinkla/extended-acf?label=build&icon=github)](https://github.com/vinkla/extended-acf/actions)
 [![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/wordplate/acf/stats)
 [![Latest Version](https://badgen.net/packagist/v/wordplate/acf)](https://packagist.org/packages/wordplate/acf)
 
@@ -57,9 +57,9 @@ Optionally, if you want to keep your ACF key hidden from your `composer.json` fi
 Use the `register_extended_field_group()` function to register a new field group. It extends the default [`register_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function provided in the ACF plugin. The difference is that it appends the `key` value to field groups and fields. Below you'll find an example of a field group.
 
 ```php
-use WordPlate\Acf\Fields\Image;
-use WordPlate\Acf\Fields\Text;
-use WordPlate\Acf\Location;
+use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Text;
+use Extended\ACF\Location;
 
 add_action('acf/init', function() {
     register_extended_field_group([
@@ -91,7 +91,7 @@ Visit the official [ACF documentation](https://www.advancedcustomfields.com/reso
 All fields have their responding class (except the clone field). All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. The `name` can only contain alphanumeric characters, underscores and dashes.
 
 ```php
-use WordPlate\Acf\Fields\Text;
+use Extended\ACF\Fields\Text;
 
 Text::make('Title', 'heading')
     ->instructions('Add the text value')
@@ -103,7 +103,7 @@ Text::make('Title', 'heading')
 **Email** - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
 
 ```php
-use WordPlate\Acf\Fields\Email;
+use Extended\ACF\Fields\Email;
 
 Email::make('Email')
     ->instructions('Add the employees email address.')
@@ -113,7 +113,7 @@ Email::make('Email')
 **Number** - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
 
 ```php
-use WordPlate\Acf\Fields\Number;
+use Extended\ACF\Fields\Number;
 
 Number::make('Age')
     ->instructions('Add the employees age.')
@@ -125,7 +125,7 @@ Number::make('Age')
 **Password** - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
 
 ```php
-use WordPlate\Acf\Fields\Password;
+use Extended\ACF\Fields\Password;
 
 Password::make('Password')
     ->instructions('Add the employees secret pwned password.')
@@ -135,7 +135,7 @@ Password::make('Password')
 **Range** - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
 
 ```php
-use WordPlate\Acf\Fields\Range;
+use Extended\ACF\Fields\Range;
 
 Range::make('Rate')
     ->instructions('Add the employees completion rate.')
@@ -148,7 +148,7 @@ Range::make('Rate')
 **Text** - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
 
 ```php
-use WordPlate\Acf\Fields\Text;
+use Extended\ACF\Fields\Text;
 
 Text::make('Name')
     ->instructions('Add the employees name.')
@@ -159,7 +159,7 @@ Text::make('Name')
 **Textarea** - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
 
 ```php
-use WordPlate\Acf\Fields\Textarea;
+use Extended\ACF\Fields\Textarea;
 
 Textarea::make('Biography')
     ->instructions('Add the employees biography.')
@@ -172,7 +172,7 @@ Textarea::make('Biography')
 **URL** - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
 
 ```php
-use WordPlate\Acf\Fields\Url;
+use Extended\ACF\Fields\Url;
 
 Url::make('Website')
     ->instructions('Add the employees website link.')
@@ -184,7 +184,7 @@ Url::make('Website')
 **Button Group** - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
 
 ```php
-use WordPlate\Acf\Fields\ButtonGroup;
+use Extended\ACF\Fields\ButtonGroup;
 
 ButtonGroup::make('Color')
     ->instructions('Select the box shadow color.')
@@ -200,7 +200,7 @@ ButtonGroup::make('Color')
 **Checkbox** - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
 
 ```php
-use WordPlate\Acf\Fields\Checkbox;
+use Extended\ACF\Fields\Checkbox;
 
 Checkbox::make('Color')
     ->instructions('Select the border color.')
@@ -217,7 +217,7 @@ Checkbox::make('Color')
 **Radio** - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
 
 ```php
-use WordPlate\Acf\Fields\RadioButton;
+use Extended\ACF\Fields\RadioButton;
 
 RadioButton::make('Color')
     ->instructions('Select the text color.')
@@ -233,7 +233,7 @@ RadioButton::make('Color')
 **Select** - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
 
 ```php
-use WordPlate\Acf\Fields\Select;
+use Extended\ACF\Fields\Select;
 
 Select::make('Color')
     ->instructions('Select the background color.')
@@ -250,7 +250,7 @@ Select::make('Color')
 **True False** - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
 
 ```php
-use WordPlate\Acf\Fields\TrueFalse;
+use Extended\ACF\Fields\TrueFalse;
 
 TrueFalse::make('Social Media', 'display_social_media')
     ->instructions('Select whether to display social media links or not.')
@@ -264,7 +264,7 @@ TrueFalse::make('Social Media', 'display_social_media')
 **File** - The [file field](https://www.advancedcustomfields.com/resources/file) allows a file to be uploaded and selected.
 
 ```php
-use WordPlate\Acf\Fields\File;
+use Extended\ACF\Fields\File;
 
 File::make('Resturant Menu', 'menu')
     ->instructions('Add the menu <strong>pdf</strong> file.')
@@ -278,7 +278,7 @@ File::make('Resturant Menu', 'menu')
 **Gallery** - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing a collection of images.
 
 ```php
-use WordPlate\Acf\Fields\Gallery;
+use Extended\ACF\Fields\Gallery;
 
 Gallery::make('Images')
     ->instructions('Add the gallery images.')
@@ -297,7 +297,7 @@ Gallery::make('Images')
 **Image** - The [image field](https://www.advancedcustomfields.com/resources/image) allows an image to be uploaded and selected.
 
 ```php
-use WordPlate\Acf\Fields\Image;
+use Extended\ACF\Fields\Image;
 
 Image::make('Background Image')
     ->instructions('Add an image in at least 12000x100px and only in the formats <strong>jpg</strong>, <strong>jpeg</strong> or <strong>png</strong>.')
@@ -314,7 +314,7 @@ Image::make('Background Image')
 **Oembed** - The [oEmbed field](https://www.advancedcustomfields.com/resources/oembed) allows an easy way to embed videos, images, tweets, audio, and other content.
 
 ```php
-use WordPlate\Acf\Fields\Oembed;
+use Extended\ACF\Fields\Oembed;
 
 Oembed::make('Tweet')
     ->instructions('Add a tweet from Twitter.')
@@ -324,7 +324,7 @@ Oembed::make('Tweet')
 **WYSIWYG** - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
 
 ```php
-use WordPlate\Acf\Fields\WysiwygEditor;
+use Extended\ACF\Fields\WysiwygEditor;
 
 WysiwygEditor::make('Content')
     ->instructions('Add the text content.')
@@ -339,7 +339,7 @@ WysiwygEditor::make('Content')
 **Color Picker** - The [color picker field](https://www.advancedcustomfields.com/resources/color-picker) allows a color to be selected via a JavaScript popup.
 
 ```php
-use WordPlate\Acf\Fields\ColorPicker;
+use Extended\ACF\Fields\ColorPicker;
 
 ColorPicker::make('Text Color')
     ->instructions('Add the text color.')
@@ -350,7 +350,7 @@ ColorPicker::make('Text Color')
 **Date Picker** - The [date picker field](https://www.advancedcustomfields.com/resources/date-picker) creates a jQuery date selection popup.
 
 ```php
-use WordPlate\Acf\Fields\DatePicker;
+use Extended\ACF\Fields\DatePicker;
 
 DatePicker::make('Birthday')
     ->instructions('Add the employee\'s birthday.')
@@ -362,7 +362,7 @@ DatePicker::make('Birthday')
 **Time Picker** - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
 
 ```php
-use WordPlate\Acf\Fields\TimePicker;
+use Extended\ACF\Fields\TimePicker;
 
 TimePicker::make('Start Time', 'time')
     ->instructions('Add the start time.')
@@ -374,7 +374,7 @@ TimePicker::make('Start Time', 'time')
 **Date Time Picker** - The [date time picker field](https://www.advancedcustomfields.com/resources/date-time-picker) creates a jQuery date & time selection popup.
 
 ```php
-use WordPlate\Acf\Fields\DateTimePicker;
+use Extended\ACF\Fields\DateTimePicker;
 
 DateTimePicker::make('Event Date', 'date')
     ->instructions('Add the event\'s start date and time.')
@@ -386,7 +386,7 @@ DateTimePicker::make('Event Date', 'date')
 **Google Map** - The [Google Map field](https://www.advancedcustomfields.com/resources/google-map) creates an interactive map with the ability to place a marker.
 
 ```php
-use WordPlate\Acf\Fields\GoogleMap;
+use Extended\ACF\Fields\GoogleMap;
 
 GoogleMap::make('Address', 'address')
     ->instructions('Add the Google Map address.')
@@ -400,7 +400,7 @@ GoogleMap::make('Address', 'address')
 **Accordion** - The [accordion field](https://www.advancedcustomfields.com/resources/accordion) is used to organize fields into collapsible panels.
 
 ```php
-use WordPlate\Acf\Fields\Accordion;
+use Extended\ACF\Fields\Accordion;
 
 Accordion::make('Address')
     ->open()
@@ -422,7 +422,7 @@ Accordion::make('Endpoint')
 `occupation.php`
 
 ```php
-use WordPlate\Acf\Fields\Text;
+use Extended\ACF\Fields\Text;
 
 return Text::make('Occupation')
     ->instructions('Add the employees occupation.')
@@ -441,9 +441,9 @@ register_extended_field_group([
 
 **Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
 ```php
-use WordPlate\Acf\Fields\FlexibleContent;
-use WordPlate\Acf\Fields\Layout;
-use WordPlate\Acf\Fields\Text;
+use Extended\ACF\Fields\FlexibleContent;
+use Extended\ACF\Fields\Layout;
+use Extended\ACF\Fields\Text;
 
 FlexibleContent::make('Components', 'page_components')
     ->instructions('Add the employees occupation.')
@@ -461,9 +461,9 @@ FlexibleContent::make('Components', 'page_components')
 **Group** - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.
 
 ```php
-use WordPlate\Acf\Fields\Group;
-use WordPlate\Acf\Fields\Image;
-use WordPlate\Acf\Fields\Text;
+use Extended\ACF\Fields\Group;
+use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Text;
 
 Group::make('Hero')
     ->instructions('Add a hero block with title, content and image to the page.')
@@ -478,7 +478,7 @@ Group::make('Hero')
 **Message** - The message fields allows you to display a text message.
 
 ```php
-use WordPlate\Acf\Fields\Message;
+use Extended\ACF\Fields\Message;
 
 Message::make('Message')
     ->message('George. One point twenty-one gigawatts.')
@@ -488,9 +488,9 @@ Message::make('Message')
 **Repeater** - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
 
 ```php
-use WordPlate\Acf\Fields\Image;
-use WordPlate\Acf\Fields\Repeater;
-use WordPlate\Acf\Fields\Text;
+use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Repeater;
+use Extended\ACF\Fields\Text;
 
 Repeater::make('Employees')
     ->instructions('Add the employees.')
@@ -508,7 +508,7 @@ Repeater::make('Employees')
 **Tab** - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections. Any fields or groups added after a acf_tab will become a child to that tab. Setting 'endpoint' to true on a tab will create a new group of tabs.
 
 ```php
-use WordPlate\Acf\Fields\Tab;
+use Extended\ACF\Fields\Tab;
 
 Tab::make('Tab 1'),
 Tab::make('Tab 2'),
@@ -522,7 +522,7 @@ Tab::make('Tab 3')
 **Link** - The [link field](https://www.advancedcustomfields.com/resources/link) provides a simple way to select or define a link (url, title, target).
 
 ```php
-use WordPlate\Acf\Fields\Link;
+use Extended\ACF\Fields\Link;
 
 Link::make('Read More Link')
     ->returnFormat('array') // url or array (default)
@@ -532,7 +532,7 @@ Link::make('Read More Link')
 **Page Link** - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
 
 ```php
-use WordPlate\Acf\Fields\PageLink;
+use Extended\ACF\Fields\PageLink;
 
 PageLink::make('Contact Link')
     ->postTypes(['contact'])
@@ -546,7 +546,7 @@ PageLink::make('Contact Link')
 **Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.
 
 ```php
-use WordPlate\Acf\Fields\PostObject;
+use Extended\ACF\Fields\PostObject;
 
 PostObject::make('Animal')
     ->instructions('Select an animal')
@@ -560,7 +560,7 @@ PostObject::make('Animal')
 **Relationship** - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field.
 
 ```php
-use WordPlate\Acf\Fields\Relationship;
+use Extended\ACF\Fields\Relationship;
 
 Relationship::make('Contacts')
     ->instructions('Add the contacts.')
@@ -580,7 +580,7 @@ Relationship::make('Contacts')
 **Taxonomy** - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms.
 
 ```php
-use WordPlate\Acf\Fields\Taxonomy;
+use Extended\ACF\Fields\Taxonomy;
 
 Taxonomy::make('Cinemas')
     ->instructions('Select one or more cinema terms.')
@@ -595,7 +595,7 @@ Taxonomy::make('Cinemas')
 **User** - The user field creates a select field for all your users.
 
 ```php
-use WordPlate\Acf\Fields\User;
+use Extended\ACF\Fields\User;
 
 User::make('User')
     ->roles([
@@ -612,7 +612,7 @@ User::make('User')
 The location class let you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys. If no `operator` is given it will use the `operator` as the `value`.
 
 ```php
-use WordPlate\Acf\Location;
+use Extended\ACF\Location;
 
 Location::where('post_type', 'post')->and('post_type', '!=', 'post');
 ```
@@ -624,10 +624,10 @@ Location::where('post_type', 'post')->and('post_type', '!=', 'post');
 The conditional class help you write conditional logic [without knowing](https://media.giphy.com/media/SbtWGvMSmJIaV8faS8/source.gif) the field keys.
 
 ```php
-use WordPlate\Acf\ConditionalLogic;
-use WordPlate\Acf\Fields\File;
-use WordPlate\Acf\Fields\Select;
-use WordPlate\Acf\Fields\Url;
+use Extended\ACF\ConditionalLogic;
+use Extended\ACF\Fields\File;
+use Extended\ACF\Fields\Select;
+use Extended\ACF\Fields\Url;
 
 Select::make('Type')
     ->choices([
@@ -651,7 +651,7 @@ If you want to add custom settings to the fields, you can extend the field class
 ```php
 namespace App\Fields;
 
-use WordPlate\Acf\Fields\Select as Field;
+use Extended\ACF\Fields\Select as Field;
 
 class Select extends Field
 {
@@ -671,9 +671,9 @@ If you want to create custom field classes you may extend the [base field class]
 ```php
 namespace App\Fields;
 
-use WordPlate\Acf\Fields\Field;
-use WordPlate\Acf\Fields\Settings\Instructions;
-use WordPlate\Acf\Fields\Settings\Required;
+use Extended\ACF\Fields\Field;
+use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\Required;
 
 class OpenStreetMap extends Field
 {

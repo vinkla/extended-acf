@@ -4,9 +4,9 @@
 // documentation for more information:
 // https://www.advancedcustomfields.com/resources/acf_add_options_page/
 
-use WordPlate\Acf\Fields\Text;
-use WordPlate\Acf\Fields\WysiwygEditor;
-use WordPlate\Acf\Location;
+use Extended\ACF\Fields\Text;
+use Extended\ACF\Fields\WysiwygEditor;
+use Extended\ACF\Location;
 
 acf_add_options_page([
     'icon_url' => 'dashicons-star-filled', // https://developer.wordpress.org/resource/dashicons/

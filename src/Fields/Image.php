@@ -6,23 +6,23 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @see https://github.com/wordplate/extended-acf
+ * @see https://github.com/vinkla/extended-acf
  */
 
 declare(strict_types=1);
 
-namespace WordPlate\Acf\Fields;
+namespace Extended\ACF\Fields;
 
-use WordPlate\Acf\Fields\Settings\ConditionalLogic;
-use WordPlate\Acf\Fields\Settings\Dimensions;
-use WordPlate\Acf\Fields\Settings\FileSize;
-use WordPlate\Acf\Fields\Settings\Instructions;
-use WordPlate\Acf\Fields\Settings\Library;
-use WordPlate\Acf\Fields\Settings\MimeTypes;
-use WordPlate\Acf\Fields\Settings\PreviewSize;
-use WordPlate\Acf\Fields\Settings\Required;
-use WordPlate\Acf\Fields\Settings\ReturnFormat;
-use WordPlate\Acf\Fields\Settings\Wrapper;
+use Extended\ACF\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Fields\Settings\Dimensions;
+use Extended\ACF\Fields\Settings\FileSize;
+use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\Library;
+use Extended\ACF\Fields\Settings\MimeTypes;
+use Extended\ACF\Fields\Settings\PreviewSize;
+use Extended\ACF\Fields\Settings\Required;
+use Extended\ACF\Fields\Settings\ReturnFormat;
+use Extended\ACF\Fields\Settings\Wrapper;
 
 class Image extends Field
 {

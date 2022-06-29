@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use WordPlate\Acf\Fields\PostObject;
-use WordPlate\Acf\Location;
+use Extended\ACF\Fields\PostObject;
+use Extended\ACF\Location;
 
 acf_register_block_type([
     'name' => 'Employee',

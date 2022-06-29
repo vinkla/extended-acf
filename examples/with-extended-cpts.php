@@ -4,8 +4,8 @@
 // and taxanomies. Please see the repository for more information:
 // https://github.com/johnbillion/extended-cpts
 
-use WordPlate\Acf\Fields\WysiwygEditor;
-use WordPlate\Acf\Location;
+use Extended\ACF\Fields\WysiwygEditor;
+use Extended\ACF\Location;
 
 register_extended_post_type('faq', [
     'menu_icon' => 'dashicons-format-chat',

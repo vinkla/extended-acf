@@ -6,22 +6,22 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @see https://github.com/wordplate/extended-acf
+ * @see https://github.com/vinkla/extended-acf
  */
 
 declare(strict_types=1);
 
-namespace WordPlate\Acf\Fields;
+namespace Extended\ACF\Fields;
 
-use WordPlate\Acf\Fields\Settings\ConditionalLogic;
-use WordPlate\Acf\Fields\Settings\Disabled;
-use WordPlate\Acf\Fields\Settings\Instructions;
-use WordPlate\Acf\Fields\Settings\Pending;
-use WordPlate\Acf\Fields\Settings\Placeholder;
-use WordPlate\Acf\Fields\Settings\Writable;
-use WordPlate\Acf\Fields\Settings\Required;
-use WordPlate\Acf\Fields\Settings\Wrapper;
-use WordPlate\Acf\Fields\Settings\DefaultValue;
+use Extended\ACF\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Fields\Settings\DefaultValue;
+use Extended\ACF\Fields\Settings\Disabled;
+use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\Pending;
+use Extended\ACF\Fields\Settings\Placeholder;
+use Extended\ACF\Fields\Settings\Required;
+use Extended\ACF\Fields\Settings\Wrapper;
+use Extended\ACF\Fields\Settings\Writable;
 
 class Email extends Field
 {

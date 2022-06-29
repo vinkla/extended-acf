@@ -6,17 +6,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @see https://github.com/wordplate/extended-acf
+ * @see https://github.com/vinkla/extended-acf
  */
 
 declare(strict_types=1);
 
-namespace WordPlate\Tests\Acf\Fields;
+namespace Extended\ACF\Tests\Fields;
 
+use Extended\ACF\Fields\Group;
+use Extended\ACF\Fields\Text;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use WordPlate\Acf\Fields\Group;
-use WordPlate\Acf\Fields\Text;
 
 class GroupTest extends TestCase
 {
