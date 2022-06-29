@@ -1,6 +1,6 @@
-> :warning: **This package has been renamed to** `vinkla/extended-acf` in version 13. Update your `composer.json` file to use the name.
+> :warning: This package **has been renamed** to `vinkla/extended-acf` in version 13.
 
-> :warning: **The namespace has changed to** `Extended\ACF`. Update your project field groups to use the new namespace.
+> :warning: The **namespace has changed** to `Extended\ACF`.
 
 > :warning: The package works as before and **nothing else has changed**.
 
