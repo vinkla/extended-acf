@@ -27,9 +27,7 @@ trait Layout
             throw new InvalidArgumentException("Invalid argument layout [$layout].");
         }
 
-        $key = __CLASS__ === 'WordPlate\Acf\Fields\Layout' ? 'display' : 'layout';
-
-        $this->settings[$key] = $layout;
+        $this->settings['layout'] = $layout;
 
         return $this;
     }
