@@ -1,6 +1,7 @@
 {
     "name": "vinkla/extended-acf",
     "description": "Register advanced custom fields with object oriented PHP",
+    "license": "MIT",
     "keywords": [
         "acf",
         "advanced",
@@ -9,7 +10,6 @@
         "fields",
         "wordpress"
     ],
-    "license": "MIT",
     "authors": [
         {
             "name": "Vincent Klaiber",
@@ -23,14 +23,8 @@
         "phpunit/phpunit": "^9.5",
         "squizlabs/php_codesniffer": "^3.6"
     },
-    "config": {
-        "preferred-install": "dist"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "13.0-dev"
-        }
-    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Extended\\ACF\\": "src/"
@@ -47,6 +41,12 @@
             "tests/helpers.php"
         ]
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "13.0-dev"
+        }
+    }
 }

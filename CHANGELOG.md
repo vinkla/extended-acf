@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 13.0.0
+
+- Rename package to `vinkla/extended-acf`
+- Rename namespace from `WordPlate\Acf` to `Extended\ACF`
+
 ## 12.0.3
 
 - Added default value to email field
