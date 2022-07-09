@@ -82,6 +82,8 @@ add_action('acf/init', function() {
 ```
 
 > **Note:** If you are running PHP 7.4 or less, Composer will install Extended ACF v11, and the above snippet will trigger an `Uncaught Error: Call to undefined method Extended\ACF\Location::where()` error, because v11 uses a different syntax for Location. Replace `Location::where` with `Location::if` and you're good to go.
+> 
+> You will also need to change the namespace from `Extended\ACF` to `WordPlate\Acf` for versions before v13.
 
 ## Settings
 
