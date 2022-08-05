@@ -42,4 +42,12 @@ class RepeaterTest extends TestCase
 
         $this->assertSame('field_15a7e5e1', $field['collapsed']);
     }
+
+    public function testPagination()
+    {
+        $field = Repeater::make('Repeater Pagination')->pagination(10)->get();
+
+        $this->assertTrue($field['pagination']);
+        $this->assertSame(10, $field['rows_per_page']);
+    }
 }

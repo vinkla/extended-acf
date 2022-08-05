@@ -41,4 +41,12 @@ class Repeater extends Field
 
         return $this;
     }
+
+    public function pagination(int $rowsPerPage = 20): static
+    {
+        $this->settings['pagination'] = true;
+        $this->settings['rows_per_page'] = $rowsPerPage;
+
+        return $this;
+    }
 }

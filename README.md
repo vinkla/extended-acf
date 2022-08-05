@@ -510,6 +510,7 @@ Repeater::make('Employees')
     ->min(2)
     ->collapsed('name')
     ->buttonLabel('Add employee')
+    ->pagination(10)
     ->layout('table') // block, row or table
     ->required();
 ```
