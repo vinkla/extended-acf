@@ -13,7 +13,7 @@
 Extended ACF provides an object oriented API to register groups and fields with ACF. If you register fields in your theme, you can safely rely on version control when working with other developers. Oh, and you don't have to worry about unique field keys.
 
 [![Build Status](https://badgen.net/github/checks/vinkla/extended-acf?label=build&icon=github)](https://github.com/vinkla/extended-acf/actions)
-[![Monthly Downloads](https://badgen.net/packagist/dm/wordplate/acf)](https://packagist.org/packages/vinkla/extended-acf/stats)
+[![Monthly Downloads](https://badgen.net/packagist/dm/vinkla/extended-acf)](https://packagist.org/packages/vinkla/extended-acf/stats)
 [![Latest Version](https://badgen.net/packagist/v/vinkla/extended-acf)](https://packagist.org/packages/vinkla/extended-acf)
 
 - [Installation](#installation)
@@ -81,9 +81,7 @@ add_action('acf/init', function() {
 });
 ```
 
-> **Note:** If you are running PHP 7.4 or less, Composer will install Extended ACF v11, and the above snippet will trigger an `Uncaught Error: Call to undefined method Extended\ACF\Location::where()` error, because v11 uses a different syntax for Location. Replace `Location::where` with `Location::if` and you're good to go.
-> 
-> You will also need to change the namespace from `Extended\ACF` to `WordPlate\Acf` for versions before v13.
+> **Note:** If you are running PHP 7.4 or less, Composer will install Extended ACF version 11, and the above snippet will trigger an `Uncaught Error: Call to undefined method Extended\ACF\Location::where()` error, because version 11 uses a different syntax for Location. Replace `Location::where` with `Location::if` and you're good to go. You will also need to change the namespace from `Extended\ACF` to `WordPlate\Acf` for versions before version 13.
 
 ## Settings
 
