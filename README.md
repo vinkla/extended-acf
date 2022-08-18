@@ -619,7 +619,7 @@ use Extended\ACF\Location;
 Location::where('post_type', 'post')->and('post_type', '!=', 'post');
 ```
 
-> **Note:** The `if` method changed name in version 12 to `where`, see the [upgrade guide](#upgrade-guide).
+> **Note:** The `if` method was renamed to `where` in version 12, see the [upgrade guide](#upgrade-guide).
 
 ## Conditional Logic
 
