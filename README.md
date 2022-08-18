@@ -1,8 +1,4 @@
-> :warning: This package **has been renamed** to `vinkla/extended-acf` since version 13.
-
-> :warning: The **namespace has changed** to `Extended\ACF`.
-
-> :warning: The package works as before and **nothing else has changed**.
+> :warning: The package **has been renamed** in version 13, see the [upgrade guide](#upgrade-guide).
 
 ![Extended ACF](https://user-images.githubusercontent.com/499192/34915298-1782a500-f924-11e7-85a7-dc7de6aacc14.png)
 
@@ -23,6 +19,7 @@ Extended ACF provides an object oriented API to register groups and fields with 
 - [Conditional Logic](#conditional-logic)
 - [Custom Configuration](#custom-configuration)
 - [Custom Fields](#custom-fields)
+- [Upgrade Guide](#upgrade-guide)
 
 ## Installation
 
@@ -33,7 +30,6 @@ composer require vinkla/extended-acf
 ```
 
 Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin.
-
 
 #### Installing ACF Pro with Composer (optional)
 
@@ -80,8 +76,6 @@ add_action('acf/init', function() {
     ]);
 });
 ```
-
-> **Note:** If you are running PHP 7.4 or less, Composer will install Extended ACF version 11, and the above snippet will trigger an `Uncaught Error: Call to undefined method Extended\ACF\Location::where()` error, because version 11 uses a different syntax for Location. Replace `Location::where` with `Location::if` and you're good to go. You will also need to change the namespace from `Extended\ACF` to `WordPlate\Acf` for versions before version 13.
 
 ## Settings
 
@@ -625,7 +619,7 @@ use Extended\ACF\Location;
 Location::where('post_type', 'post')->and('post_type', '!=', 'post');
 ```
 
-> **Note:** The `if` method changed name in version 12 to `where`.
+> **Note:** The `if` method changed name in version 12 to `where`, see the [upgrade guide](#upgrade-guide).
 
 ## Conditional Logic
 
@@ -722,4 +716,37 @@ OpenStreetMap::make('Map')
     ->latitude(56.474)
     ->longitude(11.863)
     ->zoom(10);
+```
+
+## Upgrade Guide
+
+This upgrade guide contains information on breaking changes in major releases of the package.
+
+### 13
+
+The package has been renamed to `vinkla/extended-acf`. If you're using version 12 or lower, you may simply change the package name in your `composer.json` file and everything will work as before.
+
+```diff
+-"wordplate/acf": "^12.0",
++"vinkla/extended-acf": "^12.0"
+```
+
+If you're upgrading to version 13, you'll also need to change your imports. The namespace has been changed to `Extended\ACF`.
+
+```diff
+-use WordPlate\Acf\Fields\Text;
+-use WordPlate\Acf\Fields\Number;
++use Extended\ACF\Fields\Text;
++use Extended\ACF\Fields\Number;
+```
+
+### 12
+
+The location query method `if` has been changed to `where`, you'll need to update your field groups accordingly.
+
+```diff
+use Extended\ACF\Location;
+
+-Location::if('post_type', 'post');
++Location::where('post_type', 'post');
 ```
