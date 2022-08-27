@@ -1,4 +1,4 @@
-> :warning: The package **has been renamed** in version 13, see the [upgrade guide](#upgrade-guide).
+> **Warning** The package **has been renamed** in version 13, see the [upgrade guide](#upgrade-guide).
 
 ![Extended ACF](https://user-images.githubusercontent.com/499192/34915298-1782a500-f924-11e7-85a7-dc7de6aacc14.png)
 
