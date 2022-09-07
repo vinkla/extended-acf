@@ -39,7 +39,6 @@ register_extended_field_group([
         WysiwygEditor::make('Answer')
             ->instructions('Add the question answer.')
             ->mediaUpload(false)
-            ->toolbar('faq')
             ->tabs('visual')
             ->required(),
     ],

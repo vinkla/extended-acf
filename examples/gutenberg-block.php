@@ -1,17 +1,13 @@
 <?php
 
-declare(strict_types=1);
+// This example is registering a Gutenberg block page using ACF. Please see the
+// documentation for more information:
+// https: //www.advancedcustomfields.com/resources/blocks/
 
 use Extended\ACF\Fields\PostObject;
 use Extended\ACF\Location;
 
-acf_register_block_type([
-    'name' => 'Employee',
-    'title' => 'Employee',
-    'render_template' => get_theme_file_path('path/to/template.php'),
-    'category' => 'text',
-    'icon' => 'admin-users', // https://developer.wordpress.org/resource/dashicons/
-]);
+register_block_type(__DIR__ . '/block.json');
 
 register_extended_field_group([
     'title' => 'Employee Block',

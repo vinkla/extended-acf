@@ -21,7 +21,6 @@ register_extended_field_group([
         WysiwygEditor::make('Text', 'cookie_text')
             ->instructions('Add the cookie disclaimer text.')
             ->mediaUpload(false)
-            ->toolbar('link')
             ->tabs('visual')
             ->required(),
         Text::make('Label', 'cookie_label')
