@@ -15,7 +15,7 @@ namespace Extended\ACF\Fields\Settings;
 
 trait DateTimeFormat
 {
-    /** @see https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters */
+    /** @see https://wordpress.org/support/article/formatting-date-and-time/ */
     public function displayFormat(string $format): static
     {
         $this->settings['display_format'] = $format;
@@ -23,7 +23,7 @@ trait DateTimeFormat
         return $this;
     }
 
-    /** @see https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters */
+    /** @see https://wordpress.org/support/article/formatting-date-and-time/ */
     public function returnFormat(string $format): static
     {
         $this->settings['return_format'] = $format;
