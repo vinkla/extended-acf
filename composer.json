@@ -34,7 +34,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Extedned\\Tests\\ACF\\": "tests/"
+            "Extended\\Tests\\ACF\\": "tests/"
         },
         "files": [
             "tests/helpers.php"
