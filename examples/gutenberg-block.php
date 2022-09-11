@@ -2,7 +2,7 @@
 
 // This example is registering a Gutenberg block page using ACF. Please see the
 // documentation for more information:
-// https: //www.advancedcustomfields.com/resources/blocks/
+// https://www.advancedcustomfields.com/resources/blocks/
 
 use Extended\ACF\Fields\PostObject;
 use Extended\ACF\Location;
