@@ -26,7 +26,7 @@ class ConditionalLogic
     }
 
     /**
-     * @param string $operator `==` is equal to, `!=` is not equal to, `>` is greater than, `<` is less than, `==pattern` matches pattern, `==contains` contains string, `==empty` has no value, `!=empty` has any value
+     * @param string $operator `==` is equal to, `!=` is not equal to, `>` is greater than, `<` is less than, `==pattern` matches pattern, `==contains` contains value, `==empty` has no value, `!=empty` has any value
      * @throws \InvalidArgumentException
      */
     public static function where(string $name, string $operator, mixed $value = null): static
