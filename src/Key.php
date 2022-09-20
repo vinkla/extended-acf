@@ -26,7 +26,7 @@ class Key
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
 
-        $hashedKey = sprintf('%s_%s', $prefix, static::hash($key));
+        $hashedKey = $prefix . '_' . static::hash($key);
 
         static::$keys[$key] = $hashedKey;
 
@@ -43,7 +43,7 @@ class Key
         return str_replace('-', '_', sanitize_title($key));
     }
 
-    public static function resolveParentKey($parentKey, $key)
+    public static function resolveParentKey(string|null $parentKey, string $key): string
     {
         $parentKeyPieces = explode('_', $parentKey);
 
@@ -51,7 +51,7 @@ class Key
             array_pop($parentKeyPieces);
 
             $potentialParentKey = join('_', $parentKeyPieces);
-            $potentialKey = sprintf('%s_%s', $potentialParentKey, $key);
+            $potentialKey = $potentialParentKey . '_' . $key;
 
             if (array_key_exists($potentialKey, self::$keys)) {
                 return $potentialParentKey;

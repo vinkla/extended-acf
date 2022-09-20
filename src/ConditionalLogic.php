@@ -22,10 +22,11 @@ class ConditionalLogic
         protected string $operator,
         protected mixed $value = null
     ) {
+        //
     }
 
     /**
-     * @param string $operator `>`, `<`, `==`, `!=`, `==pattern`, `==contains`, `==empty`, `!=empty`
+     * @param string $operator `==` is equal to, `!=` is not equal to, `>` is greater than, `<` is less than, `==pattern` matches pattern, `==contains` contains string, `==empty` has no value, `!=empty` has any value
      * @throws \InvalidArgumentException
      */
     public static function where(string $name, string $operator, mixed $value = null): static
@@ -53,10 +54,10 @@ class ConditionalLogic
     {
         $parentKey = Key::resolveParentKey($parentKey, Key::sanitize($this->name));
 
-        $key = sprintf('%s_%s', $parentKey, Key::sanitize($this->name));
+        $key = $parentKey . '_' . Key::sanitize($this->name);
 
         $rule = [
-            'field' => sprintf('field_%s', Key::hash($key)),
+            'field' => 'field_' . Key::hash($key),
             'operator' => $this->operator,
         ];
 

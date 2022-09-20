@@ -37,7 +37,7 @@ abstract class Field
     /** @internal */
     public function get(string|null $parentKey = null): array
     {
-        $key = sprintf('%s_%s', $parentKey, Key::sanitize($this->settings['name']));
+        $key = $parentKey . '_' . Key::sanitize($this->settings['name']);
 
         if ($this->type !== null) {
             $this->settings['type'] = $this->type;

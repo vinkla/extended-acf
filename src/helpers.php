@@ -14,7 +14,10 @@ declare(strict_types=1);
 use Extended\ACF\Key;
 
 if (!function_exists('register_extended_field_group')) {
-    /** @throws \InvalidArgumentException */
+    /**
+     * @see https://www.advancedcustomfields.com/resources/register-fields-via-php/#group-settings
+     * @throws \InvalidArgumentException
+     */
     function register_extended_field_group(array $settings): array
     {
         $requiredKeys = ['title', 'fields', 'location'];
