@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 13.1.1
+
+- Updated parameter hints and documentation
+
+## 13.1.0
+
+- Added pagination to repeater field
+
 ## 13.0.0
 
 - Rename package to `vinkla/extended-acf`
