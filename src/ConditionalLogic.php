@@ -24,7 +24,10 @@ class ConditionalLogic
     ) {
     }
 
-    /** @throws \InvalidArgumentException */
+    /**
+     * @param string $operator `>`, `<`, `==`, `!=`, `==pattern`, `==contains`, `==empty`, `!=empty`
+     * @throws \InvalidArgumentException
+     */
     public static function where(string $name, string $operator, mixed $value = null): static
     {
         $allowedOperators = [
