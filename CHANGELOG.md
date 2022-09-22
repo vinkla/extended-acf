@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 13.1.2
+
+- Updated developer experience
+
 ## 13.1.1
 
 - Updated parameter hints and documentation
