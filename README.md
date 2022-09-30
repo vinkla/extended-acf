@@ -42,9 +42,9 @@ If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with 
         "package": {
             "name": "wpackagist-plugin/advanced-custom-fields-pro",
             "type": "wordpress-plugin",
-            "version": "6.0",
+            "version": "6.0.2",
             "dist": {
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=YOUR-ACF-KEY&t=6.0",
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=YOUR-ACF-KEY&t=6.0.2",
                 "type": "zip"
             }
         }
