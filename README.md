@@ -33,26 +33,7 @@ Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/p
 
 #### Installing ACF Pro with Composer (optional)
 
-If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer, you may use the [repositories feature](https://getcomposer.org/doc/05-repositories.md#package-2). Add the snippet below to your `composer.json` file. Replace `YOUR-ACF-KEY` with your license key and run `composer install`.
-
-```json
-"repositories": [
-    {
-        "type": "package",
-        "package": {
-            "name": "wpackagist-plugin/advanced-custom-fields-pro",
-            "type": "wordpress-plugin",
-            "version": "6.0.2",
-            "dist": {
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=YOUR-ACF-KEY&t=6.0.2",
-                "type": "zip"
-            }
-        }
-    }
-]
-```
-
-Optionally, if you want to keep your ACF key hidden from your `composer.json` file, you may use the [private-composer-installer](https://github.com/ffraenz/private-composer-installer#wordpress-plugins) plugin.
+If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer, you may use the [private-composer-installer](https://github.com/ffraenz/private-composer-installer#wordpress-plugins) plugin.
 
 ## Usage
 
