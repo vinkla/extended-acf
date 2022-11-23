@@ -51,7 +51,7 @@ abstract class Field
 
         foreach ($invalidKeys as $key) {
             if (array_key_exists($key, $settings)) {
-                throw new InvalidArgumentException("Invalid setting key [$key].");
+                throw new InvalidArgumentException("Invalid settings key [$key].");
             }
         }
 
