@@ -44,6 +44,7 @@ abstract class Field
             'key',
             'label',
             'layouts',
+            'name',
             'sub_fields',
             'type',
         ];
