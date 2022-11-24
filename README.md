@@ -633,7 +633,7 @@ If you want to add custom settings to the fields, you can use the `with` method.
 
 ```php
 Text::make('Name')
-	->with(['key' => 'value'])
+	->withSettings(['key' => 'value'])
 	->required()
 ```
 

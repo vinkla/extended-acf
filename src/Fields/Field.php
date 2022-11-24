@@ -36,7 +36,7 @@ abstract class Field
     }
 
     /** @throws \InvalidArgumentException */
-    public function with(array $settings): static
+    public function withSettings(array $settings): static
     {
         $invalidKeys = [
             'collapsed',

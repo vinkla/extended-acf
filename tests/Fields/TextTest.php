@@ -47,14 +47,14 @@ class TextTest extends TestCase
         $this->assertSame('text', $field['type']);
     }
 
-    public function testWith()
+    public function testWithSettings()
     {
-        $field = Text::make('Text With')->with(['custom' => 'setting'])->get();
+        $field = Text::make('Text With Settings')->withSettings(['custom' => 'setting'])->get();
         $this->assertSame('setting', $field['custom']);
 
         $this->expectException(InvalidArgumentException::class);
 
-        Text::make('Text With Label')->with(['label' => 'invalid'])->get();
+        Text::make('Text With Settings Label')->withSettings(['label' => 'invalid'])->get();
     }
 
     public function testReadOnly()
