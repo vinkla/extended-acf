@@ -629,7 +629,7 @@ Url::make('Link', 'url')
 
 ## Custom Settings
 
-If you want to add custom settings to the fields, you can use the `with` method. Please note that if you use settings which are already registerd on the field, they'll be overwritten.
+If you want to add custom settings to the fields, you can use the `withSettings` method. If you add settings which are already registered on the field, they'll be overwritten.
 
 ```php
 Text::make('Name')
