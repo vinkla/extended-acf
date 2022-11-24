@@ -17,7 +17,7 @@ Extended ACF provides an object oriented API to register groups and fields with 
 - [Fields](#fields)
 - [Location](#location)
 - [Conditional Logic](#conditional-logic)
-- [Custom Configuration](#custom-configuration)
+- [Custom Settings](#custom-settings)
 - [Custom Fields](#custom-fields)
 - [Upgrade Guide](#upgrade-guide)
 
@@ -627,9 +627,17 @@ Url::make('Link', 'url')
     ]),
 ```
 
-## Custom Configuration
+## Custom Settings
 
-If you want to add custom settings to the fields, you can extend the field classes available in this library.
+If you want to add custom settings to the fields, you can use the `with` method. Please note that if you use settings which are already registerd on the field, they'll be overwritten.
+
+```php
+Text::make('Name')
+	->withSettings(['key' => 'value'])
+	->required()
+```
+
+Another option is to extend field classes available in the package.
 
 ```php
 namespace App\Fields;

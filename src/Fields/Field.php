@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Extended\ACF\Fields;
 
 use Extended\ACF\Key;
+use InvalidArgumentException;
 
 abstract class Field
 {
@@ -32,6 +33,31 @@ abstract class Field
     public static function make(string $label, string|null $name = null): static
     {
         return new static($label, $name);
+    }
+
+    /** @throws \InvalidArgumentException */
+    public function withSettings(array $settings): static
+    {
+        $invalidKeys = [
+            'collapsed',
+            'conditional_logic',
+            'key',
+            'label',
+            'layouts',
+            'name',
+            'sub_fields',
+            'type',
+        ];
+
+        foreach ($invalidKeys as $key) {
+            if (array_key_exists($key, $settings)) {
+                throw new InvalidArgumentException("Invalid settings key [$key].");
+            }
+        }
+
+        $this->settings = array_merge($this->settings, $settings);
+
+        return $this;
     }
 
     /** @internal */

@@ -15,6 +15,7 @@ namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\Text;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class TextTest extends TestCase
@@ -44,6 +45,16 @@ class TextTest extends TestCase
     {
         $field = Text::make('Text')->get();
         $this->assertSame('text', $field['type']);
+    }
+
+    public function testWithSettings()
+    {
+        $field = Text::make('Text With Settings')->withSettings(['custom' => 'setting'])->get();
+        $this->assertSame('setting', $field['custom']);
+
+        $this->expectException(InvalidArgumentException::class);
+
+        Text::make('Text With Settings Label')->withSettings(['label' => 'invalid'])->get();
     }
 
     public function testReadOnly()
