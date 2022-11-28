@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 13.2.0
+
+- Added `withSettings` method to all fields
+
 ## 13.1.2
 
 - Updated developer experience
