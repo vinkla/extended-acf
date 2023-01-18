@@ -19,7 +19,6 @@ use InvalidArgumentException;
 abstract class Field
 {
     protected array $settings;
-    protected string $keyPrefix = 'field';
     protected string|null $type = null;
 
     public function __construct(string $label, string|null $name = null)
@@ -92,7 +91,7 @@ abstract class Field
             }
         }
 
-        $this->settings['key'] = Key::generate($key, $this->keyPrefix);
+        $this->settings['key'] = Key::generate($key, 'field');
 
         return $this->settings;
     }

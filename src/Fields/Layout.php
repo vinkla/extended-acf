@@ -22,8 +22,6 @@ class Layout extends Field
     use MinMax;
     use SubFields;
 
-    protected string $keyPrefix = 'layout';
-
     /**
      * @param string $layout block, row or table
      * @throws \InvalidArgumentException
