@@ -29,11 +29,9 @@ Require this package, with Composer, in the root directory of your project.
 composer require vinkla/extended-acf
 ```
 
-Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin.
+Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/blog/composer-support-acf-pro/) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin.
 
-#### Installing ACF Pro with Composer (optional)
-
-If you want to install [ACF Pro](https://www.advancedcustomfields.com/pro) with Composer, you may use the [private-composer-installer](https://github.com/ffraenz/private-composer-installer#wordpress-plugins) plugin.
+[Learn more about installing ACF PRO with Composer.](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
 
 ## Usage
 
