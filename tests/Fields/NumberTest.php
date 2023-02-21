@@ -27,12 +27,12 @@ class NumberTest extends TestCase
     public function testMax()
     {
         $field = Number::make('Max')->max(10.5)->get();
-        $this->assertSame((float) 10.5, $field['max']);
+        $this->assertSame(10.5, $field['max']);
     }
 
     public function testMin()
     {
         $field = Number::make('Min')->min(5.5)->get();
-        $this->assertSame((float) 5.5, $field['min']);
+        $this->assertSame(5.5, $field['min']);
     }
 }
