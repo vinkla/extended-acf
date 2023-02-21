@@ -15,14 +15,14 @@ namespace Extended\ACF\Fields\Settings;
 
 trait MinMax
 {
-    public function max(int $max): static
+    public function max(float $max): static
     {
         $this->settings['max'] = $max;
 
         return $this;
     }
 
-    public function min(int $min): static
+    public function min(float $min): static
     {
         $this->settings['min'] = $min;
 
