@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 13.2.1
+
+- Added float support to `min` and `max` methods
+
 ## 13.2.0
 
 - Added `withSettings` method to all fields
