@@ -23,7 +23,7 @@ class ConditionalLogic
         string $name,
         string $operator,
         mixed $value = null,
-        string|null $group = null
+        string $group = null
     ) {
         $this->rules[] = $this->createRule($name, $operator, $value, $group);
     }
@@ -32,7 +32,7 @@ class ConditionalLogic
      * @param string $operator `==` is equal to, `!=` is not equal to, `>` is greater than, `<` is less than, `==pattern` matches pattern, `==contains` contains value, `==empty` has no value, `!=empty` has any value
      * @throws \InvalidArgumentException
      */
-    public static function where(string $name, string $operator, mixed $value = null, string|null $group = null): static
+    public static function where(string $name, string $operator, mixed $value = null, string $group = null): static
     {
         $allowedOperators = [
             '>',
@@ -52,13 +52,13 @@ class ConditionalLogic
         return new self($name, $operator, $value, $group);
     }
 
-    public function and(string|array $name, string $operator, mixed $value = null, string|null $group = null): static
+    public function and(string|array $name, string $operator, mixed $value = null, string $group = null): static
     {
         $this->rules[] = $this->createRule($name, $operator, $value);
         return $this;
     }
 
-    private function createRule(string|array $name, string $operator, mixed $value = null, string |null $group = null): array
+    private function createRule(string|array $name, string $operator, mixed $value = null, string $group = null): array
     {
         return [
             'name' => $name,
