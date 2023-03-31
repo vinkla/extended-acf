@@ -20,11 +20,11 @@ class ConditionalLogic
     public array $rules = [];
 
     public function __construct(
-        string $name,
+        string|array $field,
         string $operator,
         mixed $value = null
     ) {
-        $this->rules[] = $this->createRule($name, $operator, $value);
+        $this->rules[] = $this->createRule($field, $operator, $value);
     }
 
     /**
@@ -51,29 +51,31 @@ class ConditionalLogic
         return new self($name, $operator, $value);
     }
 
-    public function and(string $name, string $operator, mixed $value = null): static
+    public function and(string $field, string $operator, mixed $value = null): static
     {
-        $this->rules[] = $this->createRule($name, $operator, $value);
+        $this->rules[] = $this->createRule($field, $operator, $value);
         return $this;
     }
 
-    private function createRule(string $name, string $operator, mixed $value = null): array
+    private function createRule(string|array $field, string $operator, mixed $value = null): array
     {
         return [
-            'name' => $name,
+            'field' => is_array($field) ? $field : ['group' => false, 'name' => $field],
             'operator' => $operator,
             'value' => $value,
         ];
     }
 
     /** @internal */
-    public function get(string|null $parentKey = null): array
+    public function get(?string $parentKey = null): array
     {
-        $defaultParentKey = $parentKey;
+        return array_map(function ($rule) use ($parentKey) {
+            $rule['name'] = $rule['field']['name'];
+            $parentKey = $rule['field']['group'] ?: $parentKey;
+            unset($rule['field']['group']);
 
-        return array_map(function ($rule) use ($defaultParentKey) {
-            $parentKey = Key::resolveParentKey($defaultParentKey, Key::sanitize($rule['name']));
-            $key = $parentKey . '_' . Key::sanitize($rule['name']);
+            $resolvedParentKey = Key::resolveParentKey($parentKey, Key::sanitize($rule['name']));
+            $key = $resolvedParentKey . '_' . Key::sanitize($rule['name']);
 
             $newRule = [
                 'field' => 'field_' . Key::hash($key),
@@ -86,11 +88,5 @@ class ConditionalLogic
 
             return $newRule;
         }, $this->rules);
-    }
-
-    /** @internal */
-    public function getRules(): array
-    {
-        return $this->rules;
     }
 }
