@@ -20,18 +20,19 @@ class ConditionalLogic
     public array $rules = [];
 
     public function __construct(
-        string|array $field,
+        string $name,
         string $operator,
-        mixed $value = null
+        mixed $value = null,
+        string|null $group = null
     ) {
-        $this->rules[] = $this->createRule($field, $operator, $value);
+        $this->rules[] = $this->createRule($name, $operator, $value, $group);
     }
 
     /**
      * @param string $operator `==` is equal to, `!=` is not equal to, `>` is greater than, `<` is less than, `==pattern` matches pattern, `==contains` contains value, `==empty` has no value, `!=empty` has any value
      * @throws \InvalidArgumentException
      */
-    public static function where(string|array $field, string $operator, mixed $value = null): static
+    public static function where(string $name, string $operator, mixed $value = null, string|null $group = null): static
     {
         $allowedOperators = [
             '>',
@@ -48,21 +49,22 @@ class ConditionalLogic
             throw new InvalidArgumentException("Invalid conditional logic operator [$operator].");
         }
 
-        return new self($field, $operator, $value);
+        return new self($name, $operator, $value, $group);
     }
 
-    public function and(string|array $field, string $operator, mixed $value = null): static
+    public function and(string|array $name, string $operator, mixed $value = null, string|null $group = null): static
     {
-        $this->rules[] = $this->createRule($field, $operator, $value);
+        $this->rules[] = $this->createRule($name, $operator, $value);
         return $this;
     }
 
-    private function createRule(string|array $field, string $operator, mixed $value = null): array
+    private function createRule(string|array $name, string $operator, mixed $value = null, string |null $group = null): array
     {
         return [
-            'field' => is_array($field) ? $field : ['group' => false, 'name' => $field],
+            'name' => $name,
             'operator' => $operator,
             'value' => $value,
+            'group' => $group,
         ];
     }
 
@@ -70,9 +72,8 @@ class ConditionalLogic
     public function get(?string $parentKey = null): array
     {
         return array_map(function ($rule) use ($parentKey) {
-            $rule['name'] = $rule['field']['name'];
-            $parentKey = $rule['field']['group'] ?: $parentKey;
-            unset($rule['field']['group']);
+            $parentKey = $rule['group'] ?: $parentKey;
+            unset($rule['group']);
 
             $resolvedParentKey = Key::resolveParentKey($parentKey, Key::sanitize($rule['name']));
             $key = $resolvedParentKey . '_' . Key::sanitize($rule['name']);

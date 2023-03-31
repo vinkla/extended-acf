@@ -610,7 +610,7 @@ use Extended\ACF\Fields\File;
 use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\Url;
 use Extended\ACF\Fields\Textarea;
-use Extended\ACF\Fields\Text;
+use Extended\ACF\Fields\Title;
 
 Select::make('Type')
     ->choices([
@@ -626,7 +626,6 @@ Url::make('Link', 'url')
     ->conditionalLogic([
         ConditionalLogic::where('type', '==', 'link')
     ]),
-
 // "and" condition
 Textarea::make('Embed code', 'embed')
     ->conditionalLogic([
@@ -638,16 +637,15 @@ Text::make('Title', 'title')
         ConditionalLogic::where('type', '!=', 'document')
         ConditionalLogic::where('type', '!=', 'link')
     ]),
-```
-
-It is possible to interact with a field group other than the one of the conditional field by specifying the group by passing an associative array in this way:
-
-```php
-use Extended\ACF\Fields\Text;
-
-Text::make('Highlight title', 'highlight_title')
+// use a conditional field that depends on an other field of an other group
+Text::make('Sub Title', 'sub-title')
     ->conditionalLogic([
-        ConditionalLogic::where(['group' => 'other-group', 'name' => 'enable_highlight'], '==', 'on')
+      ConditionalLogic::where(
+        group: 'other-group',
+        name: 'enable_highlight', 
+        operator: '==', 
+        value: 'on', 
+      )
     ]),
 ```
 

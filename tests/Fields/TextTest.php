@@ -97,7 +97,11 @@ class TextTest extends TestCase
     {
         $field = Text::make('Conditional Logic External Group')
             ->conditionalLogic([
-                ConditionalLogic::where(['group' => 'external', 'name' => 'type'], '==empty'),
+                ConditionalLogic::where(
+                    group: 'external',
+                    name: 'type',
+                    operator: '==empty',
+                )
             ])->get('group');
         $this->assertSame('field_21649737', $field['conditional_logic'][0][0]['field']);
     }
