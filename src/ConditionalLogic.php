@@ -73,7 +73,6 @@ class ConditionalLogic
     {
         return array_map(function ($rule) use ($parentKey) {
             $parentKey = $rule['group'] ?: $parentKey;
-            unset($rule['group']);
 
             $resolvedParentKey = Key::resolveParentKey($parentKey, Key::sanitize($rule['name']));
             $key = $resolvedParentKey . '_' . Key::sanitize($rule['name']);
