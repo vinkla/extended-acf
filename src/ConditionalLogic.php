@@ -17,19 +17,22 @@ use InvalidArgumentException;
 
 class ConditionalLogic
 {
+    public array $rules = [];
+
     public function __construct(
-        protected string $name,
-        protected string $operator,
-        protected mixed $value = null
+        string $name,
+        string $operator,
+        mixed $value = null,
+        string $group = null
     ) {
-        //
+        $this->rules[] = $this->createRule($name, $operator, $value, $group);
     }
 
     /**
      * @param string $operator `==` is equal to, `!=` is not equal to, `>` is greater than, `<` is less than, `==pattern` matches pattern, `==contains` contains value, `==empty` has no value, `!=empty` has any value
      * @throws \InvalidArgumentException
      */
-    public static function where(string $name, string $operator, mixed $value = null): static
+    public static function where(string $name, string $operator, mixed $value = null, string $group = null): static
     {
         $allowedOperators = [
             '>',
@@ -42,29 +45,48 @@ class ConditionalLogic
             '!=empty',
         ];
 
-        if (in_array($operator, $allowedOperators) === false) {
+        if (!in_array($operator, $allowedOperators)) {
             throw new InvalidArgumentException("Invalid conditional logic operator [$operator].");
         }
 
-        return new self($name, $operator, $value);
+        return new self($name, $operator, $value, $group);
+    }
+
+    public function and(string|array $name, string $operator, mixed $value = null, string $group = null): static
+    {
+        $this->rules[] = $this->createRule($name, $operator, $value);
+        return $this;
+    }
+
+    private function createRule(string|array $name, string $operator, mixed $value = null, string $group = null): array
+    {
+        return [
+            'name' => $name,
+            'operator' => $operator,
+            'value' => $value,
+            'group' => $group,
+        ];
     }
 
     /** @internal */
-    public function get(string|null $parentKey = null): array
+    public function get(?string $parentKey = null): array
     {
-        $parentKey = Key::resolveParentKey($parentKey, Key::sanitize($this->name));
+        return array_map(function ($rule) use ($parentKey) {
+            $parentKey = $rule['group'] ?: $parentKey;
 
-        $key = $parentKey . '_' . Key::sanitize($this->name);
+            $resolvedParentKey = Key::resolveParentKey($parentKey, Key::sanitize($rule['name']));
+            $key = $resolvedParentKey . '_' . Key::sanitize($rule['name']);
 
-        $rule = [
-            'field' => 'field_' . Key::hash($key),
-            'operator' => $this->operator,
-        ];
+            $newRule = [
+                'field' => 'field_' . Key::hash($key),
+                'operator' => $rule['operator'],
+            ];
 
-        if ($this->value) {
-            $rule['value'] = $this->value;
-        }
+            if ($rule['value']) {
+                $newRule['value'] = $rule['value'];
+            }
 
-        return $rule;
+            return $newRule;
+        }, $this->rules);
     }
 }

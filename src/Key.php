@@ -50,7 +50,7 @@ class Key
         while (count($parentKeyPieces) > 1) {
             array_pop($parentKeyPieces);
 
-            $potentialParentKey = join('_', $parentKeyPieces);
+            $potentialParentKey = implode('_', $parentKeyPieces);
             $potentialKey = $potentialParentKey . '_' . $key;
 
             if (array_key_exists($potentialKey, self::$keys)) {
