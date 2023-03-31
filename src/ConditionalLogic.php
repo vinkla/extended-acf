@@ -25,7 +25,7 @@ class ConditionalLogic
         mixed $value = null,
         string $group = null
     ) {
-        $this->rules[] = $this->createRule($name, $operator, $value, $group);
+        $this->rules[] = $this->rule($name, $operator, $value, $group);
     }
 
     /**
@@ -54,11 +54,12 @@ class ConditionalLogic
 
     public function and(string|array $name, string $operator, mixed $value = null, string $group = null): static
     {
-        $this->rules[] = $this->createRule($name, $operator, $value);
+        $this->rules[] = $this->rule($name, $operator, $value, $group);
+
         return $this;
     }
 
-    private function createRule(string|array $name, string $operator, mixed $value = null, string $group = null): array
+    private function rule(string|array $name, string $operator, mixed $value = null, string $group = null): array
     {
         return [
             'name' => $name,
@@ -69,7 +70,7 @@ class ConditionalLogic
     }
 
     /** @internal */
-    public function get(?string $parentKey = null): array
+    public function get(string|null $parentKey = null): array
     {
         return array_map(function ($rule) use ($parentKey) {
             $parentKey = $rule['group'] ?: $parentKey;

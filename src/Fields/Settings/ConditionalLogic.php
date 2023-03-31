@@ -17,7 +17,11 @@ trait ConditionalLogic
 {
     public function conditionalLogic(array $rules): static
     {
-        $this->settings['conditional_logic'] = array_merge($this->settings['conditional_logic'] ?? [], $rules);
+        $this->settings['conditional_logic'] = array_merge(
+            $this->settings['conditional_logic'] ?? [],
+            $rules
+        );
+
         return $this;
     }
 }
