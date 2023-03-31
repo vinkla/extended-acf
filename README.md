@@ -595,7 +595,7 @@ The location class let you write [custom location rules](https://www.advancedcus
 ```php
 use Extended\ACF\Location;
 
-Location::where('post_type', 'post')->and('post_type', '!=', 'post');
+Location::where('post_type', 'post')->and('post_type', '!=', 'post'); // available operators: ==, !=
 ```
 
 > **Note:** The `if` method was renamed to `where` in version 12, see the [upgrade guide](#upgrade-guide).
@@ -620,7 +620,7 @@ Select::make('Type')
     ]),
 File::make('Document', 'file')
     ->conditionalLogic([
-        ConditionalLogic::where('type', '==', 'document') // available operators are ==, !=, >, <, ==pattern, ==contains, ==empty, !=empty
+        ConditionalLogic::where('type', '==', 'document') // available operators: ==, !=, >, <, ==pattern, ==contains, ==empty, !=empty
     ]),
 Url::make('Link', 'url')
     ->conditionalLogic([
