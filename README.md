@@ -610,7 +610,7 @@ use Extended\ACF\Fields\File;
 use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\Url;
 use Extended\ACF\Fields\Textarea;
-use Extended\ACF\Fields\Title;
+use Extended\ACF\Fields\Text;
 
 Select::make('Type')
     ->choices([
@@ -626,18 +626,21 @@ Url::make('Link', 'url')
     ->conditionalLogic([
         ConditionalLogic::where('type', '==', 'link')
     ]),
+
 // "and" condition
 Textarea::make('Embed code', 'embed')
     ->conditionalLogic([
         ConditionalLogic::where('type', '!=', 'document')->and('type', '!=', 'link')
     ]),
-// use multiple ConditionalLogic for "or" condition
+
+// use multiple conditional logic for "or" condition
 Text::make('Title', 'title')
     ->conditionalLogic([
         ConditionalLogic::where('type', '!=', 'document')
         ConditionalLogic::where('type', '!=', 'link')
     ]),
-// use a conditional field that depends on an other field of an other group
+
+// use a conditional field that depends on an other field of an other field group
 Text::make('Sub Title', 'sub-title')
     ->conditionalLogic([
       ConditionalLogic::where(
