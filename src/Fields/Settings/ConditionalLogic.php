@@ -17,12 +17,7 @@ trait ConditionalLogic
 {
     public function conditionalLogic(array $rules): static
     {
-        $conditionalLogic = $this->settings['conditional_logic'] ?? [];
-
-        $conditionalLogic[] = $rules;
-
-        $this->settings['conditional_logic'] = $conditionalLogic;
-
+        $this->settings['conditional_logic'] = $rules;
         return $this;
     }
 }

@@ -17,12 +17,13 @@ use InvalidArgumentException;
 
 class ConditionalLogic
 {
+    public $rules;
     public function __construct(
         protected string $name,
         protected string $operator,
         protected mixed $value = null
     ) {
-        //
+        $this->rules[] = $this->createRule($name, $operator, $value);
     }
 
     /**
@@ -42,29 +43,53 @@ class ConditionalLogic
             '!=empty',
         ];
 
-        if (in_array($operator, $allowedOperators) === false) {
+        if (!in_array($operator, $allowedOperators)) {
             throw new InvalidArgumentException("Invalid conditional logic operator [$operator].");
         }
 
         return new self($name, $operator, $value);
     }
 
+    public function and(string $name, string $operator, mixed $value = null): static
+    {
+        $this->rules[] = $this->createRule($name, $operator, $value);
+        return $this;
+    }
+
+    private function createRule(string $name, string $operator, mixed $value = null): array
+    {
+        return [
+            'name' => $name,
+            'operator' => $operator,
+            'value' => $value,
+        ];
+    }
+
     /** @internal */
     public function get(string|null $parentKey = null): array
     {
-        $parentKey = Key::resolveParentKey($parentKey, Key::sanitize($this->name));
+        $defaultParentKey = $parentKey;
 
-        $key = $parentKey . '_' . Key::sanitize($this->name);
+        return array_map(function ($rule) use ($defaultParentKey) {
+            $parentKey = Key::resolveParentKey($defaultParentKey, Key::sanitize($rule['name']));
+            $key = $parentKey . '_' . Key::sanitize($rule['name']);
 
-        $rule = [
-            'field' => 'field_' . Key::hash($key),
-            'operator' => $this->operator,
-        ];
+            $newRule = [
+                'field' => 'field_' . Key::hash($key),
+                'operator' => $rule['operator'],
+            ];
 
-        if ($this->value) {
-            $rule['value'] = $this->value;
-        }
+            if ($rule['value']) {
+                $newRule['value'] = $rule['value'];
+            }
 
-        return $rule;
+            return $newRule;
+        }, $this->rules);
+    }
+
+    /** @internal */
+    public function getRules(): array
+    {
+        return $this->rules;
     }
 }
