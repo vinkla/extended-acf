@@ -17,11 +17,12 @@ use InvalidArgumentException;
 
 class ConditionalLogic
 {
-    public $rules;
+    public array $rules = [];
+
     public function __construct(
-        protected string $name,
-        protected string $operator,
-        protected mixed $value = null
+        string $name,
+        string $operator,
+        mixed $value = null
     ) {
         $this->rules[] = $this->createRule($name, $operator, $value);
     }
