@@ -24,11 +24,11 @@ class ConditionalLogicTest extends TestCase
 {
     public function testConditionalLogic()
     {
-        $conditionalLogic = [
+        $conditionalLogic = [[
             'field' => 'field_f5456193',
             'operator' => '==',
             'value' => 10,
-        ];
+        ]];
 
         $this->assertSame($conditionalLogic, ConditionalLogic::where('age', '==', 10)->get('field'));
     }

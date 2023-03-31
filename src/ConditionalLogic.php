@@ -31,7 +31,7 @@ class ConditionalLogic
      * @param string $operator `==` is equal to, `!=` is not equal to, `>` is greater than, `<` is less than, `==pattern` matches pattern, `==contains` contains value, `==empty` has no value, `!=empty` has any value
      * @throws \InvalidArgumentException
      */
-    public static function where(string $name, string $operator, mixed $value = null): static
+    public static function where(string|array $field, string $operator, mixed $value = null): static
     {
         $allowedOperators = [
             '>',
@@ -48,10 +48,10 @@ class ConditionalLogic
             throw new InvalidArgumentException("Invalid conditional logic operator [$operator].");
         }
 
-        return new self($name, $operator, $value);
+        return new self($field, $operator, $value);
     }
 
-    public function and(string $field, string $operator, mixed $value = null): static
+    public function and(string|array $field, string $operator, mixed $value = null): static
     {
         $this->rules[] = $this->createRule($field, $operator, $value);
         return $this;

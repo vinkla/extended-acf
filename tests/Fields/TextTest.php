@@ -93,6 +93,26 @@ class TextTest extends TestCase
         $this->assertSame(['id' => 'status'], $field['wrapper']);
     }
 
+    public function testConditionalLogicExternalGroup()
+    {
+        $field = Text::make('Conditional Logic External Group')
+            ->conditionalLogic([
+                ConditionalLogic::where(['group' => 'external', 'name' => 'type'], '==empty'),
+            ])->get('group');
+        $this->assertSame('field_21649737', $field['conditional_logic'][0][0]['field']);
+    }
+
+    public function testConditionalLogicAnd()
+    {
+        $field = Text::make('Conditional Logic And')
+            ->conditionalLogic([
+                ConditionalLogic::where('type', '==', 'video')->and('highlight', '!=', 'true')
+            ])->get('group');
+
+        $this->assertSame('==', $field['conditional_logic'][0][0]['operator']);
+        $this->assertSame('!=', $field['conditional_logic'][0][1]['operator']);
+    }
+
     public function testConditionalLogic()
     {
         $field = Text::make('Conditional Logic')
