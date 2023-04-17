@@ -628,20 +628,20 @@ Url::make('Link', 'url')
     ]),
 
 // "and" condition
-Textarea::make('Embed code', 'embed')
+Textarea::make('Embed Code')
     ->conditionalLogic([
         ConditionalLogic::where('type', '!=', 'document')->and('type', '!=', 'link')
     ]),
 
 // use multiple conditional logic for "or" condition
-Text::make('Title', 'title')
+Text::make('Title')
     ->conditionalLogic([
-        ConditionalLogic::where('type', '!=', 'document')
+        ConditionalLogic::where('type', '!=', 'document'),
         ConditionalLogic::where('type', '!=', 'link')
     ]),
 
-// use a conditional field that depends on an other field of an other field group
-Text::make('Sub Title', 'sub-title')
+// conditional logic that relies on another field from a different field group
+Text::make('Sub Title')
     ->conditionalLogic([
       ConditionalLogic::where(
         group: 'other-group',

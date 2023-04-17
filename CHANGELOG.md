@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 13.3.0
+
+- Added and, or and group support to conditional logic
+
 ## 13.2.1
 
 - Added float support to `min` and `max` methods
