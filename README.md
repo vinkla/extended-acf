@@ -400,17 +400,16 @@ Accordion::make('Endpoint')
 **Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields or groups. This field doesn't have a custom field class. Instead create a new file with your field and import it using `require` where you need it.
 
 ```php
-// fields/occupation.php
-use Extended\ACF\Fields\Text;
+// fields/email.php
+use Extended\ACF\Fields\Email;
 
-return Text::make('Occupation')
-    ->instructions('Add the employees occupation.')
+return Email::make('Email')
     ->required();
 
 // employee.php
 register_extended_field_group([
     'fields' => [
-        require __DIR__.'/fields/occupation.php';
+        require __DIR__.'/fields/email.php';
     ]
 ]);
 ```
