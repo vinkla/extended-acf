@@ -63,7 +63,7 @@ Visit the official [ACF documentation](https://www.advancedcustomfields.com/reso
 - [Register custom post type](examples/custom-post-type.php)
 - [Register custom post type with Extended CPT](examples/with-extended-cpts.php)
 - [Register Gutenberg block](examples/gutenberg-block.php)
-- [Register option page](examples/option-page.php)
+- [Register options page](examples/options-page.php)
 
 ## Fields
 
