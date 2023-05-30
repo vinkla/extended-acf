@@ -29,5 +29,9 @@ class ButtonGroupTest extends TestCase
         $choices = ['blue' => 'Blue Pill', 'red' => 'Red Pill'];
         $field = ButtonGroup::make('Choices')->choices($choices)->get();
         $this->assertSame($choices, $field['choices']);
+
+        $choices = ['Forest Green', 'Sky Blue'];
+        $field = ButtonGroup::make('Choices List')->choices($choices)->get();
+        $this->assertSame(['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue'], $field['choices']);
     }
 }

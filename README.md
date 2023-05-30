@@ -239,6 +239,8 @@ TrueFalse::make('Social Media', 'display_social_media')
     ->required();
 ```
 
+> Note: It is important to note that a list will be converted to an associative array with keys in snake case. For example, `['Forest Green', 'Sky Blue']` will be converted to `['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']`.
+
 ### Content Fields
 
 **File** - The [file field](https://www.advancedcustomfields.com/resources/file) allows a file to be uploaded and selected.
