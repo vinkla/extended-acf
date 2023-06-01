@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 13.4.0
+
+- Added automatically conversion of `choices` list to associative array
+- Updated PHP requirement to 8.1
+
 ## 13.3.0
 
 - Added and, or and group support to conditional logic
