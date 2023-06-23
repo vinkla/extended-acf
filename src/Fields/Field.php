@@ -60,6 +60,16 @@ abstract class Field
         return $this;
     }
 
+    public function dump(...$args)
+    {
+        dump($this->get(), ...$args);
+    }
+
+    public function dd(...$args)
+    {
+        dd($this->get(), ...$args);
+    }
+
     /** @internal */
     public function get(string|null $parentKey = null): array
     {

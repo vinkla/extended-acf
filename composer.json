@@ -20,6 +20,7 @@
         "php": "^8.1"
     },
     "require-dev": {
+        "symfony/var-dumper": "^6.3",
         "phpunit/phpunit": "^10.1"
     },
     "minimum-stability": "dev",
@@ -40,12 +41,12 @@
             "tests/helpers.php"
         ]
     },
-    "config": {
-        "preferred-install": "dist"
+    "suggest": {
+        "symfony/var-dumper": "Required to use the dump method (^6.3)."
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "13.4-dev"
+            "dev-master": "13.5-dev"
         }
     }
 }

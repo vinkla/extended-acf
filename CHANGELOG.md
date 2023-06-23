@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 13.5.0
+
+- Added `dump` and `dd` methods to field class
+
 ## 13.4.0
 
 - Added automatically conversion of `choices` list to associative array

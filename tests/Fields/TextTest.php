@@ -17,6 +17,7 @@ use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\Text;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\VarDumper\VarDumper;
 
 class TextTest extends TestCase
 {
@@ -143,5 +144,20 @@ class TextTest extends TestCase
     {
         $field = Text::make('Append')->append('suffix')->get();
         $this->assertSame('suffix', $field['append']);
+    }
+
+    public function testDump()
+    {
+        $log = [];
+
+        VarDumper::setHandler(function ($value) use (&$log) {
+            $log[] = $value;
+        });
+
+        Text::make('Dump')->dump(1, 2);
+
+        $this->assertSame([['label' => 'Dump', 'name' => 'dump', 'type' => 'text', 'key' => 'field_076f7d8c'], 1, 2], $log);
+
+        VarDumper::setHandler(null);
     }
 }
