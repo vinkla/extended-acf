@@ -60,12 +60,14 @@ abstract class Field
         return $this;
     }
 
-    public function dump(...$args)
+    public function dump(...$args): static
     {
         dump($this->get(), ...$args);
+
+        return $this;
     }
 
-    public function dd(...$args)
+    public function dd(...$args): never
     {
         dd($this->get(), ...$args);
     }

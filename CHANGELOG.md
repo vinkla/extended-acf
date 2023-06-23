@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 13.5.1
+
+- Added return types to `dump` and `dd` methods on field class
+
 ## 13.5.0
 
 - Added `dump` and `dd` methods to field class
