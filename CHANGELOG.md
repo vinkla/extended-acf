@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 13.6.0
+
+- Added buttons array to `toolbar` method on `WysiwygEditor` field
+
 ## 13.5.1
 
 - Added return types to `dump` and `dd` methods on field class

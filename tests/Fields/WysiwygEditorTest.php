@@ -52,5 +52,8 @@ class WysiwygEditorTest extends TestCase
     {
         $field = WysiwygEditor::make('Wysiwyg Editor Toolbar')->toolbar('basic')->get();
         $this->assertSame('basic', $field['toolbar']);
+
+        $field = WysiwygEditor::make('Wysiwyg Editor Toolbar Array')->toolbar(['bold', 'italic'])->get();
+        $this->assertSame('bold_italic', $field['toolbar']);
     }
 }

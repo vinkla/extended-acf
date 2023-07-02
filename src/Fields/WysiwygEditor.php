@@ -59,9 +59,28 @@ class WysiwygEditor extends Field
         return $this;
     }
 
-    public function toolbar(string $toolbar): static
+    /**
+     * @param string|array $toolbar aligncenter, alignleft, alignright, blockquote, bold, bullist, charmap, forecolor, formatselect, fullscreen, hr, indent, italic, link, numlist, outdent, pastetext, redo, removeformat, spellchecker, strikethrough, underline, undo, wp_adv, wp_help, wp_more
+     */
+    public function toolbar(string|array $toolbar): static
     {
-        $this->settings['toolbar'] = $toolbar;
+        if (is_string($toolbar)) {
+            $this->settings['toolbar'] = $toolbar;
+        }
+
+        if (is_array($toolbar)) {
+            $this->settings['toolbar'] = implode('_', $toolbar);
+
+            add_filter('acf/fields/wysiwyg/toolbars', function (
+                array $toolbars
+            ) use ($toolbar) {
+                $toolbars[$this->settings['toolbar']] = [
+                    1 => $toolbar,
+                ];
+
+                return $toolbars;
+            });
+        }
 
         return $this;
     }

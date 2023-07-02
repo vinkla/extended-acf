@@ -312,7 +312,7 @@ WysiwygEditor::make('Content')
     ->instructions('Add the text content.')
     ->mediaUpload(false)
     ->tabs('visual')
-    ->toolbar('simple') // toolbar name in snake_case
+    ->toolbar(['bold', 'italic', 'link']) // available buttons: aligncenter, alignleft, alignright, blockquote, bold, bullist, charmap, forecolor, formatselect, fullscreen, hr, indent, italic, link, numlist, outdent, pastetext, redo, removeformat, spellchecker, strikethrough, underline, undo, wp_adv, wp_help, wp_more
     ->required();
 ```
 
