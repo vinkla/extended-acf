@@ -160,6 +160,14 @@ Url::make('Website')
 
 ### Choice Fields
 
+It's important to note that a list will be converted to an associative array with keys written in snake_case.
+
+```php
+Field::make('Color')
+    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
+    ->defaultValue('forest_green');
+```
+
 **Button Group** - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
 
 ```php
@@ -239,8 +247,6 @@ TrueFalse::make('Social Media', 'display_social_media')
     ->required();
 ```
 
-> It is important to note that a list will be converted to an associative array with keys in snake case. For example, `['Forest Green', 'Sky Blue']` will be converted to `['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']`.
-
 ### Content Fields
 
 **File** - The [file field](https://www.advancedcustomfields.com/resources/file) allows a file to be uploaded and selected.
@@ -312,7 +318,7 @@ WysiwygEditor::make('Content')
     ->instructions('Add the text content.')
     ->mediaUpload(false)
     ->tabs('visual')
-    ->toolbar(['bold', 'italic', 'link']) // available buttons: aligncenter, alignleft, alignright, blockquote, bold, bullist, charmap, forecolor, formatselect, fullscreen, hr, indent, italic, link, numlist, outdent, pastetext, redo, removeformat, spellchecker, strikethrough, underline, undo, wp_adv, wp_help, wp_more
+    ->toolbar(['bold', 'italic', 'link']) // aligncenter, alignleft, alignright, blockquote, bold, bullist, charmap, forecolor, formatselect, fullscreen, hr, indent, italic, link, numlist, outdent, pastetext, redo, removeformat, spellchecker, strikethrough, underline, undo, wp_adv, wp_help, wp_more
     ->required();
 ```
 
@@ -576,13 +582,8 @@ Taxonomy::make('Cinemas')
 use Extended\ACF\Fields\User;
 
 User::make('User')
-    ->roles([
-        'administrator',
-        'author'
-    ])
+    ->roles(['administrator', 'editor']) // administrator, author, contributor, editor, subscriber
     ->returnFormat('array'); // id, object or array (default)
-
-// Available roles are administrator, author, subscriber, contributor and editor. Default is no filter.
 ```
 
 ## Location
