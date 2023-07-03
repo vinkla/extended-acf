@@ -160,14 +160,6 @@ Url::make('Website')
 
 ### Choice Fields
 
-It's important to note that a list will be converted to an associative array with keys written in snake_case.
-
-```php
-Field::make('Color')
-    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
-    ->defaultValue('forest_green');
-```
-
 **Button Group** - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
 
 ```php
@@ -175,11 +167,8 @@ use Extended\ACF\Fields\ButtonGroup;
 
 ButtonGroup::make('Color')
     ->instructions('Select the box shadow color.')
-    ->choices([
-        'cyan' => 'Cyan',
-        'hotpink' => 'Hotpink',
-    ])
-    ->defaultValue('hotpink')
+    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
+    ->defaultValue('forest_green')
     ->returnFormat('value') // array, label or value (default)
     ->required();
 ```
@@ -191,11 +180,8 @@ use Extended\ACF\Fields\Checkbox;
 
 Checkbox::make('Color')
     ->instructions('Select the border color.')
-    ->choices([
-        'cyan' => 'Cyan',
-        'hotpink' => 'Hotpink',
-    ])
-    ->defaultValue('cyan')
+    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
+    ->defaultValue('forest_green')
     ->returnFormat('value') // array, label or value (default)
     ->layout('horizontal') // vertical or horizontal
     ->required();
@@ -208,11 +194,8 @@ use Extended\ACF\Fields\RadioButton;
 
 RadioButton::make('Color')
     ->instructions('Select the text color.')
-    ->choices([
-        'cyan' => 'Cyan',
-        'hotpink' => 'Hotpink',
-    ])
-    ->defaultValue('hotpink')
+    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
+    ->defaultValue('forest_green')
     ->returnFormat('value') // array, label or value (default)
     ->required();
 ```
@@ -224,11 +207,8 @@ use Extended\ACF\Fields\Select;
 
 Select::make('Color')
     ->instructions('Select the background color.')
-    ->choices([
-        'cyan' => 'Cyan',
-        'hotpink' => 'Hotpink',
-    ])
-    ->defaultValue('cyan')
+    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
+    ->defaultValue('forest_green')
     ->returnFormat('value') // array, label or value (default)
     ->allowMultiple()
     ->allowNull()
