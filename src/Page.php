@@ -22,6 +22,9 @@ use InvalidArgumentException;
  */
 class Page
 {
+    /** @var array */
+    protected $settings;
+
     /**
      * Create a new page instance.
      *
