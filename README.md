@@ -712,16 +712,15 @@ OpenStreetMap::make('Map')
 
 ## Upgrade Guide
 
-This upgrade guide contains information on breaking changes in major releases of the package.
+This upgrade guide provides information about the breaking changes to the package, now known as `vinkla/extended-acf`. If you are using version 12 or lower, simply replace the package name in your `composer.json` file and everything will continue to work as expected.
 
-### 13
-
-The package has been renamed to `vinkla/extended-acf`. If you're using version 12 or lower, you may simply change the package name in your `composer.json` file and everything will work as before.
 
 ```diff
 -"wordplate/acf": "^12.0",
 +"vinkla/extended-acf": "^12.0"
 ```
+
+### 13
 
 If you're upgrading to version 13, you'll also need to change your imports. The namespace has been changed to `Extended\ACF`.
 
