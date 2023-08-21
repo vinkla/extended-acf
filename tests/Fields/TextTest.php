@@ -94,6 +94,12 @@ class TextTest extends TestCase
         $this->assertSame(['id' => 'status'], $field['wrapper']);
     }
 
+    public function testColumn()
+    {
+        $field = Text::make('Column')->column(50)->get();
+        $this->assertSame(['width' => 50], $field['wrapper']);
+    }
+
     public function testConditionalLogicExternalGroup()
     {
         $field = Text::make('Conditional Logic External Group')
