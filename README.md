@@ -669,7 +669,7 @@ Text::make('Name')
 	->required()
 ```
 
-Another option is to extend field classes available in the package.
+Another option for adding custom settings is to extend the field classes provided in the package. Please refer to the [custom fields](#custom-fields) section.
 
 ```php
 namespace App\Fields;
