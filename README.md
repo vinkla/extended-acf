@@ -4,9 +4,9 @@
 
 # Extended ACF
 
-> Register [advanced custom fields](https://www.advancedcustomfields.com) with object oriented PHP.
+> Register [advanced custom fields](https://www.advancedcustomfields.com) with object-oriented PHP.
 
-Extended ACF provides an object oriented API to register groups and fields with ACF. If you register fields in your theme, you can safely rely on version control when working with other developers. Oh, and you don't have to worry about unique field keys.
+Extended ACF provides an object-oriented API to register groups and fields with ACF. If you register fields in your theme, you can safely rely on version control when working with other developers. Oh, you don't have to worry about unique field keys.
 
 [![Build Status](https://badgen.net/github/checks/vinkla/extended-acf?label=build&icon=github)](https://github.com/vinkla/extended-acf/actions)
 [![Monthly Downloads](https://badgen.net/packagist/dm/vinkla/extended-acf)](https://packagist.org/packages/vinkla/extended-acf/stats)
@@ -17,7 +17,7 @@ Extended ACF provides an object oriented API to register groups and fields with 
 - [Fields](#fields)
 - [Location](#location)
 - [Conditional Logic](#conditional-logic)
-- [Custom Settings](#custom-settings)
+- [Non-standards](#non-standards)
 - [Custom Fields](#custom-fields)
 - [Upgrade Guide](#upgrade-guide)
 
@@ -28,14 +28,13 @@ Require this package, with Composer, in the root directory of your project.
 ```bash
 composer require vinkla/extended-acf
 ```
+To install the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/blog/composer-support-acf-pro/) plugin, download it and place it in either the `plugins` or `mu-plugins` directory. Then, go to the WordPress dashboard and activate the plugin.
 
-Download the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/blog/composer-support-acf-pro/) plugin and put it in either the `plugins` or `mu-plugins` directory. Visit the WordPress dashboard and activate the plugin.
-
-[Learn more about installing ACF PRO with Composer.](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
+[Learn more about installing ACF PRO using Composer.](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
 
 ## Usage
 
-Use the `register_extended_field_group()` function to register a new field group. It extends the default [`register_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function provided in the ACF plugin. The difference is that it appends the `key` value to field groups and fields. Below you'll find an example of a field group.
+Use the `register_extended_field_group()` function to register a new field group. This function extends the default [`register_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function provided in the ACF plugin. The difference is that it appends the `key` value to field groups and fields. Below, you will find an example of a field group.
 
 ```php
 use Extended\ACF\Fields\Image;
@@ -58,7 +57,7 @@ add_action('acf/init', function() {
 
 ## Settings
 
-Visit the official [ACF documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings) to read more about the field group settings. Find more examples in the examples directory:
+Please refer to the official [ACF documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings) for detailed information on field group settings. You can also explore additional examples in the examples directory.
 
 - [Register custom post type](examples/custom-post-type.php)
 - [Register custom post type with Extended CPT](examples/with-extended-cpts.php)
@@ -67,15 +66,17 @@ Visit the official [ACF documentation](https://www.advancedcustomfields.com/reso
 
 ## Fields
 
-All fields have their responding class (except the clone field). All fields must have a `label`. If no `name` is given, it will use the `label` as `name` in lowercase letters. The `name` can only contain alphanumeric characters, underscores and dashes.
+All fields, except the clone field, have a corresponding class. Each field requires a `label`. If no `name` is specified, the `label` will be used as the `name` in snake_case. The `name` can only contain alphanumeric characters and underscores.
 
 ```php
 use Extended\ACF\Fields\Text;
 
 Text::make('Title', 'heading')
     ->instructions('Add the text value')
-    ->required();
+    ->required()
 ```
+
+Most fields have the methods `defaultValue`, `required`, and `wrapper`. The [basic fields](#basic-fields) also have the methods `prepend`, `append`, `placeholder`, `readOnly`, and `disabled`. Please also check the non-standard methods mentioned in the [non-standards](#non-standards) section.
 
 ### Basic Fields
 
@@ -86,7 +87,7 @@ use Extended\ACF\Fields\Email;
 
 Email::make('Email')
     ->instructions('Add the employees email address.')
-    ->required();
+    ->required()
 ```
 
 **Number** - The [number field](https://www.advancedcustomfields.com/resources/text) creates a simple number input.
@@ -98,7 +99,7 @@ Number::make('Age')
     ->instructions('Add the employees age.')
     ->min(18)
     ->max(65)
-    ->required();
+    ->required()
 ```
 
 **Password** - The [password field](https://www.advancedcustomfields.com/resources/text) creates a simple password input.
@@ -108,7 +109,7 @@ use Extended\ACF\Fields\Password;
 
 Password::make('Password')
     ->instructions('Add the employees secret pwned password.')
-    ->required();
+    ->required()
 ```
 
 **Range** - The [range](https://www.advancedcustomfields.com/resources/range) field provides an interactive experience for selecting a numerical value.
@@ -121,7 +122,7 @@ Range::make('Rate')
     ->min(0)
     ->max(100)
     ->step(10)
-    ->required();
+    ->required()
 ```
 
 **Text** - The [text field](https://www.advancedcustomfields.com/resources/text) creates a simple text input.
@@ -132,7 +133,7 @@ use Extended\ACF\Fields\Text;
 Text::make('Name')
     ->instructions('Add the employees name.')
     ->characterLimit(100)
-    ->required();
+    ->required()
 ```
 
 **Textarea** - The [textarea field](https://www.advancedcustomfields.com/resources/textarea) creates a simple textarea.
@@ -145,7 +146,7 @@ Textarea::make('Biography')
     ->newLines('br') // br or wpautop
     ->characterLimit(2000)
     ->rows(10)
-    ->required();
+    ->required()
 ```
 
 **URL** - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
@@ -155,7 +156,7 @@ use Extended\ACF\Fields\Url;
 
 Url::make('Website')
     ->instructions('Add the employees website link.')
-    ->required();
+    ->required()
 ```
 
 ### Choice Fields
@@ -170,7 +171,7 @@ ButtonGroup::make('Color')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->defaultValue('forest_green')
     ->returnFormat('value') // array, label or value (default)
-    ->required();
+    ->required()
 ```
 
 **Checkbox** - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
@@ -184,7 +185,7 @@ Checkbox::make('Color')
     ->defaultValue('forest_green')
     ->returnFormat('value') // array, label or value (default)
     ->layout('horizontal') // vertical or horizontal
-    ->required();
+    ->required()
 ```
 
 **Radio** - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
@@ -197,7 +198,7 @@ RadioButton::make('Color')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->defaultValue('forest_green')
     ->returnFormat('value') // array, label or value (default)
-    ->required();
+    ->required()
 ```
 
 **Select** - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
@@ -212,7 +213,7 @@ Select::make('Color')
     ->returnFormat('value') // array, label or value (default)
     ->allowMultiple()
     ->allowNull()
-    ->required();
+    ->required()
 ```
 
 **True False** - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
@@ -224,7 +225,7 @@ TrueFalse::make('Social Media', 'display_social_media')
     ->instructions('Select whether to display social media links or not.')
     ->defaultValue(false)
     ->stylisedUi() // optional on and off text labels
-    ->required();
+    ->required()
 ```
 
 ### Content Fields
@@ -240,7 +241,7 @@ File::make('Resturant Menu', 'menu')
     ->library('all') // all or uploadedTo
     ->fileSize('400 KB', 5) // MB if entered as int
     ->returnFormat('array') // id, url or array (default)
-    ->required();
+    ->required()
 ```
 
 **Gallery** - The [gallery field](https://www.advancedcustomfields.com/resources/gallery) provides a simple and intuitive interface for managing a collection of images.
@@ -259,7 +260,7 @@ Gallery::make('Images')
     ->library('all') // all or uploadedTo
     ->returnFormat('array') // id, url or array (default)
     ->previewSize('medium') // thumbnail, medium or large
-    ->required();
+    ->required()
 ```
 
 **Image** - The [image field](https://www.advancedcustomfields.com/resources/image) allows an image to be uploaded and selected.
@@ -276,7 +277,7 @@ Image::make('Background Image')
     ->library('all') // all or uploadedTo
     ->returnFormat('array') // id, url or array (default)
     ->previewSize('medium') // thumbnail, medium or large
-    ->required();
+    ->required()
 ```
 
 **Oembed** - The [oEmbed field](https://www.advancedcustomfields.com/resources/oembed) allows an easy way to embed videos, images, tweets, audio, and other content.
@@ -286,7 +287,7 @@ use Extended\ACF\Fields\Oembed;
 
 Oembed::make('Tweet')
     ->instructions('Add a tweet from Twitter.')
-    ->required();
+    ->required()
 ```
 
 **WYSIWYG** - The [WYSIWYG field](https://www.advancedcustomfields.com/resources/wysiwyg-editor) creates a full WordPress tinyMCE content editor.
@@ -299,7 +300,7 @@ WysiwygEditor::make('Content')
     ->mediaUpload(false)
     ->tabs('visual') // all, text or visual (default)
     ->toolbar(['bold', 'italic', 'link']) // aligncenter, alignleft, alignright, blockquote, bold, bullist, charmap, forecolor, formatselect, fullscreen, hr, indent, italic, link, numlist, outdent, pastetext, redo, removeformat, spellchecker, strikethrough, underline, undo, wp_adv, wp_help, wp_more
-    ->required();
+    ->required()
 ```
 
 ### jQuery Fields
@@ -312,7 +313,7 @@ use Extended\ACF\Fields\ColorPicker;
 ColorPicker::make('Text Color')
     ->instructions('Add the text color.')
     ->defaultValue('#4a9cff')
-    ->required();
+    ->required()
 ```
 
 **Date Picker** - The [date picker field](https://www.advancedcustomfields.com/resources/date-picker) creates a jQuery date selection popup.
@@ -324,7 +325,7 @@ DatePicker::make('Birthday')
     ->instructions('Add the employee\'s birthday.')
     ->displayFormat('d/m/Y')
     ->returnFormat('d/m/Y')
-    ->required();
+    ->required()
 ```
 
 **Time Picker** - The [time picker field](https://www.advancedcustomfields.com/resources/time-picker) creates a jQuery time selection popup.
@@ -336,7 +337,7 @@ TimePicker::make('Start Time', 'time')
     ->instructions('Add the start time.')
     ->displayFormat('H:i')
     ->returnFormat('H:i')
-    ->required();
+    ->required()
 ```
 
 **Date Time Picker** - The [date time picker field](https://www.advancedcustomfields.com/resources/date-time-picker) creates a jQuery date & time selection popup.
@@ -348,7 +349,7 @@ DateTimePicker::make('Event Date', 'date')
     ->instructions('Add the event\'s start date and time.')
     ->displayFormat('d-m-Y H:i')
     ->returnFormat('d-m-Y H:i')
-    ->required();
+    ->required()
 ```
 
 **Google Map** - The [Google Map field](https://www.advancedcustomfields.com/resources/google-map) creates an interactive map with the ability to place a marker.
@@ -360,7 +361,7 @@ GoogleMap::make('Address', 'address')
     ->instructions('Add the Google Map address.')
     ->center(57.456286, 18.377716)
     ->zoom(14)
-    ->required();
+    ->required()
 ```
 
 ### Layout Fields
@@ -385,14 +386,13 @@ Accordion::make('Endpoint')
 // Any fields added after this will not be a child to the accordion.
 ```
 
-**Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) allows you to select and display existing fields or groups. This field doesn't have a custom field class. Instead create a new file with your field and import it using `require` where you need it.
+**Clone** - The [clone field](https://www.advancedcustomfields.com/resources/clone) enables you to choose and showcase pre-existing fields or groups. This field does not possess a custom field class. Instead, you can create a new file for your field and import it using the `require` statement whenever necessary.
 
 ```php
 // fields/email.php
 use Extended\ACF\Fields\Email;
 
-return Email::make('Email')
-    ->required();
+return Email::make('Email')->required();
 
 // employee.php
 register_extended_field_group([
@@ -403,6 +403,7 @@ register_extended_field_group([
 ```
 
 **Flexible Content** - The [flexible content field](https://www.advancedcustomfields.com/resources/flexible-content) acts as a blank canvas to which you can add an unlimited number of layouts with full control over the order.
+
 ```php
 use Extended\ACF\Fields\FlexibleContent;
 use Extended\ACF\Fields\Layout;
@@ -418,7 +419,7 @@ FlexibleContent::make('Components', 'page_components')
                 Text::make('Description')
             ])
     ])
-    ->required();
+    ->required()
 ```
 
 **Group** - The [group](https://www.advancedcustomfields.com/resources/group) allows you to create a group of sub fields.
@@ -435,7 +436,7 @@ Group::make('Hero')
         Image::make('Background Image'),
     ])
     ->layout('row')
-    ->required();
+    ->required()
 ```
 
 **Message** - The message fields allows you to display a text message.
@@ -445,7 +446,7 @@ use Extended\ACF\Fields\Message;
 
 Message::make('Message')
     ->message('George. One point twenty-one gigawatts.')
-    ->escapeHtml();
+    ->escapeHtml(),
 ```
 
 **Repeater** - The [repeater field](https://www.advancedcustomfields.com/resources/repeater) allows you to create a set of sub fields which can be repeated again and again whilst editing content!
@@ -466,10 +467,10 @@ Repeater::make('Employees')
     ->buttonLabel('Add employee')
     ->pagination(10)
     ->layout('table') // block, row or table
-    ->required();
+    ->required()
 ```
 
-**Tab** - The [tab field](https://www.advancedcustomfields.com/resources/tab) is used to group together fields into tabbed sections. Any fields or groups added after a acf_tab will become a child to that tab. Setting 'endpoint' to true on a tab will create a new group of tabs.
+**Tab** - The [tab field](https://www.advancedcustomfields.com/resources/tab) groups fields into tabbed sections. Fields or groups added after a tab become its children. Enabling `endpoint` on a tab creates a new group of tabs.
 
 ```php
 use Extended\ACF\Fields\Tab;
@@ -478,7 +479,7 @@ Tab::make('Tab 1'),
 Tab::make('Tab 2'),
 Tab::make('Tab 3')
     ->placement('top') // top or left
-    ->endpoint(), // This will make a break in the tabs and create a new group of tabs.
+    ->endpoint(), // This will make a break in the tabs and create a new group of tabs
 ```
 
 ### Relational Fields
@@ -490,7 +491,7 @@ use Extended\ACF\Fields\Link;
 
 Link::make('Read More Link')
     ->returnFormat('array') // url or array (default)
-    ->required();
+    ->required()
 ```
 
 **Page Link** - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
@@ -504,7 +505,7 @@ PageLink::make('Contact Link')
     ->allowArchives() // optionally pass 'false' to disallow archives
     ->allowNull()
     ->allowMultiple()
-    ->required();
+    ->required()
 ```
 
 **Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.
@@ -518,7 +519,7 @@ PostObject::make('Animal')
     ->allowNull()
     ->allowMultiple()
     ->returnFormat('object') // id or object (default)
-    ->required();
+    ->required()
 ```
 
 **Relationship** - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field.
@@ -538,7 +539,7 @@ Relationship::make('Contacts')
     ->min(3)
     ->max(6)
     ->returnFormat('object') // id or object (default)
-    ->required();
+    ->required()
 ```
 
 **Taxonomy** - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms.
@@ -553,7 +554,7 @@ Taxonomy::make('Cinemas')
     ->addTerm(true) // Allow new terms to be created whilst editing (true or false)
     ->loadTerms(true) // Load value from posts terms (true or false)
     ->saveTerms(true) // Connect selected terms to the post (true or false)
-    ->returnFormat('id'); // object or id (default)
+    ->returnFormat('id'), // object or id (default)
 ```
 
 **User** - The user field creates a select field for all your users.
@@ -563,24 +564,24 @@ use Extended\ACF\Fields\User;
 
 User::make('User')
     ->roles(['administrator', 'editor']) // administrator, author, contributor, editor, subscriber
-    ->returnFormat('array'); // id, object or array (default)
+    ->returnFormat('array'), // id, object or array (default)
 ```
 
 ## Location
 
-The location class let you write [custom location rules](https://www.advancedcustomfields.com/resources/custom-location-rules) without the `name`, `operator` and `value` keys. If no `operator` is given it will use the `operator` as the `value`.
+The `Location` class allows you to write custom location rules without specifying the `name`, `operator`, and `value` keys. If no `operator` is provided, it will use the `operator` as the `value`. For additional details on custom location rules, please visit [this link](https://www.advancedcustomfields.com/resources/custom-location-rules).
 
 ```php
 use Extended\ACF\Location;
 
-Location::where('post_type', 'post')->and('post_type', '!=', 'post'); // available operators: ==, !=
+Location::where('post_type', 'post')->and('post_type', '!=', 'post') // available operators: ==, !=
 ```
 
 > **Note:** The `if` method was renamed to `where` in version 12, see the [upgrade guide](#upgrade-guide).
 
 ## Conditional Logic
 
-The conditional class help you write conditional logic [without knowing](https://media.giphy.com/media/SbtWGvMSmJIaV8faS8/source.gif) the field keys.
+The conditional class helps you write conditional logic [without knowing](https://media.giphy.com/media/SbtWGvMSmJIaV8faS8/source.gif) the field keys.
 
 ```php
 use Extended\ACF\ConditionalLogic;
@@ -630,9 +631,37 @@ Text::make('Sub Title')
     ]),
 ```
 
-## Custom Settings
+## Non-standards
 
-If you want to add custom settings to the fields, you can use the `withSettings` method. If you add settings which are already registered on the field, they'll be overwritten.
+The `instructions` method supports [Markdown](https://wordpress.com/support/markdown-quick-reference/) for the HTML elements listed below.
+
+```php
+Text::make('Title')
+    ->instructions('__strong__ **strong** _italic_ *italic* `code` [link](https://example.com)')
+```
+
+The `column` method is not a standard method in ACF. It is used as a shorthand for setting the width of the field wrapper. You can provide a number between 1 and 100 as its value.
+
+```php
+Text::make('Text')
+    ->column(50)
+```
+
+The `dd` and `dump` methods are non-standard and not available in ACF. These methods are used for debugging. 
+
+```php  
+Text::make('Name')
+    ->dd()
+    ->dump()
+```
+
+To use the `dd` and `dump` methods, you need to install `symfony/var-dumper`.
+
+```sh
+composer require symfony/var-dumper --dev
+```
+
+The `withSettings` method overwrites any existing settings on the field when you want to add custom settings.
 
 ```php
 Text::make('Name')
@@ -660,7 +689,7 @@ class Select extends Field
 
 ## Custom Fields
 
-If you want to create custom field classes you may extend the [base field class](src/Fields/Field.php). You may also import [available setting traits](src/Fields/Settings) in order to add common methods such as `required()` and `intstructions()`.
+To create custom field classes, you can extend the [base field class](src/Fields/Field.php). Additionally, you can import [available setting traits](src/Fields/Settings) to add common methods like `required` and `instructions`.
 
 ```php
 namespace App\Fields;
@@ -699,7 +728,7 @@ class OpenStreetMap extends Field
 }
 ```
 
-When you're ready you can import use your field like any other field available in this library:
+When you're ready, you can import and use your field just like any other field in this library.
 
 ```php
 use App\Fields\OpenStreetMap;
@@ -707,12 +736,12 @@ use App\Fields\OpenStreetMap;
 OpenStreetMap::make('Map')
     ->latitude(56.474)
     ->longitude(11.863)
-    ->zoom(10);
+    ->zoom(10)
 ```
 
 ## Upgrade Guide
 
-This upgrade guide provides information about the breaking changes to the package, now known as `vinkla/extended-acf`. If you are using version 12 or lower, simply replace the package name in your `composer.json` file and everything will continue to work as expected.
+The upgrade guide provides information about the breaking changes in the package, now named `vinkla/extended-acf`. If you have version 12 or lower, you can update by replacing the package name in your `composer.json` file. This ensures that everything works as expected and you receive updates.
 
 
 ```diff
@@ -722,7 +751,7 @@ This upgrade guide provides information about the breaking changes to the packag
 
 ### 13
 
-If you're upgrading to version 13, you'll also need to change your imports. The namespace has been changed to `Extended\ACF`.
+If you're upgrading to version 13, you'll also need to update your imports. The namespace has been changed to `Extended\ACF`.
 
 ```diff
 -use WordPlate\Acf\Fields\Text;
@@ -733,11 +762,34 @@ If you're upgrading to version 13, you'll also need to change your imports. The 
 
 ### 12
 
-The location query method `if` has been changed to `where`, you'll need to update your field groups accordingly.
+The location query method `if` has been replaced with `where`. Please update your field groups accordingly.
 
 ```diff
 use Extended\ACF\Location;
 
--Location::if('post_type', 'post');
-+Location::where('post_type', 'post');
+-Location::if('post_type', 'post'),
++Location::where('post_type', 'post'),
+```
+
+### 11
+
+The field name is now automatically formatted as snake_case instead of kebab-case.
+
+```diff
+-Text::make('Organization Number') // `organization-number`
++Text::make('Organization Number') // `organization_number`
+```
+
+The field previously known as `Radio` has been renamed to `RadioButton` to align with the plugin's naming convention.
+
+```diff
+-Radio::make('Color')
++RadioButton::make('Color')
+```
+
+The field previously known as `Wysiwyg` has been renamed to `WysiwygEditor`.
+
+```diff
+-Wysiwyg::make('Text')
++WysiwygEditor::make('Text')
 ```

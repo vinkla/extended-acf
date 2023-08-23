@@ -1,6 +1,6 @@
 {
     "name": "vinkla/extended-acf",
-    "description": "Register advanced custom fields with object oriented PHP",
+    "description": "Register advanced custom fields with object-oriented PHP",
     "license": "MIT",
     "keywords": [
         "acf",
