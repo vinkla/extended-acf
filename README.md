@@ -784,8 +784,8 @@ use Extended\ACF\Location;
 The field name is now automatically formatted as snake_case instead of kebab-case.
 
 ```diff
--Text::make('Organization Number') // `organization-number`
-+Text::make('Organization Number') // `organization_number`
+-Text::make('Organization Number') // organization-number
++Text::make('Organization Number') // organization_number
 ```
 
 The field previously known as `Radio` has been renamed to `RadioButton` to align with the plugin's naming convention.
