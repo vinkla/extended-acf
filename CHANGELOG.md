@@ -3,7 +3,7 @@
 ## 13.7.0
 
 - Added Markdown support to `instructions` method
-- Added shorthand wrapper width method `column`
+- Added shorthand wrapper width method `column` to all fields
 
 ## 13.6.0
 
