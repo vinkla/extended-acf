@@ -633,6 +633,8 @@ Text::make('Sub Title')
 
 ## Non-standards
 
+#### `instructions`
+
 The `instructions` method supports [Markdown](https://wordpress.com/support/markdown-quick-reference/) for the HTML elements listed below.
 
 ```php
@@ -640,12 +642,16 @@ Text::make('Title')
     ->instructions('__strong__ **strong** _italic_ *italic* `code` [link](https://example.com)')
 ```
 
+#### `column`
+
 The `column` method is not a standard method in ACF. It is used as a shorthand for setting the width of the field wrapper. You can provide a number between 1 and 100 as its value.
 
 ```php
 Text::make('Text')
     ->column(50)
 ```
+
+#### `dd` and `dump`
 
 The `dd` and `dump` methods are non-standard and not available in ACF. These methods are used for debugging. 
 
@@ -660,6 +666,8 @@ To use the `dd` and `dump` methods, you need to install `symfony/var-dumper`.
 ```sh
 composer require symfony/var-dumper --dev
 ```
+
+#### `withSettings`
 
 The `withSettings` method overwrites any existing settings on the field when you want to add custom settings.
 
