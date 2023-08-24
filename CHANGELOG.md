@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 13.7.0
+
+- Added Markdown support to `instructions` method
+- Added shorthand wrapper width method `column`
+
 ## 13.6.0
 
 - Added buttons array to `toolbar` method on `WysiwygEditor` field
