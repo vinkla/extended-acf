@@ -635,7 +635,7 @@ Text::make('Sub Title')
 
 #### `instructions`
 
-The `instructions` method supports [Markdown](https://wordpress.com/support/markdown-quick-reference/) for the HTML elements listed below.
+The `instructions` method supports [Markdown](https://wordpress.com/support/markdown-quick-reference/) for the elements listed below.
 
 ```php
 Text::make('Title')
@@ -644,11 +644,11 @@ Text::make('Title')
 
 #### `column`
 
-The `column` method is not a standard method in ACF. It is used as a shorthand for setting the width of the field wrapper. You can provide a number between 1 and 100 as its value.
+The `column` property is not a standard in ACF. It is used as a shorthand for setting the width of the field wrapper. You can provide a number between 0 and 100 as its value.
 
 ```php
 Text::make('Text')
-    ->column(50)
+    ->column(50) // shorthand for ->wrapper(['width' => 50])
 ```
 
 #### `dd` and `dump`
