@@ -17,7 +17,10 @@ trait Wrapper
 {
     public function wrapper(array $wrapper): static
     {
-        $this->settings['wrapper'] = $wrapper;
+        $this->settings['wrapper'] = array_merge(
+            $this->settings['wrapper'] ?? [],
+            $wrapper
+        );
 
         return $this;
     }
