@@ -17,13 +17,10 @@ trait Wrapper
 {
     public function wrapper(array $wrapper): static
     {
-        $column_width = $this->settings['wrapper']['width'] ?? null;
-
-        if ($column_width !== null) {
-          $wrapper['width'] = $column_width;
-        }
-        
-        $this->settings['wrapper'] = $wrapper;
+        $this->settings['wrapper'] = array_merge(
+            $this->settings['wrapper'] ?? [],
+            $wrapper
+        );
 
         return $this;
     }
