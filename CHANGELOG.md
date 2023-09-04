@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 13.7.1
+
+- Updated `wrapper` and `column` methods to include settings merging
+
 ## 13.7.0
 
 - Added Markdown support to `instructions` method
