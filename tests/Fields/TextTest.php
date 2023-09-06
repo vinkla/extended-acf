@@ -40,6 +40,21 @@ class TextTest extends TestCase
     {
         $field = Text::make('Phone')->get();
         $this->assertSame('field_16217cde', $field['key']);
+
+        $field = Text::make('Phone')->key('field_1234567')->get();
+        $this->assertSame('field_1234567', $field['key']);
+    }
+
+    public function testKeyUniqueness()
+    {
+        $this->expectExceptionMessage('The key [field_16217cde] is not unique.');
+        Text::make('Phone')->key('field_16217cde')->get();
+    }
+
+    public function testKeyPrefix()
+    {
+        $this->expectExceptionMessage('The key should have the prefix [field_].');
+        Text::make('Phone')->key('phone')->get();
     }
 
     public function testType()

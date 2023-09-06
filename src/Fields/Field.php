@@ -72,10 +72,36 @@ abstract class Field
         dd($this->get(), ...$args);
     }
 
+    /**
+     * In most cases, there is no need to set a custom key. It is recommended to
+     * let the package generate the key for you. Please use this method carefully.
+     * @throws \InvalidArgumentException
+     */
+    public function key(string $key): static
+    {
+        if (!str_starts_with($key, $this->keyPrefix . '_')) {
+            throw new InvalidArgumentException(
+                sprintf('The key should have the prefix [%s_].', $this->keyPrefix)
+            );
+        }
+
+        if (in_array($key, array_values(Key::$keys))) {
+            throw new InvalidArgumentException("The key [$key] is not unique.");
+        }
+
+        $this->settings['key'] = $key;
+
+        Key::$keys[] = $key;
+
+        return $this;
+    }
+
     /** @internal */
     public function get(string|null $parentKey = null): array
     {
-        $key = $parentKey . '_' . Key::sanitize($this->settings['name']);
+        $key =
+            $this->settings['key'] ??
+            $parentKey . '_' . Key::sanitize($this->settings['name']);
 
         if ($this->type !== null) {
             $this->settings['type'] = $this->type;
@@ -111,7 +137,7 @@ abstract class Field
             }
         }
 
-        $this->settings['key'] = Key::generate($key, $this->keyPrefix);
+        $this->settings['key'] ??= Key::generate($key, $this->keyPrefix);
 
         return $this->settings;
     }
