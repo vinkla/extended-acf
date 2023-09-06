@@ -41,7 +41,7 @@ class TextTest extends TestCase
         $field = Text::make('Phone')->get();
         $this->assertSame('field_16217cde', $field['key']);
 
-        $field = Text::make('Phone')->key('field_12345')->get();
+        $field = Text::make('Phone')->key('field_1234567')->get();
         $this->assertSame('field_1234567', $field['key']);
     }
 
