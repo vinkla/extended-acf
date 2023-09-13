@@ -12,14 +12,29 @@ Extended ACF provides an object-oriented API to register groups and fields with 
 [![Monthly Downloads](https://badgen.net/packagist/dm/vinkla/extended-acf)](https://packagist.org/packages/vinkla/extended-acf/stats)
 [![Latest Version](https://badgen.net/packagist/v/vinkla/extended-acf)](https://packagist.org/packages/vinkla/extended-acf)
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Fields](#fields)
-- [Location](#location)
-- [Conditional Logic](#conditional-logic)
-- [Non-standards](#non-standards)
-- [Custom Fields](#custom-fields)
-- [Upgrade Guide](#upgrade-guide)
+- [Extended ACF](#extended-acf)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Settings](#settings)
+  - [Fields](#fields)
+    - [Basic Fields](#basic-fields)
+    - [Choice Fields](#choice-fields)
+    - [Content Fields](#content-fields)
+    - [jQuery Fields](#jquery-fields)
+    - [Layout Fields](#layout-fields)
+    - [Relational Fields](#relational-fields)
+  - [Location](#location)
+  - [Conditional Logic](#conditional-logic)
+  - [Non-standards](#non-standards)
+      - [`instructions`](#instructions)
+      - [`column`](#column)
+      - [`dd` and `dump`](#dd-and-dump)
+      - [`withSettings`](#withsettings)
+  - [Custom Fields](#custom-fields)
+  - [Upgrade Guide](#upgrade-guide)
+    - [13](#13)
+    - [12](#12)
+    - [11](#11)
 
 ## Installation
 
@@ -530,6 +545,7 @@ use Extended\ACF\Fields\Relationship;
 Relationship::make('Contacts')
     ->instructions('Add the contacts.')
     ->postTypes(['contact'])
+    ->postStatus(['publish'])
     ->filters([
         'search', 
         'post_type',
