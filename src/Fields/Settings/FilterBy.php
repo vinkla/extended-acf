@@ -28,4 +28,11 @@ trait FilterBy
 
         return $this;
     }
+
+    public function postStatus(array $postStatus): static
+    {
+        $this->settings['post_status'] = $postStatus;
+
+        return $this;
+    }
 }
