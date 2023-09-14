@@ -18,7 +18,7 @@ use InvalidArgumentException;
 trait Library
 {
     /**
-     * @param string $library all or uploadedTo
+     * @param string $library all, uploadedTo
      * @throws \InvalidArgumentException
      */
     public function library(string $library): static

@@ -18,7 +18,7 @@ use InvalidArgumentException;
 trait Layout
 {
     /**
-     * @param string $layout block, row or table
+     * @param string $layout block, row, table
      * @throws \InvalidArgumentException
      */
     public function layout(string $layout): static

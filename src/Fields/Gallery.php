@@ -43,7 +43,7 @@ class Gallery extends Field
     protected string|null $type = 'gallery';
 
     /**
-     * @param string $insert append or prepend
+     * @param string $insert append, prepend
      * @throws \InvalidArgumentException
      */
     public function insert(string $insert): static

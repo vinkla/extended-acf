@@ -45,7 +45,7 @@ class WysiwygEditor extends Field
     }
 
     /**
-     * @param string $tabs all, visual or text
+     * @param string $tabs all, visual, text
      * @throws \InvalidArgumentException
      */
     public function tabs(string $tabs): static

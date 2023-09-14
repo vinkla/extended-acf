@@ -33,7 +33,7 @@ class Taxonomy extends Field
     protected string|null $type = 'taxonomy';
 
     /**
-     * @param string $fieldType checkbox, multi_select, select or radio
+     * @param string $fieldType checkbox, multi_select, select, radio
      * @throws \InvalidArgumentException
      */
     public function appearance(string $fieldType): static

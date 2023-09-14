@@ -18,7 +18,7 @@ use InvalidArgumentException;
 trait DirectionLayout
 {
     /**
-     * @param string $layout vertical or horizontal
+     * @param string $layout vertical, horizontal
      * @throws \InvalidArgumentException
      */
     public function layout(string $layout): static

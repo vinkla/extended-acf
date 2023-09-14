@@ -157,7 +157,7 @@ use Extended\ACF\Fields\Textarea;
 
 Textarea::make('Biography')
     ->instructions('Add the employees biography.')
-    ->newLines('br') // br or wpautop
+    ->newLines('br') // br, wpautop
     ->characterLimit(2000)
     ->rows(10)
     ->required()
@@ -184,7 +184,7 @@ ButtonGroup::make('Color')
     ->instructions('Select the box shadow color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->defaultValue('forest_green')
-    ->returnFormat('value') // array, label or value (default)
+    ->returnFormat('value') // array, label, value (default)
     ->required()
 ```
 
@@ -197,8 +197,8 @@ Checkbox::make('Color')
     ->instructions('Select the border color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->defaultValue('forest_green')
-    ->returnFormat('value') // array, label or value (default)
-    ->layout('horizontal') // vertical or horizontal
+    ->returnFormat('value') // array, label, value (default)
+    ->layout('horizontal') // vertical, horizontal
     ->required()
 ```
 
@@ -211,7 +211,7 @@ RadioButton::make('Color')
     ->instructions('Select the text color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->defaultValue('forest_green')
-    ->returnFormat('value') // array, label or value (default)
+    ->returnFormat('value') // array, label, value (default)
     ->required()
 ```
 
@@ -224,7 +224,7 @@ Select::make('Color')
     ->instructions('Select the background color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->defaultValue('forest_green')
-    ->returnFormat('value') // array, label or value (default)
+    ->returnFormat('value') // array, label, value (default)
     ->allowMultiple()
     ->allowNull()
     ->required()
@@ -251,10 +251,11 @@ use Extended\ACF\Fields\File;
 
 File::make('Resturant Menu', 'menu')
     ->instructions('Add the menu <strong>pdf</strong> file.')
+    ->instructions('Add the menu **pdf** file.')
     ->mimeTypes(['pdf'])
-    ->library('all') // all or uploadedTo
+    ->library('all') // all, uploadedTo
     ->fileSize('400 KB', 5) // MB if entered as int
-    ->returnFormat('array') // id, url or array (default)
+    ->returnFormat('array') // id, url, array (default)
     ->required()
 ```
 
@@ -271,9 +272,9 @@ Gallery::make('Images')
     ->min(1)
     ->max(6)
     ->fileSize('400 KB', 5) // MB if entered as int
-    ->library('all') // all or uploadedTo
-    ->returnFormat('array') // id, url or array (default)
-    ->previewSize('medium') // thumbnail, medium or large
+    ->library('all') // all, uploadedTo
+    ->returnFormat('array') // id, url, array (default)
+    ->previewSize('medium') // thumbnail, medium, large
     ->required()
 ```
 
@@ -283,14 +284,14 @@ Gallery::make('Images')
 use Extended\ACF\Fields\Image;
 
 Image::make('Background Image')
-    ->instructions('Add an image in at least 12000x100px and only in the formats <strong>jpg</strong>, <strong>jpeg</strong> or <strong>png</strong>.')
+    ->instructions('Add an image in at least 12000x100px and only in the formats **jpg**, **jpeg** or **png**.')
     ->mimeTypes(['jpg', 'jpeg', 'png'])
     ->height(500, 1400)
     ->width(1000, 2000)
     ->fileSize('400 KB', 5) // MB if entered as int
-    ->library('all') // all or uploadedTo
-    ->returnFormat('array') // id, url or array (default)
-    ->previewSize('medium') // thumbnail, medium or large
+    ->library('all') // all, uploadedTo
+    ->returnFormat('array') // id, url, array (default)
+    ->previewSize('medium') // thumbnail, medium, large
     ->required()
 ```
 
@@ -312,7 +313,7 @@ use Extended\ACF\Fields\WysiwygEditor;
 WysiwygEditor::make('Content')
     ->instructions('Add the text content.')
     ->mediaUpload(false)
-    ->tabs('visual') // all, text or visual (default)
+    ->tabs('visual') // all, text, visual (default)
     ->toolbar(['bold', 'italic', 'link']) // aligncenter, alignleft, alignright, blockquote, bold, bullist, charmap, forecolor, formatselect, fullscreen, hr, indent, italic, link, numlist, outdent, pastetext, redo, removeformat, spellchecker, strikethrough, underline, undo, wp_adv, wp_help, wp_more
     ->required()
 ```
@@ -480,7 +481,7 @@ Repeater::make('Employees')
     ->collapsed('name')
     ->buttonLabel('Add employee')
     ->pagination(10)
-    ->layout('table') // block, row or table
+    ->layout('table') // block, row, table
     ->required()
 ```
 
@@ -492,7 +493,7 @@ use Extended\ACF\Fields\Tab;
 Tab::make('Tab 1'),
 Tab::make('Tab 2'),
 Tab::make('Tab 3')
-    ->placement('top') // top or left
+    ->placement('top') // top, left
     ->endpoint(), // This will make a break in the tabs and create a new group of tabs
 ```
 
@@ -504,7 +505,7 @@ Tab::make('Tab 3')
 use Extended\ACF\Fields\Link;
 
 Link::make('Read More Link')
-    ->returnFormat('array') // url or array (default)
+    ->returnFormat('array') // url, array (default)
     ->required()
 ```
 
@@ -534,7 +535,7 @@ PostObject::make('Animal')
     ->postStatus(['publish']) // draft, future, pending, private, publish
     ->allowNull()
     ->allowMultiple()
-    ->returnFormat('object') // id or object (default)
+    ->returnFormat('object') // id, object (default)
     ->required()
 ```
 
@@ -555,7 +556,7 @@ Relationship::make('Contacts')
     ->elements(['featured_image'])
     ->min(3)
     ->max(6)
-    ->returnFormat('object') // id or object (default)
+    ->returnFormat('object') // id, object (default)
     ->required()
 ```
 
@@ -567,7 +568,7 @@ use Extended\ACF\Fields\Taxonomy;
 Taxonomy::make('Cinemas')
     ->instructions('Select one or more cinema terms.')
     ->taxonomy('cinema')
-    ->appearance('checkbox') // checkbox, multi_select, radio or select
+    ->appearance('checkbox') // checkbox, multi_select, radio, select
     ->addTerm(true) // Allow new terms to be created whilst editing (true or false)
     ->loadTerms(true) // Load value from posts terms (true or false)
     ->saveTerms(true) // Connect selected terms to the post (true or false)
@@ -581,7 +582,7 @@ use Extended\ACF\Fields\User;
 
 User::make('User')
     ->roles(['administrator', 'editor']) // administrator, author, contributor, editor, subscriber
-    ->returnFormat('array'), // id, object or array (default)
+    ->returnFormat('array'), // id, object, array (default)
 ```
 
 ## Location

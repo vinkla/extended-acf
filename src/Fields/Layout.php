@@ -25,7 +25,7 @@ class Layout extends Field
     protected string $keyPrefix = 'layout';
 
     /**
-     * @param string $layout block, row or table
+     * @param string $layout block, row, table
      * @throws \InvalidArgumentException
      */
     public function layout(string $layout): static

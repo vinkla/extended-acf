@@ -18,7 +18,7 @@ use InvalidArgumentException;
 trait ReturnFormat
 {
     /**
-     * @param string $format array, id, label, object, url or value
+     * @param string $format array, id, label, object, url, value
      * @throws \InvalidArgumentException
      */
     public function returnFormat(string $format): static
