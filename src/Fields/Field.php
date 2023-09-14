@@ -72,6 +72,16 @@ abstract class Field
         dd($this->get(), ...$args);
     }
 
+    public function getSettings(): array
+    {
+        return $this->settings;
+    }
+
+    public function getType(): string|null
+    {
+        return $this->type;
+    }
+
     /**
      * In most cases, there is no need to set a custom key. It is recommended to
      * let the package generate the key for you. Please use this method carefully.
