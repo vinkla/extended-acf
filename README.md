@@ -703,7 +703,7 @@ use Extended\ACF\Fields\Select as Field;
 
 class Select extends Field
 {
-    public function myNewSetting(string $value): self
+    public function myNewSetting(string $value): static
     {
         $this->settings['my-new-settings'] = $value;
 
