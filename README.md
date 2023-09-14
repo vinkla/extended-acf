@@ -515,6 +515,7 @@ use Extended\ACF\Fields\PageLink;
 
 PageLink::make('Contact Link')
     ->postTypes(['contact'])
+    ->postStatus(['publish']) // draft, future, pending, private, publish
     ->taxonomies(['category:city'])
     ->allowArchives() // optionally pass 'false' to disallow archives
     ->allowNull()
@@ -530,6 +531,7 @@ use Extended\ACF\Fields\PostObject;
 PostObject::make('Animal')
     ->instructions('Select an animal')
     ->postTypes(['animal'])
+    ->postStatus(['publish']) // draft, future, pending, private, publish
     ->allowNull()
     ->allowMultiple()
     ->returnFormat('object') // id or object (default)
@@ -544,7 +546,7 @@ use Extended\ACF\Fields\Relationship;
 Relationship::make('Contacts')
     ->instructions('Add the contacts.')
     ->postTypes(['contact'])
-    ->postStatus(['publish'])
+    ->postStatus(['publish']) // draft, future, pending, private, publish
     ->filters([
         'search', 
         'post_type',
