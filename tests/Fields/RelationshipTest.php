@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Relationship;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class RelationshipTest extends TestCase
@@ -26,8 +27,11 @@ class RelationshipTest extends TestCase
 
     public function testPostStatus()
     {
-        $field = Relationship::make('Relationship PostStatus')->postStatus(['publish'])->get();
+        $field = Relationship::make('Relationship Post Status')->postStatus(['publish'])->get();
         $this->assertSame(['publish'], $field['post_status']);
+
+        $this->expectException(InvalidArgumentException::class);
+        Relationship::make('Relationship Invalid Post Status')->postStatus(['invalid'])->get();
     }
 
     public function testElements()
