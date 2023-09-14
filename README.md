@@ -14,12 +14,26 @@ Extended ACF provides an object-oriented API to register groups and fields with 
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Settings](#settings)
 - [Fields](#fields)
+  - [Basic Fields](#basic-fields)
+  - [Choice Fields](#choice-fields)
+  - [Content Fields](#content-fields)
+  - [jQuery Fields](#jquery-fields)
+  - [Layout Fields](#layout-fields)
+  - [Relational Fields](#relational-fields)
 - [Location](#location)
 - [Conditional Logic](#conditional-logic)
 - [Non-standards](#non-standards)
+    - [`instructions`](#instructions)
+    - [`column`](#column)
+    - [`dd` and `dump`](#dd-and-dump)
+    - [`withSettings`](#withsettings)
 - [Custom Fields](#custom-fields)
 - [Upgrade Guide](#upgrade-guide)
+  - [13](#13)
+  - [12](#12)
+  - [11](#11)
 
 ## Installation
 
@@ -501,6 +515,7 @@ use Extended\ACF\Fields\PageLink;
 
 PageLink::make('Contact Link')
     ->postTypes(['contact'])
+    ->postStatus(['publish']) // draft, future, pending, private, publish
     ->taxonomies(['category:city'])
     ->allowArchives() // optionally pass 'false' to disallow archives
     ->allowNull()
@@ -516,6 +531,7 @@ use Extended\ACF\Fields\PostObject;
 PostObject::make('Animal')
     ->instructions('Select an animal')
     ->postTypes(['animal'])
+    ->postStatus(['publish']) // draft, future, pending, private, publish
     ->allowNull()
     ->allowMultiple()
     ->returnFormat('object') // id or object (default)
@@ -530,6 +546,7 @@ use Extended\ACF\Fields\Relationship;
 Relationship::make('Contacts')
     ->instructions('Add the contacts.')
     ->postTypes(['contact'])
+    ->postStatus(['publish']) // draft, future, pending, private, publish
     ->filters([
         'search', 
         'post_type',

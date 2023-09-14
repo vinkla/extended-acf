@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields\Settings;
 
+use InvalidArgumentException;
+
 trait FilterBy
 {
     public function postTypes(array $postTypes): static
@@ -25,6 +27,21 @@ trait FilterBy
     public function taxonomies(array $taxonomies): static
     {
         $this->settings['taxonomy'] = $taxonomies;
+
+        return $this;
+    }
+
+    /**
+     * @param string[] $postStatus draft, future, pending, private, publish
+     * @throws \InvalidArgumentException
+     */
+    public function postStatus(array $postStatus): static
+    {
+        if (count(array_diff($postStatus, ['draft', 'future', 'pending', 'private', 'publish'])) > 0) {
+            throw new InvalidArgumentException('Invalid argument post statuses.');
+        }
+
+        $this->settings['post_status'] = $postStatus;
 
         return $this;
     }
