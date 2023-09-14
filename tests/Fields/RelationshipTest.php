@@ -24,6 +24,12 @@ class RelationshipTest extends TestCase
         $this->assertSame('relationship', $field['type']);
     }
 
+    public function testPostStatus()
+    {
+        $field = Relationship::make('Relationship PostStatus')->postStatus(['publish'])->get();
+        $this->assertSame(['publish'], $field['post_status']);
+    }
+
     public function testElements()
     {
         $field = Relationship::make('Relationship Elements')->elements(['featured_image'])->get();
