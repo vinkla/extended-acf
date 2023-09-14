@@ -690,7 +690,7 @@ The `withSettings` method overwrites any existing settings on the field when you
 
 ```php
 Text::make('Name')
-	->withSettings(['key' => 'value'])
+	->withSettings(['my-new-settings' => 'value'])
 	->required()
 ```
 
