@@ -38,7 +38,7 @@ trait FilterBy
     public function postStatus(array $postStatus): static
     {
         if (count(array_diff($postStatus, ['draft', 'future', 'pending', 'private', 'publish'])) > 0) {
-            throw new InvalidArgumentException('Invalid argument post statuses.');
+            throw new InvalidArgumentException('Invalid argument post status.');
         }
 
         $this->settings['post_status'] = $postStatus;
