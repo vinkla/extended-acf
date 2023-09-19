@@ -73,8 +73,9 @@ abstract class Field
     }
 
     /**
-     * In most cases, there is no need to set a custom key. It is recommended to
-     * let the package generate the key for you. Please use this method carefully.
+     * It is recommended to let the package generate the key for you and in most
+     * cases, there is no need to set a custom key, so try to avoid it. Please
+     * use this method with caution.
      * @throws \InvalidArgumentException
      */
     public function key(string $key): static
