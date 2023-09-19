@@ -48,7 +48,8 @@ class TextTest extends TestCase
     public function testKeyUniqueness()
     {
         $this->expectExceptionMessage('The key [field_16217cde] is not unique.');
-        Text::make('Phone')->key('field_16217cde')->get();
+        Text::make('Phone 1')->key('field_16217cde');
+        Text::make('Phone 2')->key('field_16217cde');
     }
 
     public function testKeyPrefix()

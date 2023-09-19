@@ -85,13 +85,13 @@ abstract class Field
             );
         }
 
-        if (in_array($key, array_values(Key::$keys))) {
+        if (Key::has($key)) {
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
 
         $this->settings['key'] = $key;
 
-        Key::$keys[] = $key;
+        Key::set($key, $key);
 
         return $this;
     }

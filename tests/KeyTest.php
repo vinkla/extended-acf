@@ -35,6 +35,12 @@ class KeyTest extends TestCase
         Key::generate('video', 'layout');
     }
 
+    public function testSetHas()
+    {
+        Key::set('field_123', 'field_123');
+        $this->assertTrue(Key::has('field_123'));
+    }
+
     public function testSanitize()
     {
         $this->assertSame('group_test', Key::sanitize('GROUP-TEST'));

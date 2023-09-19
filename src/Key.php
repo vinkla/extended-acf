@@ -17,20 +17,30 @@ use InvalidArgumentException;
 
 class Key
 {
-    public static array $keys = [];
+    protected static array $keys = [];
 
     /** @throws \InvalidArgumentException */
     public static function generate(string $key, string $prefix): string
     {
-        if (array_key_exists($key, self::$keys)) {
+        if (static::has($key)) {
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
 
         $hashedKey = $prefix . '_' . static::hash($key);
 
-        static::$keys[$key] = $hashedKey;
+        static::set($key, $hashedKey);
 
         return $hashedKey;
+    }
+
+    public static function set(string $key, string $value): void
+    {
+        static::$keys[$key] = $value;
+    }
+
+    public static function has(string $key): bool
+    {
+        return array_key_exists($key, self::$keys);
     }
 
     public static function hash(string $key): string
