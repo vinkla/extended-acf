@@ -25,7 +25,7 @@ trait Wrapper
         return $this;
     }
 
-    public function column(int $width): static
+    public function column(int|float $width): static
     {
         $this->settings['wrapper']['width'] = $width;
 
