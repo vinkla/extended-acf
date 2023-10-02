@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 13.8.0
+
+- Added custom field key method (only use this method if you know what you're doing)
+- Added `postStatus` filter to relationship fields
+
 ## 13.7.1
 
 - Updated `wrapper` and `column` methods to include settings merging
