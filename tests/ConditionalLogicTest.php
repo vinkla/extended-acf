@@ -64,9 +64,39 @@ class ConditionalLogicTest extends TestCase
             'location' => []
         ]);
 
+        dump($settings);
+
         $this->assertSame(
             $settings['fields'][0]['key'],
             $settings['fields'][1]['sub_fields'][0]['conditional_logic'][0][0]['field']
+        );
+    }
+
+    public function testManualRules()
+    {
+        $settings = register_extended_field_group([
+            'title' => 'Manual Key',
+            'fields' => [
+                Select::make('Select')
+                    ->key('field_manual')
+                    ->choices([
+                        'red' => 'Red',
+                    ])
+                    ->defaultValue('red'),
+                Repeater::make('Repeater')
+                    ->fields([
+                        Text::make('Red')
+                            ->conditionalLogic([
+                                ['field' => 'field_manual', 'operator' => '==', 'value' => 'red'],
+                            ]),
+                    ])
+            ],
+            'location' => []
+        ]);
+
+        $this->assertSame(
+            $settings['fields'][0]['key'],
+            $settings['fields'][1]['sub_fields'][0]['conditional_logic'][0]['field']
         );
     }
 }
