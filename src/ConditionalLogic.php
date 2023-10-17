@@ -23,16 +23,23 @@ class ConditionalLogic
         string $name,
         string $operator,
         mixed $value = null,
-        string $group = null
+        string $group = null,
+        string $key = null,
     ) {
-        $this->rules[] = $this->rule($name, $operator, $value, $group);
+        $this->rules[] = [
+            'name' => $name,
+            'operator' => $operator,
+            'value' => $value,
+            'group' => $group,
+            'key' => $key,
+        ];
     }
 
     /**
      * @param string $operator `==` is equal to, `!=` is not equal to, `>` is greater than, `<` is less than, `==pattern` matches pattern, `==contains` contains value, `==empty` has no value, `!=empty` has any value
      * @throws \InvalidArgumentException
      */
-    public static function where(string $name, string $operator, mixed $value = null, string $group = null): static
+    public static function where(string $name, string $operator, mixed $value = null, string $group = null, string $key = null): static
     {
         $allowedOperators = [
             '>',
@@ -49,24 +56,20 @@ class ConditionalLogic
             throw new InvalidArgumentException("Invalid conditional logic operator [$operator].");
         }
 
-        return new self($name, $operator, $value, $group);
+        return new self($name, $operator, $value, $group, $key);
     }
 
-    public function and(string|array $name, string $operator, mixed $value = null, string $group = null): static
+    public function and(string|array $name, string $operator, mixed $value = null, string $group = null, string $key = null): static
     {
-        $this->rules[] = $this->rule($name, $operator, $value, $group);
-
-        return $this;
-    }
-
-    private function rule(string|array $name, string $operator, mixed $value = null, string $group = null): array
-    {
-        return [
+        $this->rules[] = [
             'name' => $name,
             'operator' => $operator,
             'value' => $value,
             'group' => $group,
+            'field' => $key,
         ];
+
+        return $this;
     }
 
     /** @internal */
@@ -79,7 +82,7 @@ class ConditionalLogic
             $key = $resolvedParentKey . '_' . Key::sanitize($rule['name']);
 
             $newRule = [
-                'field' => 'field_' . Key::hash($key),
+                'field' => $rule['key'] ?? 'field_' . Key::hash($key),
                 'operator' => $rule['operator'],
             ];
 
