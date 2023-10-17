@@ -73,9 +73,9 @@ abstract class Field
     }
 
     /**
-     * It is recommended to let the package generate the key for you and in most
-     * cases, there is no need to set a custom key, so try to avoid it. Please
-     * use this method with caution.
+     * Avoid using custom field keys unless you thoroughly understand them. The
+     * field keys are automatically generated when you use the
+     * `register_extended_field_group` function.
      * @throws \InvalidArgumentException
      */
     public function key(string $key): static
@@ -110,21 +110,21 @@ abstract class Field
 
         if (isset($this->settings['conditional_logic'])) {
             $this->settings['conditional_logic'] = array_map(
-                fn($rules) => $rules->get($parentKey),
+                fn ($rules) => $rules->get($parentKey),
                 $this->settings['conditional_logic']
             );
         }
 
         if (isset($this->settings['layouts'])) {
             $this->settings['layouts'] = array_map(
-                fn($layout) => $layout->get($key),
+                fn ($layout) => $layout->get($key),
                 $this->settings['layouts']
             );
         }
 
         if (isset($this->settings['sub_fields'])) {
             $this->settings['sub_fields'] = array_map(
-                fn($field) => $field->get($key),
+                fn ($field) => $field->get($key),
                 $this->settings['sub_fields']
             );
         }
