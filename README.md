@@ -652,7 +652,7 @@ Text::make('Sub Title')
 
 ## Non-standards
 
-#### `instructions`
+### `instructions`
 
 The `instructions` method supports [Markdown](https://wordpress.com/support/markdown-quick-reference/) for the elements listed below.
 
@@ -661,7 +661,7 @@ Text::make('Title')
     ->instructions('__strong__ **strong** _italic_ *italic* `code` [link](https://example.com)')
 ```
 
-#### `column`
+### `column`
 
 The `column` property is not a standard in ACF. It is used as a shorthand for setting the width of the field wrapper. You can provide a number between 0 and 100 as its value.
 
@@ -670,7 +670,7 @@ Text::make('Text')
     ->column(50) // shorthand for ->wrapper(['width' => 50])
 ```
 
-#### `dd` and `dump`
+### `dd` and `dump`
 
 The `dd` and `dump` methods are non-standard and not available in ACF. These methods are used for debugging. 
 
@@ -686,17 +686,17 @@ To use the `dd` and `dump` methods, you need to install `symfony/var-dumper`.
 composer require symfony/var-dumper --dev
 ```
 
-#### `key`
+### `key`
 
 The `key` method enables you to define a custom field key. The `key` should consist of alphanumeric characters and underscores, and must be prefixed with either `field_` or `layout_`.
+
+> [!Warning]
+> Avoid using this method unless you understand it. The `key` is generated automatically when you use the `register_extended_field_group` function. It can be useful when migrating to this package and wanting to retain the same field keys.
 
 ```php
 Text::make('Text')
     ->key('field_123abc')
 ```
-
-> [!Warning]
-> Avoid using this method unless you understand it. The `key` is generated automatically when you use the `register_extended_field_group` function. It can be useful when migrating to this package and wanting to retain the same field keys.
 
 You can use the `key` argument to provide a custom field key in [conditional logic](#conditional-logic).
 
@@ -709,7 +709,7 @@ ConditionalLogic::where(
 )
 ```
 
-#### `withSettings`
+### `withSettings`
 
 The `withSettings` method overwrites any existing settings on the field when you want to add custom settings.
 
