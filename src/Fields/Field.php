@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields;
 
+use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Key;
 use InvalidArgumentException;
 
@@ -110,7 +111,7 @@ abstract class Field
 
         if (isset($this->settings['conditional_logic'])) {
             $this->settings['conditional_logic'] = array_map(
-                fn ($rules) => $rules->get($parentKey),
+                fn ($rules) => $rules instanceof ConditionalLogic ? $rules->get($parentKey) : $rules,
                 $this->settings['conditional_logic']
             );
         }
