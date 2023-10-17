@@ -111,7 +111,7 @@ abstract class Field
 
         if (isset($this->settings['conditional_logic'])) {
             $this->settings['conditional_logic'] = array_map(
-                fn ($rules) => $rules instanceof ConditionalLogic ? $rules->get($parentKey) : $rules,
+                fn ($rules) => $rules instanceof ConditionalLogic ? $rules->get($parentKey) : $rules, // allow specifying of rules manually with an array
                 $this->settings['conditional_logic']
             );
         }
