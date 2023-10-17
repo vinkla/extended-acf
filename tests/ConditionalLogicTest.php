@@ -69,4 +69,31 @@ class ConditionalLogicTest extends TestCase
             $settings['fields'][1]['sub_fields'][0]['conditional_logic'][0][0]['field']
         );
     }
+
+    public function testFieldKey()
+    {
+        $settings = register_extended_field_group([
+            'title' => 'Field Key',
+            'fields' => [
+                Select::make('Select')
+                    ->key('field_123abc')
+                    ->choices(['Red']),
+                Text::make('Text')
+                    ->conditionalLogic([
+                        ConditionalLogic::where(
+                            name: 'select',
+                            operator: '==',
+                            value: 'red',
+                            key: 'field_123abc'
+                        ),
+                    ]),
+            ],
+            'location' => []
+        ]);
+
+        $this->assertSame(
+            'field_123abc',
+            $settings['fields'][1]['conditional_logic'][0][0]['field']
+        );
+    }
 }
