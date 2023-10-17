@@ -708,7 +708,7 @@ ConditionalLogic::where(
 ```
 
 > [!Warning]
-> Avoid using custom field keys unless you have a clear understanding of them. The `key` is generated automatically when you use the `register_extended_field_group` function.
+> Avoid using custom field keys unless you thoroughly understand them. The field keys are automatically generated when you use the `register_extended_field_group` function.
 
 ### `withSettings`
 
