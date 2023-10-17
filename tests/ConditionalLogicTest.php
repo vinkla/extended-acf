@@ -64,8 +64,6 @@ class ConditionalLogicTest extends TestCase
             'location' => []
         ]);
 
-        dump($settings);
-
         $this->assertSame(
             $settings['fields'][0]['key'],
             $settings['fields'][1]['sub_fields'][0]['conditional_logic'][0][0]['field']
