@@ -690,8 +690,6 @@ composer require symfony/var-dumper --dev
 
 The `key` method enables you to define a custom field key. The `key` should consist of alphanumeric characters and underscores, and must be prefixed with either `field_` or `layout_`.
 
-> [!Warning]
-> Avoid using this method unless you understand it. The `key` is generated automatically when you use the `register_extended_field_group` function. It can be useful when migrating to this package and wanting to retain the same field keys.
 
 ```php
 Text::make('Text')
@@ -708,6 +706,9 @@ ConditionalLogic::where(
   key: 'field_123abc', 
 )
 ```
+
+> [!Warning]
+> Avoid using custom field keys unless you have a clear understanding of them. The `key` is generated automatically when you use the `register_extended_field_group` function. It can be useful when migrating to this package and wanting to retain the same field keys.
 
 ### `withSettings`
 
