@@ -27,6 +27,7 @@ Extended ACF provides an object-oriented API to register groups and fields with 
     - [`column`](#column)
     - [`dd` and `dump`](#dd-and-dump)
     - [`withSettings`](#withsettings)
+    - [`key`](#key)
 - [Custom Fields](#custom-fields)
 - [Upgrade Guide](#upgrade-guide)
   - [13](#13)
@@ -683,6 +684,29 @@ To use the `dd` and `dump` methods, you need to install `symfony/var-dumper`.
 
 ```sh
 composer require symfony/var-dumper --dev
+```
+
+#### `key`
+
+The `key` method enables you to define a custom field key. The `key` should consist of alphanumeric characters and underscores, and must be prefixed with either `field_` or `layout_`.
+
+```php
+Text::make('Text')
+    ->key('field_123abc')
+```
+
+> [!Warning]
+> Avoid using this method unless you understand it. The `key` is generated automatically when you use the `register_extended_field_group` function. It can be useful when migrating to this package and wanting to retain the same field keys.
+
+You can use the `key` argument to provide a custom field key in [conditional logic](#conditional-logic).
+
+```php
+ConditionalLogic::where(
+  name: 'color', 
+  operator: '==', 
+  value: 'red'
+  key: 'field_123abc', 
+)
 ```
 
 #### `withSettings`
