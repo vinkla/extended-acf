@@ -33,16 +33,16 @@ class Taxonomy extends Field
     protected string|null $type = 'taxonomy';
 
     /**
-     * @param string $fieldType checkbox, multi_select, select, radio
+     * @param string $type checkbox, multi_select, select, radio
      * @throws \InvalidArgumentException
      */
-    public function appearance(string $fieldType): static
+    public function appearance(string $type): static
     {
-        if (!in_array($fieldType, ['checkbox', 'multi_select', 'select', 'radio'])) {
-            throw new InvalidArgumentException("Invalid argument field type [$fieldType].");
+        if (!in_array($type, ['checkbox', 'multi_select', 'select', 'radio'])) {
+            throw new InvalidArgumentException("Invalid argument field type [$type].");
         }
 
-        $this->settings['field_type'] = $fieldType;
+        $this->settings['field_type'] = $type;
 
         return $this;
     }
