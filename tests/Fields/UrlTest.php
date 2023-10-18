@@ -24,8 +24,11 @@ class UrlTest extends TestCase
         $this->assertSame('url', $field['type']);
     }
 
-    public function testDefaultValue()
+    public function testDefault()
     {
+        $field = Url::make('Default')->default('hotpink')->get();
+        $this->assertSame('hotpink', $field['default_value']);
+
         $field = Url::make('Default Value')->defaultValue('dodgerblue')->get();
         $this->assertSame('dodgerblue', $field['default_value']);
     }
