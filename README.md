@@ -716,7 +716,7 @@ The `withSettings` method overwrites any existing settings on the field when you
 
 ```php
 Text::make('Name')
-	->withSettings(['my-new-settings' => 'value'])
+	->withSettings(['my-new-setting' => 'value'])
 	->required()
 ```
 
@@ -731,7 +731,7 @@ class Select extends Field
 {
     public function myNewSetting(string $value): static
     {
-        $this->settings['my-new-settings'] = $value;
+        $this->settings['my-new-setting'] = $value;
 
         return $this;
     }
