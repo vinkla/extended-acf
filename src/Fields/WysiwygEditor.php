@@ -60,6 +60,7 @@ class WysiwygEditor extends Field
     }
 
     /**
+     * If `string` is passed, it will be used as the toolbar name. If `array` is passed, it will be used as the toolbar buttons.
      * @param string|array $toolbar aligncenter, alignleft, alignright, blockquote, bold, bullist, charmap, forecolor, formatselect, fullscreen, hr, indent, italic, link, numlist, outdent, pastetext, redo, removeformat, spellchecker, strikethrough, underline, undo, wp_adv, wp_help, wp_more
      */
     public function toolbar(string|array $toolbar): static
