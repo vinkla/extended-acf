@@ -800,6 +800,17 @@ The upgrade guide provides information about the breaking changes in the package
 +"vinkla/extended-acf": "^12.0"
 ```
 
+### 14
+
+The `defaultValue` method has been renamed to `default`.
+
+```diff
+-Text::make('Name')->defaultValue('John Doe')
++Text::make('Name')->default('John Doe')
+```
+
+Changelog: [`13.0.0...14.0.0`](https://github.com/vinkla/extended-acf/compare/13.0.0...14.0.0)
+
 ### 13
 
 If you're upgrading to version 13, you'll also need to update your imports. The namespace has been changed to `Extended\ACF`.
@@ -811,6 +822,8 @@ If you're upgrading to version 13, you'll also need to update your imports. The 
 +use Extended\ACF\Fields\Number;
 ```
 
+Changelog: [`12.0.0...13.0.0`](https://github.com/vinkla/extended-acf/compare/12.0.0...13.0.0)
+
 ### 12
 
 The location query method `if` has been replaced with `where`. Please update your field groups accordingly.
@@ -818,9 +831,11 @@ The location query method `if` has been replaced with `where`. Please update you
 ```diff
 use Extended\ACF\Location;
 
--Location::if('post_type', 'post'),
-+Location::where('post_type', 'post'),
+-Location::if('post_type', 'post')
++Location::where('post_type', 'post')
 ```
+
+Changelog: [`11.0.0...12.0.0`](https://github.com/vinkla/extended-acf/compare/11.0.0...12.0.0)
 
 ### 11
 
@@ -844,3 +859,5 @@ The field previously known as `Wysiwyg` has been renamed to `WysiwygEditor`.
 -Wysiwyg::make('Text')
 +WysiwygEditor::make('Text')
 ```
+
+Changelog: [`10.0.0...11.0.0`](https://github.com/vinkla/extended-acf/compare/10.0.0...11.0.0)
