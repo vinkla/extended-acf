@@ -90,7 +90,7 @@ Text::make('Title', 'heading')
     ->required()
 ```
 
-Most fields have the methods `defaultValue`, `required`, and `wrapper`. The [basic fields](#basic-fields) also have the methods `prepend`, `append`, `placeholder`, `readOnly`, and `disabled`. Please also check the non-standard methods mentioned in the [non-standards](#non-standards) section.
+Most fields have the methods `default`, `required`, and `wrapper`. The [basic fields](#basic-fields) also have the methods `prepend`, `append`, `placeholder`, `readOnly`, and `disabled`. Please also check the non-standard methods mentioned in the [non-standards](#non-standards) section.
 
 ### Basic Fields
 
@@ -183,7 +183,7 @@ use Extended\ACF\Fields\ButtonGroup;
 ButtonGroup::make('Color')
     ->instructions('Select the box shadow color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
-    ->defaultValue('forest_green')
+    ->default('forest_green')
     ->returnFormat('value') // array, label, value (default)
     ->required()
 ```
@@ -196,7 +196,7 @@ use Extended\ACF\Fields\Checkbox;
 Checkbox::make('Color')
     ->instructions('Select the border color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
-    ->defaultValue('forest_green')
+    ->default('forest_green')
     ->returnFormat('value') // array, label, value (default)
     ->layout('horizontal') // vertical, horizontal
     ->required()
@@ -210,7 +210,7 @@ use Extended\ACF\Fields\RadioButton;
 RadioButton::make('Color')
     ->instructions('Select the text color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
-    ->defaultValue('forest_green')
+    ->default('forest_green')
     ->returnFormat('value') // array, label, value (default)
     ->required()
 ```
@@ -223,7 +223,7 @@ use Extended\ACF\Fields\Select;
 Select::make('Color')
     ->instructions('Select the background color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
-    ->defaultValue('forest_green')
+    ->default('forest_green')
     ->returnFormat('value') // array, label, value (default)
     ->allowMultiple()
     ->allowNull()
@@ -237,7 +237,7 @@ use Extended\ACF\Fields\TrueFalse;
 
 TrueFalse::make('Social Media', 'display_social_media')
     ->instructions('Select whether to display social media links or not.')
-    ->defaultValue(false)
+    ->default(false)
     ->stylisedUi() // optional on and off text labels
     ->required()
 ```
@@ -327,7 +327,7 @@ use Extended\ACF\Fields\ColorPicker;
 
 ColorPicker::make('Text Color')
     ->instructions('Add the text color.')
-    ->defaultValue('#4a9cff')
+    ->default('#4a9cff')
     ->required()
 ```
 
