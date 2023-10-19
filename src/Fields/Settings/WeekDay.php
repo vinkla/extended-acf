@@ -15,7 +15,7 @@ namespace Extended\ACF\Fields\Settings;
 
 trait WeekDay
 {
-    public function weekStartsOn(int $day): static
+    public function firstDayOfWeek(int $day): static
     {
         $this->settings['first_day'] = $day;
 

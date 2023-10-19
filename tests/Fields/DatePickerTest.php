@@ -36,9 +36,9 @@ class DatePickerTest extends TestCase
         $this->assertSame('d/m/Y', $field['return_format']);
     }
 
-    public function testWeekStartsOnn()
+    public function testFirstDayOfWeek()
     {
-        $field = DatePicker::make('Date Week Day')->weekStartsOn(1)->get();
+        $field = DatePicker::make('Date Week Day')->firstDayOfWeek(1)->get();
         $this->assertSame(1, $field['first_day']);
     }
 }
