@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields;
 
+use Extended\ACF\Fields\Settings\Affixable;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DefaultValue;
 use Extended\ACF\Fields\Settings\Disabled;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\MinMax;
-use Extended\ACF\Fields\Settings\Pending;
 use Extended\ACF\Fields\Settings\Placeholder;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Step;
@@ -32,7 +32,7 @@ class Number extends Field
     use Disabled;
     use Instructions;
     use MinMax;
-    use Pending;
+    use Affixable;
     use Placeholder;
     use Step;
     use Required;
