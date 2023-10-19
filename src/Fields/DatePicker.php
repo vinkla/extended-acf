@@ -16,11 +16,11 @@ namespace Extended\ACF\Fields;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DateTimeFormat;
 use Extended\ACF\Fields\Settings\Disabled;
+use Extended\ACF\Fields\Settings\Immutable;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\WeekDay;
 use Extended\ACF\Fields\Settings\Wrapper;
-use Extended\ACF\Fields\Settings\Writable;
 
 class DatePicker extends Field
 {
@@ -31,7 +31,7 @@ class DatePicker extends Field
     use Required;
     use WeekDay;
     use Wrapper;
-    use Writable;
+    use Immutable;
 
     protected string|null $type = 'date_picker';
 }

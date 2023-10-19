@@ -17,13 +17,13 @@ use Extended\ACF\Fields\Settings\Choices;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DefaultValue;
 use Extended\ACF\Fields\Settings\Disabled;
+use Extended\ACF\Fields\Settings\Immutable;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Multiple;
 use Extended\ACF\Fields\Settings\Nullable;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
-use Extended\ACF\Fields\Settings\Writable;
 
 class Select extends Field
 {
@@ -37,7 +37,7 @@ class Select extends Field
     use Required;
     use ReturnFormat;
     use Wrapper;
-    use Writable;
+    use Immutable;
 
     protected string|null $type = 'select';
 
