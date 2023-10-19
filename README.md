@@ -866,7 +866,6 @@ The upgrade guide provides information about the breaking changes in the package
 -Image::make('Background')->fileSize('400 KB', 5)
 +Image::make('Background')->minSize('400 KB')->maxSize(5)
 ```
-```
 
 9\. The `CharacterLimit` trait has been renamed to `MaxLength`.
 
