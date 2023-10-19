@@ -21,12 +21,8 @@ trait FilterBy
      * @param string[] $postStatus draft, future, pending, private, publish
      * @throws \InvalidArgumentException
      */
-    public function postStatus(array|string $postStatus): static
+    public function postStatus(array $postStatus): static
     {
-        if (is_string($postStatus)) {
-            $postStatus = [$postStatus];
-        }
-
         if (count(array_diff($postStatus, ['draft', 'future', 'pending', 'private', 'publish'])) > 0) {
             throw new InvalidArgumentException('Invalid argument post status.');
         }
@@ -36,12 +32,8 @@ trait FilterBy
         return $this;
     }
 
-    public function postTypes(array|string $postTypes): static
+    public function postTypes(array $postTypes): static
     {
-        if (is_string($postTypes)) {
-            $postTypes = [$postTypes];
-        }
-
         $this->settings['post_type'] = $postTypes;
 
         return $this;
@@ -49,10 +41,6 @@ trait FilterBy
 
     public function taxonomies(array $taxonomies): static
     {
-        if (is_string($taxonomies)) {
-            $taxonomies = [$taxonomies];
-        }
-
         $this->settings['taxonomy'] = $taxonomies;
 
         return $this;
