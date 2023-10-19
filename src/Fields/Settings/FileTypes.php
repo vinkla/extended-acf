@@ -13,11 +13,15 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields\Settings;
 
-trait MimeTypes
+trait FileTypes
 {
-    public function mimeTypes(array $mimeTypes): static
+    public function acceptedFileTypes(array|string $types): static
     {
-        $this->settings['mime_types'] = implode(',', $mimeTypes);
+        if (is_string($types)) {
+            $types = [$types];
+        }
+
+        $this->settings['mime_types'] = implode(',', $types);
 
         return $this;
     }

@@ -253,9 +253,8 @@ TrueFalse::make('Social Media', 'display_social_media')
 use Extended\ACF\Fields\File;
 
 File::make('Resturant Menu', 'menu')
-    ->instructions('Add the menu <strong>pdf</strong> file.')
     ->instructions('Add the menu **pdf** file.')
-    ->mimeTypes(['pdf'])
+    ->acceptedFileTypes(['pdf'])
     ->library('all') // all, uploadedTo
     ->minSize('400 KB')
     ->maxSize(5) // MB if entered as int
@@ -270,7 +269,7 @@ use Extended\ACF\Fields\Gallery;
 
 Gallery::make('Images')
     ->instructions('Add the gallery images.')
-    ->mimeTypes(['jpg', 'jpeg', 'png'])
+    ->acceptedFileTypes(['jpg', 'jpeg', 'png'])
     ->minHeight(500)
     ->maxHeight(1400)
     ->minWidth(1000)
@@ -292,7 +291,7 @@ use Extended\ACF\Fields\Image;
 
 Image::make('Background Image')
     ->instructions('Add an image in at least 12000x100px and only in the formats **jpg**, **jpeg** or **png**.')
-    ->mimeTypes(['jpg', 'jpeg', 'png'])
+    ->acceptedFileTypes(['jpg', 'jpeg', 'png'])
     ->minHeight(500)
     ->maxHeight(1400)
     ->minWidth(1000)
@@ -881,32 +880,46 @@ The upgrade guide provides information about the breaking changes in the package
 10\. The `width` method has been split into two methods `minWidth` and `maxWidth`.
 
 ```diff
--Gallery::make('Background')->width(100, 1000)
-+Gallery::make('Background')->minWidth(100)->maxWidth(1000)
+-Image::make('Background')->width(100, 1000)
++Image::make('Background')->minWidth(100)->maxWidth(1000)
 ```
 
-11\. The `CharacterLimit` trait has been renamed to `MaxLength`.
+11\. The `mimeTypes` method has been renamed to `acceptedFileTypes`.
+
+```diff
+-File::make('Background')->mimeTypes(['pdf'])
++File::make('Background')->acceptedFileTypes(['pdf'])
+```
+
+12\. The `MimeTypes` trait has been renamed to `FileTypes`.
+
+```diff
+-use Extended\ACF\Fields\Settings\MimeTypes;
++use Extended\ACF\Fields\Settings\FileTypes;
+```
+
+13\. The `CharacterLimit` trait has been renamed to `MaxLength`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\CharacterLimit;
 +use Extended\ACF\Fields\Settings\MaxLength;
 ```
 
-12\. The `Pending` trait has been renamed to `Affixable`.
+14\. The `Pending` trait has been renamed to `Affixable`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Pending;
 +use Extended\ACF\Fields\Settings\Affixable;
 ```
 
-13\. The `Writable` trait has been renamed to `Immutable`.
+15\. The `Writable` trait has been renamed to `Immutable`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Writable;
 +use Extended\ACF\Fields\Settings\Immutable;
 ```
 
-14\. The `SubFields` trait has been renamed to `Fields`.
+16\. The `SubFields` trait has been renamed to `Fields`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\SubFields;
