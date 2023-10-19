@@ -14,10 +14,10 @@ declare(strict_types=1);
 namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Fields\Settings\Fields;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Layout;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\SubFields;
 use Extended\ACF\Fields\Settings\Wrapper;
 
 class Group extends Field
@@ -25,7 +25,7 @@ class Group extends Field
     use ConditionalLogic;
     use Instructions;
     use Layout;
-    use SubFields;
+    use Fields;
     use Required;
     use Wrapper;
 
