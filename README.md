@@ -226,7 +226,7 @@ Select::make('Color')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->default('forest_green')
     ->returnFormat('value') // array, label, value (default)
-    ->allowMultiple()
+    ->multiple()
     ->allowNull()
     ->required()
 ```
@@ -521,7 +521,7 @@ PageLink::make('Contact Link')
     ->taxonomies(['category:city'])
     ->allowArchives() // optionally pass 'false' to disallow archives
     ->allowNull()
-    ->allowMultiple()
+    ->multiple()
     ->required()
 ```
 
@@ -535,7 +535,7 @@ PostObject::make('Animal')
     ->postTypes(['animal'])
     ->postStatus(['publish']) // draft, future, pending, private, publish
     ->allowNull()
-    ->allowMultiple()
+    ->multiple()
     ->returnFormat('object') // id, object (default)
     ->required()
 ```
@@ -806,8 +806,15 @@ The upgrade guide provides information about the breaking changes in the package
 The `defaultValue` method has been renamed to `default`.
 
 ```diff
--Text::make('Name')->defaultValue('John Doe')
-+Text::make('Name')->default('John Doe')
+-Text::make('Name')->defaultValue('Jeffrey Way')
++Text::make('Name')->default('Jeffrey Way')
+```
+
+The `allowMultiple` method has been renamed to `multiple`.
+
+```diff
+-Select::make('Colors')->allowMultiple()
++Select::make('Colors')->multiple()
 ```
 
 The `Pending` trait has been renamed to `Affixable`.
