@@ -21,10 +21,4 @@ trait DefaultValue
 
         return $this;
     }
-
-    /** @deprecated This method will be removed in the next major version. Please use `default` instead. */
-    public function defaultValue(mixed $value): static
-    {
-        return $this->default($value);
-    }
 }
