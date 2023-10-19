@@ -922,14 +922,14 @@ Changelog: [`11.0.0...12.0.0`](https://github.com/vinkla/extended-acf/compare/11
 +Text::make('Organization Number') // organization_number
 ```
 
-2\. The field previously known as `Radio` has been renamed to `RadioButton` to align with the plugin's naming convention.
+2\. The `Radio` field has been renamed to `RadioButton`.
 
 ```diff
 -Radio::make('Color')
 +RadioButton::make('Color')
 ```
 
-3\. The field previously known as `Wysiwyg` has been renamed to `WysiwygEditor`.
+3\. The `Wysiwyg` field has been renamed to `WysiwygEditor`.
 
 ```diff
 -Wysiwyg::make('Text')
