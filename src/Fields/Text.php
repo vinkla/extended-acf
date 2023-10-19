@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\Affixable;
-use Extended\ACF\Fields\Settings\CharacterLimit;
+use Extended\ACF\Fields\Settings\MaxLength;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DefaultValue;
 use Extended\ACF\Fields\Settings\Disabled;
@@ -26,7 +26,7 @@ use Extended\ACF\Fields\Settings\Wrapper;
 
 class Text extends Field
 {
-    use CharacterLimit;
+    use MaxLength;
     use ConditionalLogic;
     use DefaultValue;
     use Disabled;

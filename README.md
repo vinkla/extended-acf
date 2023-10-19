@@ -147,7 +147,7 @@ use Extended\ACF\Fields\Text;
 
 Text::make('Name')
     ->instructions('Add the employees name.')
-    ->characterLimit(100)
+    ->maxLength(100)
     ->required()
 ```
 
@@ -159,7 +159,7 @@ use Extended\ACF\Fields\Textarea;
 Textarea::make('Biography')
     ->instructions('Add the employees biography.')
     ->newLines('br') // br, wpautop
-    ->characterLimit(2000)
+    ->maxLength(2000)
     ->rows(10)
     ->required()
 ```
@@ -822,6 +822,20 @@ The `allowNull` method has been renamed to `nullable`.
 ```diff
 -Select::make('Features')->allowNull()
 +Select::make('Features')->nullable()
+```
+
+The `characterLimit` method has been renamed to `maxLength`.
+
+```diff
+-Textarea::make('Description')->characterLimit(100)
++Textarea::make('Description')->maxLength(100)
+```
+
+The `CharacterLimit` trait has been renamed to `MaxLength`.
+
+```diff
+-use Extended\ACF\Fields\Settings\CharacterLimit;
++use Extended\ACF\Fields\Settings\MaxLength;
 ```
 
 The `Pending` trait has been renamed to `Affixable`.

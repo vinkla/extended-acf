@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields\Settings;
 
-trait CharacterLimit
+trait MaxLength
 {
-    public function characterLimit(int $limit): static
+    public function maxLength(int $limit): static
     {
         $this->settings['maxlength'] = $limit;
 

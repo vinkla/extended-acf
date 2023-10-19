@@ -25,9 +25,9 @@ class TextareaTest extends TestCase
         $this->assertSame('textarea', $field['type']);
     }
 
-    public function testCharacterLimit()
+    public function testMaxLength()
     {
-        $field = Textarea::make('Character Limit')->characterLimit(100)->get();
+        $field = Textarea::make('Max Length')->maxLength(100)->get();
         $this->assertSame(100, $field['maxlength']);
     }
 
