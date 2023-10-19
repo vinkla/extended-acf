@@ -26,7 +26,7 @@ class PostObjectTest extends TestCase
 
     public function testMultiple()
     {
-        $field = PostObject::make('Post Object Multiple')->allowMultiple()->get();
+        $field = PostObject::make('Post Object Multiple')->multiple()->get();
         $this->assertTrue($field['multiple']);
     }
 

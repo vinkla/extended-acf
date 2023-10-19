@@ -15,7 +15,7 @@ namespace Extended\ACF\Fields\Settings;
 
 trait Multiple
 {
-    public function allowMultiple(): static
+    public function multiple(): static
     {
         $this->settings['multiple'] = true;
 
