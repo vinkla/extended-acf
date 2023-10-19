@@ -29,7 +29,7 @@ class UrlTest extends TestCase
         $field = Url::make('Default')->default('hotpink')->get();
         $this->assertSame('hotpink', $field['default_value']);
 
-        $field = Url::make('Default Value')->defaultValue('dodgerblue')->get();
+        $field = Url::make('Default Value')->default('dodgerblue')->get();
         $this->assertSame('dodgerblue', $field['default_value']);
     }
 }
