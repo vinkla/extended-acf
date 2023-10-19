@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields\Settings;
 
-trait Pending
+trait Affixable
 {
     public function append(string $value): static
     {

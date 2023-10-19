@@ -809,6 +809,13 @@ The `defaultValue` method has been renamed to `default`.
 +Text::make('Name')->default('John Doe')
 ```
 
+The `Pending` trait has been renamed to `Affixable`.
+
+```diff
+-use Extended\ACF\Fields\Settings\Pending;
++use Extended\ACF\Fields\Settings\Affixable;
+```
+
 Changelog: [`13.0.0...14.0.0`](https://github.com/vinkla/extended-acf/compare/13.0.0...14.0.0)
 
 ### 13

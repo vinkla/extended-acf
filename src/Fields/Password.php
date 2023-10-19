@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields;
 
+use Extended\ACF\Fields\Settings\Affixable;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\Instructions;
-use Extended\ACF\Fields\Settings\Pending;
 use Extended\ACF\Fields\Settings\Placeholder;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
@@ -25,7 +25,7 @@ class Password extends Field
 {
     use ConditionalLogic;
     use Instructions;
-    use Pending;
+    use Affixable;
     use Placeholder;
     use Required;
     use Wrapper;
