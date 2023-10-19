@@ -15,11 +15,11 @@ namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\ButtonLabel;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Fields\Settings\Fields;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Layout;
 use Extended\ACF\Fields\Settings\MinMax;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\SubFields;
 use Extended\ACF\Fields\Settings\Wrapper;
 
 class Repeater extends Field
@@ -29,7 +29,7 @@ class Repeater extends Field
     use Instructions;
     use Layout;
     use MinMax;
-    use SubFields;
+    use Fields;
     use Required;
     use Wrapper;
 

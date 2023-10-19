@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields;
 
+use Extended\ACF\Fields\Settings\Fields;
 use Extended\ACF\Fields\Settings\MinMax;
-use Extended\ACF\Fields\Settings\SubFields;
 use InvalidArgumentException;
 
 class Layout extends Field
 {
     use MinMax;
-    use SubFields;
+    use Fields;
 
     protected string $keyPrefix = 'layout';
 
