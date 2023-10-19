@@ -52,7 +52,7 @@ class ConditionalLogicTest extends TestCase
                     ->choices([
                         'red' => 'Red',
                     ])
-                    ->defaultValue('red'),
+                    ->default('red'),
                 Repeater::make('Repeater')
                     ->fields([
                         Text::make('Red')
