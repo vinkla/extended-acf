@@ -227,7 +227,9 @@ Select::make('Color')
     ->default('forest_green')
     ->returnFormat('value') // array, label, value (default)
     ->multiple()
-    ->nullabel()
+    ->nullable()
+    ->stylized() // stylized checkbox using select2
+    ->lazyLoad() // use AJAX to lazy load choices
     ->required()
 ```
 
@@ -843,6 +845,16 @@ The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
 ```diff
 -TrueFalse::make('Disabled')->stylisedUi(onText: 'Yes')
 +TrueFalse::make('Disabled')->stylized(on: 'Yes')
+```
+
+The `stylisedUi` method has been split into two methods `stylized` and `lazyLoad` on the `Select` field.
+
+```diff
+-Select::make('Friends')->stylisedUi()
++Select::make('Friends')->stylized()
+
+-Select::make('Friends')->stylisedUi(true)
++Select::make('Friends')->lazyLoad()
 ```
 
 The `CharacterLimit` trait has been renamed to `MaxLength`.

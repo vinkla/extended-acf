@@ -24,9 +24,15 @@ class SelectTest extends TestCase
         $this->assertSame('select', $field['type']);
     }
 
-    public function testStylisedUi()
+    public function testStylized()
     {
-        $field = Select::make('Select Stylised UI')->stylisedUi(true)->get();
+        $field = Select::make('Select Stylized')->stylized()->get();
+        $this->assertTrue($field['ui']);
+    }
+
+    public function testLazyLoad()
+    {
+        $field = Select::make('Select Lazy Load')->lazyLoad()->get();
         $this->assertTrue($field['ui']);
         $this->assertTrue($field['ajax']);
     }

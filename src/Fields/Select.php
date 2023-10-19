@@ -41,10 +41,17 @@ class Select extends Field
 
     protected string|null $type = 'select';
 
-    public function stylisedUi(bool $useAjax = false): static
+    public function stylized(): static
     {
         $this->settings['ui'] = true;
-        $this->settings['ajax'] = $useAjax;
+
+        return $this;
+    }
+
+    public function lazyLoad(): static
+    {
+        $this->settings['ui'] = true;
+        $this->settings['ajax'] = true;
 
         return $this;
     }
