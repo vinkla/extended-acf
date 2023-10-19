@@ -15,15 +15,16 @@ namespace Extended\ACF\Fields\Settings;
 
 trait FileSize
 {
-    public function fileSize(int|string|null $min = null, int|string|null $max = null): static
+    public function minSize(int|string $size): static
     {
-        if ($min !== null) {
-            $this->settings['min_size'] = $min;
-        }
+        $this->settings['min_size'] = $size;
 
-        if ($max !== null) {
-            $this->settings['max_size'] = $max;
-        }
+        return $this;
+    }
+
+    public function maxSize(int|string $size): static
+    {
+        $this->settings['max_size'] = $size;
 
         return $this;
     }

@@ -257,7 +257,8 @@ File::make('Resturant Menu', 'menu')
     ->instructions('Add the menu **pdf** file.')
     ->mimeTypes(['pdf'])
     ->library('all') // all, uploadedTo
-    ->fileSize('400 KB', 5) // MB if entered as int
+    ->minSize('400 KB')
+    ->maxSize(5) // MB if entered as int
     ->returnFormat('array') // id, url, array (default)
     ->required()
 ```
@@ -274,7 +275,8 @@ Gallery::make('Images')
     ->width(1000, 2000)
     ->min(1)
     ->max(6)
-    ->fileSize('400 KB', 5) // MB if entered as int
+    ->minSize('400 KB')
+    ->maxSize(5) // MB if entered as int
     ->library('all') // all, uploadedTo
     ->returnFormat('array') // id, url, array (default)
     ->previewSize('medium') // thumbnail, medium, large
@@ -291,7 +293,8 @@ Image::make('Background Image')
     ->mimeTypes(['jpg', 'jpeg', 'png'])
     ->height(500, 1400)
     ->width(1000, 2000)
-    ->fileSize('400 KB', 5) // MB if entered as int
+    ->minSize('400 KB')
+    ->maxSize(5) // MB if entered as int
     ->library('all') // all, uploadedTo
     ->returnFormat('array') // id, url, array (default)
     ->previewSize('medium') // thumbnail, medium, large
@@ -857,28 +860,36 @@ The upgrade guide provides information about the breaking changes in the package
 +Select::make('Friends')->lazyLoad()
 ```
 
-8\. The `CharacterLimit` trait has been renamed to `MaxLength`.
+8\. The `fileSize` method has been split into two methods `minSize` and `maxSize`.
+
+```diff
+-Image::make('Background')->fileSize('400 KB', 5)
++Image::make('Background')->minSize('400 KB')->maxSize(5)
+```
+```
+
+9\. The `CharacterLimit` trait has been renamed to `MaxLength`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\CharacterLimit;
 +use Extended\ACF\Fields\Settings\MaxLength;
 ```
 
-9\. The `Pending` trait has been renamed to `Affixable`.
+10\. The `Pending` trait has been renamed to `Affixable`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Pending;
 +use Extended\ACF\Fields\Settings\Affixable;
 ```
 
-10\. The `Writable` trait has been renamed to `Immutable`.
+11\. The `Writable` trait has been renamed to `Immutable`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Writable;
 +use Extended\ACF\Fields\Settings\Immutable;
 ```
 
-11\. The `SubFields` trait has been renamed to `Fields`.
+12\. The `SubFields` trait has been renamed to `Fields`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\SubFields;
