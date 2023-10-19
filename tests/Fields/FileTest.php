@@ -25,10 +25,10 @@ class FileTest extends TestCase
         $this->assertSame('file', $field['type']);
     }
 
-    public function testMimeTypes()
+    public function testAcceptedFileTypes()
     {
-        $field = File::make('Mime Types')->mimeTypes(['jpg', 'pdf'])->get();
-        $this->assertSame('jpg,pdf', $field['mime_types']);
+        $field = File::make('File Accepted File Types')->acceptedFileTypes(['image/jpg', 'application/pdf'])->get();
+        $this->assertSame('image/jpg,application/pdf', $field['mime_types']);
     }
 
     public function testReturnFormat()
