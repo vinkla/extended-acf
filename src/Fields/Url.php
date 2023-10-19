@@ -16,11 +16,11 @@ namespace Extended\ACF\Fields;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DefaultValue;
 use Extended\ACF\Fields\Settings\Disabled;
+use Extended\ACF\Fields\Settings\Immutable;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Placeholder;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
-use Extended\ACF\Fields\Settings\Writable;
 
 class Url extends Field
 {
@@ -31,7 +31,7 @@ class Url extends Field
     use Placeholder;
     use Required;
     use Wrapper;
-    use Writable;
+    use Immutable;
 
     protected string|null $type = 'url';
 }

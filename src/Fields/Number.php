@@ -17,13 +17,13 @@ use Extended\ACF\Fields\Settings\Affixable;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DefaultValue;
 use Extended\ACF\Fields\Settings\Disabled;
+use Extended\ACF\Fields\Settings\Immutable;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\MinMax;
 use Extended\ACF\Fields\Settings\Placeholder;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Step;
 use Extended\ACF\Fields\Settings\Wrapper;
-use Extended\ACF\Fields\Settings\Writable;
 
 class Number extends Field
 {
@@ -37,7 +37,7 @@ class Number extends Field
     use Step;
     use Required;
     use Wrapper;
-    use Writable;
+    use Immutable;
 
     protected string|null $type = 'number';
 }

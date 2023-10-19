@@ -16,10 +16,10 @@ namespace Extended\ACF\Fields;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DateTimeFormat;
 use Extended\ACF\Fields\Settings\Disabled;
+use Extended\ACF\Fields\Settings\Immutable;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
-use Extended\ACF\Fields\Settings\Writable;
 
 class TimePicker extends Field
 {
@@ -29,7 +29,7 @@ class TimePicker extends Field
     use Instructions;
     use Required;
     use Wrapper;
-    use Writable;
+    use Immutable;
 
     protected string|null $type = 'time_picker';
 }

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields\Settings;
 
-trait Writable
+trait Immutable
 {
     public function readOnly(): static
     {

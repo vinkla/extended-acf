@@ -17,12 +17,12 @@ use Extended\ACF\Fields\Settings\Affixable;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DefaultValue;
 use Extended\ACF\Fields\Settings\Disabled;
+use Extended\ACF\Fields\Settings\Immutable;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\MinMax;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Step;
 use Extended\ACF\Fields\Settings\Wrapper;
-use Extended\ACF\Fields\Settings\Writable;
 
 class Range extends Field
 {
@@ -35,7 +35,7 @@ class Range extends Field
     use Affixable;
     use Required;
     use Wrapper;
-    use Writable;
+    use Immutable;
 
     protected string|null $type = 'range';
 }

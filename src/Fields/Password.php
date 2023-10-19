@@ -15,11 +15,11 @@ namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\Affixable;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Fields\Settings\Immutable;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Placeholder;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
-use Extended\ACF\Fields\Settings\Writable;
 
 class Password extends Field
 {
@@ -29,7 +29,7 @@ class Password extends Field
     use Placeholder;
     use Required;
     use Wrapper;
-    use Writable;
+    use Immutable;
 
     protected string|null $type = 'password';
 }

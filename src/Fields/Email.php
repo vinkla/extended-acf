@@ -17,11 +17,11 @@ use Extended\ACF\Fields\Settings\Affixable;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DefaultValue;
 use Extended\ACF\Fields\Settings\Disabled;
+use Extended\ACF\Fields\Settings\Immutable;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Placeholder;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
-use Extended\ACF\Fields\Settings\Writable;
 
 class Email extends Field
 {
@@ -32,7 +32,7 @@ class Email extends Field
     use Placeholder;
     use Required;
     use Wrapper;
-    use Writable;
+    use Immutable;
     use DefaultValue;
 
     protected string|null $type = 'email';
