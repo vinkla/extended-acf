@@ -30,9 +30,9 @@ class PostObjectTest extends TestCase
         $this->assertTrue($field['multiple']);
     }
 
-    public function testAllowNull()
+    public function testNullable()
     {
-        $field = PostObject::make('Post Object Nullable')->allowNull()->get();
+        $field = PostObject::make('Post Object Nullable')->nullable()->get();
         $this->assertTrue($field['allow_null']);
     }
 

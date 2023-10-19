@@ -227,7 +227,7 @@ Select::make('Color')
     ->default('forest_green')
     ->returnFormat('value') // array, label, value (default)
     ->multiple()
-    ->allowNull()
+    ->nullabel()
     ->required()
 ```
 
@@ -520,7 +520,7 @@ PageLink::make('Contact Link')
     ->postStatus(['publish']) // draft, future, pending, private, publish
     ->taxonomies(['category:city'])
     ->allowArchives() // optionally pass 'false' to disallow archives
-    ->allowNull()
+    ->nullabel()
     ->multiple()
     ->required()
 ```
@@ -534,7 +534,7 @@ PostObject::make('Animal')
     ->instructions('Select an animal')
     ->postTypes(['animal'])
     ->postStatus(['publish']) // draft, future, pending, private, publish
-    ->allowNull()
+    ->nullabel()
     ->multiple()
     ->returnFormat('object') // id, object (default)
     ->required()
@@ -815,6 +815,13 @@ The `allowMultiple` method has been renamed to `multiple`.
 ```diff
 -Select::make('Colors')->allowMultiple()
 +Select::make('Colors')->multiple()
+```
+
+The `allowNull` method has been renamed to `nullable`.
+
+```diff
+-Select::make('Features')->allowNull()
++Select::make('Features')->nullable()
 ```
 
 The `Pending` trait has been renamed to `Affixable`.

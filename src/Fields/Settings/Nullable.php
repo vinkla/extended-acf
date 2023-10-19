@@ -15,7 +15,7 @@ namespace Extended\ACF\Fields\Settings;
 
 trait Nullable
 {
-    public function allowNull(): static
+    public function nullable(): static
     {
         $this->settings['allow_null'] = true;
 
