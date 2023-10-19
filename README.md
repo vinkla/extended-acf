@@ -239,7 +239,7 @@ use Extended\ACF\Fields\TrueFalse;
 TrueFalse::make('Social Media', 'display_social_media')
     ->instructions('Select whether to display social media links or not.')
     ->default(false)
-    ->stylisedUi() // optional on and off text labels
+    ->stylized(on: 'Yes', off: 'No') // optional on and off text labels
     ->required()
 ```
 
@@ -836,6 +836,13 @@ The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
 ```diff
 -DatePicker::make('Date')->weekStartsOn(1)
 +DatePicker::make('Date')->firstDayOfWeek(1)
+```
+
+The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
+
+```diff
+-TrueFalse::make('Disabled')->stylisedUi(onText: 'Yes')
++TrueFalse::make('Disabled')->stylized(on: 'Yes')
 ```
 
 The `CharacterLimit` trait has been renamed to `MaxLength`.

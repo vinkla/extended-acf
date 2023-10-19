@@ -24,11 +24,11 @@ class TrueFalseTest extends TestCase
         $this->assertSame('true_false', $field['type']);
     }
 
-    public function testStylisedUi()
+    public function testStylized()
     {
-        $field = TrueFalse::make('UI')->stylisedUi('Wax on', 'Wax off')->get();
+        $field = TrueFalse::make('UI')->stylized(off: 'Wax off')->get();
         $this->assertTrue($field['ui']);
-        $this->assertEquals($field['ui_on_text'], 'Wax on');
+        $this->assertArrayNotHasKey('ui_on_text', $field);
         $this->assertEquals($field['ui_off_text'], 'Wax off');
     }
 }

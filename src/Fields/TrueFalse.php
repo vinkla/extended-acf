@@ -31,16 +31,16 @@ class TrueFalse extends Field
 
     protected string|null $type = 'true_false';
 
-    public function stylisedUi(string|null $onText = null, string|null $offText = null): static
+    public function stylized(string $on = null, string $off = null): static
     {
         $this->settings['ui'] = true;
 
-        if ($onText !== null) {
-            $this->settings['ui_on_text'] = $onText;
+        if ($on) {
+            $this->settings['ui_on_text'] = $on;
         }
 
-        if ($offText !== null) {
-            $this->settings['ui_off_text'] = $offText;
+        if ($off) {
+            $this->settings['ui_off_text'] = $off;
         }
 
         return $this;
