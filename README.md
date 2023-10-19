@@ -805,49 +805,49 @@ The upgrade guide provides information about the breaking changes in the package
 
 ### 14
 
-The `defaultValue` method has been renamed to `default`.
+1\. The `defaultValue` method has been renamed to `default`.
 
 ```diff
 -Text::make('Name')->defaultValue('Jeffrey Way')
 +Text::make('Name')->default('Jeffrey Way')
 ```
 
-The `allowMultiple` method has been renamed to `multiple`.
+2\. The `allowMultiple` method has been renamed to `multiple`.
 
 ```diff
 -Select::make('Colors')->allowMultiple()
 +Select::make('Colors')->multiple()
 ```
 
-The `allowNull` method has been renamed to `nullable`.
+3\. The `allowNull` method has been renamed to `nullable`.
 
 ```diff
 -Select::make('Features')->allowNull()
 +Select::make('Features')->nullable()
 ```
 
-The `characterLimit` method has been renamed to `maxLength`.
+4\. The `characterLimit` method has been renamed to `maxLength`.
 
 ```diff
 -Textarea::make('Description')->characterLimit(100)
 +Textarea::make('Description')->maxLength(100)
 ```
 
-The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
+5\. The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
 
 ```diff
 -DatePicker::make('Date')->weekStartsOn(1)
 +DatePicker::make('Date')->firstDayOfWeek(1)
 ```
 
-The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
+6\. The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
 
 ```diff
 -TrueFalse::make('Disabled')->stylisedUi(onText: 'Yes')
 +TrueFalse::make('Disabled')->stylized(on: 'Yes')
 ```
 
-The `stylisedUi` method has been split into two methods `stylized` and `lazyLoad` on the `Select` field.
+7\. The `stylisedUi` method has been split into two methods `stylized` and `lazyLoad` on the `Select` field.
 
 ```diff
 -Select::make('Friends')->stylisedUi()
@@ -857,28 +857,28 @@ The `stylisedUi` method has been split into two methods `stylized` and `lazyLoad
 +Select::make('Friends')->lazyLoad()
 ```
 
-The `CharacterLimit` trait has been renamed to `MaxLength`.
+8\. The `CharacterLimit` trait has been renamed to `MaxLength`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\CharacterLimit;
 +use Extended\ACF\Fields\Settings\MaxLength;
 ```
 
-The `Pending` trait has been renamed to `Affixable`.
+9\. The `Pending` trait has been renamed to `Affixable`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Pending;
 +use Extended\ACF\Fields\Settings\Affixable;
 ```
 
-The `Writable` trait has been renamed to `Immutable`.
+10\. The `Writable` trait has been renamed to `Immutable`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Writable;
 +use Extended\ACF\Fields\Settings\Immutable;
 ```
 
-The `SubFields` trait has been renamed to `Fields`.
+11\. The `SubFields` trait has been renamed to `Fields`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\SubFields;
@@ -915,21 +915,21 @@ Changelog: [`11.0.0...12.0.0`](https://github.com/vinkla/extended-acf/compare/11
 
 ### 11
 
-The field name is now automatically formatted as snake_case instead of kebab-case.
+1\. The field name is now automatically formatted as snake_case instead of kebab-case.
 
 ```diff
 -Text::make('Organization Number') // organization-number
 +Text::make('Organization Number') // organization_number
 ```
 
-The field previously known as `Radio` has been renamed to `RadioButton` to align with the plugin's naming convention.
+2\. The field previously known as `Radio` has been renamed to `RadioButton` to align with the plugin's naming convention.
 
 ```diff
 -Radio::make('Color')
 +RadioButton::make('Color')
 ```
 
-The field previously known as `Wysiwyg` has been renamed to `WysiwygEditor`.
+3\. The field previously known as `Wysiwyg` has been renamed to `WysiwygEditor`.
 
 ```diff
 -Wysiwyg::make('Text')
