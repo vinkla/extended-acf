@@ -42,16 +42,15 @@ class FileTest extends TestCase
         File::make('Invalid Return Format')->returnFormat('test')->get();
     }
 
-    public function testFileSize()
+    public function testMinSize()
     {
-        $field = File::make('File Size')->fileSize('400 KB', 5)->get();
+        $field = File::make('File Min Size')->minSize('400 KB')->get();
         $this->assertSame('400 KB', $field['min_size']);
+    }
+
+    public function testMaxSize()
+    {
+        $field = File::make('File Max Size')->maxSize(5)->get();
         $this->assertSame(5, $field['max_size']);
-
-        $field = File::make('Min File Size')->fileSize(10)->get();
-        $this->assertArrayNotHasKey('max_size', $field);
-
-        $field = File::make('Max File Size')->fileSize(null, 20)->get();
-        $this->assertArrayNotHasKey('min_size', $field);
     }
 }
