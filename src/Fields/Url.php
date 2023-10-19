@@ -22,7 +22,7 @@ use Extended\ACF\Fields\Settings\Placeholder;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
 
-class Url extends Field
+class URL extends Field
 {
     use ConditionalLogic;
     use DefaultValue;

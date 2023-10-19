@@ -811,49 +811,59 @@ The upgrade guide provides information about the breaking changes in the package
 
 ### 14
 
-1\. The `defaultValue` method has been renamed to `default`.
+1\. The `Url` class has been renamed to `URL`.
+
+```diff
+-use Extended\ACF\Fields\Url;
++use Extended\ACF\Fields\URL;
+
+-Url::make('GitHub URL')
++URL::make('GitHub URL')
+```
+
+2\. The `defaultValue` method has been renamed to `default`.
 
 ```diff
 -Text::make('Name')->defaultValue('Jeffrey Way')
 +Text::make('Name')->default('Jeffrey Way')
 ```
 
-2\. The `allowMultiple` method has been renamed to `multiple`.
+3\. The `allowMultiple` method has been renamed to `multiple`.
 
 ```diff
 -Select::make('Colors')->allowMultiple()
 +Select::make('Colors')->multiple()
 ```
 
-3\. The `allowNull` method has been renamed to `nullable`.
+4\. The `allowNull` method has been renamed to `nullable`.
 
 ```diff
 -Select::make('Features')->allowNull()
 +Select::make('Features')->nullable()
 ```
 
-4\. The `characterLimit` method has been renamed to `maxLength`.
+5\. The `characterLimit` method has been renamed to `maxLength`.
 
 ```diff
 -Textarea::make('Description')->characterLimit(100)
 +Textarea::make('Description')->maxLength(100)
 ```
 
-5\. The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
+6\. The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
 
 ```diff
 -DatePicker::make('Date')->weekStartsOn(1)
 +DatePicker::make('Date')->firstDayOfWeek(1)
 ```
 
-6\. The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
+7\. The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
 
 ```diff
 -TrueFalse::make('Disabled')->stylisedUi(onText: 'Yes')
 +TrueFalse::make('Disabled')->stylized(on: 'Yes')
 ```
 
-7\. The `stylisedUi` method has been split into two methods `stylized` and `lazyLoad` on the `Select` field.
+8\. The `stylisedUi` method has been split into two methods `stylized` and `lazyLoad` on the `Select` field.
 
 ```diff
 -Select::make('Friends')->stylisedUi()
@@ -863,63 +873,63 @@ The upgrade guide provides information about the breaking changes in the package
 +Select::make('Friends')->lazyLoad()
 ```
 
-8\. The `fileSize` method has been split into two methods `minSize` and `maxSize`.
+9\. The `fileSize` method has been split into two methods `minSize` and `maxSize`.
 
 ```diff
 -Image::make('Background')->fileSize('400 KB', 5)
 +Image::make('Background')->minSize('400 KB')->maxSize(5)
 ```
 
-9\. The `height` method has been split into two methods `minHeight` and `maxHeight`.
+10\. The `height` method has been split into two methods `minHeight` and `maxHeight`.
 
 ```diff
 -Gallery::make('Background')->height(100, 1000)
 +Gallery::make('Background')->minHeight(100)->maxHeight(1000)
 ```
 
-10\. The `width` method has been split into two methods `minWidth` and `maxWidth`.
+11\. The `width` method has been split into two methods `minWidth` and `maxWidth`.
 
 ```diff
 -Image::make('Background')->width(100, 1000)
 +Image::make('Background')->minWidth(100)->maxWidth(1000)
 ```
 
-11\. The `mimeTypes` method has been renamed to `acceptedFileTypes`.
+12\. The `mimeTypes` method has been renamed to `acceptedFileTypes`.
 
 ```diff
 -File::make('Background')->mimeTypes(['pdf'])
 +File::make('Background')->acceptedFileTypes(['pdf'])
 ```
 
-12\. The `MimeTypes` trait has been renamed to `FileTypes`.
+13\. The `MimeTypes` trait has been renamed to `FileTypes`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\MimeTypes;
 +use Extended\ACF\Fields\Settings\FileTypes;
 ```
 
-13\. The `CharacterLimit` trait has been renamed to `MaxLength`.
+14\. The `CharacterLimit` trait has been renamed to `MaxLength`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\CharacterLimit;
 +use Extended\ACF\Fields\Settings\MaxLength;
 ```
 
-14\. The `Pending` trait has been renamed to `Affixable`.
+15\. The `Pending` trait has been renamed to `Affixable`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Pending;
 +use Extended\ACF\Fields\Settings\Affixable;
 ```
 
-15\. The `Writable` trait has been renamed to `Immutable`.
+16\. The `Writable` trait has been renamed to `Immutable`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Writable;
 +use Extended\ACF\Fields\Settings\Immutable;
 ```
 
-16\. The `SubFields` trait has been renamed to `Fields`.
+17\. The `SubFields` trait has been renamed to `Fields`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\SubFields;
