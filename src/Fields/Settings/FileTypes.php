@@ -15,12 +15,8 @@ namespace Extended\ACF\Fields\Settings;
 
 trait FileTypes
 {
-    public function acceptedFileTypes(array|string $types): static
+    public function acceptedFileTypes(array $types): static
     {
-        if (is_string($types)) {
-            $types = [$types];
-        }
-
         $this->settings['mime_types'] = implode(',', $types);
 
         return $this;

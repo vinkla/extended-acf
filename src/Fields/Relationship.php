@@ -33,23 +33,15 @@ class Relationship extends Field
 
     protected string|null $type = 'relationship';
 
-    public function elements(array|string $elements): static
+    public function elements(array $elements): static
     {
-        if (is_string($elements)) {
-            $elements = [$elements];
-        }
-
         $this->settings['elements'] = $elements;
 
         return $this;
     }
 
-    public function filters(array|string $filters): static
+    public function filters(array $filters): static
     {
-        if (is_string($filters)) {
-            $filters = [$filters];
-        }
-
         $this->settings['filters'] = $filters;
 
         return $this;

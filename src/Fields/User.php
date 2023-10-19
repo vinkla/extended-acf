@@ -33,12 +33,8 @@ class User extends Field
 
     protected string|null $type = 'user';
 
-    public function roles(array|string $roles): static
+    public function roles(array $roles): static
     {
-        if (is_string($roles)) {
-            $roles = [$roles];
-        }
-
         $this->settings['role'] = $roles;
 
         return $this;
