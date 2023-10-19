@@ -30,6 +30,7 @@ Extended ACF provides an object-oriented API to register groups and fields with 
     - [`withSettings`](#withsettings)
 - [Custom Fields](#custom-fields)
 - [Upgrade Guide](#upgrade-guide)
+  - [14](#14)
   - [13](#13)
   - [12](#12)
   - [11](#11)
