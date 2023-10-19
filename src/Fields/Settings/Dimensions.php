@@ -15,28 +15,30 @@ namespace Extended\ACF\Fields\Settings;
 
 trait Dimensions
 {
-    public function height(int|null $min = null, int|null $max = null): static
+    public function maxHeight(int $max): static
     {
-        if ($min !== null) {
-            $this->settings['min_height'] = $min;
-        }
-
-        if ($max !== null) {
-            $this->settings['max_height'] = $max;
-        }
+        $this->settings['max_height'] = $max;
 
         return $this;
     }
 
-    public function width(int|null $min = null, int|null $max = null): static
+    public function minHeight(int $min): static
     {
-        if ($min !== null) {
-            $this->settings['min_width'] = $min;
-        }
+        $this->settings['min_height'] = $min;
 
-        if ($max !== null) {
-            $this->settings['max_width'] = $max;
-        }
+        return $this;
+    }
+
+    public function maxWidth(int $max): static
+    {
+        $this->settings['max_width'] = $max;
+
+        return $this;
+    }
+
+    public function minWidth(int $min): static
+    {
+        $this->settings['min_width'] = $min;
 
         return $this;
     }

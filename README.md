@@ -271,8 +271,10 @@ use Extended\ACF\Fields\Gallery;
 Gallery::make('Images')
     ->instructions('Add the gallery images.')
     ->mimeTypes(['jpg', 'jpeg', 'png'])
-    ->height(500, 1400)
-    ->width(1000, 2000)
+    ->minHeight(500)
+    ->maxHeight(1400)
+    ->minWidth(1000)
+    ->maxWidth(2000)
     ->min(1)
     ->max(6)
     ->minSize('400 KB')
@@ -291,8 +293,10 @@ use Extended\ACF\Fields\Image;
 Image::make('Background Image')
     ->instructions('Add an image in at least 12000x100px and only in the formats **jpg**, **jpeg** or **png**.')
     ->mimeTypes(['jpg', 'jpeg', 'png'])
-    ->height(500, 1400)
-    ->width(1000, 2000)
+    ->minHeight(500)
+    ->maxHeight(1400)
+    ->minWidth(1000)
+    ->maxWidth(2000)
     ->minSize('400 KB')
     ->maxSize(5) // MB if entered as int
     ->library('all') // all, uploadedTo
@@ -867,28 +871,42 @@ The upgrade guide provides information about the breaking changes in the package
 +Image::make('Background')->minSize('400 KB')->maxSize(5)
 ```
 
-9\. The `CharacterLimit` trait has been renamed to `MaxLength`.
+9\. The `height` method has been split into two methods `minHeight` and `maxHeight`.
+
+```diff
+-Gallery::make('Background')->height(100, 1000)
++Gallery::make('Background')->minHeight(100)->maxHeight(1000)
+```
+
+10\. The `width` method has been split into two methods `minWidth` and `maxWidth`.
+
+```diff
+-Gallery::make('Background')->width(100, 1000)
++Gallery::make('Background')->minWidth(100)->maxWidth(1000)
+```
+
+11\. The `CharacterLimit` trait has been renamed to `MaxLength`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\CharacterLimit;
 +use Extended\ACF\Fields\Settings\MaxLength;
 ```
 
-10\. The `Pending` trait has been renamed to `Affixable`.
+12\. The `Pending` trait has been renamed to `Affixable`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Pending;
 +use Extended\ACF\Fields\Settings\Affixable;
 ```
 
-11\. The `Writable` trait has been renamed to `Immutable`.
+13\. The `Writable` trait has been renamed to `Immutable`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Writable;
 +use Extended\ACF\Fields\Settings\Immutable;
 ```
 
-12\. The `SubFields` trait has been renamed to `Fields`.
+14\. The `SubFields` trait has been renamed to `Fields`.
 
 ```diff
 -use Extended\ACF\Fields\Settings\SubFields;
