@@ -831,6 +831,13 @@ The `characterLimit` method has been renamed to `maxLength`.
 +Textarea::make('Description')->maxLength(100)
 ```
 
+The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
+
+```diff
+-DatePicker::make('Date')->weekStartsOn(1)
++DatePicker::make('Date')->firstDayOfWeek(1)
+```
+
 The `CharacterLimit` trait has been renamed to `MaxLength`.
 
 ```diff
