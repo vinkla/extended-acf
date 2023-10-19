@@ -15,9 +15,7 @@ namespace Extended\ACF\Fields\Settings;
 
 trait PreviewSize
 {
-    /**
-     * @param string $size thumbnail, medium, medium_large, large, full
-     */
+    /** @param string $size thumbnail, medium, medium_large, large, full */
     public function previewSize(string $size): static
     {
         $this->settings['preview_size'] = $size;
