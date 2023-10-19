@@ -36,29 +36,27 @@ class GalleryTest extends TestCase
         Gallery::make('Invalid Insert')->insert('test')->get();
     }
 
-    public function testHeight()
+    public function testMaxHeight()
     {
-        $field = Gallery::make('Height')->height(10, 20)->get();
-        $this->assertSame(10, $field['min_height']);
+        $field = Gallery::make('Gallery Max Height')->maxHeight(20)->get();
         $this->assertSame(20, $field['max_height']);
-
-        $field = Gallery::make('Min Height')->height(30)->get();
-        $this->assertArrayNotHasKey('max_height', $field);
-
-        $field = Gallery::make('Max Height')->height(null, 40)->get();
-        $this->assertArrayNotHasKey('min_height', $field);
     }
 
-    public function testWidth()
+    public function testMinHeight()
     {
-        $field = Gallery::make('Width')->width(10, 20)->get();
-        $this->assertSame(10, $field['min_width']);
-        $this->assertSame(20, $field['max_width']);
+        $field = Gallery::make('Gallery Min Height')->minHeight(10)->get();
+        $this->assertSame(10, $field['min_height']);
+    }
 
-        $field = Gallery::make('Min Width')->width(30)->get();
-        $this->assertArrayNotHasKey('max_width', $field);
+    public function testMaxWidth()
+    {
+        $field = Gallery::make('Gallery Max Width')->maxWidth(40)->get();
+        $this->assertSame(40, $field['max_width']);
+    }
 
-        $field = Gallery::make('Max Width')->width(null, 40)->get();
-        $this->assertArrayNotHasKey('min_width', $field);
+    public function testMinWidth()
+    {
+        $field = Gallery::make('Gallery Min Width')->minWidth(30)->get();
+        $this->assertSame(30, $field['min_width']);
     }
 }
