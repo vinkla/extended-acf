@@ -164,12 +164,12 @@ Textarea::make('Biography')
     ->required()
 ```
 
-**URL** - The [url field](https://www.advancedcustomfields.com/resources/text) creates a simple url input.
+**URL** - The [URL field](https://www.advancedcustomfields.com/resources/text) creates a simple uRL input.
 
 ```php
-use Extended\ACF\Fields\Url;
+use Extended\ACF\Fields\URL;
 
-Url::make('Website')
+URL::make('Website')
     ->instructions('Add the employees website link.')
     ->required()
 ```
@@ -615,7 +615,7 @@ The conditional class helps you write conditional logic [without knowing](https:
 use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\File;
 use Extended\ACF\Fields\Select;
-use Extended\ACF\Fields\Url;
+use Extended\ACF\Fields\URL;
 use Extended\ACF\Fields\Textarea;
 use Extended\ACF\Fields\Text;
 
@@ -629,7 +629,7 @@ File::make('Document', 'file')
     ->conditionalLogic([
         ConditionalLogic::where('type', '==', 'document') // available operators: ==, !=, >, <, ==pattern, ==contains, ==empty, !=empty
     ]),
-Url::make('Link', 'url')
+URL::make('Link', 'url')
     ->conditionalLogic([
         ConditionalLogic::where('type', '==', 'link')
     ]),
