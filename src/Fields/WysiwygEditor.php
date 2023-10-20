@@ -37,9 +37,9 @@ class WysiwygEditor extends Field
         return $this;
     }
 
-    public function mediaUpload(bool $mediaUpload): static
+    public function disableMediaUpload(): static
     {
-        $this->settings['media_upload'] = $mediaUpload;
+        $this->settings['media_upload'] = false;
 
         return $this;
     }
