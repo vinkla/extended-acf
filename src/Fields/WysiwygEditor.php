@@ -30,7 +30,7 @@ class WysiwygEditor extends Field
 
     protected string|null $type = 'wysiwyg';
 
-    public function delay(): static
+    public function lazyLoad(): static
     {
         $this->settings['delay'] = true;
 

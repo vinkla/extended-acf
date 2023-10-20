@@ -25,9 +25,9 @@ class WysiwygEditorTest extends TestCase
         $this->assertSame('wysiwyg', $field['type']);
     }
 
-    public function testDelay()
+    public function testLazyLoad()
     {
-        $field = WysiwygEditor::make('Wysiwyg Editor Delay')->delay()->get();
+        $field = WysiwygEditor::make('Wysiwyg Editor Lazy Load')->lazyLoad()->get();
         $this->assertTrue($field['delay']);
     }
 
