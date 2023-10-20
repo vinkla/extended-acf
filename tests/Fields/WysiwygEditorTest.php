@@ -31,9 +31,9 @@ class WysiwygEditorTest extends TestCase
         $this->assertTrue($field['delay']);
     }
 
-    public function testMediaUpload()
+    public function testDisableMediaUpload()
     {
-        $field = WysiwygEditor::make('Wysiwyg Editor Media Upload')->mediaUpload(false)->get();
+        $field = WysiwygEditor::make('Wysiwyg Editor Media Upload')->disableMediaUpload()->get();
         $this->assertFalse($field['media_upload']);
     }
 

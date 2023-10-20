@@ -909,6 +909,13 @@ The `delay` method has been renamed to `lazyLoad`.
 +WysiwygEditor::make('Biography')->lazyLoad()
 ```
 
+The `mediaUpload` method has been renamed to `disableMediaUpload`.
+
+```diff
+-WysiwygEditor::make('Narrative')->mediaUpload(false)
++WysiwygEditor::make('Narrative')->disableMediaUpload()
+```
+
 The `MimeTypes` trait has been renamed to `FileTypes`.
 
 ```diff
