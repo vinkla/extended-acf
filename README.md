@@ -324,6 +324,7 @@ WysiwygEditor::make('Content')
     ->mediaUpload(false)
     ->tabs('visual') // all, text, visual (default)
     ->toolbar(['bold', 'italic', 'link']) // aligncenter, alignleft, alignright, blockquote, bold, bullist, charmap, forecolor, formatselect, fullscreen, hr, indent, italic, link, numlist, outdent, pastetext, redo, removeformat, spellchecker, strikethrough, underline, undo, wp_adv, wp_help, wp_more
+    ->lazyLoad()
     ->required()
 ```
 
@@ -883,22 +884,29 @@ The `fileSize` method has been split into two methods `minSize` and `maxSize`.
 The `height` method has been split into two methods `minHeight` and `maxHeight`.
 
 ```diff
--Gallery::make('Background')->height(100, 1000)
-+Gallery::make('Background')->minHeight(100)->maxHeight(1000)
+-Gallery::make('Carousel')->height(100, 1000)
++Gallery::make('Carousel')->minHeight(100)->maxHeight(1000)
 ```
 
 The `width` method has been split into two methods `minWidth` and `maxWidth`.
 
 ```diff
--Image::make('Background')->width(100, 1000)
-+Image::make('Background')->minWidth(100)->maxWidth(1000)
+-Image::make('Product Image')->width(100, 1000)
++Image::make('Product Image')->minWidth(100)->maxWidth(1000)
 ```
 
 The `mimeTypes` method has been renamed to `acceptedFileTypes`.
 
 ```diff
--File::make('Background')->mimeTypes(['pdf'])
-+File::make('Background')->acceptedFileTypes(['pdf'])
+-File::make('Manual')->mimeTypes(['pdf'])
++File::make('Manual')->acceptedFileTypes(['pdf'])
+```
+
+The `delay` method has been renamed to `lazyLoad`.
+
+```diff
+-WysiwygEditor::make('Biography')->delay()
++WysiwygEditor::make('Biography')->lazyLoad()
 ```
 
 The `MimeTypes` trait has been renamed to `FileTypes`.
