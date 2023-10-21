@@ -18,5 +18,5 @@ jobs:
         with:
           php-version: 8.2
           coverage: xdebug
-          tools: php-cs-fixer, cs2pr
-      - run: php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
+          tools: cs2pr
+      - run: vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
