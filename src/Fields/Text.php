@@ -26,16 +26,16 @@ use Extended\ACF\Fields\Settings\Wrapper;
 
 class Text extends Field
 {
-    use MaxLength;
+    use Affixable;
     use ConditionalLogic;
     use DefaultValue;
     use Disabled;
+    use Immutable;
     use Instructions;
-    use Affixable;
+    use MaxLength;
     use Placeholder;
     use Required;
     use Wrapper;
-    use Immutable;
 
     protected string|null $type = 'text';
 }

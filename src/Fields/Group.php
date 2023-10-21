@@ -23,9 +23,9 @@ use Extended\ACF\Fields\Settings\Wrapper;
 class Group extends Field
 {
     use ConditionalLogic;
+    use Fields;
     use Instructions;
     use Layout;
-    use Fields;
     use Required;
     use Wrapper;
 

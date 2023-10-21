@@ -24,12 +24,12 @@ use Extended\ACF\Fields\Settings\Wrapper;
 class TimePicker extends Field
 {
     use ConditionalLogic;
-    use Disabled;
     use DateTimeFormat;
+    use Disabled;
+    use Immutable;
     use Instructions;
     use Required;
     use Wrapper;
-    use Immutable;
 
     protected string|null $type = 'time_picker';
 }

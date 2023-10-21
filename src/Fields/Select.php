@@ -28,16 +28,16 @@ use Extended\ACF\Fields\Settings\Wrapper;
 class Select extends Field
 {
     use Choices;
+    use ConditionalLogic;
     use DefaultValue;
     use Disabled;
-    use ConditionalLogic;
+    use Immutable;
     use Instructions;
     use Multiple;
     use Nullable;
     use Required;
     use ReturnFormat;
     use Wrapper;
-    use Immutable;
 
     protected string|null $type = 'select';
 

@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Extended\ACF\Tests;
+namespace Extended\Tests\ACF;
 
 use Extended\ACF\Location;
 use PHPUnit\Framework\TestCase;

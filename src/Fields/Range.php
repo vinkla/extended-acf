@@ -26,16 +26,16 @@ use Extended\ACF\Fields\Settings\Wrapper;
 
 class Range extends Field
 {
+    use Affixable;
     use ConditionalLogic;
     use DefaultValue;
     use Disabled;
+    use Immutable;
     use Instructions;
     use MinMax;
-    use Step;
-    use Affixable;
     use Required;
+    use Step;
     use Wrapper;
-    use Immutable;
 
     protected string|null $type = 'range';
 }

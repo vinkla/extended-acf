@@ -26,9 +26,9 @@ class File extends Field
 {
     use ConditionalLogic;
     use FileSize;
+    use FileTypes;
     use Instructions;
     use Library;
-    use FileTypes;
     use Required;
     use ReturnFormat;
     use Wrapper;

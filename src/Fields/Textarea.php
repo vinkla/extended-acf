@@ -26,16 +26,16 @@ use Extended\ACF\Fields\Settings\Wrapper;
 
 class Textarea extends Field
 {
-    use MaxLength;
     use ConditionalLogic;
     use DefaultValue;
     use Disabled;
+    use Immutable;
     use Instructions;
+    use MaxLength;
     use NewLines;
     use Placeholder;
     use Required;
     use Wrapper;
-    use Immutable;
 
     protected string|null $type = 'textarea';
 

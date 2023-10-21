@@ -29,9 +29,9 @@ class Image extends Field
     use ConditionalLogic;
     use Dimensions;
     use FileSize;
+    use FileTypes;
     use Instructions;
     use Library;
-    use FileTypes;
     use PreviewSize;
     use Required;
     use ReturnFormat;

@@ -27,17 +27,17 @@ use Extended\ACF\Fields\Settings\Wrapper;
 
 class Number extends Field
 {
+    use Affixable;
     use ConditionalLogic;
     use DefaultValue;
     use Disabled;
+    use Immutable;
     use Instructions;
     use MinMax;
-    use Affixable;
     use Placeholder;
-    use Step;
     use Required;
+    use Step;
     use Wrapper;
-    use Immutable;
 
     protected string|null $type = 'number';
 }

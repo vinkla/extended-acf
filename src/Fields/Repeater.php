@@ -26,10 +26,10 @@ class Repeater extends Field
 {
     use ButtonLabel;
     use ConditionalLogic;
+    use Fields;
     use Instructions;
     use Layout;
     use MinMax;
-    use Fields;
     use Required;
     use Wrapper;
 
