@@ -19,4 +19,5 @@ jobs:
           php-version: 8.2
           coverage: xdebug
           tools: cs2pr
+      - run: composer install --prefer-dist --no-interaction
       - run: vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
