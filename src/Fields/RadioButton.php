@@ -27,10 +27,10 @@ use Extended\ACF\Fields\Settings\Wrapper;
 class RadioButton extends Field
 {
     use Choices;
-    use DefaultValue;
-    use Disabled;
-    use DirectionLayout;
     use ConditionalLogic;
+    use DefaultValue;
+    use DirectionLayout;
+    use Disabled;
     use Instructions;
     use Nullable;
     use Required;

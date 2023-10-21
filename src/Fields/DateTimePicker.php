@@ -27,11 +27,11 @@ class DateTimePicker extends Field
     use ConditionalLogic;
     use DateTimeFormat;
     use Disabled;
+    use Immutable;
     use Instructions;
     use Required;
     use WeekDay;
     use Wrapper;
-    use Immutable;
 
     protected string|null $type = 'date_time_picker';
 }

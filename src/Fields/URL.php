@@ -27,11 +27,11 @@ class URL extends Field
     use ConditionalLogic;
     use DefaultValue;
     use Disabled;
+    use Immutable;
     use Instructions;
     use Placeholder;
     use Required;
     use Wrapper;
-    use Immutable;
 
     protected string|null $type = 'url';
 }

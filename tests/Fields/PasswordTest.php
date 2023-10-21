@@ -14,13 +14,24 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Password;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\Affixable;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\Immutable;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Placeholder;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class PasswordTest extends TestCase
+class PasswordTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Password::make('Password')->get();
-        $this->assertSame('password', $field['type']);
-    }
+    use Affixable;
+    use ConditionalLogic;
+    use Immutable;
+    use Instructions;
+    use Placeholder;
+    use Required;
+    use Wrapper;
+
+    public string $field = Password::class;
+    public string $type = 'password';
 }

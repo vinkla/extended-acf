@@ -19,8 +19,8 @@ use InvalidArgumentException;
 
 class Layout extends Field
 {
-    use MinMax;
     use Fields;
+    use MinMax;
 
     protected string $keyPrefix = 'layout';
 

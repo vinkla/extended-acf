@@ -25,15 +25,15 @@ use Extended\ACF\Fields\Settings\Wrapper;
 
 class Email extends Field
 {
-    use ConditionalLogic;
-    use Disabled;
-    use Instructions;
     use Affixable;
+    use ConditionalLogic;
+    use DefaultValue;
+    use Disabled;
+    use Immutable;
+    use Instructions;
     use Placeholder;
     use Required;
     use Wrapper;
-    use Immutable;
-    use DefaultValue;
 
     protected string|null $type = 'email';
 }

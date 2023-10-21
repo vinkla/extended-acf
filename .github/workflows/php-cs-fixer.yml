@@ -14,5 +14,6 @@ jobs:
         with:
           php-version: 8.2
           coverage: xdebug
-          tools: php-cs-fixer, cs2pr
-      - run: php-cs-fixer fix . --dry-run --rules=@PER --format=checkstyle | cs2pr
+          tools: cs2pr
+      - run: composer install --prefer-dist --no-interaction
+      - run: vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle | cs2pr

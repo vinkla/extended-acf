@@ -19,8 +19,8 @@ use Extended\ACF\Fields\Settings\NewLines;
 
 class Message extends Field
 {
-    use MessageAttribute;
     use ConditionalLogic;
+    use MessageAttribute;
     use NewLines;
 
     protected string|null $type = 'message';

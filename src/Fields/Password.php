@@ -23,13 +23,13 @@ use Extended\ACF\Fields\Settings\Wrapper;
 
 class Password extends Field
 {
-    use ConditionalLogic;
-    use Instructions;
     use Affixable;
+    use ConditionalLogic;
+    use Immutable;
+    use Instructions;
     use Placeholder;
     use Required;
     use Wrapper;
-    use Immutable;
 
     protected string|null $type = 'password';
 }

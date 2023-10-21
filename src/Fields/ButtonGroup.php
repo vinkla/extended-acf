@@ -25,9 +25,9 @@ use Extended\ACF\Fields\Settings\Wrapper;
 class ButtonGroup extends Field
 {
     use Choices;
+    use ConditionalLogic;
     use DefaultValue;
     use DirectionLayout;
-    use ConditionalLogic;
     use Instructions;
     use Required;
     use ReturnFormat;

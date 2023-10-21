@@ -31,9 +31,9 @@ class Gallery extends Field
     use ConditionalLogic;
     use Dimensions;
     use FileSize;
+    use FileTypes;
     use Instructions;
     use Library;
-    use FileTypes;
     use MinMax;
     use PreviewSize;
     use Required;
