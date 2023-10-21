@@ -16,4 +16,4 @@ jobs:
           coverage: xdebug
           tools: cs2pr
       - run: composer install --prefer-dist --no-interaction
-      - run: ./vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
+      - run: vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
