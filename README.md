@@ -321,9 +321,9 @@ use Extended\ACF\Fields\WysiwygEditor;
 
 WysiwygEditor::make('Content')
     ->instructions('Add the text content.')
-    ->mediaUpload(false)
     ->tabs('visual') // all, text, visual (default)
     ->toolbar(['bold', 'italic', 'link']) // aligncenter, alignleft, alignright, blockquote, bold, bullist, charmap, forecolor, formatselect, fullscreen, hr, indent, italic, link, numlist, outdent, pastetext, redo, removeformat, spellchecker, strikethrough, underline, undo, wp_adv, wp_help, wp_more
+    ->disableMediaUpload()
     ->lazyLoad()
     ->required()
 ```
