@@ -28,7 +28,7 @@ $finder = PhpCsFixer\Finder::create()
 
 return $config
     ->setRules([
-        '@PER' => true,
+        '@PER-CS' => true,
         'declare_strict_types' => true,
         'header_comment' => [
             'comment_type' => 'PHPDoc',
