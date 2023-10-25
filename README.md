@@ -857,6 +857,20 @@ The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
 +DatePicker::make('Date')->firstDayOfWeek(1)
 ```
 
+The `prepend` method has been renamed to `prefix`.
+
+```diff
+-Number::make('Price')->prepend('$')
++Number::make('Price')->prefix('$')
+```
+
+The `append` method has been renamed to `suffix`.
+
+```diff
+-Number::make('Price')->append('€')
++Number::make('Price')->suffix('€')
+```
+
 The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
 
 ```diff

@@ -15,15 +15,15 @@ namespace Extended\ACF\Tests\Fields\Settings;
 
 trait Affixable
 {
-    public function testAppend()
+    public function testSuffix()
     {
-        $settings = $this->field::make($this->label('Append'))->append('%')->get();
+        $settings = $this->field::make($this->label('Suffix'))->suffix('%')->get();
         $this->assertSame('%', $settings['append']);
     }
 
-    public function testPrepend()
+    public function testPrefix()
     {
-        $settings = $this->field::make($this->label('Prepend'))->prepend('$')->get();
+        $settings = $this->field::make($this->label('Prefix'))->prefix('$')->get();
         $this->assertSame('$', $settings['prepend']);
     }
 }
