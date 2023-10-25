@@ -15,16 +15,16 @@ namespace Extended\ACF\Fields\Settings;
 
 trait Affixable
 {
-    public function append(string $value): static
+    public function prefix(string $value): static
     {
-        $this->settings['append'] = $value;
+        $this->settings['prepend'] = $value;
 
         return $this;
     }
 
-    public function prepend(string $value): static
+    public function suffix(string $value): static
     {
-        $this->settings['prepend'] = $value;
+        $this->settings['append'] = $value;
 
         return $this;
     }
