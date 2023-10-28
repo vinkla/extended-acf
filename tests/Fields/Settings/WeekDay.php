@@ -20,4 +20,16 @@ trait WeekDay
         $field = $this->make('First Day Of Week')->firstDayOfWeek(1)->get();
         $this->assertSame(1, $field['first_day']);
     }
+
+    public function testWeekStartsOnMonday()
+    {
+        $field = $this->make('Week Starts On Monday')->weekStartsOnMonday()->get();
+        $this->assertSame(1, $field['first_day']);
+    }
+
+    public function testWeekStartsOnSunday()
+    {
+        $field = $this->make('Week Starts On Sunday')->weekStartsOnSunday()->get();
+        $this->assertSame(0, $field['first_day']);
+    }
 }
