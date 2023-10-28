@@ -14,37 +14,26 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\PostObject;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\FilterBy;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Multiple;
+use Extended\ACF\Tests\Fields\Settings\Nullable;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class PostObjectTest extends TestCase
+class PostObjectTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = PostObject::make('Post Object')->get();
-        $this->assertSame('post_object', $field['type']);
-    }
+    use ConditionalLogic;
+    use FilterBy;
+    use Instructions;
+    use Multiple;
+    use Nullable;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
-    public function testMultiple()
-    {
-        $field = PostObject::make('Post Object Multiple')->multiple()->get();
-        $this->assertTrue($field['multiple']);
-    }
-
-    public function testNullable()
-    {
-        $field = PostObject::make('Post Object Nullable')->nullable()->get();
-        $this->assertTrue($field['allow_null']);
-    }
-
-    public function testPostTypes()
-    {
-        $field = PostObject::make('Post Object Filter Post Type')->postTypes(['page'])->get();
-        $this->assertSame(['page'], $field['post_type']);
-    }
-
-    public function testTaxonomies()
-    {
-        $field = PostObject::make('Post Object Filter Taxonomy')->taxonomies(['category:untitled'])->get();
-        $this->assertSame(['category:untitled'], $field['taxonomy']);
-    }
+    public string $field = PostObject::class;
+    public string $type = 'post_object';
 }

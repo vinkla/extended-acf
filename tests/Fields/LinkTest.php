@@ -14,13 +14,20 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Link;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class LinkTest extends TestCase
+class LinkTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Link::make('Link')->get();
-        $this->assertSame('link', $field['type']);
-    }
+    use ConditionalLogic;
+    use Instructions;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
+
+    public string $field = Link::class;
+    public string $type = 'link';
 }

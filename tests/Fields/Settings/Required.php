@@ -17,7 +17,7 @@ trait Required
 {
     public function testRequired()
     {
-        $settings = $this->field::make($this->label('Required'))->required()->get();
+        $settings = $this->make('Required')->required()->get();
         $this->assertTrue($settings['required']);
     }
 }

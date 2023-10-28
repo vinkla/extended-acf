@@ -14,33 +14,32 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Textarea;
-use InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DefaultValue;
+use Extended\ACF\Tests\Fields\Settings\Disabled;
+use Extended\ACF\Tests\Fields\Settings\Immutable;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\MaxLength;
+use Extended\ACF\Tests\Fields\Settings\NewLines;
+use Extended\ACF\Tests\Fields\Settings\Placeholder;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class TextareaTest extends TestCase
+class TextareaTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Textarea::make('Textarea')->get();
-        $this->assertSame('textarea', $field['type']);
-    }
+    use ConditionalLogic;
+    use DefaultValue;
+    use Disabled;
+    use Immutable;
+    use Instructions;
+    use MaxLength;
+    use NewLines;
+    use Placeholder;
+    use Required;
+    use Wrapper;
 
-    public function testMaxLength()
-    {
-        $field = Textarea::make('Max Length')->maxLength(100)->get();
-        $this->assertSame(100, $field['maxlength']);
-    }
-
-    public function testNewLines()
-    {
-        $field = Textarea::make('Description')->newLines('br')->get();
-        $this->assertSame('br', $field['new_lines']);
-
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid argument new lines [test].');
-
-        Textarea::make('Message')->newLines('test')->get();
-    }
+    public string $field = Textarea::class;
+    public string $type = 'textarea';
 
     public function testRows()
     {

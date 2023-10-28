@@ -14,37 +14,22 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Group;
-use Extended\ACF\Fields\Text;
-use InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\Fields;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Layout;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class GroupTest extends TestCase
+class GroupTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Group::make('Group')->get();
-        $this->assertSame('group', $field['type']);
-    }
+    use ConditionalLogic;
+    use Fields;
+    use Instructions;
+    use Layout;
+    use Required;
+    use Wrapper;
 
-    public function testFields()
-    {
-        $field = Group::make('Group Fields')
-            ->fields([
-                Text::make('Title'),
-            ])
-            ->get();
-
-        $this->assertSame('Title', $field['sub_fields'][0]['label']);
-    }
-
-    public function testLayout()
-    {
-        $field = Group::make('Group Layout')->layout('block')->get();
-        $this->assertSame('block', $field['layout']);
-
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid argument layout [test].');
-
-        Group::make('Invalid Group Layout')->layout('test')->get();
-    }
+    public string $field = Group::class;
+    public string $type = 'group';
 }

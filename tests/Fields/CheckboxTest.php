@@ -14,25 +14,29 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Checkbox;
-use InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
 
-class CheckboxTest extends TestCase
+use Extended\ACF\Tests\Fields\Settings\Choices;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DefaultValue;
+use Extended\ACF\Tests\Fields\Settings\DirectionLayout;
+use Extended\ACF\Tests\Fields\Settings\Disabled;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
+
+class CheckboxTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Checkbox::make('Checkbox')->get();
-        $this->assertSame('checkbox', $field['type']);
-    }
+    use Choices;
+    use ConditionalLogic;
+    use DefaultValue;
+    use DirectionLayout;
+    use Disabled;
+    use Instructions;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
-    public function testLayout()
-    {
-        $field = Checkbox::make('Checkbox Layout')->layout('horizontal')->get();
-        $this->assertSame('horizontal', $field['layout']);
-
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid argument layout [test].');
-
-        Checkbox::make('Invalid Checkbox Layout')->layout('test');
-    }
+    public string $field = Checkbox::class;
+    public string $type = 'checkbox';
 }

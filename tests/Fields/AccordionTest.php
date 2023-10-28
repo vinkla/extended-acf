@@ -14,31 +14,26 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Accordion;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\Endpoint;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
 
-class AccordionTest extends TestCase
+class AccordionTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Accordion::make('Accordion')->get();
-        $this->assertSame('accordion', $field['type']);
-    }
+    use Endpoint;
+    use Instructions;
 
-    public function testEndpoint()
-    {
-        $field = Accordion::make('Accordion Endpoint')->endpoint()->get();
-        $this->assertTrue($field['endpoint']);
-    }
+    public string $field = Accordion::class;
+    public string $type = 'accordion';
 
     public function testMultiExpand()
     {
-        $field = Accordion::make('Accordion Multi Expand')->multiExpand()->get();
+        $field = Accordion::make('Multi Expand')->multiExpand()->get();
         $this->assertTrue($field['multi_expand']);
     }
 
     public function testOpen()
     {
-        $field = Accordion::make('Accordion Open')->open()->get();
+        $field = Accordion::make('Open')->open()->get();
         $this->assertTrue($field['open']);
     }
 }

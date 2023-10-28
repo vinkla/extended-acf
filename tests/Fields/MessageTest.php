@@ -14,25 +14,22 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Message;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\Message as MessageAttribute;
+use Extended\ACF\Tests\Fields\Settings\NewLines;
 
-class MessageTest extends TestCase
+class MessageTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Message::make('Message')->get();
-        $this->assertSame('message', $field['type']);
-    }
+    use ConditionalLogic;
+    use MessageAttribute;
+    use NewLines;
+
+    public string $field = Message::class;
+    public string $type = 'message';
 
     public function testEscapeHtml()
     {
-        $field = Message::make('Message Escape HTML')->escapeHtml()->get();
+        $field = Message::make('Escape HTML')->escapeHtml()->get();
         $this->assertTrue($field['esc_html']);
-    }
-
-    public function testMessage()
-    {
-        $field = Message::make('Message Content')->message('The Content')->get();
-        $this->assertSame('The Content', $field['message']);
     }
 }

@@ -14,19 +14,26 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\ColorPicker;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DefaultValue;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class ColorPickerTest extends TestCase
+class ColorPickerTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = ColorPicker::make('Color Picker')->get();
-        $this->assertSame('color_picker', $field['type']);
-    }
+    use ConditionalLogic;
+    use DefaultValue;
+    use Instructions;
+    use Required;
+    use Wrapper;
+
+    public string $field = ColorPicker::class;
+    public string $type = 'color_picker';
 
     public function testEnableOpacity()
     {
-        $field = ColorPicker::make('Color Picker Enable Opacity')->enableOpacity()->get();
+        $field = ColorPicker::make('Enable Opacity')->enableOpacity()->get();
         $this->assertTrue($field['enable_opacity']);
     }
 }

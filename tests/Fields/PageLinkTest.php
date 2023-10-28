@@ -14,25 +14,36 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\PageLink;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\FilterBy;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Multiple;
+use Extended\ACF\Tests\Fields\Settings\Nullable;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class PageLinkTest extends TestCase
+class PageLinkTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = PageLink::make('Page Link')->get();
-        $this->assertSame('page_link', $field['type']);
-    }
+    use ConditionalLogic;
+    use FilterBy;
+    use Instructions;
+    use Multiple;
+    use Nullable;
+    use Required;
+    use Wrapper;
+
+    public string $field = PageLink::class;
+    public string $type = 'page_link';
 
     public function testAllowArchives()
     {
-        $field = PageLink::make('Page Link Archives')->allowArchives()->get();
+        $field = PageLink::make('Archives')->allowArchives()->get();
         $this->assertTrue($field['allow_archives']);
     }
 
     public function testDisallowArchives()
     {
-        $field = PageLink::make('Page Link Non-archives')->allowArchives(false)->get();
+        $field = PageLink::make('Non-archives')->allowArchives(false)->get();
         $this->assertFalse($field['allow_archives']);
     }
 }
