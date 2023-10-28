@@ -28,7 +28,13 @@ class LayoutTest extends FieldTestCase
 
     public function testType()
     {
-        $field = Layout::make('Layout Key')->get();
+        $field = Layout::make('Layout Type')->get();
+        $this->assertArrayNotHasKey('type', $field);
+    }
+
+    public function testKeyPrefix()
+    {
+        $field = Layout::make('Key Prefix')->get();
         $this->assertStringStartsWith('layout_', $field['key']);
     }
 
