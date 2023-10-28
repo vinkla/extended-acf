@@ -21,4 +21,14 @@ trait WeekDay
 
         return $this;
     }
+
+    public function weekStartsOnMonday(): static
+    {
+        return $this->firstDayOfWeek(1);
+    }
+
+    public function weekStartsOnSunday(): static
+    {
+        return $this->firstDayOfWeek(0);
+    }
 }
