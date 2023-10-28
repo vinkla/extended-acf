@@ -374,9 +374,7 @@ DateTimePicker::make('Event Date', 'date')
     ->instructions('Add the event\'s start date and time.')
     ->displayFormat('d-m-Y H:i')
     ->returnFormat('d-m-Y H:i')
-    ->firstDayOfWeek(0) // with Sunday 0 and Monday as 1
-    ->weekStartsOnMonday() // or
-    ->weekStartsOnSunday() // or
+    ->firstDayOfWeek(1) // Sunday is 0, Monday is 1, or use `weekStartsOnMonday` or `weekStartsOnSunday`
     ->required()
 ```
 
@@ -867,9 +865,7 @@ The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
 
 ```diff
 -DatePicker::make('Date')->weekStartsOn(1)
-+DatePicker::make('Date')->firstDayOfWeek(1) // or
-+DatePicker::make('Date')->weekStartsOnMonday() // or
-+DatePicker::make('Date')->weekStartsOnSunday() // or
++DatePicker::make('Date')->firstDayOfWeek(1) // or use `weekStartsOnMonday` or `weekStartsOnSunday`
 ```
 
 The `prepend` method has been renamed to `prefix`.
