@@ -4,7 +4,7 @@
 // and taxanomies. Please see the repository for more information:
 // https://github.com/johnbillion/extended-cpts
 
-use Extended\ACF\Fields\WysiwygEditor;
+use Extended\ACF\Fields\WYSIWYGEditor;
 use Extended\ACF\Location;
 
 register_extended_post_type('faq', [
@@ -36,7 +36,7 @@ register_extended_taxonomy('topic', 'faq', [
 register_extended_field_group([
     'title' => 'FAQ',
     'fields' => [
-        WysiwygEditor::make('Answer')
+        WYSIWYGEditor::make('Answer')
             ->instructions('Add the question answer.')
             ->disableMediaUpload()
             ->tabs('visual')

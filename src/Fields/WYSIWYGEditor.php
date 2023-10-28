@@ -20,7 +20,7 @@ use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
 use InvalidArgumentException;
 
-class WysiwygEditor extends Field
+class WYSIWYGEditor extends Field
 {
     use ConditionalLogic;
     use DefaultValue;

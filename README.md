@@ -822,6 +822,16 @@ The `Url` class has been renamed to `URL`.
 +URL::make('GitHub URL')
 ```
 
+The `WysiwygEditor` class has been renamed to `WYSIWYGEditor`.
+
+```diff
+-use Extended\ACF\Fields\WysiwygEditor;
++use Extended\ACF\Fields\WYSIWYGEditor;
+
+-WysiwygEditor::make('Content')
++WYSIWYGEditor::make('Content')
+```
+
 The `defaultValue` method has been renamed to `default`.
 
 ```diff
