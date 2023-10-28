@@ -17,7 +17,7 @@ trait ConditionalLogic
 {
     public function testConditionalLogicExternalGroup()
     {
-        $field = $this->field::make($this->label('Conditional Logic External Group'))
+        $field = $this->make('Conditional Logic External Group')
             ->conditionalLogic([
                 \Extended\ACF\ConditionalLogic::where(
                     group: 'external',
@@ -30,7 +30,7 @@ trait ConditionalLogic
 
     public function testConditionalLogicAnd()
     {
-        $field = $this->field::make($this->label('Conditional Logic And'))
+        $field = $this->make('Conditional Logic And')
             ->conditionalLogic([
                 \Extended\ACF\ConditionalLogic::where('type', '==', 'video')->and('highlight', '!=', 'true')
             ])->get('group');
@@ -41,7 +41,7 @@ trait ConditionalLogic
 
     public function testConditionalLogic()
     {
-        $field = $this->field::make($this->label('Conditional Logic'))
+        $field = $this->make('Conditional Logic')
             ->conditionalLogic([
                 \Extended\ACF\ConditionalLogic::where('type', '==empty'),
             ])

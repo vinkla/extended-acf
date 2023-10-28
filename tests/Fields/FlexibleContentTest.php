@@ -16,25 +16,28 @@ namespace Extended\ACF\Tests\Fields;
 use Extended\ACF\Fields\FlexibleContent;
 use Extended\ACF\Fields\Layout;
 use Extended\ACF\Fields\Text;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ButtonLabel;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\MinMax;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class FlexibleContentTest extends TestCase
+class FlexibleContentTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = FlexibleContent::make('Flexible Content')->get();
-        $this->assertSame('flexible_content', $field['type']);
-    }
+    use ButtonLabel;
+    use ConditionalLogic;
+    use Instructions;
+    use MinMax;
+    use Required;
+    use Wrapper;
 
-    public function testLabels()
-    {
-        $field = FlexibleContent::make('Flexible Content Labels')->layouts([])->get();
-        $this->assertSame([], $field['layouts']);
-    }
+    public string $field = FlexibleContent::class;
+    public string $type = 'flexible_content';
 
     public function testLayouts()
     {
-        $field = FlexibleContent::make('Flexible Content Layouts')
+        $field = FlexibleContent::make('Layouts')
             ->layouts([
                 Layout::make('Image')
                     ->fields([

@@ -14,13 +14,32 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Layout;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\Fields;
+use Extended\ACF\Tests\Fields\Settings\MinMax;
+use InvalidArgumentException;
 
-class LayoutTest extends TestCase
+class LayoutTest extends FieldTestCase
 {
-    public function testDisplay()
+    use Fields;
+    use MinMax;
+
+    public string $field = Layout::class;
+    public string $type = 'layout';
+
+    public function testType()
     {
-        $layout = Layout::make('Layout')->layout('block')->get();
-        $this->assertSame('block', $layout['display']);
+        $field = Layout::make('Layout Key')->get();
+        $this->assertStringStartsWith('layout_', $field['key']);
+    }
+
+    public function testLayout()
+    {
+        $field = Layout::make('Layout')->layout('table')->get();
+        $this->assertSame('table', $field['display']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument layout [test].');
+
+        Layout::make('Invalid Layout')->layout('test')->get();
     }
 }

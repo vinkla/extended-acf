@@ -14,13 +14,26 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\DateTimePicker;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DateTimeFormat;
+use Extended\ACF\Tests\Fields\Settings\Disabled;
+use Extended\ACF\Tests\Fields\Settings\Immutable;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\WeekDay;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class DateTimePickerTest extends TestCase
+class DateTimePickerTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = DateTimePicker::make('Date Time Picker')->get();
-        $this->assertSame('date_time_picker', $field['type']);
-    }
+    use ConditionalLogic;
+    use DateTimeFormat;
+    use Disabled;
+    use Immutable;
+    use Instructions;
+    use Required;
+    use WeekDay;
+    use Wrapper;
+
+    public string $field = DateTimePicker::class;
+    public string $type = 'date_time_picker';
 }

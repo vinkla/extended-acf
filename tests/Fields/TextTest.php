@@ -14,31 +14,30 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Text;
-use Symfony\Component\VarDumper\VarDumper;
+use Extended\ACF\Tests\Fields\Settings\Affixable;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DefaultValue;
+use Extended\ACF\Tests\Fields\Settings\Disabled;
+use Extended\ACF\Tests\Fields\Settings\Immutable;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\MaxLength;
+use Extended\ACF\Tests\Fields\Settings\Placeholder;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
 class TextTest extends FieldTestCase
 {
+    use Affixable;
+    use ConditionalLogic;
+    use DefaultValue;
+    use Disabled;
+    use Immutable;
+    use Instructions;
+    use MaxLength;
+    use Placeholder;
+    use Required;
+    use Wrapper;
+
     public string $field = Text::class;
     public string $type = 'text';
-
-    public function testDisabled()
-    {
-        $field = Text::make('Text Disabled')->disabled()->get();
-        $this->assertTrue($field['disabled']);
-    }
-
-    public function testDump()
-    {
-        $log = [];
-
-        VarDumper::setHandler(function ($value) use (&$log) {
-            $log[] = $value;
-        });
-
-        Text::make('Dump')->dump(1, 2);
-
-        $this->assertSame([['label' => 'Dump', 'name' => 'dump', 'type' => 'text', 'key' => 'field_076f7d8c'], 1, 2], $log);
-
-        VarDumper::setHandler(null);
-    }
 }

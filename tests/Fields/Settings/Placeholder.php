@@ -17,7 +17,7 @@ trait Placeholder
 {
     public function testPlaceholder()
     {
-        $field = $this->field::make($this->label('Placeholder'))->placeholder('Jeffrey Way')->get();
+        $field = $this->make('Placeholder')->placeholder('Jeffrey Way')->get();
         $this->assertSame('Jeffrey Way', $field['placeholder']);
     }
 }

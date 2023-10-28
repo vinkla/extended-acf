@@ -14,15 +14,34 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Select;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\Choices;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DefaultValue;
+use Extended\ACF\Tests\Fields\Settings\Disabled;
+use Extended\ACF\Tests\Fields\Settings\Immutable;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Multiple;
+use Extended\ACF\Tests\Fields\Settings\Nullable;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class SelectTest extends TestCase
+class SelectTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Select::make('Select Type')->get();
-        $this->assertSame('select', $field['type']);
-    }
+    use Choices;
+    use ConditionalLogic;
+    use DefaultValue;
+    use Disabled;
+    use Immutable;
+    use Instructions;
+    use Multiple;
+    use Nullable;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
+
+    public string $field = Select::class;
+    public string $type = 'select';
 
     public function testStylized()
     {

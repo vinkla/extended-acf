@@ -17,13 +17,13 @@ trait Affixable
 {
     public function testSuffix()
     {
-        $settings = $this->field::make($this->label('Suffix'))->suffix('%')->get();
+        $settings = $this->make('Suffix')->suffix('%')->get();
         $this->assertSame('%', $settings['append']);
     }
 
     public function testPrefix()
     {
-        $settings = $this->field::make($this->label('Prefix'))->prefix('$')->get();
+        $settings = $this->make('Prefix')->prefix('$')->get();
         $this->assertSame('$', $settings['prepend']);
     }
 }

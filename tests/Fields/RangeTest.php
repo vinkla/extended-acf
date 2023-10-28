@@ -14,19 +14,30 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Range;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\Affixable;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DefaultValue;
+use Extended\ACF\Tests\Fields\Settings\Disabled;
+use Extended\ACF\Tests\Fields\Settings\Immutable;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\MinMax;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Step;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class RangeTest extends TestCase
+class RangeTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Range::make('Range')->get();
-        $this->assertSame('range', $field['type']);
-    }
+    use Affixable;
+    use ConditionalLogic;
+    use DefaultValue;
+    use Disabled;
+    use Immutable;
+    use Instructions;
+    use MinMax;
+    use Required;
+    use Step;
+    use Wrapper;
 
-    public function testStep()
-    {
-        $field = Range::make('Range Step')->step(5.2)->get();
-        $this->assertSame(5.2, $field['step']);
-    }
+    public string $field = Range::class;
+    public string $type = 'range';
 }

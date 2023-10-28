@@ -14,19 +14,28 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\TrueFalse;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DefaultValue;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Message;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class TrueFalseTest extends TestCase
+class TrueFalseTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = TrueFalse::make('True False')->get();
-        $this->assertSame('true_false', $field['type']);
-    }
+    use ConditionalLogic;
+    use DefaultValue;
+    use Instructions;
+    use Message;
+    use Required;
+    use Wrapper;
+
+    public string $field = TrueFalse::class;
+    public string $type = 'true_false';
 
     public function testStylized()
     {
-        $field = TrueFalse::make('UI')->stylized(off: 'Wax off')->get();
+        $field = TrueFalse::make('Stylized')->stylized(off: 'Wax off')->get();
         $this->assertTrue($field['ui']);
         $this->assertArrayNotHasKey('ui_on_text', $field);
         $this->assertEquals($field['ui_off_text'], 'Wax off');

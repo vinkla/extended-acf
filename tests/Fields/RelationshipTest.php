@@ -14,35 +14,36 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Relationship;
-use InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\FilterBy;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\MinMax;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class RelationshipTest extends TestCase
+class RelationshipTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Relationship::make('Relationship')->get();
-        $this->assertSame('relationship', $field['type']);
-    }
+    use ConditionalLogic;
+    use FilterBy;
+    use Instructions;
+    use MinMax;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
-    public function testPostStatus()
-    {
-        $field = Relationship::make('Relationship Post Status')->postStatus(['publish'])->get();
-        $this->assertSame(['publish'], $field['post_status']);
-
-        $this->expectException(InvalidArgumentException::class);
-        Relationship::make('Relationship Invalid Post Status')->postStatus(['invalid'])->get();
-    }
+    public string $field = Relationship::class;
+    public string $type = 'relationship';
 
     public function testElements()
     {
-        $field = Relationship::make('Relationship Elements')->elements(['featured_image'])->get();
+        $field = Relationship::make('Elements')->elements(['featured_image'])->get();
         $this->assertSame(['featured_image'], $field['elements']);
     }
 
     public function testFilters()
     {
-        $field = Relationship::make('Relationship Filters')->filters(['search'])->get();
+        $field = Relationship::make('Filters')->filters(['search'])->get();
         $this->assertSame(['search'], $field['filters']);
     }
 }

@@ -14,31 +14,26 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\DatePicker;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DateTimeFormat;
+use Extended\ACF\Tests\Fields\Settings\Disabled;
+use Extended\ACF\Tests\Fields\Settings\Immutable;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\WeekDay;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class DatePickerTest extends TestCase
+class DatePickerTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = DatePicker::make('Date Picker')->get();
-        $this->assertSame('date_picker', $field['type']);
-    }
+    use ConditionalLogic;
+    use DateTimeFormat;
+    use Disabled;
+    use Immutable;
+    use Instructions;
+    use Required;
+    use WeekDay;
+    use Wrapper;
 
-    public function testDisplayFormat()
-    {
-        $field = DatePicker::make('Date Display Format')->displayFormat('d/m/Y')->get();
-        $this->assertSame('d/m/Y', $field['display_format']);
-    }
-
-    public function testReturnFormat()
-    {
-        $field = DatePicker::make('Date Return Format')->returnFormat('d/m/Y')->get();
-        $this->assertSame('d/m/Y', $field['return_format']);
-    }
-
-    public function testFirstDayOfWeek()
-    {
-        $field = DatePicker::make('Date Week Day')->firstDayOfWeek(1)->get();
-        $this->assertSame(1, $field['first_day']);
-    }
+    public string $field = DatePicker::class;
+    public string $type = 'date_picker';
 }

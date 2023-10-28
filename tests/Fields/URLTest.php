@@ -14,19 +14,26 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\URL;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DefaultValue;
+use Extended\ACF\Tests\Fields\Settings\Disabled;
+use Extended\ACF\Tests\Fields\Settings\Immutable;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Placeholder;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class URLTest extends TestCase
+class URLTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = URL::make('URL')->get();
-        $this->assertSame('url', $field['type']);
-    }
+    use ConditionalLogic;
+    use DefaultValue;
+    use Disabled;
+    use Immutable;
+    use Instructions;
+    use Placeholder;
+    use Required;
+    use Wrapper;
 
-    public function testDefault()
-    {
-        $field = URL::make('Default')->default('hotpink')->get();
-        $this->assertSame('hotpink', $field['default_value']);
-    }
+    public string $field = URL::class;
+    public string $type = 'url';
 }

@@ -14,25 +14,32 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Number;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\Affixable;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DefaultValue;
+use Extended\ACF\Tests\Fields\Settings\Disabled;
+use Extended\ACF\Tests\Fields\Settings\Immutable;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\MinMax;
+use Extended\ACF\Tests\Fields\Settings\Placeholder;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Step;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class NumberTest extends TestCase
+class NumberTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Number::make('Number')->get();
-        $this->assertSame('number', $field['type']);
-    }
+    use Affixable;
+    use ConditionalLogic;
+    use DefaultValue;
+    use Disabled;
+    use Immutable;
+    use Instructions;
+    use MinMax;
+    use Placeholder;
+    use Required;
+    use Step;
+    use Wrapper;
 
-    public function testMax()
-    {
-        $field = Number::make('Max')->max(10.5)->get();
-        $this->assertSame(10.5, $field['max']);
-    }
-
-    public function testMin()
-    {
-        $field = Number::make('Min')->min(5.5)->get();
-        $this->assertSame(5.5, $field['min']);
-    }
+    public string $field = Number::class;
+    public string $type = 'number';
 }

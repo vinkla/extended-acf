@@ -14,15 +14,26 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\User;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Multiple;
+use Extended\ACF\Tests\Fields\Settings\Nullable;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class UserTest extends TestCase
+class UserTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = User::make('User')->get();
-        $this->assertSame('user', $field['type']);
-    }
+    use ConditionalLogic;
+    use Instructions;
+    use Multiple;
+    use Nullable;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
+
+    public string $field = User::class;
+    public string $type = 'user';
 
     public function testRoles()
     {

@@ -14,15 +14,22 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\GoogleMap;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\Height;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class GoogleMapTest extends TestCase
+class GoogleMapTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = GoogleMap::make('Google Map')->get();
-        $this->assertSame('google_map', $field['type']);
-    }
+    use ConditionalLogic;
+    use Height;
+    use Instructions;
+    use Required;
+    use Wrapper;
+
+    public string $field = GoogleMap::class;
+    public string $type = 'google_map';
 
     public function testCenter()
     {

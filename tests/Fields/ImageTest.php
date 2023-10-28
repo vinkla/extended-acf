@@ -14,31 +14,30 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Image;
-use InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\Dimensions;
+use Extended\ACF\Tests\Fields\Settings\FileSize;
+use Extended\ACF\Tests\Fields\Settings\FileTypes;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Library;
+use Extended\ACF\Tests\Fields\Settings\PreviewSize;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class ImageTest extends TestCase
+class ImageTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Image::make('Image')->get();
-        $this->assertSame('image', $field['type']);
-    }
+    use ConditionalLogic;
+    use Dimensions;
+    use FileSize;
+    use FileTypes;
+    use Instructions;
+    use Library;
+    use PreviewSize;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
-    public function testPreviewSize()
-    {
-        $field = Image::make('Preview Size')->previewSize('large')->get();
-        $this->assertSame('large', $field['preview_size']);
-    }
-
-    public function testLibrary()
-    {
-        $field = Image::make('Library')->library('all')->get();
-        $this->assertSame('all', $field['library']);
-
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid argument library [test].');
-
-        Image::make('Invalid Library')->library('test')->get();
-    }
+    public string $field = Image::class;
+    public string $type = 'image';
 }

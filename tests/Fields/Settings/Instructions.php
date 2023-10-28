@@ -17,7 +17,7 @@ trait Instructions
 {
     public function testInstructions()
     {
-        $field = $this->field::make($this->label('Instructions'))->instructions('text **strong** *italic* __strong__ _italic_ `code` [link](https://advancedcustomfields.com/)')->get();
+        $field = $this->make('Instructions')->instructions('text **strong** *italic* __strong__ _italic_ `code` [link](https://advancedcustomfields.com/)')->get();
         $this->assertSame('text <strong>strong</strong> <em>italic</em> <strong>strong</strong> <em>italic</em> <code>code</code> <a href="https://advancedcustomfields.com/">link</a>', $field['instructions']);
     }
 }

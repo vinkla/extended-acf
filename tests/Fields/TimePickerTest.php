@@ -14,13 +14,24 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\TimePicker;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DateTimeFormat;
+use Extended\ACF\Tests\Fields\Settings\Disabled;
+use Extended\ACF\Tests\Fields\Settings\Immutable;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class TimePickerTest extends TestCase
+class TimePickerTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = TimePicker::make('Time Picker')->get();
-        $this->assertSame('time_picker', $field['type']);
-    }
+    use ConditionalLogic;
+    use DateTimeFormat;
+    use Disabled;
+    use Immutable;
+    use Instructions;
+    use Required;
+    use Wrapper;
+
+    public string $field = TimePicker::class;
+    public string $type = 'time_picker';
 }

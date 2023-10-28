@@ -14,16 +14,35 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Gallery;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\Dimensions;
+use Extended\ACF\Tests\Fields\Settings\FileSize;
+use Extended\ACF\Tests\Fields\Settings\FileTypes;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Library;
+use Extended\ACF\Tests\Fields\Settings\MinMax;
+use Extended\ACF\Tests\Fields\Settings\PreviewSize;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 use InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
 
-class GalleryTest extends TestCase
+class GalleryTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Gallery::make('Gallery')->get();
-        $this->assertSame('gallery', $field['type']);
-    }
+    use ConditionalLogic;
+    use Dimensions;
+    use FileSize;
+    use FileTypes;
+    use Instructions;
+    use Library;
+    use MinMax;
+    use PreviewSize;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
+
+    public string $field = Gallery::class;
+    public string $type = 'gallery';
 
     public function testInsert()
     {
@@ -34,29 +53,5 @@ class GalleryTest extends TestCase
         $this->expectExceptionMessage('Invalid argument insert [test]');
 
         Gallery::make('Invalid Insert')->insert('test')->get();
-    }
-
-    public function testMaxHeight()
-    {
-        $field = Gallery::make('Gallery Max Height')->maxHeight(20)->get();
-        $this->assertSame(20, $field['max_height']);
-    }
-
-    public function testMinHeight()
-    {
-        $field = Gallery::make('Gallery Min Height')->minHeight(10)->get();
-        $this->assertSame(10, $field['min_height']);
-    }
-
-    public function testMaxWidth()
-    {
-        $field = Gallery::make('Gallery Max Width')->maxWidth(40)->get();
-        $this->assertSame(40, $field['max_width']);
-    }
-
-    public function testMinWidth()
-    {
-        $field = Gallery::make('Gallery Min Width')->minWidth(30)->get();
-        $this->assertSame(30, $field['min_width']);
     }
 }

@@ -17,7 +17,7 @@ trait Immutable
 {
     public function testReadOnly()
     {
-        $field = $this->field::make($this->label('Read Only'))->readOnly()->get();
+        $field = $this->make('Read Only')->readOnly()->get();
         $this->assertTrue($field['readonly']);
     }
 }

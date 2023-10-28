@@ -14,24 +14,26 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\ButtonGroup;
-use PHPUnit\Framework\TestCase;
+use Extended\ACF\Tests\Fields\Settings\Choices;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\DefaultValue;
+use Extended\ACF\Tests\Fields\Settings\DirectionLayout;
+use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\Required;
+use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
+use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
-class ButtonGroupTest extends TestCase
+class ButtonGroupTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = ButtonGroup::make('Button Group')->get();
-        $this->assertSame('button_group', $field['type']);
-    }
+    use Choices;
+    use ConditionalLogic;
+    use DefaultValue;
+    use DirectionLayout;
+    use Instructions;
+    use Required;
+    use ReturnFormat;
+    use Wrapper;
 
-    public function testChoices()
-    {
-        $choices = ['blue' => 'Blue Pill', 'red' => 'Red Pill'];
-        $field = ButtonGroup::make('Choices')->choices($choices)->get();
-        $this->assertSame($choices, $field['choices']);
-
-        $choices = ['Forest Green', 'Sky Blue'];
-        $field = ButtonGroup::make('Choices List')->choices($choices)->get();
-        $this->assertSame(['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue'], $field['choices']);
-    }
+    public string $field = ButtonGroup::class;
+    public string $type = 'button_group';
 }

@@ -14,25 +14,26 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Tab;
+use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Tests\Fields\Settings\Endpoint;
 use InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
 
-class TabTest extends TestCase
+class TabTest extends FieldTestCase
 {
-    public function testType()
-    {
-        $field = Tab::make('Tab')->get();
-        $this->assertSame('tab', $field['type']);
-    }
+    use ConditionalLogic;
+    use Endpoint;
+
+    public string $field = Tab::class;
+    public string $type = 'tab';
 
     public function testPlacement()
     {
-        $field = Tab::make('Tab Placement')->placement('top')->get();
+        $field = Tab::make('Placement')->placement('top')->get();
         $this->assertSame('top', $field['placement']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument placement [test].');
 
-        Tab::make('Invalid Tab Placement')->placement('test')->get();
+        Tab::make('Invalid Placement')->placement('test')->get();
     }
 }
