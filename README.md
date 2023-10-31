@@ -491,7 +491,7 @@ Repeater::make('Employees')
     ->min(2)
     ->collapsed('name')
     ->buttonLabel('Add employee')
-    ->pagination(10)
+    ->paginated(10)
     ->layout('table') // block, row, table
     ->required()
 ```
@@ -859,6 +859,13 @@ The `characterLimit` method has been renamed to `maxLength`.
 ```diff
 -Textarea::make('Description')->characterLimit(100)
 +Textarea::make('Description')->maxLength(100)
+```
+
+The `pagination` method has been renamed to `paginated`.
+
+```diff
+-Repeater::make('Dogs')->pagination(10)
++Repeater::make('Dogs')->paginated(10)
 ```
 
 The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
