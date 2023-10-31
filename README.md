@@ -435,9 +435,9 @@ use Extended\ACF\Fields\FlexibleContent;
 use Extended\ACF\Fields\Layout;
 use Extended\ACF\Fields\Text;
 
-FlexibleContent::make('Components', 'page_components')
-    ->instructions('Add the employees occupation.')
-    ->buttonLabel('Add a page component')
+FlexibleContent::make('Blocks')
+    ->instructions('Add the page blocks.')
+    ->button('Add Component')
     ->layouts([
         Layout::make('Image')
             ->layout('block')
@@ -490,7 +490,7 @@ Repeater::make('Employees')
     ])
     ->min(2)
     ->collapsed('name')
-    ->buttonLabel('Add employee')
+    ->button('Add employee')
     ->paginated(10)
     ->layout('table') // block, row, table
     ->required()
@@ -866,6 +866,13 @@ The `pagination` method has been renamed to `paginated`.
 ```diff
 -Repeater::make('Dogs')->pagination(10)
 +Repeater::make('Dogs')->paginated(10)
+```
+
+The `buttonLabel` method has been renamed to `button`.
+
+```diff
+-Repeater::make('Cats')->buttonLabel('Add Cat')
++Repeater::make('Cata')->button('Add Cat')
 ```
 
 The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
