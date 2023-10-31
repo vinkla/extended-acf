@@ -50,9 +50,9 @@ class RepeaterTest extends FieldTestCase
         $this->assertSame('field_eedb3216', $field['collapsed']);
     }
 
-    public function testPagination()
+    public function testPaginated()
     {
-        $field = Repeater::make('Pagination')->pagination(10)->get();
+        $field = Repeater::make('Paginated')->paginated(10)->get();
 
         $this->assertTrue($field['pagination']);
         $this->assertSame(10, $field['rows_per_page']);
