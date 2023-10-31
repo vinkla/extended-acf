@@ -15,9 +15,9 @@ namespace Extended\ACF\Tests\Fields\Settings;
 
 trait ButtonLabel
 {
-    public function testButtonLabel()
+    public function testButton()
     {
-        $field = $this->make('Button label')->buttonLabel('Add Item')->get();
+        $field = $this->make('Button label')->button('Add Item')->get();
         $this->assertSame('Add Item', $field['button_label']);
     }
 }

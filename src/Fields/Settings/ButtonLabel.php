@@ -15,7 +15,7 @@ namespace Extended\ACF\Fields\Settings;
 
 trait ButtonLabel
 {
-    public function buttonLabel(string $label): static
+    public function button(string $label): static
     {
         $this->settings['button_label'] = $label;
 
