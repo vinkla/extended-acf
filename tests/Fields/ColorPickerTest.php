@@ -19,6 +19,7 @@ use Extended\ACF\Tests\Fields\Settings\DefaultValue;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class ColorPickerTest extends FieldTestCase
 {
@@ -35,5 +36,16 @@ class ColorPickerTest extends FieldTestCase
     {
         $field = ColorPicker::make('Opacity')->opacity()->get();
         $this->assertTrue($field['enable_opacity']);
+    }
+
+    public function testReturnFormat()
+    {
+        $field = ColorPicker::make('Return Format')->returnFormat('array')->get();
+        $this->assertSame('array', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument return format [test].');
+
+        ColorPicker::make('Invalid Return Format')->returnFormat('test')->get();
     }
 }
