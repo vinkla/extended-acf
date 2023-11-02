@@ -339,6 +339,7 @@ use Extended\ACF\Fields\ColorPicker;
 ColorPicker::make('Text Color')
     ->instructions('Add the text color.')
     ->default('#4a9cff')
+    ->opacity()
     ->required()
 ```
 
@@ -985,6 +986,13 @@ The `mimeTypes` method has been renamed to `acceptedFileTypes`.
 ```diff
 -File::make('Manual')->mimeTypes(['pdf'])
 +File::make('Manual')->acceptedFileTypes(['pdf'])
+```
+
+The `enableOpacity` method has been renamed to `opacity`.
+
+```diff
+-ColorPicker::make('Background')->enableOpacity()
++ColorPicker::make('Background')->opacity()
 ```
 
 The `delay` method has been renamed to `lazyLoad`.
