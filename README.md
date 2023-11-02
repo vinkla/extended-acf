@@ -281,6 +281,7 @@ Gallery::make('Images')
     ->library('all') // all, uploadedTo
     ->returnFormat('array') // id, url, array (default)
     ->previewSize('medium') // thumbnail, medium, large
+    ->prependFiles()
     ->required()
 ```
 
@@ -932,6 +933,13 @@ The `width` method has been split into two methods `minWidth` and `maxWidth`.
 ```diff
 -Image::make('Product Image')->width(100, 1000)
 +Image::make('Product Image')->minWidth(100)->maxWidth(1000)
+```
+
+The `insert` method has been renamed to `prependFiles`.
+
+```diff
+-Gallery::make('Downloads')->insert('prepend')
++Gallery::make('Downloads')->prependFiles()
 ```
 
 The `mimeTypes` method has been renamed to `acceptedFileTypes`.

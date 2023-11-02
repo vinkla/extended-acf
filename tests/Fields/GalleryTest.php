@@ -25,7 +25,6 @@ use Extended\ACF\Tests\Fields\Settings\PreviewSize;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
-use InvalidArgumentException;
 
 class GalleryTest extends FieldTestCase
 {
@@ -44,14 +43,9 @@ class GalleryTest extends FieldTestCase
     public string $field = Gallery::class;
     public string $type = 'gallery';
 
-    public function testInsert()
+    public function testPrependFiles()
     {
-        $field = Gallery::make('Insert')->insert('prepend')->get();
+        $field = Gallery::make('Prepend Files')->prependFiles()->get();
         $this->assertSame('prepend', $field['insert']);
-
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid argument insert [test]');
-
-        Gallery::make('Invalid Insert')->insert('test')->get();
     }
 }
