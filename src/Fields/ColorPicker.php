@@ -29,7 +29,7 @@ class ColorPicker extends Field
 
     protected string|null $type = 'color_picker';
 
-    public function enableOpacity(): static
+    public function opacity(): static
     {
         $this->settings['enable_opacity'] = true;
 

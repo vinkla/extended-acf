@@ -31,9 +31,9 @@ class ColorPickerTest extends FieldTestCase
     public string $field = ColorPicker::class;
     public string $type = 'color_picker';
 
-    public function testEnableOpacity()
+    public function testOpacity()
     {
-        $field = ColorPicker::make('Enable Opacity')->enableOpacity()->get();
+        $field = ColorPicker::make('Opacity')->opacity()->get();
         $this->assertTrue($field['enable_opacity']);
     }
 }
