@@ -274,8 +274,8 @@ Gallery::make('Images')
     ->maxHeight(1400)
     ->minWidth(1000)
     ->maxWidth(2000)
-    ->min(1)
-    ->max(6)
+    ->minFiles(1)
+    ->maxFiles(6)
     ->minSize('400 KB')
     ->maxSize(5) // MB if entered as int
     ->library('all') // all, uploadedTo
@@ -446,6 +446,8 @@ FlexibleContent::make('Blocks')
                 Text::make('Description')
             ])
     ])
+    ->minLayouts(1)
+    ->maxLayouts(10)
     ->required()
 ```
 
@@ -489,7 +491,8 @@ Repeater::make('Employees')
         Text::make('Name'),
         Image::make('Profile Picture'),
     ])
-    ->min(2)
+    ->minRows(2)
+    ->maxRows(10)
     ->collapsed('name')
     ->button('Add employee')
     ->paginated(10)
@@ -566,8 +569,8 @@ Relationship::make('Contacts')
         'taxonomy'
     ])
     ->elements(['featured_image'])
-    ->min(3)
-    ->max(6)
+    ->minPosts(3)
+    ->maxPosts(6)
     ->returnFormat('object') // id, object (default)
     ->required()
 ```
@@ -940,6 +943,41 @@ The `insert` method has been renamed to `prependFiles`.
 ```diff
 -Gallery::make('Downloads')->insert('prepend')
 +Gallery::make('Downloads')->prependFiles()
+```
+
+The `min` and `max` methods has been renamed to `minFiles` and `maxFiles` on the `Gallery` field.
+
+```diff
+-Gallery::make('Files')->min(1)->max(10)
++Gallery::make('Files')->minFiles(1)->maxFiles(10)
+```
+
+The `min` and `max` methods has been renamed to `minPosts` and `maxPosts` on the `Relationship` field.
+
+```diff
+-Relationship::make('Posts')->min(1)->max(10)
++Relationship::make('Posts')->minPosts(1)->maxPosts(10)
+```
+
+The `min` and `max` methods has been renamed to `minRows` and `maxRows` on the `Repeater` field.
+
+```diff
+-Repeater::make('Items')->min(1)->max(10)
++Repeater::make('Items')->minRows(1)->maxRows(10)
+```
+
+The `min` and `max` methods has been renamed to `minLayouts` and `maxLayouts` on the `FlexibleContent` field.
+
+```diff
+-FlexibleContent::make('Blocks')->min(1)->max(10)
++FlexibleContent::make('Blocks')->minLayouts(1)->maxLayouts(10)
+```
+
+The `min` and `max` methods has been renamed to `minInstances` and `maxInstances` on the `Layout` field.
+
+```diff
+-Layout::make('Testimonials')->min(1)->max(10)
++Layout::make('Testimonials')->minInstances(1)->maxInstances(10)
 ```
 
 The `mimeTypes` method has been renamed to `acceptedFileTypes`.

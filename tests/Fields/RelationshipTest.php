@@ -17,7 +17,6 @@ use Extended\ACF\Fields\Relationship;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\FilterBy;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
-use Extended\ACF\Tests\Fields\Settings\MinMax;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
@@ -27,7 +26,6 @@ class RelationshipTest extends FieldTestCase
     use ConditionalLogic;
     use FilterBy;
     use Instructions;
-    use MinMax;
     use Required;
     use ReturnFormat;
     use Wrapper;
@@ -45,5 +43,17 @@ class RelationshipTest extends FieldTestCase
     {
         $field = Relationship::make('Filters')->filters(['search'])->get();
         $this->assertSame(['search'], $field['filters']);
+    }
+
+    public function testMaxPosts()
+    {
+        $field = Relationship::make('Max Posts')->maxPosts(10)->get();
+        $this->assertSame(10, $field['max']);
+    }
+
+    public function testMinPosts()
+    {
+        $field = Relationship::make('Min Posts')->minPosts(5)->get();
+        $this->assertSame(5, $field['min']);
     }
 }

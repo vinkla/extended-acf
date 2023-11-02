@@ -15,13 +15,11 @@ namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Layout;
 use Extended\ACF\Tests\Fields\Settings\Fields;
-use Extended\ACF\Tests\Fields\Settings\MinMax;
 use InvalidArgumentException;
 
 class LayoutTest extends FieldTestCase
 {
     use Fields;
-    use MinMax;
 
     public string $field = Layout::class;
     public string $type = 'layout';
@@ -47,5 +45,17 @@ class LayoutTest extends FieldTestCase
         $this->expectExceptionMessage('Invalid argument layout [test].');
 
         Layout::make('Invalid Layout')->layout('test')->get();
+    }
+
+    public function testMaxInstances()
+    {
+        $field = Layout::make('Max Instances')->maxInstances(10)->get();
+        $this->assertSame(10, $field['max']);
+    }
+
+    public function testMinInstances()
+    {
+        $field = Layout::make('Min Instances')->minInstances(5)->get();
+        $this->assertSame(5, $field['min']);
     }
 }

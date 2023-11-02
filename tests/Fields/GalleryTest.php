@@ -20,7 +20,6 @@ use Extended\ACF\Tests\Fields\Settings\FileSize;
 use Extended\ACF\Tests\Fields\Settings\FileTypes;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Library;
-use Extended\ACF\Tests\Fields\Settings\MinMax;
 use Extended\ACF\Tests\Fields\Settings\PreviewSize;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
@@ -34,7 +33,6 @@ class GalleryTest extends FieldTestCase
     use FileTypes;
     use Instructions;
     use Library;
-    use MinMax;
     use PreviewSize;
     use Required;
     use ReturnFormat;
@@ -42,6 +40,18 @@ class GalleryTest extends FieldTestCase
 
     public string $field = Gallery::class;
     public string $type = 'gallery';
+
+    public function testMaxFiles()
+    {
+        $field = Gallery::make('Max Files')->maxFiles(10)->get();
+        $this->assertSame(10, $field['max']);
+    }
+
+    public function testMinFiles()
+    {
+        $field = Gallery::make('Min Files')->minFiles(5)->get();
+        $this->assertSame(5, $field['min']);
+    }
 
     public function testPrependFiles()
     {

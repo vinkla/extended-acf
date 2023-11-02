@@ -19,7 +19,6 @@ use Extended\ACF\Fields\Text;
 use Extended\ACF\Tests\Fields\Settings\ButtonLabel;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
-use Extended\ACF\Tests\Fields\Settings\MinMax;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
@@ -28,7 +27,6 @@ class FlexibleContentTest extends FieldTestCase
     use ButtonLabel;
     use ConditionalLogic;
     use Instructions;
-    use MinMax;
     use Required;
     use Wrapper;
 
@@ -48,5 +46,17 @@ class FlexibleContentTest extends FieldTestCase
 
         $this->assertSame('Image', $field['layouts'][0]['label']);
         $this->assertSame('Title', $field['layouts'][0]['sub_fields'][0]['label']);
+    }
+
+    public function testMaxLayouts()
+    {
+        $field = FlexibleContent::make('Max Layouts')->maxLayouts(10)->get();
+        $this->assertSame(10, $field['max']);
+    }
+
+    public function testMinLayouts()
+    {
+        $field = FlexibleContent::make('Min Layouts')->minLayouts(5)->get();
+        $this->assertSame(5, $field['min']);
     }
 }
