@@ -17,7 +17,6 @@ use Extended\ACF\Fields\TrueFalse;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\DefaultValue;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
-use Extended\ACF\Tests\Fields\Settings\Message;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
@@ -26,12 +25,17 @@ class TrueFalseTest extends FieldTestCase
     use ConditionalLogic;
     use DefaultValue;
     use Instructions;
-    use Message;
     use Required;
     use Wrapper;
 
     public string $field = TrueFalse::class;
     public string $type = 'true_false';
+
+    public function testMessage()
+    {
+        $field = TrueFalse::make('Content')->message('Adam Whatan')->get();
+        $this->assertSame('Adam Whatan', $field['message']);
+    }
 
     public function testStylized()
     {

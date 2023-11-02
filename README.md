@@ -474,8 +474,8 @@ Group::make('Hero')
 ```php
 use Extended\ACF\Fields\Message;
 
-Message::make('Message')
-    ->message('George. One point twenty-one gigawatts.')
+Message::make('Heading')
+    ->text('George. One point twenty-one gigawatts.')
     ->escapeHtml(),
 ```
 
@@ -1009,6 +1009,13 @@ The `mediaUpload` method has been renamed to `disableMediaUpload`.
 +WYSIWYGEditor::make('Narrative')->disableMediaUpload()
 ```
 
+The `message` method has been renamed to `text`.
+
+```diff
+-Message::make('Heading')->message('Text')
++Message::make('Heading')->body('Text')
+```
+
 The `MimeTypes` trait has been renamed to `FileTypes`.
 
 ```diff
@@ -1042,6 +1049,12 @@ The `SubFields` trait has been renamed to `Fields`.
 ```diff
 -use Extended\ACF\Fields\Settings\SubFields;
 +use Extended\ACF\Fields\Settings\Fields;
+```
+
+The `Message` trait has been removed.
+
+```diff
+-use Extended\ACF\Fields\Settings\Message;
 ```
 
 Changelog: [`13.0.0...14.0.0`](https://github.com/vinkla/extended-acf/compare/13.0.0...14.0.0)
