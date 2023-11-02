@@ -25,11 +25,17 @@ class TrueFalse extends Field
     use ConditionalLogic;
     use DefaultValue;
     use Instructions;
-    use Message;
     use Required;
     use Wrapper;
 
     protected string|null $type = 'true_false';
+
+    public function message(string $text): static
+    {
+        $this->settings['message'] = $text;
+
+        return $this;
+    }
 
     public function stylized(string $on = null, string $off = null): static
     {
