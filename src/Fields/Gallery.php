@@ -24,7 +24,6 @@ use Extended\ACF\Fields\Settings\PreviewSize;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
-use InvalidArgumentException;
 
 class Gallery extends Field
 {
@@ -42,17 +41,9 @@ class Gallery extends Field
 
     protected string|null $type = 'gallery';
 
-    /**
-     * @param string $insert append, prepend
-     * @throws \InvalidArgumentException
-     */
-    public function insert(string $insert): static
+    public function prependFiles(): static
     {
-        if (!in_array($insert, ['append', 'prepend'])) {
-            throw new InvalidArgumentException("Invalid argument insert [$insert]");
-        }
-
-        $this->settings['insert'] = $insert;
+        $this->settings['insert'] = 'prepend';
 
         return $this;
     }
