@@ -14,13 +14,11 @@ declare(strict_types=1);
 namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\Fields;
-use Extended\ACF\Fields\Settings\MinMax;
 use InvalidArgumentException;
 
 class Layout extends Field
 {
     use Fields;
-    use MinMax;
 
     protected string $keyPrefix = 'layout';
 
@@ -35,6 +33,20 @@ class Layout extends Field
         }
 
         $this->settings['display'] = $layout;
+
+        return $this;
+    }
+
+    public function maxInstances(int $count): static
+    {
+        $this->settings['max'] = $count;
+
+        return $this;
+    }
+
+    public function minInstances(int $count): static
+    {
+        $this->settings['min'] = $count;
 
         return $this;
     }

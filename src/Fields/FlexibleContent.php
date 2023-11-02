@@ -16,7 +16,6 @@ namespace Extended\ACF\Fields;
 use Extended\ACF\Fields\Settings\ButtonLabel;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\Instructions;
-use Extended\ACF\Fields\Settings\MinMax;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
 
@@ -25,7 +24,6 @@ class FlexibleContent extends Field
     use ButtonLabel;
     use ConditionalLogic;
     use Instructions;
-    use MinMax;
     use Required;
     use Wrapper;
 
@@ -34,6 +32,20 @@ class FlexibleContent extends Field
     public function layouts(array $layouts): static
     {
         $this->settings['layouts'] = $layouts;
+
+        return $this;
+    }
+
+    public function maxLayouts(int $count): static
+    {
+        $this->settings['max'] = $count;
+
+        return $this;
+    }
+
+    public function minLayouts(int $count): static
+    {
+        $this->settings['min'] = $count;
 
         return $this;
     }

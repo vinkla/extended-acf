@@ -18,7 +18,6 @@ use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\Fields;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Layout;
-use Extended\ACF\Fields\Settings\MinMax;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
 
@@ -29,7 +28,6 @@ class Repeater extends Field
     use Fields;
     use Instructions;
     use Layout;
-    use MinMax;
     use Required;
     use Wrapper;
 
@@ -46,6 +44,20 @@ class Repeater extends Field
     {
         $this->settings['pagination'] = true;
         $this->settings['rows_per_page'] = $perPage;
+
+        return $this;
+    }
+
+    public function maxRows(int $count): static
+    {
+        $this->settings['max'] = $count;
+
+        return $this;
+    }
+
+    public function minRows(int $count): static
+    {
+        $this->settings['min'] = $count;
 
         return $this;
     }

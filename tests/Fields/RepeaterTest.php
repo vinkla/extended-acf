@@ -20,7 +20,6 @@ use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\Fields;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Layout;
-use Extended\ACF\Tests\Fields\Settings\MinMax;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
@@ -31,7 +30,6 @@ class RepeaterTest extends FieldTestCase
     use Fields;
     use Instructions;
     use Layout;
-    use MinMax;
     use Required;
     use Wrapper;
 
@@ -56,5 +54,17 @@ class RepeaterTest extends FieldTestCase
 
         $this->assertTrue($field['pagination']);
         $this->assertSame(10, $field['rows_per_page']);
+    }
+
+    public function testMaxRows()
+    {
+        $field = Repeater::make('Max Rows')->maxRows(10)->get();
+        $this->assertSame(10, $field['max']);
+    }
+
+    public function testMinRows()
+    {
+        $field = Repeater::make('Min Rows')->minRows(5)->get();
+        $this->assertSame(5, $field['min']);
     }
 }

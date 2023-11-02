@@ -19,7 +19,6 @@ use Extended\ACF\Fields\Settings\FileSize;
 use Extended\ACF\Fields\Settings\FileTypes;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Library;
-use Extended\ACF\Fields\Settings\MinMax;
 use Extended\ACF\Fields\Settings\PreviewSize;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\ReturnFormat;
@@ -33,13 +32,26 @@ class Gallery extends Field
     use FileTypes;
     use Instructions;
     use Library;
-    use MinMax;
     use PreviewSize;
     use Required;
     use ReturnFormat;
     use Wrapper;
 
     protected string|null $type = 'gallery';
+
+    public function maxFiles(int $count): static
+    {
+        $this->settings['max'] = $count;
+
+        return $this;
+    }
+
+    public function minFiles(int $count): static
+    {
+        $this->settings['min'] = $count;
+
+        return $this;
+    }
 
     public function prependFiles(): static
     {

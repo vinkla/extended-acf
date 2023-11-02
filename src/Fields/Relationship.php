@@ -16,7 +16,6 @@ namespace Extended\ACF\Fields;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\FilterBy;
 use Extended\ACF\Fields\Settings\Instructions;
-use Extended\ACF\Fields\Settings\MinMax;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
@@ -26,7 +25,6 @@ class Relationship extends Field
     use ConditionalLogic;
     use FilterBy;
     use Instructions;
-    use MinMax;
     use Required;
     use ReturnFormat;
     use Wrapper;
@@ -43,6 +41,20 @@ class Relationship extends Field
     public function filters(array $filters): static
     {
         $this->settings['filters'] = $filters;
+
+        return $this;
+    }
+
+    public function maxPosts(int $count): static
+    {
+        $this->settings['max'] = $count;
+
+        return $this;
+    }
+
+    public function minPosts(int $count): static
+    {
+        $this->settings['min'] = $count;
 
         return $this;
     }
