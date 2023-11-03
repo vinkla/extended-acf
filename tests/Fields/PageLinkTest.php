@@ -35,15 +35,9 @@ class PageLinkTest extends FieldTestCase
     public string $field = PageLink::class;
     public string $type = 'page_link';
 
-    public function testAllowArchives()
+    public function testDisableArchives()
     {
-        $field = PageLink::make('Archives')->allowArchives()->get();
-        $this->assertTrue($field['allow_archives']);
-    }
-
-    public function testDisallowArchives()
-    {
-        $field = PageLink::make('Non-archives')->allowArchives(false)->get();
+        $field = PageLink::make('Disable Archives')->disableArchives()->get();
         $this->assertFalse($field['allow_archives']);
     }
 }
