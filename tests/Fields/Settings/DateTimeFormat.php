@@ -15,15 +15,15 @@ namespace Extended\ACF\Tests\Fields\Settings;
 
 trait DateTimeFormat
 {
-    public function testDisplayFormat()
+    public function testDisplay()
     {
-        $field = $this->make('Display Format')->displayFormat('ymd')->get();
+        $field = $this->make('Display')->display('ymd')->get();
         $this->assertSame('ymd', $field['display_format']);
     }
 
     public function testReturnFormat()
     {
-        $field = $this->make('Return Format')->returnFormat('ymd')->get();
+        $field = $this->make('Format')->format('ymd')->get();
         $this->assertSame('ymd', $field['return_format']);
     }
 }

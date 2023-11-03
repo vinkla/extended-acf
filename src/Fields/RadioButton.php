@@ -21,8 +21,8 @@ use Extended\ACF\Fields\Settings\Disabled;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Nullable;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class RadioButton extends Field
 {
@@ -34,8 +34,22 @@ class RadioButton extends Field
     use Instructions;
     use Nullable;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     protected string|null $type = 'radio';
+
+    /**
+     * @param string $format array, label, value
+     * @throws \InvalidArgumentException
+     */
+    public function format(string $format): static
+    {
+        if (!in_array($format, ['array', 'label', 'value'])) {
+            throw new InvalidArgumentException("Invalid argument format [$format].");
+        }
+
+        $this->settings['return_format'] = $format;
+
+        return $this;
+    }
 }

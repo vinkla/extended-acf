@@ -17,17 +17,27 @@ use Extended\ACF\Fields\Link;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class LinkTest extends FieldTestCase
 {
     use ConditionalLogic;
     use Instructions;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = Link::class;
     public string $type = 'link';
+
+    public function testFormat()
+    {
+        $field = Link::make('Link Format')->format('array')->get();
+        $this->assertSame('array', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        Link::make('Invalid Format')->format('test')->get();
+    }
 }

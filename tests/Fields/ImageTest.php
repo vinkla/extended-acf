@@ -22,8 +22,8 @@ use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Library;
 use Extended\ACF\Tests\Fields\Settings\PreviewSize;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class ImageTest extends FieldTestCase
 {
@@ -35,9 +35,19 @@ class ImageTest extends FieldTestCase
     use Library;
     use PreviewSize;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = Image::class;
     public string $type = 'image';
+
+    public function testFormat()
+    {
+        $field = Image::make('Image Format')->format('array')->get();
+        $this->assertSame('array', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        Image::make('Invalid Format')->format('test')->get();
+    }
 }

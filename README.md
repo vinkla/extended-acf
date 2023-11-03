@@ -185,7 +185,7 @@ ButtonGroup::make('Color')
     ->instructions('Select the box shadow color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->default('forest_green')
-    ->returnFormat('value') // array, label, value (default)
+    ->format('value') // array, label, value (default)
     ->required()
 ```
 
@@ -198,7 +198,7 @@ Checkbox::make('Color')
     ->instructions('Select the border color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->default('forest_green')
-    ->returnFormat('value') // array, label, value (default)
+    ->format('value') // array, label, value (default)
     ->layout('horizontal') // vertical, horizontal
     ->required()
 ```
@@ -212,7 +212,7 @@ RadioButton::make('Color')
     ->instructions('Select the text color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->default('forest_green')
-    ->returnFormat('value') // array, label, value (default)
+    ->format('value') // array, label, value (default)
     ->required()
 ```
 
@@ -225,7 +225,7 @@ Select::make('Color')
     ->instructions('Select the background color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->default('forest_green')
-    ->returnFormat('value') // array, label, value (default)
+    ->format('value') // array, label, value (default)
     ->multiple()
     ->nullable()
     ->stylized() // stylized checkbox using select2
@@ -258,7 +258,7 @@ File::make('Resturant Menu', 'menu')
     ->library('all') // all, uploadedTo
     ->minSize('400 KB')
     ->maxSize(5) // MB if entered as int
-    ->returnFormat('array') // id, url, array (default)
+    ->format('array') // id, url, array (default)
     ->required()
 ```
 
@@ -279,7 +279,7 @@ Gallery::make('Images')
     ->minSize('400 KB')
     ->maxSize(5) // MB if entered as int
     ->library('all') // all, uploadedTo
-    ->returnFormat('array') // id, url, array (default)
+    ->format('array') // id, url, array (default)
     ->previewSize('medium') // thumbnail, medium, large
     ->prependFiles()
     ->required()
@@ -300,7 +300,7 @@ Image::make('Background Image')
     ->minSize('400 KB')
     ->maxSize(5) // MB if entered as int
     ->library('all') // all, uploadedTo
-    ->returnFormat('array') // id, url, array (default)
+    ->format('array') // id, url, array (default)
     ->previewSize('medium') // thumbnail, medium, large
     ->required()
 ```
@@ -350,8 +350,8 @@ use Extended\ACF\Fields\DatePicker;
 
 DatePicker::make('Birthday')
     ->instructions('Add the employee\'s birthday.')
-    ->displayFormat('d/m/Y')
-    ->returnFormat('d/m/Y')
+    ->display('d/m/Y')
+    ->format('d/m/Y')
     ->required()
 ```
 
@@ -362,8 +362,8 @@ use Extended\ACF\Fields\TimePicker;
 
 TimePicker::make('Start Time', 'time')
     ->instructions('Add the start time.')
-    ->displayFormat('H:i')
-    ->returnFormat('H:i')
+    ->display('H:i')
+    ->format('H:i')
     ->required()
 ```
 
@@ -374,8 +374,8 @@ use Extended\ACF\Fields\DateTimePicker;
 
 DateTimePicker::make('Event Date', 'date')
     ->instructions('Add the event\'s start date and time.')
-    ->displayFormat('d-m-Y H:i')
-    ->returnFormat('d-m-Y H:i')
+    ->display('d-m-Y H:i')
+    ->format('d-m-Y H:i')
     ->firstDayOfWeek(1) // Sunday is 0, Monday is 1, or use `weekStartsOnMonday` or `weekStartsOnSunday`
     ->required()
 ```
@@ -521,7 +521,7 @@ Tab::make('Tab 3')
 use Extended\ACF\Fields\Link;
 
 Link::make('Read More Link')
-    ->returnFormat('array') // url, array (default)
+    ->format('array') // url, array (default)
     ->required()
 ```
 
@@ -551,7 +551,7 @@ PostObject::make('Animal')
     ->postStatus(['publish']) // draft, future, pending, private, publish
     ->nullabel()
     ->multiple()
-    ->returnFormat('object') // id, object (default)
+    ->format('object') // id, object (default)
     ->required()
 ```
 
@@ -572,7 +572,7 @@ Relationship::make('Contacts')
     ->elements(['featured_image'])
     ->minPosts(3)
     ->maxPosts(6)
-    ->returnFormat('object') // id, object (default)
+    ->format('object') // id, object (default)
     ->required()
 ```
 
@@ -588,7 +588,7 @@ Taxonomy::make('Cinemas')
     ->create(false) // false or true (default)
     ->load(true) // true or false (default)
     ->save(true) // true or false (default)x
-    ->returnFormat('id'), // object or id (default)
+    ->format('id'), // object or id (default)
 ```
 
 **User** - The user field creates a select field for all your users.
@@ -598,7 +598,7 @@ use Extended\ACF\Fields\User;
 
 User::make('User')
     ->roles(['administrator', 'editor']) // administrator, author, contributor, editor, subscriber
-    ->returnFormat('array'), // id, object, array (default)
+    ->format('array'), // id, object, array (default)
 ```
 
 ## Location
@@ -1030,6 +1030,20 @@ The `addTerm`, `loadTerms` and `saveTerms` methods has been renamed to `create`,
 +Taxonomy::make('Category')->create()->load()->save()
 ```
 
+The `returnFormat` method has been renamed to `format`.
+
+```diff
+-Select::make('Superhero')->returnFormat('value')
++Select::make('Superhero')->format('value')
+```
+
+The `displayFormat` and `returnFormat` method has been renamed to `display` and `format`.
+
+```diff
+-DatePicker::make('Date')->displayFormat('ymd')->returnFormat('ymd')
++DatePicker::make('Date')->display('ymd')->format('ymd')
+```
+
 The `MimeTypes` trait has been renamed to `FileTypes`.
 
 ```diff
@@ -1065,10 +1079,11 @@ The `SubFields` trait has been renamed to `Fields`.
 +use Extended\ACF\Fields\Settings\Fields;
 ```
 
-The `Message` trait has been removed.
+The `Message` and `ReturnFormat` traits has been removed.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Message;
+-use Extended\ACF\Fields\Settings\ReturnFormat;
 ```
 
 Changelog: [`13.0.0...14.0.0`](https://github.com/vinkla/extended-acf/compare/13.0.0...14.0.0)

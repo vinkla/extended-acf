@@ -20,8 +20,8 @@ use Extended\ACF\Tests\Fields\Settings\DefaultValue;
 use Extended\ACF\Tests\Fields\Settings\DirectionLayout;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class ButtonGroupTest extends FieldTestCase
 {
@@ -31,9 +31,19 @@ class ButtonGroupTest extends FieldTestCase
     use DirectionLayout;
     use Instructions;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = ButtonGroup::class;
     public string $type = 'button_group';
+
+    public function testFormat()
+    {
+        $field = ButtonGroup::make('Button Group Format')->format('array')->get();
+        $this->assertSame('array', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        ButtonGroup::make('Invalid Format')->format('test')->get();
+    }
 }

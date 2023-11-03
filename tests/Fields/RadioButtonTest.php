@@ -22,8 +22,8 @@ use Extended\ACF\Tests\Fields\Settings\Disabled;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Nullable;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class RadioButtonTest extends FieldTestCase
 {
@@ -35,9 +35,19 @@ class RadioButtonTest extends FieldTestCase
     use Instructions;
     use Nullable;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = RadioButton::class;
     public string $type = 'radio';
+
+    public function testFormat()
+    {
+        $field = RadioButton::make('Radio Button Format')->format('label')->get();
+        $this->assertSame('label', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        RadioButton::make('Invalid Format')->format('test')->get();
+    }
 }

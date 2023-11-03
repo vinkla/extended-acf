@@ -18,8 +18,8 @@ use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Multiple;
 use Extended\ACF\Fields\Settings\Nullable;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class User extends Field
 {
@@ -28,10 +28,24 @@ class User extends Field
     use Multiple;
     use Nullable;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     protected string|null $type = 'user';
+
+    /**
+     * @param string $format array, id, object
+     * @throws \InvalidArgumentException
+     */
+    public function format(string $format): static
+    {
+        if (!in_array($format, ['array', 'id', 'object'])) {
+            throw new InvalidArgumentException("Invalid argument format [$format].");
+        }
+
+        $this->settings['return_format'] = $format;
+
+        return $this;
+    }
 
     public function roles(array $roles): static
     {

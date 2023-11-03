@@ -19,8 +19,8 @@ use Extended\ACF\Fields\Settings\FileTypes;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Library;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class File extends Field
 {
@@ -30,8 +30,22 @@ class File extends Field
     use Instructions;
     use Library;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     protected string|null $type = 'file';
+
+    /**
+     * @param string $format array, id, url
+     * @throws \InvalidArgumentException
+     */
+    public function format(string $format): static
+    {
+        if (!in_array($format, ['array', 'id', 'url'])) {
+            throw new InvalidArgumentException("Invalid argument format [$format].");
+        }
+
+        $this->settings['return_format'] = $format;
+
+        return $this;
+    }
 }

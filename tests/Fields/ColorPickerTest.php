@@ -38,14 +38,14 @@ class ColorPickerTest extends FieldTestCase
         $this->assertTrue($field['enable_opacity']);
     }
 
-    public function testReturnFormat()
+    public function testFormat()
     {
-        $field = ColorPicker::make('Return Format')->returnFormat('array')->get();
+        $field = ColorPicker::make('Color Picker Format')->format('array')->get();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid argument return format [test].');
+        $this->expectExceptionMessage('Invalid argument format [test].');
 
-        ColorPicker::make('Invalid Return Format')->returnFormat('test')->get();
+        ColorPicker::make('Invalid Format')->format('test')->get();
     }
 }

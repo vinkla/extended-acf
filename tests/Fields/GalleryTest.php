@@ -22,8 +22,8 @@ use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Library;
 use Extended\ACF\Tests\Fields\Settings\PreviewSize;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class GalleryTest extends FieldTestCase
 {
@@ -35,11 +35,21 @@ class GalleryTest extends FieldTestCase
     use Library;
     use PreviewSize;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = Gallery::class;
     public string $type = 'gallery';
+
+    public function testFormat()
+    {
+        $field = Gallery::make('Gallery Format')->format('array')->get();
+        $this->assertSame('array', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        Gallery::make('Invalid Format')->format('test')->get();
+    }
 
     public function testMaxFiles()
     {

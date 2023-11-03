@@ -18,8 +18,8 @@ use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\FilterBy;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class RelationshipTest extends FieldTestCase
 {
@@ -27,7 +27,6 @@ class RelationshipTest extends FieldTestCase
     use FilterBy;
     use Instructions;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = Relationship::class;
@@ -43,6 +42,17 @@ class RelationshipTest extends FieldTestCase
     {
         $field = Relationship::make('Filters')->filters(['search'])->get();
         $this->assertSame(['search'], $field['filters']);
+    }
+
+    public function testFormat()
+    {
+        $field = Relationship::make('Relationship Format')->format('id')->get();
+        $this->assertSame('id', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        Relationship::make('Invalid Format')->format('test')->get();
     }
 
     public function testMaxPosts()
