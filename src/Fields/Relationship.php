@@ -17,8 +17,8 @@ use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\FilterBy;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class Relationship extends Field
 {
@@ -26,7 +26,6 @@ class Relationship extends Field
     use FilterBy;
     use Instructions;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     protected string|null $type = 'relationship';
@@ -41,6 +40,21 @@ class Relationship extends Field
     public function filters(array $filters): static
     {
         $this->settings['filters'] = $filters;
+
+        return $this;
+    }
+
+    /**
+     * @param string $format id, object
+     * @throws \InvalidArgumentException
+     */
+    public function format(string $format): static
+    {
+        if (!in_array($format, ['id', 'object'])) {
+            throw new InvalidArgumentException("Invalid argument format [$format].");
+        }
+
+        $this->settings['return_format'] = $format;
 
         return $this;
     }

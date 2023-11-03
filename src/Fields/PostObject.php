@@ -19,8 +19,8 @@ use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Multiple;
 use Extended\ACF\Fields\Settings\Nullable;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class PostObject extends Field
 {
@@ -30,8 +30,22 @@ class PostObject extends Field
     use Multiple;
     use Nullable;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     protected string|null $type = 'post_object';
+
+    /**
+     * @param string $format id, object
+     * @throws \InvalidArgumentException
+     */
+    public function format(string $format): static
+    {
+        if (!in_array($format, ['id', 'object'])) {
+            throw new InvalidArgumentException("Invalid argument format [$format].");
+        }
+
+        $this->settings['return_format'] = $format;
+
+        return $this;
+    }
 }

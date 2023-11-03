@@ -18,7 +18,6 @@ use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Nullable;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
 use InvalidArgumentException;
 
@@ -28,7 +27,6 @@ class TaxonomyTest extends FieldTestCase
     use Instructions;
     use Nullable;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = Taxonomy::class;
@@ -43,6 +41,17 @@ class TaxonomyTest extends FieldTestCase
         $this->expectExceptionMessage('Invalid argument field type [test].');
 
         Taxonomy::make('Invalid Appearance')->appearance('test')->get();
+    }
+
+    public function testFormat()
+    {
+        $field = Taxonomy::make('Taxonomy Format')->format('id')->get();
+        $this->assertSame('id', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        Taxonomy::make('Invalid Format')->format('test')->get();
     }
 
     public function testCreate()

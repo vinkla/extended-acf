@@ -17,7 +17,6 @@ use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Nullable;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
 use InvalidArgumentException;
 
@@ -27,7 +26,6 @@ class Taxonomy extends Field
     use Instructions;
     use Nullable;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     protected string|null $type = 'taxonomy';
@@ -43,6 +41,21 @@ class Taxonomy extends Field
         }
 
         $this->settings['field_type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * @param string $format id, object
+     * @throws \InvalidArgumentException
+     */
+    public function format(string $format): static
+    {
+        if (!in_array($format, ['id', 'object'])) {
+            throw new InvalidArgumentException("Invalid argument format [$format].");
+        }
+
+        $this->settings['return_format'] = $format;
 
         return $this;
     }

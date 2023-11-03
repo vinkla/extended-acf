@@ -21,8 +21,8 @@ use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Library;
 use Extended\ACF\Fields\Settings\PreviewSize;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class Gallery extends Field
 {
@@ -34,10 +34,24 @@ class Gallery extends Field
     use Library;
     use PreviewSize;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     protected string|null $type = 'gallery';
+
+    /**
+     * @param string $format array, id, url
+     * @throws \InvalidArgumentException
+     */
+    public function format(string $format): static
+    {
+        if (!in_array($format, ['array', 'id', 'url'])) {
+            throw new InvalidArgumentException("Invalid argument format [$format].");
+        }
+
+        $this->settings['return_format'] = $format;
+
+        return $this;
+    }
 
     public function maxFiles(int $count): static
     {

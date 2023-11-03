@@ -19,8 +19,8 @@ use Extended\ACF\Fields\Settings\DefaultValue;
 use Extended\ACF\Fields\Settings\DirectionLayout;
 use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class ButtonGroup extends Field
 {
@@ -30,8 +30,22 @@ class ButtonGroup extends Field
     use DirectionLayout;
     use Instructions;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     protected string|null $type = 'button_group';
+
+    /**
+     * @param string $format array, label, value
+     * @throws \InvalidArgumentException
+     */
+    public function format(string $format): static
+    {
+        if (!in_array($format, ['array', 'label', 'value'])) {
+            throw new InvalidArgumentException("Invalid argument format [$format].");
+        }
+
+        $this->settings['return_format'] = $format;
+
+        return $this;
+    }
 }

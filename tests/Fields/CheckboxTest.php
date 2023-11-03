@@ -22,8 +22,8 @@ use Extended\ACF\Tests\Fields\Settings\DirectionLayout;
 use Extended\ACF\Tests\Fields\Settings\Disabled;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class CheckboxTest extends FieldTestCase
 {
@@ -34,9 +34,19 @@ class CheckboxTest extends FieldTestCase
     use Disabled;
     use Instructions;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = Checkbox::class;
     public string $type = 'checkbox';
+
+    public function testFormat()
+    {
+        $field = Checkbox::make('Checkbox Format')->format('array')->get();
+        $this->assertSame('array', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        Checkbox::make('Invalid Format')->format('test')->get();
+    }
 }

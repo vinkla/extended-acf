@@ -20,8 +20,8 @@ use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Multiple;
 use Extended\ACF\Tests\Fields\Settings\Nullable;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class PostObjectTest extends FieldTestCase
 {
@@ -31,9 +31,19 @@ class PostObjectTest extends FieldTestCase
     use Multiple;
     use Nullable;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = PostObject::class;
     public string $type = 'post_object';
+
+    public function testFormat()
+    {
+        $field = PostObject::make('Post Object Format')->format('id')->get();
+        $this->assertSame('id', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        PostObject::make('Invalid Format')->format('test')->get();
+    }
 }

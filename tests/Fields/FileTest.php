@@ -20,8 +20,8 @@ use Extended\ACF\Tests\Fields\Settings\FileTypes;
 use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Library;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class FileTest extends FieldTestCase
 {
@@ -31,9 +31,19 @@ class FileTest extends FieldTestCase
     use Instructions;
     use Library;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = File::class;
     public string $type = 'file';
+
+    public function testFormat()
+    {
+        $field = File::make('File Format')->format('array')->get();
+        $this->assertSame('array', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        File::make('Invalid Format')->format('test')->get();
+    }
 }

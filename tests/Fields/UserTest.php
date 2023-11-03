@@ -19,8 +19,8 @@ use Extended\ACF\Tests\Fields\Settings\Instructions;
 use Extended\ACF\Tests\Fields\Settings\Multiple;
 use Extended\ACF\Tests\Fields\Settings\Nullable;
 use Extended\ACF\Tests\Fields\Settings\Required;
-use Extended\ACF\Tests\Fields\Settings\ReturnFormat;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class UserTest extends FieldTestCase
 {
@@ -29,11 +29,21 @@ class UserTest extends FieldTestCase
     use Multiple;
     use Nullable;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     public string $field = User::class;
     public string $type = 'user';
+
+    public function testFormat()
+    {
+        $field = User::make('Format')->format('array')->get();
+        $this->assertSame('array', $field['return_format']);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument format [test].');
+
+        User::make('Invalid Format')->format('test')->get();
+    }
 
     public function testRoles()
     {

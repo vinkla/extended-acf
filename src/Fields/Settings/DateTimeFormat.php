@@ -16,7 +16,7 @@ namespace Extended\ACF\Fields\Settings;
 trait DateTimeFormat
 {
     /** @see https://wordpress.org/support/article/formatting-date-and-time/ */
-    public function displayFormat(string $format): static
+    public function display(string $format): static
     {
         $this->settings['display_format'] = $format;
 
@@ -24,7 +24,7 @@ trait DateTimeFormat
     }
 
     /** @see https://wordpress.org/support/article/formatting-date-and-time/ */
-    public function returnFormat(string $format): static
+    public function format(string $format): static
     {
         $this->settings['return_format'] = $format;
 

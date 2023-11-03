@@ -41,10 +41,10 @@ class ColorPicker extends Field
      * @param string $format array, string
      * @throws \InvalidArgumentException
      */
-    public function returnFormat(string $format): static
+    public function format(string $format): static
     {
         if (!in_array($format, ['array', 'string'])) {
-            throw new InvalidArgumentException("Invalid argument return format [$format].");
+            throw new InvalidArgumentException("Invalid argument format [$format].");
         }
 
         $this->settings['return_format'] = $format;

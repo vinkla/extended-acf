@@ -22,8 +22,8 @@ use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Multiple;
 use Extended\ACF\Fields\Settings\Nullable;
 use Extended\ACF\Fields\Settings\Required;
-use Extended\ACF\Fields\Settings\ReturnFormat;
 use Extended\ACF\Fields\Settings\Wrapper;
+use InvalidArgumentException;
 
 class Select extends Field
 {
@@ -36,7 +36,6 @@ class Select extends Field
     use Multiple;
     use Nullable;
     use Required;
-    use ReturnFormat;
     use Wrapper;
 
     protected string|null $type = 'select';
@@ -52,6 +51,21 @@ class Select extends Field
     {
         $this->settings['ui'] = true;
         $this->settings['ajax'] = true;
+
+        return $this;
+    }
+
+    /**
+     * @param string $format array, label, value
+     * @throws \InvalidArgumentException
+     */
+    public function format(string $format): static
+    {
+        if (!in_array($format, ['array', 'label', 'value'])) {
+            throw new InvalidArgumentException("Invalid argument format [$format].");
+        }
+
+        $this->settings['return_format'] = $format;
 
         return $this;
     }
