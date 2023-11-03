@@ -15,9 +15,9 @@ namespace Extended\ACF\Tests\Fields\Settings;
 
 trait DateTimeFormat
 {
-    public function testDisplay()
+    public function testDisplayFormat()
     {
-        $field = $this->make('Display')->display('ymd')->get();
+        $field = $this->make('Display Format')->displayFormat('ymd')->get();
         $this->assertSame('ymd', $field['display_format']);
     }
 

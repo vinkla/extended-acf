@@ -350,7 +350,7 @@ use Extended\ACF\Fields\DatePicker;
 
 DatePicker::make('Birthday')
     ->instructions('Add the employee\'s birthday.')
-    ->display('d/m/Y')
+    ->displayFormat('d/m/Y')
     ->format('d/m/Y')
     ->required()
 ```
@@ -362,7 +362,7 @@ use Extended\ACF\Fields\TimePicker;
 
 TimePicker::make('Start Time', 'time')
     ->instructions('Add the start time.')
-    ->display('H:i')
+    ->displayFormat('H:i')
     ->format('H:i')
     ->required()
 ```
@@ -374,7 +374,7 @@ use Extended\ACF\Fields\DateTimePicker;
 
 DateTimePicker::make('Event Date', 'date')
     ->instructions('Add the event\'s start date and time.')
-    ->display('d-m-Y H:i')
+    ->displayFormat('d-m-Y H:i')
     ->format('d-m-Y H:i')
     ->firstDayOfWeek(1) // Sunday is 0, Monday is 1, or use `weekStartsOnMonday` or `weekStartsOnSunday`
     ->required()
@@ -1030,18 +1030,11 @@ The `addTerm`, `loadTerms` and `saveTerms` methods has been renamed to `create`,
 +Taxonomy::make('Category')->create()->load()->save()
 ```
 
-The `returnFormat` method has been renamed to `format`.
+The `returnFormat` method has been renamed to `format` on all fields.
 
 ```diff
 -Select::make('Superhero')->returnFormat('value')
 +Select::make('Superhero')->format('value')
-```
-
-The `displayFormat` and `returnFormat` method has been renamed to `display` and `format`.
-
-```diff
--DatePicker::make('Date')->displayFormat('ymd')->returnFormat('ymd')
-+DatePicker::make('Date')->display('ymd')->format('ymd')
 ```
 
 The `MimeTypes` trait has been renamed to `FileTypes`.
