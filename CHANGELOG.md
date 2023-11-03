@@ -4,6 +4,7 @@
 
 - Added `weekStartsOnMonday` method to date picker field
 - Added `weekStartsOnSunday` method to date picker field
+- Added custom key support to conditional logic
 - Rename `Url` field to `URL`
 - Rename `WysiwygEditor` field to `WYSIWYGEditor`
 - Renamed `addTerm` method to `create`
