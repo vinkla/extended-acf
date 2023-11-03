@@ -1,5 +1,45 @@
 # CHANGELOG
 
+## 14.0.0
+
+- Added `weekStartsOnMonday` method to date picker field
+- Added `weekStartsOnSunday` method to date picker field
+- Rename `Url` field to `URL`
+- Rename `WysiwygEditor` field to `WYSIWYGEditor`
+- Renamed `addTerm` method to `create`
+- Renamed `allowArchives` method to `disableArchives`
+- Renamed `allowMultiple` method to `multiple`
+- Renamed `allowNull` method to `nullable`
+- Renamed `append` method to `suffix`
+- Renamed `buttonLabel` method to `button`
+- Renamed `characterLimit` method to `maxLength`
+- Renamed `defaultValue` method to `default`
+- Renamed `delay` method to `lazyLoad`
+- Renamed `enableOpacity` method to `opacity`
+- Renamed `fileSize` method to `minSize` and `maxSize`
+- Renamed `height` method to `minHeight` and `maxHeight`
+- Renamed `insert` method to `prependFiles`
+- Renamed `loadTerms` method to `load`
+- Renamed `mediaUpload` method to `disableMediaUpload`
+- Renamed `mimeTypes` method to `acceptableFileTypes`
+- Renamed `min` and `max` methods `minFiles` and `maxFiles`
+- Renamed `min` and `max` methods `minInstances` and `maxInstances`
+- Renamed `min` and `max` methods `minLayouts` and `maxLayouts`
+- Renamed `min` and `max` methods `minPosts` and `maxPosts`
+- Renamed `min` and `max` methods `minRows` and `maxRows`
+- Renamed `pagination` method to `paginated`
+- Renamed `prepend` method to `prefix`
+- Renamed `returnFormat` method to `format`
+- Renamed `saveTerms` method to `save`
+- Renamed `stylisedUi` method to `stylized` and `lazyLoad`
+- Renamed `weekStartsOn` method to `firstDayOfWeek`
+- Renamed `width` method to `minWidth` and `maxWidth`
+- Renamed `appearance` argument `$fieldType` to `$type`
+- Renamed `paginated` argument `$rowsPerPage` to `$perPage`
+- Renamed `Pending` trait to `Affixable`
+- Renamed `SubFields` trait to `Fields`
+- Renamed `Writable` trait to `Immutable`
+
 ## 13.8.0
 
 - Added custom field key method (only use this method if you know what you're doing)
