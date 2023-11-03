@@ -45,21 +45,21 @@ class TaxonomyTest extends FieldTestCase
         Taxonomy::make('Invalid Appearance')->appearance('test')->get();
     }
 
-    public function testCanAddTerm()
+    public function testCreate()
     {
-        $field = Taxonomy::make('Add Term')->addTerm(false)->get();
+        $field = Taxonomy::make('Create')->create(false)->get();
         $this->assertFalse($field['add_term']);
     }
 
-    public function testLoadTerms()
+    public function testLoad()
     {
-        $field = Taxonomy::make('Load Terms')->loadTerms(false)->get();
+        $field = Taxonomy::make('Load')->load(false)->get();
         $this->assertFalse($field['load_terms']);
     }
 
-    public function testShouldSaveTerms()
+    public function testShouldSave()
     {
-        $field = Taxonomy::make('Save Terms')->saveTerms(false)->get();
+        $field = Taxonomy::make('Save')->save(false)->get();
         $this->assertFalse($field['save_terms']);
     }
 

@@ -47,23 +47,23 @@ class Taxonomy extends Field
         return $this;
     }
 
-    public function addTerm(bool $addTerm = true): static
+    public function create(bool $create = true): static
     {
-        $this->settings['add_term'] = $addTerm;
+        $this->settings['add_term'] = $create;
 
         return $this;
     }
 
-    public function loadTerms(bool $loadTerms = true): static
+    public function load(bool $load = false): static
     {
-        $this->settings['load_terms'] = $loadTerms;
+        $this->settings['load_terms'] = $load;
 
         return $this;
     }
 
-    public function saveTerms(bool $saveTerms = true): static
+    public function save(bool $save = false): static
     {
-        $this->settings['save_terms'] = $saveTerms;
+        $this->settings['save_terms'] = $save;
 
         return $this;
     }

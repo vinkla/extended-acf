@@ -585,9 +585,9 @@ Taxonomy::make('Cinemas')
     ->instructions('Select one or more cinema terms.')
     ->taxonomy('cinema')
     ->appearance('checkbox') // checkbox, multi_select, radio, select
-    ->addTerm(true) // Allow new terms to be created whilst editing (true or false)
-    ->loadTerms(true) // Load value from posts terms (true or false)
-    ->saveTerms(true) // Connect selected terms to the post (true or false)
+    ->create(false) // false or true (default)
+    ->load(true) // true or false (default)
+    ->save(true) // true or false (default)x
     ->returnFormat('id'), // object or id (default)
 ```
 
@@ -1021,6 +1021,13 @@ The `allowArchives` method has been renamed to `disableArchives`.
 ```diff
 -PageLink::make('Link')->allowArchives(false)
 +PageLink::make('Link')->disableArchives()
+```
+
+The `addTerm`, `loadTerms` and `saveTerms` methods has been renamed to `create`, `load` and `save`.
+
+```diff
+-Taxonomy::make('Category')->addTerm()->loadTerms()->saveTerms()
++Taxonomy::make('Category')->create()->load()->save()
 ```
 
 The `MimeTypes` trait has been renamed to `FileTypes`.
