@@ -33,9 +33,9 @@ class PageLink extends Field
 
     protected string|null $type = 'page_link';
 
-    public function allowArchives(bool $value = true): static
+    public function disableArchives(): static
     {
-        $this->settings['allow_archives'] = $value;
+        $this->settings['allow_archives'] = false;
 
         return $this;
     }

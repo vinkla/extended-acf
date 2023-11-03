@@ -534,7 +534,7 @@ PageLink::make('Contact Link')
     ->postTypes(['contact'])
     ->postStatus(['publish']) // draft, future, pending, private, publish
     ->taxonomies(['category:city'])
-    ->allowArchives() // optionally pass 'false' to disallow archives
+    ->disableArchives()
     ->nullabel()
     ->multiple()
     ->required()
@@ -1014,6 +1014,13 @@ The `message` method has been renamed to `text`.
 ```diff
 -Message::make('Heading')->message('Text')
 +Message::make('Heading')->body('Text')
+```
+
+The `allowArchives` method has been renamed to `disableArchives`.
+
+```diff
+-PageLink::make('Link')->allowArchives(false)
++PageLink::make('Link')->disableArchives()
 ```
 
 The `MimeTypes` trait has been renamed to `FileTypes`.
