@@ -1044,6 +1044,13 @@ The `returnFormat` method has been renamed to `format` on all fields.
 +Select::make('Superhero')->format('value')
 ```
 
+The `Instructions` trait has been renamed to `HelperText`.
+
+```diff
+-use Extended\ACF\Fields\Settings\Instructions;
++use Extended\ACF\Fields\Settings\HelperText;
+```
+
 The `MimeTypes` trait has been renamed to `FileTypes`.
 
 ```diff
