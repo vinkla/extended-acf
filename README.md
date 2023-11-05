@@ -23,7 +23,7 @@ Extended ACF provides an object-oriented API to register groups and fields with 
 - [Location](#location)
 - [Conditional Logic](#conditional-logic)
 - [Non-standards](#non-standards)
-    - [`instructions`](#instructions)
+    - [`helperText`](#helperText)
     - [`column`](#column)
     - [`dd` and `dump`](#dd-and-dump)
     - [`key`](#key)
@@ -87,7 +87,7 @@ All fields, except the clone field, have a corresponding class. Each field requi
 use Extended\ACF\Fields\Text;
 
 Text::make('Title', 'heading')
-    ->instructions('Add the text value')
+    ->helperText('Add the text value')
     ->required()
 ```
 
@@ -101,7 +101,7 @@ Most fields have the methods `default`, `required`, and `wrapper`. The [basic fi
 use Extended\ACF\Fields\Email;
 
 Email::make('Email')
-    ->instructions('Add the employees email address.')
+    ->helperText('Add the employees email address.')
     ->required()
 ```
 
@@ -111,7 +111,7 @@ Email::make('Email')
 use Extended\ACF\Fields\Number;
 
 Number::make('Age')
-    ->instructions('Add the employees age.')
+    ->helperText('Add the employees age.')
     ->min(18)
     ->max(65)
     ->required()
@@ -123,7 +123,7 @@ Number::make('Age')
 use Extended\ACF\Fields\Password;
 
 Password::make('Password')
-    ->instructions('Add the employees secret pwned password.')
+    ->helperText('Add the employees secret pwned password.')
     ->required()
 ```
 
@@ -133,7 +133,7 @@ Password::make('Password')
 use Extended\ACF\Fields\Range;
 
 Range::make('Rate')
-    ->instructions('Add the employees completion rate.')
+    ->helperText('Add the employees completion rate.')
     ->min(0)
     ->max(100)
     ->step(10)
@@ -146,7 +146,7 @@ Range::make('Rate')
 use Extended\ACF\Fields\Text;
 
 Text::make('Name')
-    ->instructions('Add the employees name.')
+    ->helperText('Add the employees name.')
     ->maxLength(100)
     ->required()
 ```
@@ -157,7 +157,7 @@ Text::make('Name')
 use Extended\ACF\Fields\Textarea;
 
 Textarea::make('Biography')
-    ->instructions('Add the employees biography.')
+    ->helperText('Add the employees biography.')
     ->newLines('br') // br, wpautop
     ->maxLength(2000)
     ->rows(10)
@@ -170,7 +170,7 @@ Textarea::make('Biography')
 use Extended\ACF\Fields\URL;
 
 URL::make('Website')
-    ->instructions('Add the employees website link.')
+    ->helperText('Add the employees website link.')
     ->required()
 ```
 
@@ -182,7 +182,7 @@ URL::make('Website')
 use Extended\ACF\Fields\ButtonGroup;
 
 ButtonGroup::make('Color')
-    ->instructions('Select the box shadow color.')
+    ->helperText('Select the box shadow color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->default('forest_green')
     ->format('value') // array, label, value (default)
@@ -195,7 +195,7 @@ ButtonGroup::make('Color')
 use Extended\ACF\Fields\Checkbox;
 
 Checkbox::make('Color')
-    ->instructions('Select the border color.')
+    ->helperText('Select the border color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->default('forest_green')
     ->format('value') // array, label, value (default)
@@ -209,7 +209,7 @@ Checkbox::make('Color')
 use Extended\ACF\Fields\RadioButton;
 
 RadioButton::make('Color')
-    ->instructions('Select the text color.')
+    ->helperText('Select the text color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->default('forest_green')
     ->format('value') // array, label, value (default)
@@ -222,7 +222,7 @@ RadioButton::make('Color')
 use Extended\ACF\Fields\Select;
 
 Select::make('Color')
-    ->instructions('Select the background color.')
+    ->helperText('Select the background color.')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->default('forest_green')
     ->format('value') // array, label, value (default)
@@ -239,7 +239,7 @@ Select::make('Color')
 use Extended\ACF\Fields\TrueFalse;
 
 TrueFalse::make('Social Media', 'display_social_media')
-    ->instructions('Select whether to display social media links or not.')
+    ->helperText('Select whether to display social media links or not.')
     ->default(false)
     ->stylized(on: 'Yes', off: 'No') // optional on and off text labels
     ->required()
@@ -253,7 +253,7 @@ TrueFalse::make('Social Media', 'display_social_media')
 use Extended\ACF\Fields\File;
 
 File::make('Resturant Menu', 'menu')
-    ->instructions('Add the menu **pdf** file.')
+    ->helperText('Add the menu **pdf** file.')
     ->acceptedFileTypes(['pdf'])
     ->library('all') // all, uploadedTo
     ->minSize('400 KB')
@@ -268,7 +268,7 @@ File::make('Resturant Menu', 'menu')
 use Extended\ACF\Fields\Gallery;
 
 Gallery::make('Images')
-    ->instructions('Add the gallery images.')
+    ->helperText('Add the gallery images.')
     ->acceptedFileTypes(['jpg', 'jpeg', 'png'])
     ->minHeight(500)
     ->maxHeight(1400)
@@ -291,7 +291,7 @@ Gallery::make('Images')
 use Extended\ACF\Fields\Image;
 
 Image::make('Background Image')
-    ->instructions('Add an image in at least 12000x100px and only in the formats **jpg**, **jpeg** or **png**.')
+    ->helperText('Add an image in at least 12000x100px and only in the formats **jpg**, **jpeg** or **png**.')
     ->acceptedFileTypes(['jpg', 'jpeg', 'png'])
     ->minHeight(500)
     ->maxHeight(1400)
@@ -311,7 +311,7 @@ Image::make('Background Image')
 use Extended\ACF\Fields\Oembed;
 
 Oembed::make('Tweet')
-    ->instructions('Add a tweet from Twitter.')
+    ->helperText('Add a tweet from Twitter.')
     ->required()
 ```
 
@@ -321,7 +321,7 @@ Oembed::make('Tweet')
 use Extended\ACF\Fields\WYSIWYGEditor;
 
 WYSIWYGEditor::make('Content')
-    ->instructions('Add the text content.')
+    ->helperText('Add the text content.')
     ->tabs('visual') // all, text, visual (default)
     ->toolbar(['bold', 'italic', 'link']) // aligncenter, alignleft, alignright, blockquote, bold, bullist, charmap, forecolor, formatselect, fullscreen, hr, indent, italic, link, numlist, outdent, pastetext, redo, removeformat, spellchecker, strikethrough, underline, undo, wp_adv, wp_help, wp_more
     ->disableMediaUpload()
@@ -337,7 +337,7 @@ WYSIWYGEditor::make('Content')
 use Extended\ACF\Fields\ColorPicker;
 
 ColorPicker::make('Text Color')
-    ->instructions('Add the text color.')
+    ->helperText('Add the text color.')
     ->default('#4a9cff')
     ->opacity()
     ->required()
@@ -349,7 +349,7 @@ ColorPicker::make('Text Color')
 use Extended\ACF\Fields\DatePicker;
 
 DatePicker::make('Birthday')
-    ->instructions('Add the employee\'s birthday.')
+    ->helperText('Add the employee\'s birthday.')
     ->displayFormat('d/m/Y')
     ->format('d/m/Y')
     ->required()
@@ -361,7 +361,7 @@ DatePicker::make('Birthday')
 use Extended\ACF\Fields\TimePicker;
 
 TimePicker::make('Start Time', 'time')
-    ->instructions('Add the start time.')
+    ->helperText('Add the start time.')
     ->displayFormat('H:i')
     ->format('H:i')
     ->required()
@@ -373,7 +373,7 @@ TimePicker::make('Start Time', 'time')
 use Extended\ACF\Fields\DateTimePicker;
 
 DateTimePicker::make('Event Date', 'date')
-    ->instructions('Add the event\'s start date and time.')
+    ->helperText('Add the event\'s start date and time.')
     ->displayFormat('d-m-Y H:i')
     ->format('d-m-Y H:i')
     ->firstDayOfWeek(1) // Sunday is 0, Monday is 1, or use `weekStartsOnMonday` or `weekStartsOnSunday`
@@ -386,7 +386,7 @@ DateTimePicker::make('Event Date', 'date')
 use Extended\ACF\Fields\GoogleMap;
 
 GoogleMap::make('Address', 'address')
-    ->instructions('Add the Google Map address.')
+    ->helperText('Add the Google Map address.')
     ->center(57.456286, 18.377716)
     ->zoom(14)
     ->required()
@@ -438,7 +438,7 @@ use Extended\ACF\Fields\Layout;
 use Extended\ACF\Fields\Text;
 
 FlexibleContent::make('Blocks')
-    ->instructions('Add the page blocks.')
+    ->helperText('Add the page blocks.')
     ->button('Add Component')
     ->layouts([
         Layout::make('Image')
@@ -460,7 +460,7 @@ use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Text;
 
 Group::make('Hero')
-    ->instructions('Add a hero block with title, content and image to the page.')
+    ->helperText('Add a hero block with title, content and image to the page.')
     ->fields([
         Text::make('Title'),
         Image::make('Background Image'),
@@ -487,7 +487,7 @@ use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Text;
 
 Repeater::make('Employees')
-    ->instructions('Add the employees.')
+    ->helperText('Add the employees.')
     ->fields([
         Text::make('Name'),
         Image::make('Profile Picture'),
@@ -546,7 +546,7 @@ PageLink::make('Contact Link')
 use Extended\ACF\Fields\PostObject;
 
 PostObject::make('Animal')
-    ->instructions('Select an animal')
+    ->helperText('Select an animal')
     ->postTypes(['animal'])
     ->postStatus(['publish']) // draft, future, pending, private, publish
     ->nullabel()
@@ -561,7 +561,7 @@ PostObject::make('Animal')
 use Extended\ACF\Fields\Relationship;
 
 Relationship::make('Contacts')
-    ->instructions('Add the contacts.')
+    ->helperText('Add the contacts.')
     ->postTypes(['contact'])
     ->postStatus(['publish']) // draft, future, pending, private, publish
     ->filters([
@@ -582,7 +582,7 @@ Relationship::make('Contacts')
 use Extended\ACF\Fields\Taxonomy;
 
 Taxonomy::make('Cinemas')
-    ->instructions('Select one or more cinema terms.')
+    ->helperText('Select one or more cinema terms.')
     ->taxonomy('cinema')
     ->appearance('checkbox') // checkbox, multi_select, radio, select
     ->create(false) // false or true (default)
@@ -668,13 +668,13 @@ Text::make('Sub Title')
 
 ## Non-standards
 
-### `instructions`
+### `helperText`
 
-The `instructions` method supports [Markdown](https://wordpress.com/support/markdown-quick-reference/) for the elements listed below.
+The `helperText` method supports [Markdown](https://wordpress.com/support/markdown-quick-reference/) for the elements listed below.
 
 ```php
 Text::make('Title')
-    ->instructions('__strong__ **strong** _italic_ *italic* `code` [link](https://example.com)')
+    ->helperText('__strong__ **strong** _italic_ *italic* `code` [link](https://example.com)')
 ```
 
 ### `column`
@@ -756,18 +756,18 @@ class Select extends Field
 
 ## Custom Fields
 
-To create custom field classes, you can extend the [base field class](src/Fields/Field.php). Additionally, you can import [available setting traits](src/Fields/Settings) to add common methods like `required` and `instructions`.
+To create custom field classes, you can extend the [base field class](src/Fields/Field.php). Additionally, you can import [available setting traits](src/Fields/Settings) to add common methods like `required` and `helperText`.
 
 ```php
 namespace App\Fields;
 
 use Extended\ACF\Fields\Field;
-use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Required;
 
 class OpenStreetMap extends Field
 {
-    use Instructions;
+    use HelperText;
     use Required;
 
     protected $type = 'open_street_map';
@@ -843,6 +843,13 @@ The `defaultValue` method has been renamed to `default`.
 ```diff
 -Text::make('Name')->defaultValue('Jeffrey Way')
 +Text::make('Name')->default('Jeffrey Way')
+```
+
+The `instructions` method has been renamed to `helperText`.
+
+```diff
+-Text::make('Title')->instructions('Add the title text.')
++Text::make('Title')->helperText('Add the title text.')
 ```
 
 The `allowMultiple` method has been renamed to `multiple`.

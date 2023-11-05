@@ -18,7 +18,7 @@ use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DefaultValue;
 use Extended\ACF\Fields\Settings\DirectionLayout;
 use Extended\ACF\Fields\Settings\Disabled;
-use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Nullable;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
@@ -31,7 +31,7 @@ class RadioButton extends Field
     use DefaultValue;
     use DirectionLayout;
     use Disabled;
-    use Instructions;
+    use HelperText;
     use Nullable;
     use Required;
     use Wrapper;

@@ -16,7 +16,7 @@ namespace Extended\ACF\Tests\Fields;
 use Extended\ACF\Fields\Group;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\Fields;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Layout;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
@@ -25,7 +25,7 @@ class GroupTest extends FieldTestCase
 {
     use ConditionalLogic;
     use Fields;
-    use Instructions;
+    use HelperText;
     use Layout;
     use Required;
     use Wrapper;

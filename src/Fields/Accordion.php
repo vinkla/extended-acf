@@ -14,12 +14,12 @@ declare(strict_types=1);
 namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\Endpoint;
-use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\HelperText;
 
 class Accordion extends Field
 {
     use Endpoint;
-    use Instructions;
+    use HelperText;
 
     protected string|null $type = 'accordion';
 

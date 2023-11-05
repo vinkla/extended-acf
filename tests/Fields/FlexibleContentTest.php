@@ -18,7 +18,7 @@ use Extended\ACF\Fields\Layout;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Tests\Fields\Settings\ButtonLabel;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
@@ -26,7 +26,7 @@ class FlexibleContentTest extends FieldTestCase
 {
     use ButtonLabel;
     use ConditionalLogic;
-    use Instructions;
+    use HelperText;
     use Required;
     use Wrapper;
 

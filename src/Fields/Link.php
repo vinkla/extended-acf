@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\ConditionalLogic;
-use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
 use InvalidArgumentException;
@@ -22,7 +22,7 @@ use InvalidArgumentException;
 class Link extends Field
 {
     use ConditionalLogic;
-    use Instructions;
+    use HelperText;
     use Required;
     use Wrapper;
 

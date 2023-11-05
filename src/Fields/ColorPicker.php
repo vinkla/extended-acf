@@ -15,7 +15,7 @@ namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DefaultValue;
-use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
 use InvalidArgumentException;
@@ -24,7 +24,7 @@ class ColorPicker extends Field
 {
     use ConditionalLogic;
     use DefaultValue;
-    use Instructions;
+    use HelperText;
     use Required;
     use Wrapper;
 

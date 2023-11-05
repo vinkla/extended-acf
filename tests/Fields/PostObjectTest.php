@@ -16,7 +16,7 @@ namespace Extended\ACF\Tests\Fields;
 use Extended\ACF\Fields\PostObject;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\FilterBy;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Multiple;
 use Extended\ACF\Tests\Fields\Settings\Nullable;
 use Extended\ACF\Tests\Fields\Settings\Required;
@@ -27,7 +27,7 @@ class PostObjectTest extends FieldTestCase
 {
     use ConditionalLogic;
     use FilterBy;
-    use Instructions;
+    use HelperText;
     use Multiple;
     use Nullable;
     use Required;

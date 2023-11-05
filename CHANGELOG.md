@@ -20,6 +20,7 @@
 - Renamed `fileSize` method to `minSize` and `maxSize`
 - Renamed `height` method to `minHeight` and `maxHeight`
 - Renamed `insert` method to `prependFiles`
+- Renamed `instructions` method to `helperText`
 - Renamed `loadTerms` method to `load`
 - Renamed `mediaUpload` method to `disableMediaUpload`
 - Renamed `mimeTypes` method to `acceptableFileTypes`

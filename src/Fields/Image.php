@@ -17,7 +17,7 @@ use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\Dimensions;
 use Extended\ACF\Fields\Settings\FileSize;
 use Extended\ACF\Fields\Settings\FileTypes;
-use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Library;
 use Extended\ACF\Fields\Settings\PreviewSize;
 use Extended\ACF\Fields\Settings\Required;
@@ -30,7 +30,7 @@ class Image extends Field
     use Dimensions;
     use FileSize;
     use FileTypes;
-    use Instructions;
+    use HelperText;
     use Library;
     use PreviewSize;
     use Required;

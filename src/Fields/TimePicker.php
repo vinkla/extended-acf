@@ -16,8 +16,8 @@ namespace Extended\ACF\Fields;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DateTimeFormat;
 use Extended\ACF\Fields\Settings\Disabled;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Immutable;
-use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
 
@@ -26,8 +26,8 @@ class TimePicker extends Field
     use ConditionalLogic;
     use DateTimeFormat;
     use Disabled;
+    use HelperText;
     use Immutable;
-    use Instructions;
     use Required;
     use Wrapper;
 

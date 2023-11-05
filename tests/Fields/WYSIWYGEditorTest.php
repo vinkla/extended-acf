@@ -16,7 +16,7 @@ namespace Extended\ACF\Tests\Fields;
 use Extended\ACF\Fields\WYSIWYGEditor;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\DefaultValue;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
 use InvalidArgumentException;
@@ -25,7 +25,7 @@ class WYSIWYGEditorTest extends FieldTestCase
 {
     use ConditionalLogic;
     use DefaultValue;
-    use Instructions;
+    use HelperText;
     use Required;
     use Wrapper;
 
