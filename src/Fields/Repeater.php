@@ -16,7 +16,7 @@ namespace Extended\ACF\Fields;
 use Extended\ACF\Fields\Settings\ButtonLabel;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\Fields;
-use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Layout;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
@@ -26,7 +26,7 @@ class Repeater extends Field
     use ButtonLabel;
     use ConditionalLogic;
     use Fields;
-    use Instructions;
+    use HelperText;
     use Layout;
     use Required;
     use Wrapper;

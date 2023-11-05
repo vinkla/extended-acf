@@ -16,7 +16,7 @@ namespace Extended\ACF\Fields;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\FileSize;
 use Extended\ACF\Fields\Settings\FileTypes;
-use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Library;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
@@ -27,7 +27,7 @@ class File extends Field
     use ConditionalLogic;
     use FileSize;
     use FileTypes;
-    use Instructions;
+    use HelperText;
     use Library;
     use Required;
     use Wrapper;

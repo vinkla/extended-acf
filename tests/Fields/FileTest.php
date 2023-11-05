@@ -17,7 +17,7 @@ use Extended\ACF\Fields\File;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\FileSize;
 use Extended\ACF\Tests\Fields\Settings\FileTypes;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Library;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
@@ -28,7 +28,7 @@ class FileTest extends FieldTestCase
     use ConditionalLogic;
     use FileSize;
     use FileTypes;
-    use Instructions;
+    use HelperText;
     use Library;
     use Required;
     use Wrapper;

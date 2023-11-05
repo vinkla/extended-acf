@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields\Settings;
 
-trait Instructions
+trait HelperText
 {
     /**
      * @param string $text The Markdown elements supported include `<a>`, `<code>`, `<em>`, and `<strong>`.
      * @see https://wordpress.com/support/markdown-quick-reference/
      */
-    public function instructions(string $text): static
+    public function helperText(string $text): static
     {
         // Replace emphasis formatting: *text* or _text_ => <em>text</em>
         $text = preg_replace('/\*\*(.*?)\*\*|__(.*?)__/', '<strong>$1$2</strong>', $text);

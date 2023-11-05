@@ -15,7 +15,7 @@ namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\FilterBy;
-use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Multiple;
 use Extended\ACF\Fields\Settings\Nullable;
 use Extended\ACF\Fields\Settings\Required;
@@ -25,7 +25,7 @@ class PageLink extends Field
 {
     use ConditionalLogic;
     use FilterBy;
-    use Instructions;
+    use HelperText;
     use Multiple;
     use Nullable;
     use Required;

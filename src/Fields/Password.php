@@ -15,8 +15,8 @@ namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\Affixable;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Immutable;
-use Extended\ACF\Fields\Settings\Instructions;
 use Extended\ACF\Fields\Settings\Placeholder;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
@@ -25,8 +25,8 @@ class Password extends Field
 {
     use Affixable;
     use ConditionalLogic;
+    use HelperText;
     use Immutable;
-    use Instructions;
     use Placeholder;
     use Required;
     use Wrapper;

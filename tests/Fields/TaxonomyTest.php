@@ -15,7 +15,7 @@ namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Taxonomy;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Nullable;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
@@ -24,7 +24,7 @@ use InvalidArgumentException;
 class TaxonomyTest extends FieldTestCase
 {
     use ConditionalLogic;
-    use Instructions;
+    use HelperText;
     use Nullable;
     use Required;
     use Wrapper;

@@ -17,7 +17,7 @@ use Extended\ACF\Fields\Settings\Choices;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DefaultValue;
 use Extended\ACF\Fields\Settings\DirectionLayout;
-use Extended\ACF\Fields\Settings\Instructions;
+use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
 use InvalidArgumentException;
@@ -28,7 +28,7 @@ class ButtonGroup extends Field
     use ConditionalLogic;
     use DefaultValue;
     use DirectionLayout;
-    use Instructions;
+    use HelperText;
     use Required;
     use Wrapper;
 

@@ -18,7 +18,7 @@ use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\Dimensions;
 use Extended\ACF\Tests\Fields\Settings\FileSize;
 use Extended\ACF\Tests\Fields\Settings\FileTypes;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Library;
 use Extended\ACF\Tests\Fields\Settings\PreviewSize;
 use Extended\ACF\Tests\Fields\Settings\Required;
@@ -31,7 +31,7 @@ class ImageTest extends FieldTestCase
     use Dimensions;
     use FileSize;
     use FileTypes;
-    use Instructions;
+    use HelperText;
     use Library;
     use PreviewSize;
     use Required;

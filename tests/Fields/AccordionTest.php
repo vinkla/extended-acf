@@ -15,12 +15,12 @@ namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Accordion;
 use Extended\ACF\Tests\Fields\Settings\Endpoint;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 
 class AccordionTest extends FieldTestCase
 {
     use Endpoint;
-    use Instructions;
+    use HelperText;
 
     public string $field = Accordion::class;
     public string $type = 'accordion';

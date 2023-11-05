@@ -16,7 +16,7 @@ namespace Extended\ACF\Tests\Fields;
 use Extended\ACF\Fields\GoogleMap;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\Height;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
 
@@ -24,7 +24,7 @@ class GoogleMapTest extends FieldTestCase
 {
     use ConditionalLogic;
     use Height;
-    use Instructions;
+    use HelperText;
     use Required;
     use Wrapper;
 

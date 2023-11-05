@@ -20,7 +20,7 @@ use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\DefaultValue;
 use Extended\ACF\Tests\Fields\Settings\DirectionLayout;
 use Extended\ACF\Tests\Fields\Settings\Disabled;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Required;
 use Extended\ACF\Tests\Fields\Settings\Wrapper;
 use InvalidArgumentException;
@@ -32,7 +32,7 @@ class CheckboxTest extends FieldTestCase
     use DefaultValue;
     use DirectionLayout;
     use Disabled;
-    use Instructions;
+    use HelperText;
     use Required;
     use Wrapper;
 

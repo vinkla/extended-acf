@@ -15,7 +15,7 @@ namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\User;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
-use Extended\ACF\Tests\Fields\Settings\Instructions;
+use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Multiple;
 use Extended\ACF\Tests\Fields\Settings\Nullable;
 use Extended\ACF\Tests\Fields\Settings\Required;
@@ -25,7 +25,7 @@ use InvalidArgumentException;
 class UserTest extends FieldTestCase
 {
     use ConditionalLogic;
-    use Instructions;
+    use HelperText;
     use Multiple;
     use Nullable;
     use Required;
