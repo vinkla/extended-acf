@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 // This example is registering a option page using ACF. Please see the
 // documentation for more information:
 // https://www.advancedcustomfields.com/resources/acf_add_options_page/
@@ -19,12 +21,12 @@ register_extended_field_group([
     'title' => 'Cookie',
     'fields' => [
         WYSIWYGEditor::make('Text', 'cookie_text')
-            ->instructions('Add the cookie disclaimer text.')
+            ->helperText('Add the cookie disclaimer text.')
             ->disableMediaUpload(false)
             ->tabs('visual')
             ->required(),
         Text::make('Label', 'cookie_label')
-            ->instructions('Add the button label.')
+            ->helperText('Add the button label.')
             ->required(),
     ],
     'location' => [
