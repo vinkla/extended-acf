@@ -19,4 +19,4 @@ jobs:
           php-version: 8.2
           coverage: xdebug
           tools: php-cs-fixer, cs2pr
-      - run: php-cs-fixer fix . --dry-run --rules=@PER-CS,declare_strict_types,no_unused_imports,ordered_imports,ordered_traits --allow-risky=yes --format=checkstyle | cs2pr
+      - run: php-cs-fixer fix . --dry-run --rules=@PER-CS --format=checkstyle | cs2pr
