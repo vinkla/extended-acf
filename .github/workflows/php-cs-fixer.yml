@@ -10,7 +10,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
 
-    name: PER
+    name: PER-CS
 
     steps:
       - uses: actions/checkout@v4
@@ -18,6 +18,5 @@ jobs:
         with:
           php-version: 8.2
           coverage: xdebug
-          tools: cs2pr
-      - run: composer install --prefer-dist --no-interaction
-      - run: vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
+          tools: php-cs-fixer, cs2pr
+      - run: php-cs-fixer fix . --dry-run --rules=@PER-CS,declare_strict_types,no_unused_imports,ordered_imports,ordered_traits --allow-risky=yes --format=checkstyle | cs2pr
