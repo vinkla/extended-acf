@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 // This example is using the Extended CPTs package to register custom post types
 // and taxanomies. Please see the repository for more information:
 // https://github.com/johnbillion/extended-cpts
@@ -37,7 +39,7 @@ register_extended_field_group([
     'title' => 'FAQ',
     'fields' => [
         WYSIWYGEditor::make('Answer')
-            ->instructions('Add the question answer.')
+            ->helperText('Add the question answer.')
             ->disableMediaUpload()
             ->tabs('visual')
             ->required(),
