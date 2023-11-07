@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 // This example is using the Extended CPTs package to register custom post types
 // and taxanomies. Please see the repository for more information:
 // https://github.com/johnbillion/extended-cpts

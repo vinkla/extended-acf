@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use Extended\ACF\Fields\Email;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Location;

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 // This example is registering a option page using ACF. Please see the
 // documentation for more information:
 // https://www.advancedcustomfields.com/resources/acf_add_options_page/
