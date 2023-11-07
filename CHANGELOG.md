@@ -2,6 +2,7 @@
 
 ## 14.0.0
 
+- Updated minimum PHP version to 8.2
 - Added `weekStartsOnMonday` method to date picker field
 - Added `weekStartsOnSunday` method to date picker field
 - Added custom key support to conditional logic
