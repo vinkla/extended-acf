@@ -33,9 +33,9 @@ if (!function_exists('register_extended_field_group')) {
 
         $settings['style'] ??= 'seamless';
 
-        $settings['fields'] = array_map(fn ($field) => $field->get($key), $settings['fields']);
+        $settings['fields'] = array_map(fn($field) => $field->get($key), $settings['fields']);
 
-        $settings['location'] = array_map(fn ($location) => $location->get(), $settings['location']);
+        $settings['location'] = array_map(fn($location) => $location->get(), $settings['location']);
 
         $settings['key'] = Key::generate($key, 'group');
 
