@@ -1,4 +1,5 @@
 {
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
   "name": "employee",
   "title": "Employee",
   "description": "An employee block.",
