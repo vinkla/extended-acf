@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 14.0.1
+
+- Updated `symfony/var-dumper` to 7.0
+
 ## 14.0.0
 
 - Updated minimum PHP version to 8.2
