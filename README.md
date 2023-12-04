@@ -611,7 +611,7 @@ use Extended\ACF\Location;
 Location::where('post_type', 'post')->and('post_type', '!=', 'post') // available operators: ==, !=
 ```
 
-> [!Note]  
+> [!NOTE]  
 > The `if` method was renamed to `where` in version 12, see the [upgrade guide](#upgrade-guide).
 
 ## Conditional Logic
@@ -723,7 +723,7 @@ ConditionalLogic::where(
 )
 ```
 
-> [!Important]
+> [!IMPORTANT]
 > Avoid using custom field keys unless you thoroughly understand them. The field keys are automatically generated when you use the `register_extended_field_group` function.
 
 ### `withSettings`
