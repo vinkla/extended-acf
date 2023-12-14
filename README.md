@@ -1016,7 +1016,7 @@ The `mediaUpload` method has been renamed to `disableMediaUpload`.
 +WYSIWYGEditor::make('Narrative')->disableMediaUpload()
 ```
 
-The `message` method has been renamed to `text`.
+The `message` method has been renamed to `body`.
 
 ```diff
 -Message::make('Heading')->message('Text')
