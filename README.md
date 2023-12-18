@@ -43,13 +43,13 @@ Require this package, with Composer, in the root directory of your project.
 composer require vinkla/extended-acf
 ```
 
-To install the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/blog/composer-support-acf-pro/) plugin, download it and place it in either the `plugins` or `mu-plugins` directory. Then, go to the WordPress dashboard and activate the plugin.
+To install the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/blog/composer-support-acf-pro/) plugin, download and place it in either the `plugins` or `mu-plugins` directory. After that, activate the plugin in the WordPress dashboard.
 
 [Learn more about installing ACF PRO using Composer.](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
 
 ## Usage
 
-Use the `register_extended_field_group()` function to register a new field group. This function extends the default [`register_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function provided in the ACF plugin. The difference is that it appends the `key` value to field groups and fields. Below, you will find an example of a field group.
+To register a new field group, use the `register_extended_field_group()` function. This extends the default [`register_field_group()`](https://www.advancedcustomfields.com/resources/register-fields-via-php#example) function from the ACF plugin. The `key` value is appended to field groups and fields. Here's an example of a field group.
 
 ```php
 use Extended\ACF\Fields\Image;
@@ -72,7 +72,7 @@ add_action('acf/init', function() {
 
 ## Settings
 
-Please refer to the official [ACF documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings) for detailed information on field group settings. You can also explore additional examples in the examples directory.
+For detailed information on field group settings, please consult the [official ACF documentation](https://www.advancedcustomfields.com/resources/register-fields-via-php#group-settings). You can also find more examples in the examples directory.
 
 - [Register custom post type](examples/custom-post-type.php)
 - [Register custom post type with Extended CPT](examples/with-extended-cpts.php)
@@ -81,7 +81,7 @@ Please refer to the official [ACF documentation](https://www.advancedcustomfield
 
 ## Fields
 
-All fields, except the clone field, have a corresponding class. Each field requires a `label`. If no `name` is specified, the `label` will be used as the `name` in snake_case. The `name` can only contain alphanumeric characters and underscores.
+All fields, except the clone field, have a corresponding class. Each field needs a `label`. If no `name` is specified, the `label` will be used as the `name` in snake_case. The `name` can only contain alphanumeric characters and underscores.
 
 ```php
 use Extended\ACF\Fields\Text;
