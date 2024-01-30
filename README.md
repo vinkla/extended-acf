@@ -475,7 +475,7 @@ Group::make('Hero')
 use Extended\ACF\Fields\Message;
 
 Message::make('Heading')
-    ->text('George. One point twenty-one gigawatts.')
+    ->body('George. One point twenty-one gigawatts.')
     ->escapeHtml(),
 ```
 
