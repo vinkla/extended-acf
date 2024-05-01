@@ -38,4 +38,11 @@ class Tab extends Field
 
         return $this;
     }
+
+    public function selected(): static
+    {
+        $this->settings['selected'] = true;
+
+        return $this;
+    }
 }
