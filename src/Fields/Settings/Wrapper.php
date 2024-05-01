@@ -19,7 +19,7 @@ trait Wrapper
     {
         $this->settings['wrapper'] = array_merge(
             $this->settings['wrapper'] ?? [],
-            $wrapper
+            $wrapper,
         );
 
         return $this;

@@ -73,7 +73,7 @@ class WYSIWYGEditor extends Field
             $this->settings['toolbar'] = implode('_', $toolbar);
 
             add_filter('acf/fields/wysiwyg/toolbars', function (
-                array $toolbars
+                array $toolbars,
             ) use ($toolbar) {
                 $toolbars[$this->settings['toolbar']] = [
                     1 => $toolbar,

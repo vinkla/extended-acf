@@ -23,7 +23,7 @@ trait ConditionalLogic
                     group: 'external',
                     name: 'type',
                     operator: '==empty',
-                )
+                ),
             ])->get('group');
         $this->assertSame('field_21649737', $field['conditional_logic'][0][0]['field']);
     }
@@ -32,7 +32,7 @@ trait ConditionalLogic
     {
         $field = $this->make('Conditional Logic And')
             ->conditionalLogic([
-                \Extended\ACF\ConditionalLogic::where('type', '==', 'video')->and('highlight', '!=', 'true')
+                \Extended\ACF\ConditionalLogic::where('type', '==', 'video')->and('highlight', '!=', 'true'),
             ])->get('group');
 
         $this->assertSame('==', $field['conditional_logic'][0][0]['operator']);
