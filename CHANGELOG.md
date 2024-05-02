@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 14.1.0
+
+- Added `select` method to tab field
+
 ## 14.0.1
 
 - Updated `symfony/var-dumper` to 7.0
