@@ -29,7 +29,7 @@ class ConditionalLogicTest extends TestCase
                 'field' => 'field_f5456193',
                 'operator' => '==',
                 'value' => 10,
-            ]
+            ],
         ];
 
         $this->assertSame($conditionalLogic, ConditionalLogic::where('age', '==', 10)->get('field'));
@@ -59,14 +59,14 @@ class ConditionalLogicTest extends TestCase
                             ->conditionalLogic([
                                 ConditionalLogic::where('select', '==', 'red'),
                             ]),
-                    ])
+                    ]),
             ],
-            'location' => []
+            'location' => [],
         ]);
 
         $this->assertSame(
             $settings['fields'][0]['key'],
-            $settings['fields'][1]['sub_fields'][0]['conditional_logic'][0][0]['field']
+            $settings['fields'][1]['sub_fields'][0]['conditional_logic'][0][0]['field'],
         );
     }
 
@@ -84,16 +84,16 @@ class ConditionalLogicTest extends TestCase
                             name: 'select',
                             operator: '==',
                             value: 'red',
-                            key: 'field_123abc'
+                            key: 'field_123abc',
                         ),
                     ]),
             ],
-            'location' => []
+            'location' => [],
         ]);
 
         $this->assertSame(
             'field_123abc',
-            $settings['fields'][1]['conditional_logic'][0][0]['field']
+            $settings['fields'][1]['conditional_logic'][0][0]['field'],
         );
     }
 }

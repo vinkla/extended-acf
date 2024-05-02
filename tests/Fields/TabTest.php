@@ -36,4 +36,10 @@ class TabTest extends FieldTestCase
 
         Tab::make('Invalid Placement')->placement('test')->get();
     }
+
+    public function testSelected()
+    {
+        $field = Tab::make('Selected')->selected()->get();
+        $this->assertTrue($field['selected']);
+    }
 }

@@ -14,9 +14,9 @@ register_extended_field_group([
     'fields' => [
         PostObject::make('Employee')
             ->postTypes(['employee'])
-            ->format('object')
+            ->format('object'),
     ],
     'location' => [
-        Location::where('block', 'acf/employee')
+        Location::where('block', 'acf/employee'),
     ],
 ]);

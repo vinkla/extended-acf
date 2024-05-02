@@ -510,6 +510,7 @@ Tab::make('Tab 1'),
 Tab::make('Tab 2'),
 Tab::make('Tab 3')
     ->placement('top') // top, left
+    ->selected() // specify which tab should be selected by default
     ->endpoint(), // This will make a break in the tabs and create a new group of tabs
 ```
 

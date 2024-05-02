@@ -19,7 +19,7 @@ trait ConditionalLogic
     {
         $this->settings['conditional_logic'] = array_merge(
             $this->settings['conditional_logic'] ?? [],
-            $rules
+            $rules,
         );
 
         return $this;
