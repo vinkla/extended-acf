@@ -32,6 +32,7 @@
 - Renamed `instructions` method to `helperText`
 - Renamed `loadTerms` method to `load`
 - Renamed `mediaUpload` method to `disableMediaUpload`
+- Renamed `message` method to `body`
 - Renamed `mimeTypes` method to `acceptableFileTypes`
 - Renamed `min` and `max` methods `minFiles` and `maxFiles`
 - Renamed `min` and `max` methods `minInstances` and `maxInstances`
