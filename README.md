@@ -14,12 +14,12 @@ Extended ACF provides an object-oriented API to register groups and fields with 
 - [Usage](#usage)
 - [Settings](#settings)
 - [Fields](#fields)
-  - [Basic Fields](#basic-fields)
-  - [Choice Fields](#choice-fields)
-  - [Content Fields](#content-fields)
-  - [jQuery Fields](#jquery-fields)
-  - [Layout Fields](#layout-fields)
-  - [Relational Fields](#relational-fields)
+  - [Basic](#basic)
+  - [Content](#content)
+  - [Choice](#choice)
+  - [Relational](#relational)
+  - [Advanced](#advanced)
+  - [Layout](#layout)
 - [Location](#location)
 - [Conditional Logic](#conditional-logic)
 - [Non-standards](#non-standards)
@@ -91,9 +91,9 @@ Text::make('Title', 'heading')
     ->required()
 ```
 
-Most fields have the methods `default`, `required`, and `wrapper`. The [basic fields](#basic-fields) also have the methods `prepend`, `append`, `placeholder`, `readOnly`, and `disabled`. Please also check the non-standard methods mentioned in the [non-standards](#non-standards) section.
+Most fields have the methods `default`, `required`, and `wrapper`. The [basic fields](#basic) also have the methods `prepend`, `append`, `placeholder`, `readOnly`, and `disabled`. Please also check the non-standard methods mentioned in the [non-standards](#non-standards) section.
 
-### Basic Fields
+### Basic
 
 **Email** - The [email field](https://www.advancedcustomfields.com/resources/text) creates a simple email input.
 
@@ -174,78 +174,7 @@ URL::make('Website')
     ->required()
 ```
 
-### Choice Fields
-
-**Button Group** - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
-
-```php
-use Extended\ACF\Fields\ButtonGroup;
-
-ButtonGroup::make('Color')
-    ->helperText('Select the box shadow color.')
-    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
-    ->default('forest_green')
-    ->format('value') // array, label, value (default)
-    ->required()
-```
-
-**Checkbox** - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
-
-```php
-use Extended\ACF\Fields\Checkbox;
-
-Checkbox::make('Color')
-    ->helperText('Select the border color.')
-    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
-    ->default('forest_green')
-    ->format('value') // array, label, value (default)
-    ->layout('horizontal') // vertical, horizontal
-    ->required()
-```
-
-**Radio** - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
-
-```php
-use Extended\ACF\Fields\RadioButton;
-
-RadioButton::make('Color')
-    ->helperText('Select the text color.')
-    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
-    ->default('forest_green')
-    ->format('value') // array, label, value (default)
-    ->required()
-```
-
-**Select** - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
-
-```php
-use Extended\ACF\Fields\Select;
-
-Select::make('Color')
-    ->helperText('Select the background color.')
-    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
-    ->default('forest_green')
-    ->format('value') // array, label, value (default)
-    ->multiple()
-    ->nullable()
-    ->stylized() // stylized checkbox using select2
-    ->lazyLoad() // use AJAX to lazy load choices
-    ->required()
-```
-
-**True False** - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
-
-```php
-use Extended\ACF\Fields\TrueFalse;
-
-TrueFalse::make('Social Media', 'display_social_media')
-    ->helperText('Select whether to display social media links or not.')
-    ->default(false)
-    ->stylized(on: 'Yes', off: 'No') // optional on and off text labels
-    ->required()
-```
-
-### Content Fields
+### Content
 
 **File** - The [file field](https://www.advancedcustomfields.com/resources/file) allows a file to be uploaded and selected.
 
@@ -328,8 +257,166 @@ WYSIWYGEditor::make('Content')
     ->lazyLoad()
     ->required()
 ```
+### Choice
 
-### jQuery Fields
+**Button Group** - The [button group](https://www.advancedcustomfields.com/resources/button-group) field creates a list of radio buttons.
+
+```php
+use Extended\ACF\Fields\ButtonGroup;
+
+ButtonGroup::make('Color')
+    ->helperText('Select the box shadow color.')
+    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
+    ->default('forest_green')
+    ->format('value') // array, label, value (default)
+    ->required()
+```
+
+**Checkbox** - The [checkbox field](https://www.advancedcustomfields.com/resources/checkbox) creates a list of tick-able inputs.
+
+```php
+use Extended\ACF\Fields\Checkbox;
+
+Checkbox::make('Color')
+    ->helperText('Select the border color.')
+    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
+    ->default('forest_green')
+    ->format('value') // array, label, value (default)
+    ->layout('horizontal') // vertical, horizontal
+    ->required()
+```
+
+**Radio Button** - The [radio button field](https://www.advancedcustomfields.com/resources/radio-button) creates a list of select-able inputs.
+
+```php
+use Extended\ACF\Fields\RadioButton;
+
+RadioButton::make('Color')
+    ->helperText('Select the text color.')
+    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
+    ->default('forest_green')
+    ->format('value') // array, label, value (default)
+    ->required()
+```
+
+**Select** - The [select field](https://www.advancedcustomfields.com/resources/select) creates a drop down select or multiple select input.
+
+```php
+use Extended\ACF\Fields\Select;
+
+Select::make('Color')
+    ->helperText('Select the background color.')
+    ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
+    ->default('forest_green')
+    ->format('value') // array, label, value (default)
+    ->multiple()
+    ->nullable()
+    ->stylized() // stylized checkbox using select2
+    ->lazyLoad() // use AJAX to lazy load choices
+    ->required()
+```
+
+**True False** - The [true / false field](https://www.advancedcustomfields.com/resources/true-false) allows you to select a value that is either 1 or 0.
+
+```php
+use Extended\ACF\Fields\TrueFalse;
+
+TrueFalse::make('Social Media', 'display_social_media')
+    ->helperText('Select whether to display social media links or not.')
+    ->default(false)
+    ->stylized(on: 'Yes', off: 'No') // optional on and off text labels
+    ->required()
+```
+
+### Relational
+
+**Link** - The [link field](https://www.advancedcustomfields.com/resources/link) provides a simple way to select or define a link (url, title, target).
+
+```php
+use Extended\ACF\Fields\Link;
+
+Link::make('Read More Link')
+    ->format('array') // url, array (default)
+    ->required()
+```
+
+**Page Link** - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
+
+```php
+use Extended\ACF\Fields\PageLink;
+
+PageLink::make('Contact Link')
+    ->postTypes(['contact'])
+    ->postStatus(['publish']) // draft, future, pending, private, publish
+    ->taxonomies(['category:city'])
+    ->disableArchives()
+    ->nullabel()
+    ->multiple()
+    ->required()
+```
+
+**Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.
+
+```php
+use Extended\ACF\Fields\PostObject;
+
+PostObject::make('Animal')
+    ->helperText('Select an animal')
+    ->postTypes(['animal'])
+    ->postStatus(['publish']) // draft, future, pending, private, publish
+    ->nullabel()
+    ->multiple()
+    ->format('object') // id, object (default)
+    ->required()
+```
+
+**Relationship** - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field.
+
+```php
+use Extended\ACF\Fields\Relationship;
+
+Relationship::make('Contacts')
+    ->helperText('Add the contacts.')
+    ->postTypes(['contact'])
+    ->postStatus(['publish']) // draft, future, pending, private, publish
+    ->filters([
+        'search', 
+        'post_type',
+        'taxonomy'
+    ])
+    ->elements(['featured_image'])
+    ->minPosts(3)
+    ->maxPosts(6)
+    ->format('object') // id, object (default)
+    ->required()
+```
+
+**Taxonomy** - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms.
+
+```php
+use Extended\ACF\Fields\Taxonomy;
+
+Taxonomy::make('Cinemas')
+    ->helperText('Select one or more cinema terms.')
+    ->taxonomy('cinema')
+    ->appearance('checkbox') // checkbox, multi_select, radio, select
+    ->create(false) // false or true (default)
+    ->load(true) // true or false (default)
+    ->save(true) // true or false (default)x
+    ->format('id'), // object or id (default)
+```
+
+**User** - The user field creates a select field for all your users.
+
+```php
+use Extended\ACF\Fields\User;
+
+User::make('User')
+    ->roles(['administrator', 'editor']) // administrator, author, contributor, editor, subscriber
+    ->format('array'), // id, object, array (default)
+```
+
+### Advanced
 
 **Color Picker** - The [color picker field](https://www.advancedcustomfields.com/resources/color-picker) allows a color to be selected via a JavaScript popup.
 
@@ -340,6 +427,7 @@ ColorPicker::make('Text Color')
     ->helperText('Add the text color.')
     ->default('#4a9cff')
     ->opacity()
+    ->format('string') // array, string (default)
     ->required()
 ```
 
@@ -352,6 +440,18 @@ DatePicker::make('Birthday')
     ->helperText('Add the employee\'s birthday.')
     ->displayFormat('d/m/Y')
     ->format('d/m/Y')
+    ->required()
+```
+
+**Icon Picker** - The [icon picker field](https://www.advancedcustomfields.com/resources/icon-picker) allows you to easily select a Dashicon, a Media Library image, or a URL for an image or SVG.
+
+```php
+use Extended\ACF\Fields\IconPicker;
+
+IconPicker::make('Icon')
+    ->helperText('Add the icon.')
+    ->format('string') // array, string (default)
+    ->tabs(['dashicons']) // [dashicons, media_library, url] (default)
     ->required()
 ```
 
@@ -392,7 +492,7 @@ GoogleMap::make('Address', 'address')
     ->required()
 ```
 
-### Layout Fields
+### Layout
 
 **Accordion** - The [accordion field](https://www.advancedcustomfields.com/resources/accordion) is used to organize fields into collapsible panels.
 
@@ -512,94 +612,6 @@ Tab::make('Tab 3')
     ->placement('top') // top, left
     ->selected() // specify which tab should be selected by default
     ->endpoint(), // This will make a break in the tabs and create a new group of tabs
-```
-
-### Relational Fields
-
-**Link** - The [link field](https://www.advancedcustomfields.com/resources/link) provides a simple way to select or define a link (url, title, target).
-
-```php
-use Extended\ACF\Fields\Link;
-
-Link::make('Read More Link')
-    ->format('array') // url, array (default)
-    ->required()
-```
-
-**Page Link** - The [page link field](https://www.advancedcustomfields.com/resources/page-link) allows the selection of 1 or more posts, pages or custom post types.
-
-```php
-use Extended\ACF\Fields\PageLink;
-
-PageLink::make('Contact Link')
-    ->postTypes(['contact'])
-    ->postStatus(['publish']) // draft, future, pending, private, publish
-    ->taxonomies(['category:city'])
-    ->disableArchives()
-    ->nullabel()
-    ->multiple()
-    ->required()
-```
-
-**Post Object** - The [post object field](https://www.advancedcustomfields.com/resources/post-object) creates a select field where the choices are your pages + posts + custom post types.
-
-```php
-use Extended\ACF\Fields\PostObject;
-
-PostObject::make('Animal')
-    ->helperText('Select an animal')
-    ->postTypes(['animal'])
-    ->postStatus(['publish']) // draft, future, pending, private, publish
-    ->nullabel()
-    ->multiple()
-    ->format('object') // id, object (default)
-    ->required()
-```
-
-**Relationship** - The [relationship field](https://www.advancedcustomfields.com/resources/relationship) creates a very attractive version of the post object field.
-
-```php
-use Extended\ACF\Fields\Relationship;
-
-Relationship::make('Contacts')
-    ->helperText('Add the contacts.')
-    ->postTypes(['contact'])
-    ->postStatus(['publish']) // draft, future, pending, private, publish
-    ->filters([
-        'search', 
-        'post_type',
-        'taxonomy'
-    ])
-    ->elements(['featured_image'])
-    ->minPosts(3)
-    ->maxPosts(6)
-    ->format('object') // id, object (default)
-    ->required()
-```
-
-**Taxonomy** - The [taxonomy field](https://www.advancedcustomfields.com/resources/taxonomy) allows the selection of 1 or more taxonomy terms.
-
-```php
-use Extended\ACF\Fields\Taxonomy;
-
-Taxonomy::make('Cinemas')
-    ->helperText('Select one or more cinema terms.')
-    ->taxonomy('cinema')
-    ->appearance('checkbox') // checkbox, multi_select, radio, select
-    ->create(false) // false or true (default)
-    ->load(true) // true or false (default)
-    ->save(true) // true or false (default)x
-    ->format('id'), // object or id (default)
-```
-
-**User** - The user field creates a select field for all your users.
-
-```php
-use Extended\ACF\Fields\User;
-
-User::make('User')
-    ->roles(['administrator', 'editor']) // administrator, author, contributor, editor, subscriber
-    ->format('array'), // id, object, array (default)
 ```
 
 ## Location

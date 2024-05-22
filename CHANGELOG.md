@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 14.2.0
+
+- Added icon picker field
+
 ## 14.1.0
 
 - Added `select` method to tab field
