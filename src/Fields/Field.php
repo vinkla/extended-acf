@@ -18,140 +18,140 @@ use InvalidArgumentException;
 
 abstract class Field
 {
-  protected array $settings;
-  protected string $keyPrefix = 'field';
-  protected string|null $type = null;
-  protected $customFormatCallback = null;
+    protected array $settings;
+    protected string $keyPrefix = 'field';
+    protected string|null $type = null;
+    protected $customFormatCallback = null;
 
-  public function __construct(string $label, string|null $name = null)
-  {
-    $this->settings = [
-      'label' => $label,
-      'name' => $name ?? Key::sanitize($label),
-    ];
-  }
-
-  public static function make(string $label, string|null $name = null): static
-  {
-    return new static($label, $name);
-  }
-
-  /** @throws \InvalidArgumentException */
-  public function withSettings(array $settings): static
-  {
-    $invalidKeys = [
-      'collapsed',
-      'conditional_logic',
-      'key',
-      'label',
-      'layouts',
-      'name',
-      'sub_fields',
-      'type',
-    ];
-
-    foreach ($invalidKeys as $key) {
-      if (array_key_exists($key, $settings)) {
-        throw new InvalidArgumentException("Invalid settings key [$key].");
-      }
+    public function __construct(string $label, string|null $name = null)
+    {
+        $this->settings = [
+            'label' => $label,
+            'name' => $name ?? Key::sanitize($label),
+        ];
     }
-
-    $this->settings = array_merge($this->settings, $settings);
-
-    return $this;
-  }
-
-  public function dump(...$args): static
-  {
-    dump($this->get(), ...$args);
-
-    return $this;
-  }
-
-  public function dd(...$args): never
-  {
-    dd($this->get(), ...$args);
-  }
-
-  public function customFormat(callable $formatCallback): static
-  {
-    $this->customFormatCallback = $formatCallback;
-
-    return $this;
-  }
-
-  /**
-   * Avoid using custom field keys unless you thoroughly understand them. The
-   * field keys are automatically generated when you use the
-   * `register_extended_field_group` function.
-   * @throws \InvalidArgumentException
-   */
-  public function key(string $key): static
-  {
-    if (!str_starts_with($key, $this->keyPrefix . '_')) {
-      throw new InvalidArgumentException(
-        sprintf('The key should have the prefix [%s_].', $this->keyPrefix),
-      );
+    
+    public static function make(string $label, string|null $name = null): static
+    {
+        return new static($label, $name);
     }
-
-    if (Key::has($key)) {
-      throw new InvalidArgumentException("The key [$key] is not unique.");
-    }
-
-    $this->settings['key'] = $key;
-
-    Key::set($key, $key);
-
-    return $this;
-  }
-
-  /** @internal */
-  public function get(string|null $parentKey = null): array
-  {
-    $key =
-      $this->settings['key'] ??
-      $parentKey . '_' . Key::sanitize($this->settings['name']);
-
-    if ($this->type !== null) {
-      $this->settings['type'] = $this->type;
-    }
-
-    if (isset($this->settings['conditional_logic'])) {
-      $this->settings['conditional_logic'] = array_map(
-        fn($rules) => $rules->get($parentKey),
-        $this->settings['conditional_logic'],
-      );
-    }
-
-    if (isset($this->settings['layouts'])) {
-      $this->settings['layouts'] = array_map(
-        fn($layout) => $layout->get($key),
-        $this->settings['layouts'],
-      );
-    }
-
-    if (isset($this->settings['sub_fields'])) {
-      $this->settings['sub_fields'] = array_map(
-        fn($field) => $field->get($key),
-        $this->settings['sub_fields'],
-      );
-    }
-
-    if (isset($this->settings['collapsed'], $this->settings['sub_fields'])) {
-      foreach ($this->settings['sub_fields'] as $field) {
-        if ($field['name'] === $this->settings['collapsed']) {
-          $this->settings['collapsed'] = $field['key'];
-          break;
+    
+    /** @throws \InvalidArgumentException */
+    public function withSettings(array $settings): static
+    {
+        $invalidKeys = [
+            'collapsed',
+            'conditional_logic',
+            'key',
+            'label',
+            'layouts',
+            'name',
+            'sub_fields',
+            'type',
+        ];
+        
+        foreach ($invalidKeys as $key) {
+            if (array_key_exists($key, $settings)) {
+                throw new InvalidArgumentException("Invalid settings key [$key].");
+            }
         }
-      }
+        
+        $this->settings = array_merge($this->settings, $settings);
+        
+        return $this;
     }
-
-    $this->settings['key'] ??= Key::generate($key, $this->keyPrefix);
-
-    if ($this->customFormatCallback) {
-      add_filter("acf/format_value/key={$this->settings['key']}", $this->customFormatCallback, 50, 3);
+    
+    public function dump(...$args): static
+    {
+        dump($this->get(), ...$args);
+        
+        return $this;
     }
-
-    return $this->settings;
-  }
+    
+    public function dd(...$args): never
+    {
+        dd($this->get(), ...$args);
+    }
+    
+    public function customFormat(callable $formatCallback): static
+    {
+        $this->customFormatCallback = $formatCallback;
+        
+        return $this;
+    }
+    
+    /**
+     * Avoid using custom field keys unless you thoroughly understand them. The
+     * field keys are automatically generated when you use the
+     * `register_extended_field_group` function.
+     * @throws \InvalidArgumentException
+     */
+    public function key(string $key): static
+    {
+        if (!str_starts_with($key, $this->keyPrefix . '_')) {
+            throw new InvalidArgumentException(
+                sprintf('The key should have the prefix [%s_].', $this->keyPrefix),
+            );
+        }
+        
+        if (Key::has($key)) {
+            throw new InvalidArgumentException("The key [$key] is not unique.");
+        }
+        
+        $this->settings['key'] = $key;
+        
+        Key::set($key, $key);
+        
+        return $this;
+    }
+    
+    /** @internal */
+    public function get(string|null $parentKey = null): array
+    {
+        $key =
+            $this->settings['key'] ??
+            $parentKey . '_' . Key::sanitize($this->settings['name']);
+        
+        if ($this->type !== null) {
+            $this->settings['type'] = $this->type;
+        }
+        
+        if (isset($this->settings['conditional_logic'])) {
+            $this->settings['conditional_logic'] = array_map(
+                fn($rules) => $rules->get($parentKey),
+                $this->settings['conditional_logic'],
+            );
+        }
+        
+        if (isset($this->settings['layouts'])) {
+            $this->settings['layouts'] = array_map(
+                fn($layout) => $layout->get($key),
+                $this->settings['layouts'],
+            );
+        }
+        
+        if (isset($this->settings['sub_fields'])) {
+            $this->settings['sub_fields'] = array_map(
+                fn($field) => $field->get($key),
+                $this->settings['sub_fields'],
+            );
+        }
+        
+        if (isset($this->settings['collapsed'], $this->settings['sub_fields'])) {
+            foreach ($this->settings['sub_fields'] as $field) {
+                if ($field['name'] === $this->settings['collapsed']) {
+                    $this->settings['collapsed'] = $field['key'];
+                    break;
+                }
+            }
+        }
+        
+        $this->settings['key'] ??= Key::generate($key, $this->keyPrefix);
+        
+        if ($this->customFormatCallback) {
+            add_filter("acf/format_value/key={$this->settings['key']}", $this->customFormatCallback, 50, 3);
+        }
+        
+        return $this->settings;
+    }
 }
