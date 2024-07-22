@@ -60,26 +60,26 @@ abstract class Field
 
         return $this;
     }
-    
+
     public function dump(...$args): static
     {
         dump($this->get(), ...$args);
 
         return $this;
     }
-    
+
     public function dd(...$args): never
     {
         dd($this->get(), ...$args);
     }
-    
+
     public function customFormat(callable $formatCallback): static
     {
         $this->customFormatCallback = $formatCallback;
 
         return $this;
     }
-    
+
     /**
      * Avoid using custom field keys unless you thoroughly understand them. The
      * field keys are automatically generated when you use the
@@ -104,7 +104,7 @@ abstract class Field
 
         return $this;
     }
-    
+
     /** @internal */
     public function get(string|null $parentKey = null): array
     {
