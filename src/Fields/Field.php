@@ -21,6 +21,7 @@ abstract class Field
     protected array $settings;
     protected string $keyPrefix = 'field';
     protected string|null $type = null;
+    protected $customFormatCallback = null;
 
     public function __construct(string $label, string|null $name = null)
     {
@@ -70,6 +71,13 @@ abstract class Field
     public function dd(...$args): never
     {
         dd($this->get(), ...$args);
+    }
+
+    public function customFormat(callable $formatCallback): static
+    {
+        $this->customFormatCallback = $formatCallback;
+
+        return $this;
     }
 
     /**
@@ -139,6 +147,10 @@ abstract class Field
         }
 
         $this->settings['key'] ??= Key::generate($key, $this->keyPrefix);
+
+        if ($this->customFormatCallback) {
+            add_filter("acf/format_value/key={$this->settings['key']}", $this->customFormatCallback, 50, 3);
+        }
 
         return $this->settings;
     }
