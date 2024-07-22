@@ -30,12 +30,12 @@ abstract class Field
             'name' => $name ?? Key::sanitize($label),
         ];
     }
-    
+
     public static function make(string $label, string|null $name = null): static
     {
         return new static($label, $name);
     }
-    
+
     /** @throws \InvalidArgumentException */
     public function withSettings(array $settings): static
     {
@@ -49,22 +49,22 @@ abstract class Field
             'sub_fields',
             'type',
         ];
-        
+
         foreach ($invalidKeys as $key) {
             if (array_key_exists($key, $settings)) {
                 throw new InvalidArgumentException("Invalid settings key [$key].");
             }
         }
-        
+
         $this->settings = array_merge($this->settings, $settings);
-        
+
         return $this;
     }
     
     public function dump(...$args): static
     {
         dump($this->get(), ...$args);
-        
+
         return $this;
     }
     
@@ -76,7 +76,7 @@ abstract class Field
     public function customFormat(callable $formatCallback): static
     {
         $this->customFormatCallback = $formatCallback;
-        
+
         return $this;
     }
     
@@ -93,15 +93,15 @@ abstract class Field
                 sprintf('The key should have the prefix [%s_].', $this->keyPrefix),
             );
         }
-        
+
         if (Key::has($key)) {
             throw new InvalidArgumentException("The key [$key] is not unique.");
         }
-        
+
         $this->settings['key'] = $key;
-        
+
         Key::set($key, $key);
-        
+
         return $this;
     }
     
@@ -111,32 +111,32 @@ abstract class Field
         $key =
             $this->settings['key'] ??
             $parentKey . '_' . Key::sanitize($this->settings['name']);
-        
+
         if ($this->type !== null) {
             $this->settings['type'] = $this->type;
         }
-        
+
         if (isset($this->settings['conditional_logic'])) {
             $this->settings['conditional_logic'] = array_map(
                 fn($rules) => $rules->get($parentKey),
                 $this->settings['conditional_logic'],
             );
         }
-        
+
         if (isset($this->settings['layouts'])) {
             $this->settings['layouts'] = array_map(
                 fn($layout) => $layout->get($key),
                 $this->settings['layouts'],
             );
         }
-        
+
         if (isset($this->settings['sub_fields'])) {
             $this->settings['sub_fields'] = array_map(
                 fn($field) => $field->get($key),
                 $this->settings['sub_fields'],
             );
         }
-        
+
         if (isset($this->settings['collapsed'], $this->settings['sub_fields'])) {
             foreach ($this->settings['sub_fields'] as $field) {
                 if ($field['name'] === $this->settings['collapsed']) {
@@ -145,13 +145,13 @@ abstract class Field
                 }
             }
         }
-        
+
         $this->settings['key'] ??= Key::generate($key, $this->keyPrefix);
-        
+
         if ($this->customFormatCallback) {
             add_filter("acf/format_value/key={$this->settings['key']}", $this->customFormatCallback, 50, 3);
         }
-        
+
         return $this->settings;
     }
 }
