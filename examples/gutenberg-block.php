@@ -7,7 +7,7 @@
 use Extended\ACF\Fields\PostObject;
 use Extended\ACF\Location;
 
-register_block_type(__DIR__ . '/block.json');
+$block = register_block_type(__DIR__ . '/block.json');
 
 register_extended_field_group([
     'title' => 'Employee Block',
@@ -17,6 +17,6 @@ register_extended_field_group([
             ->format('object'),
     ],
     'location' => [
-        Location::where('block', 'acf/employee'),
+        Location::where('block', $block->name),
     ],
 ]);

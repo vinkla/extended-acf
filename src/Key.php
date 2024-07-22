@@ -58,14 +58,14 @@ class Key
         $parentKeyPieces = explode('_', $parentKey);
 
         while (count($parentKeyPieces) > 1) {
-            array_pop($parentKeyPieces);
-
             $potentialParentKey = implode('_', $parentKeyPieces);
             $potentialKey = $potentialParentKey . '_' . $key;
 
             if (array_key_exists($potentialKey, self::$keys)) {
                 return $potentialParentKey;
             }
+
+            array_pop($parentKeyPieces);
         }
 
         return $parentKey;
