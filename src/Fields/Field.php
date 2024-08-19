@@ -110,21 +110,21 @@ abstract class Field
 
         if (isset($this->settings['conditional_logic'])) {
             $this->settings['conditional_logic'] = array_map(
-                fn($rules) => $rules->get($parentKey),
+                fn($rules) => is_object($rules) ? (clone $rules)->get($parentKey) : $rules,
                 $this->settings['conditional_logic'],
             );
         }
 
         if (isset($this->settings['layouts'])) {
             $this->settings['layouts'] = array_map(
-                fn($layout) => $layout->get($key),
+                fn($layout) => is_object($layout) ? (clone $layout)->get($key) : $layout,
                 $this->settings['layouts'],
             );
         }
 
         if (isset($this->settings['sub_fields'])) {
             $this->settings['sub_fields'] = array_map(
-                fn($field) => $field->get($key),
+                fn($field) => is_object($field) ? (clone $field)->get($key) : $field,
                 $this->settings['sub_fields'],
             );
         }
