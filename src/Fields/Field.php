@@ -62,7 +62,10 @@ abstract class Field
 
     public function dump(...$args): static
     {
-        dump($this->get(), ...$args);
+        $clone = clone $this;
+        $settings = $clone->get();
+
+        dump($settings, ...$args);
 
         return $this;
     }
