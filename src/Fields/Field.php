@@ -62,7 +62,7 @@ abstract class Field
 
     public function dump(...$args): static
     {
-        $clone = clone $this;
+        $clone = $this->deepClone();
         $settings = $clone->get();
 
         dump($settings, ...$args);
@@ -144,5 +144,22 @@ abstract class Field
         $this->settings['key'] ??= Key::generate($key, $this->keyPrefix);
 
         return $this->settings;
+    }
+
+    /**
+     * Deep clone the current object and all nested fields.
+     */
+    protected function deepClone(): static
+    {
+        $clone = clone $this;
+
+        if (isset($this->settings['sub_fields'])) {
+            $clone->settings['sub_fields'] = array_map(
+                fn($field) => $field->deepClone(),
+                $this->settings['sub_fields']
+            );
+        }
+
+        return $clone;
     }
 }
