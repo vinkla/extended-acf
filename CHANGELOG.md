@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 14.2.1
+
+- Updated resolve parent key traversal process
+
 ## 14.2.0
 
 - Added icon picker field
