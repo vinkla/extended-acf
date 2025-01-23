@@ -62,7 +62,9 @@ abstract class Field
 
     public function dump(...$args): static
     {
-        dump($this->get(), ...$args);
+        $settings = $this->cloneRecursively()->get();
+
+        dump($settings, ...$args);
 
         return $this;
     }
@@ -141,5 +143,20 @@ abstract class Field
         $this->settings['key'] ??= Key::generate($key, $this->keyPrefix);
 
         return $this->settings;
+    }
+
+    /** @internal */
+    private function cloneRecursively(): static
+    {
+        $clone = clone $this;
+
+        if (isset($this->settings['sub_fields'])) {
+            $clone->settings['sub_fields'] = array_map(
+                fn(Field $field) => $field->cloneRecursively(),
+                $this->settings['sub_fields'],
+            );
+        }
+
+        return $clone;
     }
 }
