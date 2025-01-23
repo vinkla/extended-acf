@@ -74,6 +74,21 @@ abstract class Field
         dd($this->get(), ...$args);
     }
 
+    /** @internal */
+    private function cloneRecursively(): static
+    {
+        $clone = clone $this;
+
+        if (isset($this->settings['sub_fields'])) {
+            $clone->settings['sub_fields'] = array_map(
+                fn(Field $field) => $field->cloneRecursively(),
+                $this->settings['sub_fields'],
+            );
+        }
+
+        return $clone;
+    }
+
     /**
      * Avoid using custom field keys unless you thoroughly understand them. The
      * field keys are automatically generated when you use the
@@ -143,20 +158,5 @@ abstract class Field
         $this->settings['key'] ??= Key::generate($key, $this->keyPrefix);
 
         return $this->settings;
-    }
-
-    /** @internal */
-    private function cloneRecursively(): static
-    {
-        $clone = clone $this;
-
-        if (isset($this->settings['sub_fields'])) {
-            $clone->settings['sub_fields'] = array_map(
-                fn(Field $field) => $field->cloneRecursively(),
-                $this->settings['sub_fields'],
-            );
-        }
-
-        return $clone;
     }
 }
