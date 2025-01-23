@@ -145,10 +145,7 @@ abstract class Field
         return $this->settings;
     }
 
-    /**
-     * Deep clone the current object and all nested fields.
-     */
-    protected function deepClone(): static
+    private function cloneRecursively(): static
     {
         $clone = clone $this;
 
