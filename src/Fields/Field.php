@@ -144,6 +144,7 @@ abstract class Field
 
         return $this->settings;
     }
+
     /** @internal */
     private function cloneRecursively(): static
     {
@@ -152,7 +153,7 @@ abstract class Field
         if (isset($this->settings['sub_fields'])) {
             $clone->settings['sub_fields'] = array_map(
                 fn(Field $field) => $field->cloneRecursively(),
-                $this->settings['sub_fields']
+                $this->settings['sub_fields'],
             );
         }
 
