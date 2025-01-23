@@ -62,8 +62,7 @@ abstract class Field
 
     public function dump(...$args): static
     {
-        $clone = $this->deepClone();
-        $settings = $clone->get();
+        $settings = $this->cloneRecursively()->get();
 
         dump($settings, ...$args);
 
