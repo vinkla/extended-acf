@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 14.2.2
+
+- Fixed deprecations in PHP 8.4  
+- Updated the dump method to utilize object cloning
+
 ## 14.2.1
 
 - Updated resolve parent key traversal process
