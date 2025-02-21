@@ -63,7 +63,9 @@ abstract class Field
 
   public function dump(...$args): static
   {
-    dump($this->get(), ...$args);
+    $settings = $this->cloneRecursively()->get();
+
+    dump($settings, ...$args);
 
     return $this;
   }
@@ -73,11 +75,19 @@ abstract class Field
     dd($this->get(), ...$args);
   }
 
-  public function customFormat(callable $formatCallback): static
+  /** @internal */
+  private function cloneRecursively(): static
   {
-    $this->customFormatCallback = $formatCallback;
+    $clone = clone $this;
 
-    return $this;
+    if (isset($this->settings['sub_fields'])) {
+      $clone->settings['sub_fields'] = array_map(
+        fn(Field $field) => $field->cloneRecursively(),
+        $this->settings['sub_fields'],
+      );
+    }
+
+    return $clone;
   }
 
   /**
@@ -147,10 +157,6 @@ abstract class Field
     }
 
     $this->settings['key'] ??= Key::generate($key, $this->keyPrefix);
-
-    if ($this->customFormatCallback) {
-      add_filter("acf/format_value/key={$this->settings['key']}", $this->customFormatCallback, 50, 3);
-    }
 
     return $this->settings;
   }

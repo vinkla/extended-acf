@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Extended\ACF\Fields\Checkbox;
-
 use Extended\ACF\Tests\Fields\Settings\Choices;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\DefaultValue;

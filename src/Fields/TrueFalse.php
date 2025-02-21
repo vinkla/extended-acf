@@ -36,7 +36,7 @@ class TrueFalse extends Field
         return $this;
     }
 
-    public function stylized(string $on = null, string $off = null): static
+    public function stylized(?string $on = null, ?string $off = null): static
     {
         $this->settings['ui'] = true;
 
