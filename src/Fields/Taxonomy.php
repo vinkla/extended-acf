@@ -18,6 +18,7 @@ use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Nullable;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
+use Extended\ACF\Fields\Settings\Bidirectional;
 use InvalidArgumentException;
 
 class Taxonomy extends Field
@@ -27,6 +28,7 @@ class Taxonomy extends Field
     use Nullable;
     use Required;
     use Wrapper;
+    use Bidirectional;
 
     protected string|null $type = 'taxonomy';
 

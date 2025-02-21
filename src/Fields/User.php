@@ -19,6 +19,7 @@ use Extended\ACF\Fields\Settings\Multiple;
 use Extended\ACF\Fields\Settings\Nullable;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
+use Extended\ACF\Fields\Settings\Bidirectional;
 use InvalidArgumentException;
 
 class User extends Field
@@ -29,6 +30,7 @@ class User extends Field
     use Nullable;
     use Required;
     use Wrapper;
+    use Bidirectional;
 
     protected string|null $type = 'user';
 
