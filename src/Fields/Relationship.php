@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields;
 
+use Extended\ACF\Fields\Settings\Bidirectional;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\FilterBy;
 use Extended\ACF\Fields\Settings\HelperText;
@@ -23,6 +24,7 @@ use InvalidArgumentException;
 class Relationship extends Field
 {
     use ConditionalLogic;
+    use Bidirectional;
     use FilterBy;
     use HelperText;
     use Required;

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields;
 
+use Extended\ACF\Fields\Settings\Bidirectional;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Multiple;
@@ -24,6 +25,7 @@ use InvalidArgumentException;
 class User extends Field
 {
     use ConditionalLogic;
+    use Bidirectional;
     use HelperText;
     use Multiple;
     use Nullable;
