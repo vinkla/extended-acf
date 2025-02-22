@@ -16,8 +16,9 @@ namespace Extended\ACF\Fields\Settings;
 trait Bidirectional
 {
     /**
-     * Create a bidirectional relationship between two or more fields. Note: this requires setting a custom key for each related field via the `key` method, and passing those related fields' keys to this method.
-     * @see https://www.advancedcustomfields.com/resources/bidirectional-relationships/ for details & caveats
+     * Create a bidirectional relationship between two or more fields. This requires setting a custom key for each
+     * related field using the `key` method and passing the keys of those related fields to this method.
+     * @see https://www.advancedcustomfields.com/resources/bidirectional-relationships/
      */
     public function bidirectional(array|string $keys): static
     {
