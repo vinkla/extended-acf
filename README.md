@@ -351,7 +351,7 @@ PageLink::make('Contact Link')
     ->postStatus(['publish']) // draft, future, pending, private, publish
     ->taxonomies(['category:city'])
     ->disableArchives()
-    ->nullabel()
+    ->nullable()
     ->multiple()
     ->required()
 ```
@@ -365,7 +365,7 @@ PostObject::make('Animal')
     ->helperText('Select an animal')
     ->postTypes(['animal'])
     ->postStatus(['publish']) // draft, future, pending, private, publish
-    ->nullabel()
+    ->nullable()
     ->multiple()
     ->format('object') // id, object (default)
     ->required()
