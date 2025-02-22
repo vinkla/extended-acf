@@ -701,10 +701,10 @@ Relationship::make('Related Project')
   ->bidirectional('field_related_testimonial'),
 ```
 
+To learn more about ACF bidirectional relationships and their caveats, please consult the [official ACF documentation](https://www.advancedcustomfields.com/resources/bidirectional-relationships/).
+
 > [!IMPORTANT]
 We [usually recommend avoiding](#key) the use of custom field keys. This is an exception to that rule. When using bidirectional relationships, you must set custom field keys.
-
-To learn more about ACF bidirectional relationships and their caveats, please consult the [official ACF documentation](https://www.advancedcustomfields.com/resources/bidirectional-relationships/).
 
 ## Non-standards
 
