@@ -683,25 +683,28 @@ Text::make('Sub Title')
 
 ## Bidirectional Relationships
 
-The `bidirectional` method creates a bidirectional relationship between two or more fields. Each field that participates in a bidirectional relationship must use the `key` method to set a custom key, and then pass those related fields' keys to the `bidirectional` method.
+The `bidirectional` method establishes a bidirectional relationship between two or more fields. Each field involved in this relationship must use the `key` method to set a custom key. Then, these related fields' keys should be passed to the `bidirectional` method.
 
 ```php
 use Extended\ACF\Fields\Relationship;
 
-// This field is attached to a "Project" post type:
+// This field is attached to a "Project" post type.
 Relationship::make('Related Testimonial')
   ->postTypes(['testimonial'])
-  ->key('field_project_related_testimonial')
-  ->bidirectional('field_testimonial_related_project'),
+  ->key('field_related_testimonial')
+  ->bidirectional('field_related_project'),
 
-// This field is attached to a "Testimonial" post type:
+// This field is attached to a "Testimonial" post type.
 Relationship::make('Related Project')
   ->postTypes(['project'])
-  ->key('field_testimonial_related_project')
-  ->bidirectional('field_project_related_testimonial'),
+  ->key('field_related_project')
+  ->bidirectional('field_related_testimonial'),
 ```
 
 To learn more about ACF bidirectional relationships and their caveats, please consult the [official ACF documentation](https://www.advancedcustomfields.com/resources/bidirectional-relationships/).
+
+> [!IMPORTANT]
+We [usually recommend avoiding](#key) the use of custom field keys. This is an exception to that rule. When using bidirectional relationships, you must set custom field keys.
 
 ## Non-standards
 
