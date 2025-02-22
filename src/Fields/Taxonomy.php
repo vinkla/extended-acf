@@ -24,11 +24,11 @@ use InvalidArgumentException;
 class Taxonomy extends Field
 {
     use ConditionalLogic;
+    use Bidirectional;
     use HelperText;
     use Nullable;
     use Required;
     use Wrapper;
-    use Bidirectional;
 
     protected string|null $type = 'taxonomy';
 

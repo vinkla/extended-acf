@@ -26,13 +26,13 @@ use InvalidArgumentException;
 class PostObject extends Field
 {
     use ConditionalLogic;
+    use Bidirectional;
     use FilterBy;
     use HelperText;
     use Multiple;
     use Nullable;
     use Required;
     use Wrapper;
-    use Bidirectional;
 
     protected string|null $type = 'post_object';
 

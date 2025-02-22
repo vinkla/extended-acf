@@ -25,12 +25,12 @@ use InvalidArgumentException;
 class User extends Field
 {
     use ConditionalLogic;
+    use Bidirectional;
     use HelperText;
     use Multiple;
     use Nullable;
     use Required;
     use Wrapper;
-    use Bidirectional;
 
     protected string|null $type = 'user';
 

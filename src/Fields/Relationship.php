@@ -24,11 +24,11 @@ use InvalidArgumentException;
 class Relationship extends Field
 {
     use ConditionalLogic;
+    use Bidirectional;
     use FilterBy;
     use HelperText;
     use Required;
     use Wrapper;
-    use Bidirectional;
 
     protected string|null $type = 'relationship';
 
