@@ -683,7 +683,7 @@ Text::make('Sub Title')
 
 ## Bidirectional Relationships
 
-The `bidirectional` method establishes a bidirectional relationship between two or more fields. Each field involved in this relationship must use the `key` method to set a custom key. Then, these related fields' keys should be passed to the `bidirectional` method.
+The `bidirectional` method establishes a bidirectional relationship between two or more fields. Each field involved in this relationship must use the `key` method to set a custom key. Then, the keys of these related fields should be passed to the `bidirectional` method.
 
 ```php
 use Extended\ACF\Fields\Relationship;
