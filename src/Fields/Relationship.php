@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields;
 
+use Extended\ACF\Fields\Settings\Bidirectional;
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\FilterBy;
 use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Required;
 use Extended\ACF\Fields\Settings\Wrapper;
-use Extended\ACF\Fields\Settings\Bidirectional;
 use InvalidArgumentException;
 
 class Relationship extends Field
