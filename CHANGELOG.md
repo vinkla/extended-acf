@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 14.3.0
+
+- Added bidirectional relationship method
+
 ## 14.2.2
 
 - Fixed deprecations in PHP 8.4  
