@@ -726,6 +726,9 @@ Text::make('Text')
     ->column(50) // shorthand for ->wrapper(['width' => 50])
 ```
 
+> [!NOTE]
+> If you plan to use your custom fields in [block patterns](https://developer.wordpress.org/themes/patterns/), we recommend setting all fields to 100% width. The fields appear in the right-hand sidebar, which has limited space.
+
 ### `dd` and `dump`
 
 The `dd` and `dump` methods are non-standard and not available in ACF. These methods are used for debugging. 
