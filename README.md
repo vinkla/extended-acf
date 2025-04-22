@@ -165,7 +165,7 @@ Textarea::make('Biography')
     ->required()
 ```
 
-**URL** - The [URL field](https://www.advancedcustomfields.com/resources/text) creates a simple uRL input.
+**URL** - The [URL field](https://www.advancedcustomfields.com/resources/url/) creates a simple uRL input.
 
 ```php
 use Extended\ACF\Fields\URL;
