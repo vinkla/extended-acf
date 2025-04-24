@@ -401,11 +401,10 @@ Taxonomy::make('Cinemas')
     ->helperText('Select one or more cinema terms.')
     ->taxonomy('cinema')
     ->appearance('checkbox') // checkbox, multi_select, radio, select
-    ->format('id') // object, id (default)
     ->create(false) // false or true (default)
     ->load(true) // true or false (default)
     ->save(true) // true or false (default)x
-    ->format('id'), // object or id (default)
+    ->format('id'), // object, id (default)
 ```
 
 **User** - The user field creates a select field for all your users.
