@@ -55,6 +55,25 @@ class Select extends Field
         return $this;
     }
 
+    public function create(): static
+    {
+        $this->settings['ui'] = true;
+        $this->settings['multiple'] = true;
+        $this->settings['create_options'] = true;
+
+        return $this;
+    }
+
+    public function save(): static
+    {
+        $this->settings['ui'] = true;
+        $this->settings['multiple'] = true;
+        $this->settings['create_options'] = true;
+        $this->settings['save_options'] = true;
+
+        return $this;
+    }
+
     /**
      * @param string $format array, label, value
      * @throws \InvalidArgumentException
