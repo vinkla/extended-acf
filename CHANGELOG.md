@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 14.4.0
+
+- Added `create` method to select field
+- Added `save` method to select field
+
 ## 14.3.0
 
 - Added bidirectional relationship method
