@@ -314,6 +314,8 @@ Select::make('Color')
     ->nullable()
     ->stylized() // stylized checkbox using select2
     ->lazyLoad() // use AJAX to lazy load choices
+    ->create() // allow creation of new options
+    ->save() // save new options to the choices
     ->required()
 ```
 

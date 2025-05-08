@@ -65,4 +65,21 @@ class SelectTest extends FieldTestCase
         $this->assertTrue($field['ui']);
         $this->assertTrue($field['ajax']);
     }
+
+    public function testCreate()
+    {
+        $field = Select::make('Select Create')->create()->get();
+        $this->assertTrue($field['ui']);
+        $this->assertTrue($field['multiple']);
+        $this->assertTrue($field['create_options']);
+    }
+
+    public function testSave()
+    {
+        $field = Select::make('Select Save')->save()->get();
+        $this->assertTrue($field['ui']);
+        $this->assertTrue($field['multiple']);
+        $this->assertTrue($field['create_options']);
+        $this->assertTrue($field['save_options']);
+    }
 }
