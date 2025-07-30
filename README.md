@@ -443,6 +443,7 @@ DatePicker::make('Birthday')
     ->helperText('Add the employee\'s birthday.')
     ->displayFormat('d/m/Y')
     ->format('d/m/Y')
+    ->defaultNow() // default to current date
     ->required()
 ```
 
@@ -480,6 +481,7 @@ DateTimePicker::make('Event Date', 'date')
     ->displayFormat('d-m-Y H:i')
     ->format('d-m-Y H:i')
     ->firstDayOfWeek(1) // Sunday is 0, Monday is 1, or use `weekStartsOnMonday` or `weekStartsOnSunday`
+    ->defaultNow() // default to current date
     ->required()
 ```
 

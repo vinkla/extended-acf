@@ -16,6 +16,7 @@ namespace Extended\ACF\Tests\Fields;
 use Extended\ACF\Fields\DateTimePicker;
 use Extended\ACF\Tests\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Tests\Fields\Settings\DateTimeFormat;
+use Extended\ACF\Tests\Fields\Settings\DefaultNow;
 use Extended\ACF\Tests\Fields\Settings\Disabled;
 use Extended\ACF\Tests\Fields\Settings\HelperText;
 use Extended\ACF\Tests\Fields\Settings\Immutable;
@@ -27,6 +28,7 @@ class DateTimePickerTest extends FieldTestCase
 {
     use ConditionalLogic;
     use DateTimeFormat;
+    use DefaultNow;
     use Disabled;
     use HelperText;
     use Immutable;
