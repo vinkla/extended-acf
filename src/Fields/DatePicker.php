@@ -15,6 +15,7 @@ namespace Extended\ACF\Fields;
 
 use Extended\ACF\Fields\Settings\ConditionalLogic;
 use Extended\ACF\Fields\Settings\DateTimeFormat;
+use Extended\ACF\Fields\Settings\DefaultNow;
 use Extended\ACF\Fields\Settings\Disabled;
 use Extended\ACF\Fields\Settings\HelperText;
 use Extended\ACF\Fields\Settings\Immutable;
@@ -26,6 +27,7 @@ class DatePicker extends Field
 {
     use ConditionalLogic;
     use DateTimeFormat;
+    use DefaultNow;
     use Disabled;
     use HelperText;
     use Immutable;
