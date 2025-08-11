@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 14.5.0
+
+- Added `defaultNow` method to date picker fields 
+
 ## 14.4.0
 
 - Added `create` method to select field
