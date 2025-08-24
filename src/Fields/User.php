@@ -32,7 +32,7 @@ class User extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'user';
+    protected ?string $type = 'user';
 
     /**
      * @param string $format array, id, object

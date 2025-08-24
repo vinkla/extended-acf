@@ -28,7 +28,7 @@ class IconPicker extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'icon_picker';
+    protected ?string $type = 'icon_picker';
 
     /**
      * @param string $format array, string

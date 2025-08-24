@@ -34,7 +34,7 @@ class PostObject extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'post_object';
+    protected ?string $type = 'post_object';
 
     /**
      * @param string $format id, object

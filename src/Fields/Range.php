@@ -37,5 +37,5 @@ class Range extends Field
     use Step;
     use Wrapper;
 
-    protected string|null $type = 'range';
+    protected ?string $type = 'range';
 }

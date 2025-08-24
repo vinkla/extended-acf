@@ -36,7 +36,7 @@ class Gallery extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'gallery';
+    protected ?string $type = 'gallery';
 
     /**
      * @param string $format array, id, url

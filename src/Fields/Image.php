@@ -36,7 +36,7 @@ class Image extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'image';
+    protected ?string $type = 'image';
 
     /**
      * @param string $format array, id, url

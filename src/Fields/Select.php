@@ -38,7 +38,7 @@ class Select extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'select';
+    protected ?string $type = 'select';
 
     public function stylized(): static
     {

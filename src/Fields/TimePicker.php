@@ -31,5 +31,5 @@ class TimePicker extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'time_picker';
+    protected ?string $type = 'time_picker';
 }

@@ -32,7 +32,7 @@ class ButtonGroup extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'button_group';
+    protected ?string $type = 'button_group';
 
     /**
      * @param string $format array, label, value

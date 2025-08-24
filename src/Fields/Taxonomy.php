@@ -30,7 +30,7 @@ class Taxonomy extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'taxonomy';
+    protected ?string $type = 'taxonomy';
 
     /**
      * @param string $type checkbox, multi_select, select, radio

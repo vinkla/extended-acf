@@ -32,7 +32,7 @@ class File extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'file';
+    protected ?string $type = 'file';
 
     /**
      * @param string $format array, id, url

@@ -36,7 +36,7 @@ class RadioButton extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'radio';
+    protected ?string $type = 'radio';
 
     /**
      * @param string $format array, label, value

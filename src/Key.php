@@ -53,7 +53,7 @@ class Key
         return str_replace('-', '_', sanitize_title($key));
     }
 
-    public static function resolveParentKey(string|null $parentKey, string $key): string
+    public static function resolveParentKey(?string $parentKey, string $key): string
     {
         $parentKeyPieces = explode('_', $parentKey);
 

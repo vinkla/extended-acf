@@ -28,7 +28,7 @@ class WYSIWYGEditor extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'wysiwyg';
+    protected ?string $type = 'wysiwyg';
 
     public function lazyLoad(): static
     {

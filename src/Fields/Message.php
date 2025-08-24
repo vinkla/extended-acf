@@ -21,7 +21,7 @@ class Message extends Field
     use ConditionalLogic;
     use NewLines;
 
-    protected string|null $type = 'message';
+    protected ?string $type = 'message';
 
     public function body(string $text): static
     {

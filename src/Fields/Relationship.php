@@ -30,7 +30,7 @@ class Relationship extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'relationship';
+    protected ?string $type = 'relationship';
 
     public function elements(array $elements): static
     {

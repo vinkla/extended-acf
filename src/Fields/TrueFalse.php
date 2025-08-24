@@ -27,7 +27,7 @@ class TrueFalse extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'true_false';
+    protected ?string $type = 'true_false';
 
     public function message(string $text): static
     {

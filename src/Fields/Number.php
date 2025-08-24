@@ -39,5 +39,5 @@ class Number extends Field
     use Step;
     use Wrapper;
 
-    protected string|null $type = 'number';
+    protected ?string $type = 'number';
 }

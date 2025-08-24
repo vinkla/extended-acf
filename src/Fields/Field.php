@@ -20,9 +20,9 @@ abstract class Field
 {
     protected array $settings;
     protected string $keyPrefix = 'field';
-    protected string|null $type = null;
+    protected ?string $type = null;
 
-    public function __construct(string $label, string|null $name = null)
+    public function __construct(string $label, ?string $name = null)
     {
         $this->settings = [
             'label' => $label,
@@ -30,7 +30,7 @@ abstract class Field
         ];
     }
 
-    public static function make(string $label, string|null $name = null): static
+    public static function make(string $label, ?string $name = null): static
     {
         return new static($label, $name);
     }
@@ -115,11 +115,11 @@ abstract class Field
     }
 
     /** @internal */
-    public function get(string|null $parentKey = null): array
+    public function get(?string $parentKey = null): array
     {
-        $key =
-            $this->settings['key'] ??
-            $parentKey . '_' . Key::sanitize($this->settings['name']);
+        $key
+            = $this->settings['key']
+            ?? $parentKey . '_' . Key::sanitize($this->settings['name']);
 
         if ($this->type !== null) {
             $this->settings['type'] = $this->type;

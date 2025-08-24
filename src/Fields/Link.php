@@ -26,7 +26,7 @@ class Link extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'link';
+    protected ?string $type = 'link';
 
     /**
      * @param string $format array, url

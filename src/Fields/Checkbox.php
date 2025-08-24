@@ -34,7 +34,7 @@ class Checkbox extends Field
     use Required;
     use Wrapper;
 
-    protected string|null $type = 'checkbox';
+    protected ?string $type = 'checkbox';
 
     /**
      * @param string $format array, label, value
