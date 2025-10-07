@@ -2,6 +2,11 @@
 
 ## 14.5.0
 
+- Added `palette` method to color picker field
+- Added `disableColorWheel` method to color picker field
+
+## 14.5.0
+
 - Added `defaultNow` method to date picker fields 
 
 ## 14.4.0

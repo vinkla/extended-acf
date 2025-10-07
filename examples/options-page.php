@@ -20,7 +20,7 @@ register_extended_field_group([
     'fields' => [
         WYSIWYGEditor::make('Text', 'cookie_text')
             ->helperText('Add the cookie disclaimer text.')
-            ->disableMediaUpload(false)
+            ->disableMediaUpload()
             ->tabs('visual')
             ->required(),
         Text::make('Label', 'cookie_label')
