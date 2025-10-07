@@ -60,7 +60,7 @@ class ColorPicker extends Field
     public function palette(array $colors = [], string $source = 'custom'): static
     {
         if (!in_array($source, ['custom', 'themejson'])) {
-            throw new InvalidArgumentException("Invalid palette source [$source]. Must be 'custom' or 'themejson'.");
+            throw new InvalidArgumentException("Invalid palette source [$source].");
         }
 
         $this->settings['show_custom_palette'] = 1;

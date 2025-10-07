@@ -74,7 +74,7 @@ class ColorPickerTest extends FieldTestCase
     public function testPaletteWithInvalidSource()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage("Invalid palette source [invalid]. Must be 'custom' or 'themejson'.");
+        $this->expectExceptionMessage("Invalid palette source [invalid].");
 
         ColorPicker::make('Invalid Palette')->palette(source: 'invalid')->get();
     }
