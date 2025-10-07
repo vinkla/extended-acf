@@ -431,6 +431,8 @@ ColorPicker::make('Text Color')
     ->default('#4a9cff')
     ->opacity()
     ->format('string') // array, string (default)
+    ->palette(['#111111', '#222222', '#333333']) // custom color palette
+    ->disableColorWheel() // restrict to palette colors only
     ->required()
 ```
 

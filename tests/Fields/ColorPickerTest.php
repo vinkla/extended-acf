@@ -48,4 +48,43 @@ class ColorPickerTest extends FieldTestCase
 
         ColorPicker::make('Invalid Format')->format('test')->get();
     }
+
+    public function testPaletteWithCustomColors()
+    {
+        $field = ColorPicker::make('Brand Color')
+            ->palette(['#111111', '#222222', '#333333'])
+            ->get();
+
+        $this->assertSame(1, $field['show_custom_palette']);
+        $this->assertSame('custom', $field['custom_palette_source']);
+        $this->assertSame('#111111,#222222,#333333', $field['palette_colors']);
+    }
+
+    public function testPaletteWithThemeJson()
+    {
+        $field = ColorPicker::make('Theme Color')
+            ->palette(source: 'themejson')
+            ->get();
+
+        $this->assertSame(1, $field['show_custom_palette']);
+        $this->assertSame('themejson', $field['custom_palette_source']);
+        $this->assertArrayNotHasKey('palette_colors', $field);
+    }
+
+    public function testPaletteWithInvalidSource()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage("Invalid palette source [invalid]. Must be 'custom' or 'themejson'.");
+
+        ColorPicker::make('Invalid Palette')->palette(source: 'invalid')->get();
+    }
+
+    public function testDisableColorWheel()
+    {
+        $field = ColorPicker::make('Restricted Color')
+            ->disableColorWheel()
+            ->get();
+
+        $this->assertFalse($field['show_color_wheel']);
+    }
 }

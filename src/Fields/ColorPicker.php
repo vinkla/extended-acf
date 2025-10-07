@@ -51,4 +51,32 @@ class ColorPicker extends Field
 
         return $this;
     }
+
+    /**
+     * @param string[] $colors hex or rgba values
+     * @param string $source themejson, custom
+     * @throws \InvalidArgumentException
+     */
+    public function palette(array $colors = [], string $source = 'custom'): static
+    {
+        if (!in_array($source, ['custom', 'themejson'])) {
+            throw new InvalidArgumentException("Invalid palette source [$source]. Must be 'custom' or 'themejson'.");
+        }
+
+        $this->settings['show_custom_palette'] = 1;
+        $this->settings['custom_palette_source'] = $source;
+
+        if ($source === 'custom' && !empty($colors)) {
+            $this->settings['palette_colors'] = implode(',', $colors);
+        }
+
+        return $this;
+    }
+
+    public function disableColorWheel(): static
+    {
+        $this->settings['show_color_wheel'] = false;
+
+        return $this;
+    }
 }
