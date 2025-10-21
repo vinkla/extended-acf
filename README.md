@@ -57,7 +57,7 @@ use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Location;
 
-add_action('acf/init', function() {
+add_action('acf/include_fields', function() {
     register_extended_field_group([
         'title' => 'About',
         'fields' => [
