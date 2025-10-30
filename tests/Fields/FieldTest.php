@@ -83,4 +83,23 @@ class FieldTest extends TestCase
 
         VarDumper::setHandler(null);
     }
+
+    public function testSettingsPropertyIsReadable()
+    {
+        $field = Text::make('Settings Test', 'settings_test');
+        
+        $this->assertIsArray($field->settings);
+        $this->assertSame('Settings Test', $field->settings['label']);
+        $this->assertSame('settings_test', $field->settings['name']);
+    }
+
+    public function testSettingsPropertyCannotBeModifiedExternally()
+    {
+        $field = Text::make('Settings Write Test');
+        
+        $this->expectException(\Error::class);
+        $this->expectExceptionMessage('Cannot modify protected(set) property');
+        $field->settings = ['label' => 'Modified'];
+    }
 }
+
