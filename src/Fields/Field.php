@@ -22,9 +22,8 @@ abstract class Field
 {
     use Macroable;
 
-    protected array $settings;
+    public protected(set) array $settings;
     protected string $keyPrefix = 'field';
-    protected ?string $type = null;
 
     public function __construct(string $label, ?string $name = null)
     {
@@ -125,8 +124,13 @@ abstract class Field
             = $this->settings['key']
             ?? $parentKey . '_' . Key::sanitize($this->settings['name']);
 
-        if ($this->type !== null) {
-            $this->settings['type'] = $this->type;
+        // Child classes may define a $type property
+        if (property_exists($this, 'type')) {
+            /** @var ?string $type */
+            $type = $this->{'type'};
+            if ($type !== null) {
+                $this->settings['type'] = $type;
+            }
         }
 
         if (isset($this->settings['conditional_logic'])) {
