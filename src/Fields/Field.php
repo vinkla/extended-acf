@@ -124,13 +124,8 @@ abstract class Field
             = $this->settings['key']
             ?? $parentKey . '_' . Key::sanitize($this->settings['name']);
 
-        // Child classes may define a $type property
-        if (property_exists($this, 'type')) {
-            /** @var ?string $type */
-            $type = $this->{'type'};
-            if ($type !== null) {
-                $this->settings['type'] = $type;
-            }
+        if (isset($this->type)) {
+            $this->settings['type'] = $this->type;
         }
 
         if (isset($this->settings['conditional_logic'])) {
