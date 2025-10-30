@@ -18,9 +18,8 @@ use InvalidArgumentException;
 
 abstract class Field
 {
-    protected array $settings;
+    public protected(set) array $settings;
     protected string $keyPrefix = 'field';
-    protected ?string $type = null;
 
     public function __construct(string $label, ?string $name = null)
     {
@@ -117,11 +116,9 @@ abstract class Field
     /** @internal */
     public function get(?string $parentKey = null): array
     {
-        $key
-            = $this->settings['key']
-            ?? $parentKey . '_' . Key::sanitize($this->settings['name']);
+        $key = $this->settings['key'] ?? $parentKey . '_' . Key::sanitize($this->settings['name']);
 
-        if ($this->type !== null) {
+        if (isset($this->type)) {
             $this->settings['type'] = $this->type;
         }
 
