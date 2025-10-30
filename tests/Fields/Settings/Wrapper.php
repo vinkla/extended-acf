@@ -17,22 +17,22 @@ trait Wrapper
 {
     public function testWrapper()
     {
-        $field = $this->make('Status')->wrapper(['id' => 'status'])->get();
+        $field = $this->make('Status')->wrapper(['id' => 'status'])->toArray();
         $this->assertSame(['id' => 'status'], $field['wrapper']);
     }
 
     public function testColumn()
     {
-        $field = $this->make('Column 60')->column(60)->get();
+        $field = $this->make('Column 60')->column(60)->toArray();
         $this->assertSame(60, $field['wrapper']['width']);
 
-        $field = $this->make('Column 70')->wrapper(['width' => 50])->column(70)->get();
+        $field = $this->make('Column 70')->wrapper(['width' => 50])->column(70)->toArray();
         $this->assertSame(70, $field['wrapper']['width']);
 
-        $field = $this->make('Column 80')->column(50)->wrapper(['width' => 80])->get();
+        $field = $this->make('Column 80')->column(50)->wrapper(['width' => 80])->toArray();
         $this->assertSame(80, $field['wrapper']['width']);
 
-        $field = $this->make('Column 90')->column(90)->wrapper(['class' => 'column'])->get();
+        $field = $this->make('Column 90')->column(90)->wrapper(['class' => 'column'])->toArray();
         $this->assertSame(90, $field['wrapper']['width']);
     }
 }

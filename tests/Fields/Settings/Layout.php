@@ -19,12 +19,12 @@ trait Layout
 {
     public function testLayout()
     {
-        $field = $this->make('Layout')->layout('block')->get();
+        $field = $this->make('Layout')->layout('block')->toArray();
         $this->assertSame('block', $field['layout']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument layout [test].');
 
-        $this->make('Invalid Layout')->layout('test')->get();
+        $this->make('Invalid Layout')->layout('test')->toArray();
     }
 }

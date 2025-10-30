@@ -33,13 +33,13 @@ class TrueFalseTest extends FieldTestCase
 
     public function testMessage()
     {
-        $field = TrueFalse::make('Content')->message('Adam Whatan')->get();
+        $field = TrueFalse::make('Content')->message('Adam Whatan')->toArray();
         $this->assertSame('Adam Whatan', $field['message']);
     }
 
     public function testStylized()
     {
-        $field = TrueFalse::make('Stylized')->stylized(off: 'Wax off')->get();
+        $field = TrueFalse::make('Stylized')->stylized(off: 'Wax off')->toArray();
         $this->assertTrue($field['ui']);
         $this->assertArrayNotHasKey('ui_on_text', $field);
         $this->assertEquals($field['ui_off_text'], 'Wax off');

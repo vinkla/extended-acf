@@ -19,12 +19,12 @@ trait NewLines
 {
     public function testNewLines()
     {
-        $field = $this->make('Description')->newLines('br')->get();
+        $field = $this->make('Description')->newLines('br')->toArray();
         $this->assertSame('br', $field['new_lines']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument new lines [test].');
 
-        $this->make('Message')->newLines('test')->get();
+        $this->make('Message')->newLines('test')->toArray();
     }
 }

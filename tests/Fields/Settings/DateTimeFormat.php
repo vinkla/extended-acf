@@ -17,13 +17,13 @@ trait DateTimeFormat
 {
     public function testDisplayFormat()
     {
-        $field = $this->make('Display Format')->displayFormat('ymd')->get();
+        $field = $this->make('Display Format')->displayFormat('ymd')->toArray();
         $this->assertSame('ymd', $field['display_format']);
     }
 
     public function testReturnFormat()
     {
-        $field = $this->make('Format')->format('ymd')->get();
+        $field = $this->make('Format')->format('ymd')->toArray();
         $this->assertSame('ymd', $field['return_format']);
     }
 }

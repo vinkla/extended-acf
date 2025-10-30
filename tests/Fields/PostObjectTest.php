@@ -38,12 +38,12 @@ class PostObjectTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = PostObject::make('Post Object Format')->format('id')->get();
+        $field = PostObject::make('Post Object Format')->format('id')->toArray();
         $this->assertSame('id', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        PostObject::make('Invalid Format')->format('test')->get();
+        PostObject::make('Invalid Format')->format('test')->toArray();
     }
 }
