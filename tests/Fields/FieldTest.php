@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Tests\Fields;
 
+use Error;
 use Extended\ACF\Fields\Text;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
@@ -87,7 +88,7 @@ class FieldTest extends TestCase
     public function testSettingsPropertyIsReadable()
     {
         $field = Text::make('Settings Test', 'settings_test');
-        
+
         $this->assertIsArray($field->settings);
         $this->assertSame('Settings Test', $field->settings['label']);
         $this->assertSame('settings_test', $field->settings['name']);
@@ -96,10 +97,9 @@ class FieldTest extends TestCase
     public function testSettingsPropertyCannotBeModifiedExternally()
     {
         $field = Text::make('Settings Write Test');
-        
-        $this->expectException(\Error::class);
+
+        $this->expectException(Error::class);
         $this->expectExceptionMessage('Cannot modify protected(set) property');
         $field->settings = ['label' => 'Modified'];
     }
 }
-

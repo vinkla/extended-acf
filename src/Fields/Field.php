@@ -84,7 +84,7 @@ abstract class Field
 
         if (isset($this->settings['sub_fields'])) {
             $clone->settings['sub_fields'] = array_map(
-                fn(Field $field) => $field->cloneRecursively(),
+                fn (Field $field) => $field->cloneRecursively(),
                 $this->settings['sub_fields'],
             );
         }
@@ -120,9 +120,7 @@ abstract class Field
     /** @internal */
     public function toArray(?string $parentKey = null): array
     {
-        $key
-            = $this->settings['key']
-            ?? $parentKey . '_' . Key::sanitize($this->settings['name']);
+        $key = $this->settings['key'] ?? $parentKey . '_' . Key::sanitize($this->settings['name']);
 
         if (isset($this->type)) {
             $this->settings['type'] = $this->type;
