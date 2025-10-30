@@ -19,7 +19,7 @@ trait DirectionLayout
 {
     public function testLayout()
     {
-        $field = $this->make('Layout')->layout('horizontal')->get();
+        $field = $this->make('Layout')->layout('horizontal')->toArray();
         $this->assertSame('horizontal', $field['layout']);
 
         $this->expectException(InvalidArgumentException::class);

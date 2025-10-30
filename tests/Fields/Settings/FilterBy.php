@@ -19,22 +19,22 @@ trait FilterBy
 {
     public function testPostStatus()
     {
-        $field = $this->make('Post Status')->postStatus(['publish'])->get();
+        $field = $this->make('Post Status')->postStatus(['publish'])->toArray();
         $this->assertSame(['publish'], $field['post_status']);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->make('Invalid Post Status')->postStatus(['invalid'])->get();
+        $this->make('Invalid Post Status')->postStatus(['invalid'])->toArray();
     }
 
     public function testPostTypes()
     {
-        $field = $this->make('Filter Post Type')->postTypes(['page'])->get();
+        $field = $this->make('Filter Post Type')->postTypes(['page'])->toArray();
         $this->assertSame(['page'], $field['post_type']);
     }
 
     public function testTaxonomies()
     {
-        $field = $this->make('Filter Taxonomy')->taxonomies(['category:untitled'])->get();
+        $field = $this->make('Filter Taxonomy')->taxonomies(['category:untitled'])->toArray();
         $this->assertSame(['category:untitled'], $field['taxonomy']);
     }
 }

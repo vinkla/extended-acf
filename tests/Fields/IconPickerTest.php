@@ -34,23 +34,23 @@ class IconPickerTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = IconPicker::make('Icon Picker Format')->format('array')->get();
+        $field = IconPicker::make('Icon Picker Format')->format('array')->toArray();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        IconPicker::make('Invalid Format')->format('test')->get();
+        IconPicker::make('Invalid Format')->format('test')->toArray();
     }
 
     public function testTabs()
     {
-        $field = IconPicker::make('Icon Picker Tabs')->tabs(['dashicons'])->get();
+        $field = IconPicker::make('Icon Picker Tabs')->tabs(['dashicons'])->toArray();
         $this->assertSame(['dashicons'], $field['tabs']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument tab [test].');
 
-        $field = IconPicker::make('Invalid Tab')->tabs(['test'])->get();
+        $field = IconPicker::make('Invalid Tab')->tabs(['test'])->toArray();
     }
 }

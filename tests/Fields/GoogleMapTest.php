@@ -33,14 +33,14 @@ class GoogleMapTest extends FieldTestCase
 
     public function testCenter()
     {
-        $field = GoogleMap::make('Google Map Center')->center(11.11, 22.22)->get();
+        $field = GoogleMap::make('Google Map Center')->center(11.11, 22.22)->toArray();
         $this->assertSame(11.11, $field['center_lat']);
         $this->assertSame(22.22, $field['center_lng']);
     }
 
     public function testZoom()
     {
-        $field = GoogleMap::make('Google Map Zoom')->zoom(14)->get();
+        $field = GoogleMap::make('Google Map Zoom')->zoom(14)->toArray();
         $this->assertSame(14, $field['zoom']);
     }
 }

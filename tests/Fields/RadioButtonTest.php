@@ -42,12 +42,12 @@ class RadioButtonTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = RadioButton::make('Radio Button Format')->format('label')->get();
+        $field = RadioButton::make('Radio Button Format')->format('label')->toArray();
         $this->assertSame('label', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        RadioButton::make('Invalid Format')->format('test')->get();
+        RadioButton::make('Invalid Format')->format('test')->toArray();
     }
 }

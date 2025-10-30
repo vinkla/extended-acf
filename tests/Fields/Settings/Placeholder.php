@@ -17,7 +17,7 @@ trait Placeholder
 {
     public function testPlaceholder()
     {
-        $field = $this->make('Placeholder')->placeholder('Jeffrey Way')->get();
+        $field = $this->make('Placeholder')->placeholder('Jeffrey Way')->toArray();
         $this->assertSame('Jeffrey Way', $field['placeholder']);
     }
 }

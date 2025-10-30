@@ -40,12 +40,12 @@ class CheckboxTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = Checkbox::make('Checkbox Format')->format('array')->get();
+        $field = Checkbox::make('Checkbox Format')->format('array')->toArray();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        Checkbox::make('Invalid Format')->format('test')->get();
+        Checkbox::make('Invalid Format')->format('test')->toArray();
     }
 }

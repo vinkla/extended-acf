@@ -32,12 +32,12 @@ class LinkTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = Link::make('Link Format')->format('array')->get();
+        $field = Link::make('Link Format')->format('array')->toArray();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        Link::make('Invalid Format')->format('test')->get();
+        Link::make('Invalid Format')->format('test')->toArray();
     }
 }

@@ -17,7 +17,7 @@ trait Disabled
 {
     public function testDisabled()
     {
-        $field = $this->make('Disabled')->disabled()->get();
+        $field = $this->make('Disabled')->disabled()->toArray();
         $this->assertTrue($field['disabled']);
     }
 }

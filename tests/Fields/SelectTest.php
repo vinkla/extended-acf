@@ -44,31 +44,31 @@ class SelectTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = Select::make('Select Format')->format('array')->get();
+        $field = Select::make('Select Format')->format('array')->toArray();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        Select::make('Invalid Format')->format('test')->get();
+        Select::make('Invalid Format')->format('test')->toArray();
     }
 
     public function testStylized()
     {
-        $field = Select::make('Select Stylized')->stylized()->get();
+        $field = Select::make('Select Stylized')->stylized()->toArray();
         $this->assertTrue($field['ui']);
     }
 
     public function testLazyLoad()
     {
-        $field = Select::make('Select Lazy Load')->lazyLoad()->get();
+        $field = Select::make('Select Lazy Load')->lazyLoad()->toArray();
         $this->assertTrue($field['ui']);
         $this->assertTrue($field['ajax']);
     }
 
     public function testCreate()
     {
-        $field = Select::make('Select Create')->create()->get();
+        $field = Select::make('Select Create')->create()->toArray();
         $this->assertTrue($field['ui']);
         $this->assertTrue($field['multiple']);
         $this->assertTrue($field['create_options']);
@@ -76,7 +76,7 @@ class SelectTest extends FieldTestCase
 
     public function testSave()
     {
-        $field = Select::make('Select Save')->save()->get();
+        $field = Select::make('Select Save')->save()->toArray();
         $this->assertTrue($field['ui']);
         $this->assertTrue($field['multiple']);
         $this->assertTrue($field['create_options']);

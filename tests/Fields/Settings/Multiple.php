@@ -17,7 +17,7 @@ trait Multiple
 {
     public function testMultiple()
     {
-        $field = $this->make('Multiple')->multiple()->get();
+        $field = $this->make('Multiple')->multiple()->toArray();
         $this->assertTrue($field['multiple']);
     }
 }

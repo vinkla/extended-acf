@@ -26,36 +26,36 @@ class LayoutTest extends FieldTestCase
 
     public function testType()
     {
-        $field = Layout::make('Layout Type')->get();
+        $field = Layout::make('Layout Type')->toArray();
         $this->assertArrayNotHasKey('type', $field);
     }
 
     public function testKeyPrefix()
     {
-        $field = Layout::make('Key Prefix')->get();
+        $field = Layout::make('Key Prefix')->toArray();
         $this->assertStringStartsWith('layout_', $field['key']);
     }
 
     public function testLayout()
     {
-        $field = Layout::make('Layout')->layout('table')->get();
+        $field = Layout::make('Layout')->layout('table')->toArray();
         $this->assertSame('table', $field['display']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument layout [test].');
 
-        Layout::make('Invalid Layout')->layout('test')->get();
+        Layout::make('Invalid Layout')->layout('test')->toArray();
     }
 
     public function testMaxInstances()
     {
-        $field = Layout::make('Max Instances')->maxInstances(10)->get();
+        $field = Layout::make('Max Instances')->maxInstances(10)->toArray();
         $this->assertSame(10, $field['max']);
     }
 
     public function testMinInstances()
     {
-        $field = Layout::make('Min Instances')->minInstances(5)->get();
+        $field = Layout::make('Min Instances')->minInstances(5)->toArray();
         $this->assertSame(5, $field['min']);
     }
 }

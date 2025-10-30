@@ -34,26 +34,26 @@ class ColorPickerTest extends FieldTestCase
 
     public function testOpacity()
     {
-        $field = ColorPicker::make('Opacity')->opacity()->get();
+        $field = ColorPicker::make('Opacity')->opacity()->toArray();
         $this->assertTrue($field['enable_opacity']);
     }
 
     public function testFormat()
     {
-        $field = ColorPicker::make('Color Picker Format')->format('array')->get();
+        $field = ColorPicker::make('Color Picker Format')->format('array')->toArray();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        ColorPicker::make('Invalid Format')->format('test')->get();
+        ColorPicker::make('Invalid Format')->format('test')->toArray();
     }
 
     public function testPaletteWithCustomColors()
     {
         $field = ColorPicker::make('Brand Color')
             ->palette(['#111111', '#222222', '#333333'])
-            ->get();
+            ->toArray();
 
         $this->assertSame(1, $field['show_custom_palette']);
         $this->assertSame('custom', $field['custom_palette_source']);
@@ -64,7 +64,7 @@ class ColorPickerTest extends FieldTestCase
     {
         $field = ColorPicker::make('Theme Color')
             ->palette(source: 'themejson')
-            ->get();
+            ->toArray();
 
         $this->assertSame(1, $field['show_custom_palette']);
         $this->assertSame('themejson', $field['custom_palette_source']);
@@ -76,14 +76,14 @@ class ColorPickerTest extends FieldTestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("Invalid palette source [invalid].");
 
-        ColorPicker::make('Invalid Palette')->palette(source: 'invalid')->get();
+        ColorPicker::make('Invalid Palette')->palette(source: 'invalid')->toArray();
     }
 
     public function testDisableColorWheel()
     {
         $field = ColorPicker::make('Restricted Color')
             ->disableColorWheel()
-            ->get();
+            ->toArray();
 
         $this->assertFalse($field['show_color_wheel']);
     }

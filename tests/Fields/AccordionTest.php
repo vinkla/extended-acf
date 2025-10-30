@@ -27,13 +27,13 @@ class AccordionTest extends FieldTestCase
 
     public function testMultiExpand()
     {
-        $field = Accordion::make('Multi Expand')->multiExpand()->get();
+        $field = Accordion::make('Multi Expand')->multiExpand()->toArray();
         $this->assertTrue($field['multi_expand']);
     }
 
     public function testOpen()
     {
-        $field = Accordion::make('Open')->open()->get();
+        $field = Accordion::make('Open')->open()->toArray();
         $this->assertTrue($field['open']);
     }
 }

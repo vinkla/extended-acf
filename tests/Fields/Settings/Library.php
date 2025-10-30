@@ -19,12 +19,12 @@ trait Library
 {
     public function testLibrary()
     {
-        $field = $this->make('Library')->library('all')->get();
+        $field = $this->make('Library')->library('all')->toArray();
         $this->assertSame('all', $field['library']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument library [test].');
 
-        $this->make('Invalid Library')->library('test')->get();
+        $this->make('Invalid Library')->library('test')->toArray();
     }
 }

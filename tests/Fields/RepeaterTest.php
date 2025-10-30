@@ -43,14 +43,14 @@ class RepeaterTest extends FieldTestCase
                 Text::make('Title'),
             ])
             ->collapsed('title')
-            ->get();
+            ->toArray();
 
         $this->assertSame('field_eedb3216', $field['collapsed']);
     }
 
     public function testPaginated()
     {
-        $field = Repeater::make('Paginated')->paginated(10)->get();
+        $field = Repeater::make('Paginated')->paginated(10)->toArray();
 
         $this->assertTrue($field['pagination']);
         $this->assertSame(10, $field['rows_per_page']);
@@ -58,13 +58,13 @@ class RepeaterTest extends FieldTestCase
 
     public function testMaxRows()
     {
-        $field = Repeater::make('Max Rows')->maxRows(10)->get();
+        $field = Repeater::make('Max Rows')->maxRows(10)->toArray();
         $this->assertSame(10, $field['max']);
     }
 
     public function testMinRows()
     {
-        $field = Repeater::make('Min Rows')->minRows(5)->get();
+        $field = Repeater::make('Min Rows')->minRows(5)->toArray();
         $this->assertSame(5, $field['min']);
     }
 }

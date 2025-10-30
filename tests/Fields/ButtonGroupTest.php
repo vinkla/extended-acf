@@ -38,12 +38,12 @@ class ButtonGroupTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = ButtonGroup::make('Button Group Format')->format('array')->get();
+        $field = ButtonGroup::make('Button Group Format')->format('array')->toArray();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        ButtonGroup::make('Invalid Format')->format('test')->get();
+        ButtonGroup::make('Invalid Format')->format('test')->toArray();
     }
 }

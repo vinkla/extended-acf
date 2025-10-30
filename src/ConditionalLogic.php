@@ -73,7 +73,7 @@ class ConditionalLogic
     }
 
     /** @internal */
-    public function get(?string $parentKey = null): array
+    public function toArray(?string $parentKey = null): array
     {
         return array_map(function ($rule) use ($parentKey) {
             $parentKey = $rule['group'] ?: $parentKey;
