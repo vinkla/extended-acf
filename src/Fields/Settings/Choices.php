@@ -23,7 +23,7 @@ trait Choices
     public function choices(array $choices): static
     {
         if (array_is_list($choices)) {
-            $choices = array_combine(array_map(fn ($key) => Key::sanitize($key), $choices), $choices);
+            $choices = array_combine(array_map(fn($key) => Key::sanitize($key), $choices), $choices);
         }
 
         $this->settings['choices'] = $choices;
