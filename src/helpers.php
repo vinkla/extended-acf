@@ -15,12 +15,16 @@ use Extended\ACF\Key;
 
 if (!function_exists('register_extended_field_group')) {
     /**
+     * Register an ACF field group with extended syntax.
+     *
+     * **IMPORTANT:** Keys are generated automatically. Avoid using custom keys unless you fully understand them.
+     *
      * @param array{
      *   title: string,
      *   fields: array,
      *   location: array,
      *   display_title?: string,
-     *   hide_on_screen?: array
+     *   hide_on_screen?: array,
      *   instruction_placement?: string,
      *   key?: string,
      *   label_placement?: string,
@@ -28,7 +32,9 @@ if (!function_exists('register_extended_field_group')) {
      *   position?: string,
      *   style?: string,
      * } $settings
+     *
      * @see https://www.advancedcustomfields.com/resources/register-fields-via-php/#group-settings
+     *
      * @throws \InvalidArgumentException
      */
     function register_extended_field_group(array $settings): array
