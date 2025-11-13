@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 14.6.1
+
+- Updated parameter descriptions to include default values
+- Updated parameter documentation for `register_extended_field_group`
+
 ## 14.6.0
 
 - Added `palette` method to color picker field
