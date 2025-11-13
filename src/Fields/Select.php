@@ -75,7 +75,7 @@ class Select extends Field
     }
 
     /**
-     * @param string $format array, label, value
+     * @param string $format array, label, value (default)
      * @throws \InvalidArgumentException
      */
     public function format(string $format): static

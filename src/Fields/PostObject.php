@@ -37,7 +37,7 @@ class PostObject extends Field
     protected ?string $type = 'post_object';
 
     /**
-     * @param string $format id, object
+     * @param string $format id, object (default)
      * @throws \InvalidArgumentException
      */
     public function format(string $format): static

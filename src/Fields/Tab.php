@@ -25,7 +25,7 @@ class Tab extends Field
     protected ?string $type = 'tab';
 
     /**
-     * @param string $placement left, top
+     * @param string $placement left, top (default)
      * @throws \InvalidArgumentException
      */
     public function placement(string $placement): static

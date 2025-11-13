@@ -39,7 +39,7 @@ class Gallery extends Field
     protected ?string $type = 'gallery';
 
     /**
-     * @param string $format array, id, url
+     * @param string $format id, url, array (default)
      * @throws \InvalidArgumentException
      */
     public function format(string $format): static

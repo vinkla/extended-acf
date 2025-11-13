@@ -35,7 +35,7 @@ class User extends Field
     protected ?string $type = 'user';
 
     /**
-     * @param string $format array, id, object
+     * @param string $format id, object, array (default)
      * @throws \InvalidArgumentException
      */
     public function format(string $format): static

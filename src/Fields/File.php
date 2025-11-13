@@ -35,7 +35,7 @@ class File extends Field
     protected ?string $type = 'file';
 
     /**
-     * @param string $format array, id, url
+     * @param string $format id, url, array (default)
      * @throws \InvalidArgumentException
      */
     public function format(string $format): static

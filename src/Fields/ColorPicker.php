@@ -38,7 +38,7 @@ class ColorPicker extends Field
     }
 
     /**
-     * @param string $format array, string
+     * @param string $format array, string (default)
      * @throws \InvalidArgumentException
      */
     public function format(string $format): static

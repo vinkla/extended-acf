@@ -29,7 +29,7 @@ class Link extends Field
     protected ?string $type = 'link';
 
     /**
-     * @param string $format array, url
+     * @param string $format url, array (default)
      * @throws \InvalidArgumentException
      */
     public function format(string $format): static

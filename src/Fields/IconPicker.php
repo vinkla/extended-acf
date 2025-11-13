@@ -31,7 +31,7 @@ class IconPicker extends Field
     protected ?string $type = 'icon_picker';
 
     /**
-     * @param string $format array, string
+     * @param string $format array, string (default)
      * @throws \InvalidArgumentException
      */
     public function format(string $format): static
@@ -46,7 +46,7 @@ class IconPicker extends Field
     }
 
     /**
-     * @param array $tabs dashicons, media_library, url
+     * @param array $tabs dashicons (default), media_library (default), url (default)
      * @throws \InvalidArgumentException
      */
     public function tabs(array $tabs): static

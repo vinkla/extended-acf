@@ -18,7 +18,7 @@ use InvalidArgumentException;
 trait NewLines
 {
     /**
-     * @param string $newLines br, wpautop
+     * @param string $newLines wpautop, br (default)
      * @throws \InvalidArgumentException
      */
     public function newLines(string $newLines): static

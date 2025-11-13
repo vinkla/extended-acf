@@ -47,7 +47,7 @@ class Relationship extends Field
     }
 
     /**
-     * @param string $format id, object
+     * @param string $format id, object (default)
      * @throws \InvalidArgumentException
      */
     public function format(string $format): static
