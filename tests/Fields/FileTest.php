@@ -38,12 +38,12 @@ class FileTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = File::make('File Format')->format('array')->get();
+        $field = File::make('File Format')->format('array')->toArray();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        File::make('Invalid Format')->format('test')->get();
+        File::make('Invalid Format')->format('test')->toArray();
     }
 }

@@ -24,7 +24,7 @@ trait ConditionalLogic
                     name: 'type',
                     operator: '==empty',
                 ),
-            ])->get('group');
+            ])->toArray('group');
         $this->assertSame('field_21649737', $field['conditional_logic'][0][0]['field']);
     }
 
@@ -33,7 +33,7 @@ trait ConditionalLogic
         $field = $this->make('Conditional Logic And')
             ->conditionalLogic([
                 \Extended\ACF\ConditionalLogic::where('type', '==', 'video')->and('highlight', '!=', 'true'),
-            ])->get('group');
+            ])->toArray('group');
 
         $this->assertSame('==', $field['conditional_logic'][0][0]['operator']);
         $this->assertSame('!=', $field['conditional_logic'][0][1]['operator']);
@@ -49,7 +49,7 @@ trait ConditionalLogic
                 \Extended\ACF\ConditionalLogic::where('title', '==contains', 'ACF'),
             ]);
 
-        $field = $field->get('group');
+        $field = $field->toArray('group');
 
         $this->assertSame('==empty', $field['conditional_logic'][0][0]['operator']);
         $this->assertSame('==contains', $field['conditional_logic'][1][0]['operator']);

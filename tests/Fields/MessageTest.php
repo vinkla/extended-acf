@@ -27,13 +27,13 @@ class MessageTest extends FieldTestCase
 
     public function testBody()
     {
-        $field = Message::make('Body')->body('text **strong** *italic* __strong__ _italic_ `code` [link](https://advancedcustomfields.com/)')->get();
+        $field = Message::make('Body')->body('text **strong** *italic* __strong__ _italic_ `code` [link](https://advancedcustomfields.com/)')->toArray();
         $this->assertSame('text <strong>strong</strong> <em>italic</em> <strong>strong</strong> <em>italic</em> <code>code</code> <a href="https://advancedcustomfields.com/">link</a>', $field['message']);
     }
 
     public function testEscapeHtml()
     {
-        $field = Message::make('Escape HTML')->escapeHtml()->get();
+        $field = Message::make('Escape HTML')->escapeHtml()->toArray();
         $this->assertTrue($field['esc_html']);
     }
 }

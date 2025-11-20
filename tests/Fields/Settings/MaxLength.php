@@ -17,7 +17,7 @@ trait MaxLength
 {
     public function testMaxLength()
     {
-        $field = $this->make('Max Length')->maxLength(100)->get();
+        $field = $this->make('Max Length')->maxLength(100)->toArray();
         $this->assertSame(100, $field['maxlength']);
     }
 }

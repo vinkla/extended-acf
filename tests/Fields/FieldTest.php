@@ -22,28 +22,28 @@ class FieldTest extends TestCase
 {
     public function testLabel()
     {
-        $field = Text::make('Label')->get();
+        $field = Text::make('Label')->toArray();
         $this->assertSame('Label', $field['label']);
     }
 
     public function testName()
     {
-        $field = Text::make('Label Name')->get();
+        $field = Text::make('Label Name')->toArray();
         $this->assertSame('label_name', $field['name']);
 
-        $field = Text::make('Custom Name', 'custom_name')->get();
+        $field = Text::make('Custom Name', 'custom_name')->toArray();
         $this->assertSame('custom_name', $field['name']);
     }
 
     public function testKey()
     {
-        $field = Text::make('Key')->get();
+        $field = Text::make('Key')->toArray();
         $this->assertSame('field_722bfe15', $field['key']);
     }
 
     public function testCustomKey()
     {
-        $field = Text::make('Custom Key')->key('field_123456')->get();
+        $field = Text::make('Custom Key')->key('field_123456')->toArray();
         $this->assertSame('field_123456', $field['key']);
     }
 
@@ -57,16 +57,16 @@ class FieldTest extends TestCase
     public function testKeyPrefix()
     {
         $this->expectExceptionMessage('The key should have the prefix [field_].');
-        Text::make('Key refix')->key('phone')->get();
+        Text::make('Key refix')->key('phone')->toArray();
     }
 
     public function testWithSettings()
     {
-        $field = Text::make('With Settings')->withSettings(['custom' => 'setting'])->get();
+        $field = Text::make('With Settings')->withSettings(['custom' => 'setting'])->toArray();
         $this->assertSame('setting', $field['custom']);
 
         $this->expectException(InvalidArgumentException::class);
-        Text::make('With Settings Label')->withSettings(['label' => 'invalid'])->get();
+        Text::make('With Settings Label')->withSettings(['label' => 'invalid'])->toArray();
     }
 
     public function testDump()

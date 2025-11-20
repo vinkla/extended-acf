@@ -17,7 +17,7 @@ trait ButtonLabel
 {
     public function testButton()
     {
-        $field = $this->make('Button label')->button('Add Item')->get();
+        $field = $this->make('Button label')->button('Add Item')->toArray();
         $this->assertSame('Add Item', $field['button_label']);
     }
 }

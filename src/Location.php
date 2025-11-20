@@ -57,7 +57,7 @@ class Location
     }
 
     /** @internal */
-    public function get(): array
+    public function toArray(): array
     {
         return $this->rules;
     }
