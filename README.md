@@ -6,7 +6,7 @@
 
 Extended ACF provides an object-oriented API to register groups and fields with ACF. If you register fields in your theme, you can safely rely on version control when working with other developers. Oh, you don't have to worry about unique field keys.
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/vinkla/extended-acf/phpunit.yml?branch=master&label=build)](https://github.com/vinkla/extended-acf/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/vinkla/extended-acf/phpunit.yml?branch=master&label=tests)](https://github.com/vinkla/extended-acf/actions)
 [![Monthly Downloads](https://img.shields.io/packagist/dm/vinkla/extended-acf)](https://packagist.org/packages/vinkla/extended-acf/stats)
 [![Latest Version](https://img.shields.io/packagist/v/vinkla/extended-acf)](https://packagist.org/packages/vinkla/extended-acf)
 
