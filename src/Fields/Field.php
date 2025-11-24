@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Extended\ACF\Fields;
 
+use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Key;
 use InvalidArgumentException;
 
@@ -62,7 +63,7 @@ abstract class Field
 
     public function dump(...$args): static
     {
-        $settings = $this->cloneRecursively()->get();
+        $settings = $this->cloneRecursively()->toArray();
 
         dump($settings, ...$args);
 
@@ -71,7 +72,7 @@ abstract class Field
 
     public function dd(...$args): never
     {
-        dd($this->get(), ...$args);
+        dd($this->toArray(), ...$args);
     }
 
     /** @internal */
@@ -115,7 +116,7 @@ abstract class Field
     }
 
     /** @internal */
-    public function get(?string $parentKey = null): array
+    public function toArray(?string $parentKey = null): array
     {
         $key
             = $this->settings['key']
@@ -127,21 +128,21 @@ abstract class Field
 
         if (isset($this->settings['conditional_logic'])) {
             $this->settings['conditional_logic'] = array_map(
-                fn($rules) => $rules->get($parentKey),
+                fn(ConditionalLogic $rules) => $rules->toArray($parentKey),
                 $this->settings['conditional_logic'],
             );
         }
 
         if (isset($this->settings['layouts'])) {
             $this->settings['layouts'] = array_map(
-                fn($layout) => $layout->get($key),
+                fn(Layout $layout) => $layout->toArray($key),
                 $this->settings['layouts'],
             );
         }
 
         if (isset($this->settings['sub_fields'])) {
             $this->settings['sub_fields'] = array_map(
-                fn($field) => $field->get($key),
+                fn(Field $field) => $field->toArray($key),
                 $this->settings['sub_fields'],
             );
         }

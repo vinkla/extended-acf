@@ -28,18 +28,18 @@ class TabTest extends FieldTestCase
 
     public function testPlacement()
     {
-        $field = Tab::make('Placement')->placement('top')->get();
+        $field = Tab::make('Placement')->placement('top')->toArray();
         $this->assertSame('top', $field['placement']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument placement [test].');
 
-        Tab::make('Invalid Placement')->placement('test')->get();
+        Tab::make('Invalid Placement')->placement('test')->toArray();
     }
 
     public function testSelected()
     {
-        $field = Tab::make('Selected')->selected()->get();
+        $field = Tab::make('Selected')->selected()->toArray();
         $this->assertTrue($field['selected']);
     }
 }

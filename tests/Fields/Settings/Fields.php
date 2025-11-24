@@ -23,7 +23,7 @@ trait Fields
             ->fields([
                 Text::make('Title'),
             ])
-            ->get();
+            ->toArray();
 
         $this->assertSame('Title', $field['sub_fields'][0]['label']);
     }

@@ -17,7 +17,7 @@ trait DefaultNow
 {
     public function testDefaultNow()
     {
-        $settings = $this->make('Default Now')->defaultNow()->get();
+        $settings = $this->make('Default Now')->defaultNow()->toArray();
         $this->assertTrue($settings['default_to_current_date']);
     }
 }

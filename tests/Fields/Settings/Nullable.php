@@ -17,7 +17,7 @@ trait Nullable
 {
     public function testNullable()
     {
-        $field = $this->make('Nullable')->nullable()->get();
+        $field = $this->make('Nullable')->nullable()->toArray();
         $this->assertTrue($field['allow_null']);
     }
 }
