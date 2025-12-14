@@ -17,7 +17,7 @@ trait DefaultValue
 {
     public function testDefault()
     {
-        $field = $this->make('Default')->default('Chris Coyier')->get();
+        $field = $this->make('Default')->default('Chris Coyier')->toArray();
         $this->assertSame('Chris Coyier', $field['default_value']);
     }
 }

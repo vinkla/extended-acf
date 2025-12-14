@@ -34,33 +34,33 @@ class WYSIWYGEditorTest extends FieldTestCase
 
     public function testDisableMediaUpload()
     {
-        $field = WYSIWYGEditor::make('Media Upload')->disableMediaUpload()->get();
+        $field = WYSIWYGEditor::make('Media Upload')->disableMediaUpload()->toArray();
         $this->assertFalse($field['media_upload']);
     }
 
     public function testLazyLoad()
     {
-        $field = WYSIWYGEditor::make('Lazy Load')->lazyLoad()->get();
+        $field = WYSIWYGEditor::make('Lazy Load')->lazyLoad()->toArray();
         $this->assertTrue($field['delay']);
     }
 
     public function testTabs()
     {
-        $field = WYSIWYGEditor::make('Tabs')->tabs('visual')->get();
+        $field = WYSIWYGEditor::make('Tabs')->tabs('visual')->toArray();
         $this->assertSame('visual', $field['tabs']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument tabs [test].');
 
-        $field = WYSIWYGEditor::make('Invalid Tabs')->tabs('test')->get();
+        $field = WYSIWYGEditor::make('Invalid Tabs')->tabs('test')->toArray();
     }
 
     public function testToolbar()
     {
-        $field = WYSIWYGEditor::make('Toolbar')->toolbar('basic')->get();
+        $field = WYSIWYGEditor::make('Toolbar')->toolbar('basic')->toArray();
         $this->assertSame('basic', $field['toolbar']);
 
-        $field = WYSIWYGEditor::make('Toolbar Array')->toolbar(['bold', 'italic'])->get();
+        $field = WYSIWYGEditor::make('Toolbar Array')->toolbar(['bold', 'italic'])->toArray();
         $this->assertSame('bold_italic', $field['toolbar']);
     }
 }
