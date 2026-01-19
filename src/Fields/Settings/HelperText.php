@@ -21,17 +21,31 @@ trait HelperText
      */
     public function helperText(string $text): static
     {
+        // Extract code blocks and replace with placeholders
+        $codeBlocks = [];
+        $text = preg_replace_callback(
+            '/\`(.*?)\`/',
+            function ($matches) use (&$codeBlocks) {
+                $index = count($codeBlocks);
+                $codeBlocks[] = '<code>' . $matches[1] . '</code>';
+                return '%code' . $index . '%';
+            },
+            $text,
+        );
+
         // Replace emphasis formatting: *text* or _text_ => <em>text</em>
         $text = preg_replace('/\*\*(.*?)\*\*|__(.*?)__/', '<strong>$1$2</strong>', $text);
 
         // Replace strong formatting: **text** or __text__ => <strong>text</strong>
         $text = preg_replace('/\*(.*?)\*|_(.*?)_/', '<em>$1$2</em>', $text);
 
-        // Replace <code> formatting: `code` => <code>code</code>
-        $text = preg_replace('/\`(.*?)\`/', '<code>$1</code>', $text);
-
         // Replace link formatting: [text](url) => <a href="url">text</a>
         $text = preg_replace('/\[(.*?)\]\((.*?)\)/', '<a href="$2">$1</a>', $text);
+
+        // Restore code blocks
+        foreach ($codeBlocks as $index => $code) {
+            $text = str_replace('%code' . $index . '%', $code, $text);
+        }
 
         $this->settings['instructions'] = $text;
 
