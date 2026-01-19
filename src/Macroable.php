@@ -31,11 +31,6 @@ trait Macroable
         return isset(static::$macros[$name]);
     }
 
-    public static function flushMacros(): void
-    {
-        static::$macros = [];
-    }
-
     /** @throws \BadMethodCallException */
     public function __call(string $method, array $parameters): mixed
     {

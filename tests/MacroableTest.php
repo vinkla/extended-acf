@@ -16,11 +16,6 @@ use PHPUnit\Framework\TestCase;
 
 class MacroableTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        Text::flushMacros();
-    }
-
     public function testMacro(): void
     {
         Text::macro('translatable', function ($field) {
@@ -66,17 +61,6 @@ class MacroableTest extends TestCase
         Text::macro('customMethod', fn() => $this);
 
         $this->assertTrue(Text::hasMacro('customMethod'));
-    }
-
-    public function testFlushMacros(): void
-    {
-        Text::macro('tempMethod', fn() => $this);
-
-        $this->assertTrue(Text::hasMacro('tempMethod'));
-
-        Text::flushMacros();
-
-        $this->assertFalse(Text::hasMacro('tempMethod'));
     }
 
     public function testUndefinedMacroThrowsException(): void
