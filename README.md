@@ -812,7 +812,7 @@ use Extended\ACF\Fields\Field;
 use Extended\ACF\Location;
 
 add_action('acf/init', function () {
-    Field::macro('translatable', fn(Field $field): Field => $field->withSettings(['translatable' => true]));
+    Field::macro('translatable', fn(Field $field) => $field->withSettings(['translatable' => true]));
 });
 
 add_action('acf/include_fields', function () {
