@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 14.6.2
+
+- Updated `helperText` to support Markdown inside code elements
+
 ## 14.6.1
 
 - Updated parameter descriptions to include default values
