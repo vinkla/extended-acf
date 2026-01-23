@@ -31,7 +31,7 @@ class FieldTestCase extends TestCase
 
     public function testType()
     {
-        $settings = $this->make($this->type)->get();
+        $settings = $this->make($this->type)->toArray();
         $this->assertSame($this->type, $settings['type']);
     }
 }

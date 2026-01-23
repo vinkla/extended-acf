@@ -17,7 +17,7 @@ trait PreviewSize
 {
     public function testPreviewSize()
     {
-        $field = $this->make('Preview Size')->previewSize('large')->get();
+        $field = $this->make('Preview Size')->previewSize('large')->toArray();
         $this->assertSame('large', $field['preview_size']);
     }
 }

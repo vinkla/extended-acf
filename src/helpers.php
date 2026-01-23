@@ -11,7 +11,9 @@
 
 declare(strict_types=1);
 
+use Extended\ACF\Fields\Field;
 use Extended\ACF\Key;
+use Extended\ACF\Location;
 
 if (!function_exists('register_extended_field_group')) {
     /**
@@ -51,9 +53,9 @@ if (!function_exists('register_extended_field_group')) {
 
         $settings['style'] ??= 'seamless';
 
-        $settings['fields'] = array_map(fn($field) => $field->get($key), $settings['fields']);
+        $settings['fields'] = array_map(fn(Field $field) => $field->toArray($key), $settings['fields']);
 
-        $settings['location'] = array_map(fn($location) => $location->get(), $settings['location']);
+        $settings['location'] = array_map(fn(Location $location) => $location->toArray(), $settings['location']);
 
         $settings['key'] = Key::generate($key, 'group');
 

@@ -32,7 +32,7 @@ class ConditionalLogicTest extends TestCase
             ],
         ];
 
-        $this->assertSame($conditionalLogic, ConditionalLogic::where('age', '==', 10)->get('field'));
+        $this->assertSame($conditionalLogic, ConditionalLogic::where('age', '==', 10)->toArray('field'));
     }
 
     public function testInvalidOperator()
