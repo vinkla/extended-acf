@@ -14,10 +14,13 @@ declare(strict_types=1);
 namespace Extended\ACF\Fields;
 
 use Extended\ACF\Key;
+use Extended\ACF\Macroable;
 use InvalidArgumentException;
 
 abstract class Field
 {
+    use Macroable;
+
     protected array $settings;
     protected string $keyPrefix = 'field';
     protected ?string $type = null;
