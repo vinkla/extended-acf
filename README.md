@@ -831,6 +831,22 @@ add_action('acf/include_fields', function () {
 });
 ```
 
+If you need a macro that only applies to a specific field type, you can check the field instance:
+
+```php
+use BadMethodCallException;
+use Extended\ACF\Fields\Field;
+use Extended\ACF\Fields\Text;
+
+Field::macro('maxLength', function (Field $field, int $length): static {
+    if (!$field instanceof Text) {
+        throw new BadMethodCallException('maxLength only works on Text fields');
+    }
+
+    return $field->withSettings(['maxlength' => $length]);
+});
+```
+
 ## Custom Fields
 
 To create custom field classes, you can extend the [base field class](src/Fields/Field.php). Additionally, you can import [available setting traits](src/Fields/Settings) to add common methods like `required` and `helperText`.
