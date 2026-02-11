@@ -42,30 +42,30 @@ class GalleryTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = Gallery::make('Gallery Format')->format('array')->get();
+        $field = Gallery::make('Gallery Format')->format('array')->toArray();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        Gallery::make('Invalid Format')->format('test')->get();
+        Gallery::make('Invalid Format')->format('test')->toArray();
     }
 
     public function testMaxFiles()
     {
-        $field = Gallery::make('Max Files')->maxFiles(10)->get();
+        $field = Gallery::make('Max Files')->maxFiles(10)->toArray();
         $this->assertSame(10, $field['max']);
     }
 
     public function testMinFiles()
     {
-        $field = Gallery::make('Min Files')->minFiles(5)->get();
+        $field = Gallery::make('Min Files')->minFiles(5)->toArray();
         $this->assertSame(5, $field['min']);
     }
 
     public function testPrependFiles()
     {
-        $field = Gallery::make('Prepend Files')->prependFiles()->get();
+        $field = Gallery::make('Prepend Files')->prependFiles()->toArray();
         $this->assertSame('prepend', $field['insert']);
     }
 }

@@ -34,36 +34,36 @@ class RelationshipTest extends FieldTestCase
 
     public function testElements()
     {
-        $field = Relationship::make('Elements')->elements(['featured_image'])->get();
+        $field = Relationship::make('Elements')->elements(['featured_image'])->toArray();
         $this->assertSame(['featured_image'], $field['elements']);
     }
 
     public function testFilters()
     {
-        $field = Relationship::make('Filters')->filters(['search'])->get();
+        $field = Relationship::make('Filters')->filters(['search'])->toArray();
         $this->assertSame(['search'], $field['filters']);
     }
 
     public function testFormat()
     {
-        $field = Relationship::make('Relationship Format')->format('id')->get();
+        $field = Relationship::make('Relationship Format')->format('id')->toArray();
         $this->assertSame('id', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        Relationship::make('Invalid Format')->format('test')->get();
+        Relationship::make('Invalid Format')->format('test')->toArray();
     }
 
     public function testMaxPosts()
     {
-        $field = Relationship::make('Max Posts')->maxPosts(10)->get();
+        $field = Relationship::make('Max Posts')->maxPosts(10)->toArray();
         $this->assertSame(10, $field['max']);
     }
 
     public function testMinPosts()
     {
-        $field = Relationship::make('Min Posts')->minPosts(5)->get();
+        $field = Relationship::make('Min Posts')->minPosts(5)->toArray();
         $this->assertSame(5, $field['min']);
     }
 }

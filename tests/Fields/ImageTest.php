@@ -42,12 +42,12 @@ class ImageTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = Image::make('Image Format')->format('array')->get();
+        $field = Image::make('Image Format')->format('array')->toArray();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        Image::make('Invalid Format')->format('test')->get();
+        Image::make('Invalid Format')->format('test')->toArray();
     }
 }

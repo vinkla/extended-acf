@@ -36,18 +36,18 @@ class UserTest extends FieldTestCase
 
     public function testFormat()
     {
-        $field = User::make('Format')->format('array')->get();
+        $field = User::make('Format')->format('array')->toArray();
         $this->assertSame('array', $field['return_format']);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argument format [test].');
 
-        User::make('Invalid Format')->format('test')->get();
+        User::make('Invalid Format')->format('test')->toArray();
     }
 
     public function testRoles()
     {
-        $field = User::make('User Filter Role')->roles(['editor'])->get();
+        $field = User::make('User Filter Role')->roles(['editor'])->toArray();
         $this->assertSame(['editor'], $field['role']);
     }
 }
