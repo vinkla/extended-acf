@@ -939,7 +939,9 @@ Changelog: [`14.6.2...15.0.0`](https://github.com/vinkla/extended-acf/compare/14
 </details>
 
 <details>
-<summary><strong>14</strong> — Renamed classes, methods, and traits</summary>
+<summary><strong>14</strong> — PHP 8.2, renamed classes, methods, and traits</summary>
+
+The minimum PHP version has been bumped to 8.2.
 
 #### Renamed Classes
 
