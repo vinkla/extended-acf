@@ -1117,6 +1117,22 @@ The `addTerm`, `loadTerms` and `saveTerms` methods have been renamed to `create`
 +Taxonomy::make('Category')->create()->load()->save()
 ```
 
+#### Renamed Arguments
+
+The `appearance` argument `$fieldType` has been renamed to `$type`.
+
+```diff
+-Taxonomy::make('Cinemas')->appearance(fieldType: 'multi_select')
++Taxonomy::make('Cinemas')->appearance(type: 'multi_select')
+```
+
+The `paginated` argument `$rowsPerPage` has been renamed to `$perPage`.
+
+```diff
+-Repeater::make('Dogs')->paginated(rowsPerPage: 10)
++Repeater::make('Dogs')->paginated(perPage: 10)
+```
+
 #### Split Methods (min/max)
 
 The `fileSize` method has been split into `minSize` and `maxSize`.
@@ -1209,7 +1225,7 @@ The `Message` and `ReturnFormat` traits have been removed.
 -use Extended\ACF\Fields\Settings\ReturnFormat;
 ```
 
-Changelog: [`13.0.0...14.0.0`](https://github.com/vinkla/extended-acf/compare/13.0.0...14.0.0)
+Changelog: [`13.8.0...14.0.0`](https://github.com/vinkla/extended-acf/compare/13.8.0...14.0.0)
 
 </details>
 
@@ -1225,14 +1241,30 @@ The namespace has been changed from `WordPlate\Acf` to `Extended\ACF`. Update al
 +use Extended\ACF\Fields\Number;
 ```
 
-Changelog: [`12.0.0...13.0.0`](https://github.com/vinkla/extended-acf/compare/12.0.0...13.0.0)
+Changelog: [`12.0.3...13.0.0`](https://github.com/vinkla/extended-acf/compare/12.0.3...13.0.0)
 
 </details>
 
 <details>
-<summary><strong>12</strong> — Renamed location method</summary>
+<summary><strong>12</strong> — PHP 8.0, renamed methods, removed classes</summary>
 
-The `if` method on the `Location` class has been renamed to `where`.
+The minimum PHP version has been bumped to 8.0.
+
+The `Attributes` namespace has been renamed to `Settings`.
+
+```diff
+-use Extended\ACF\Fields\Attributes\Required;
++use Extended\ACF\Fields\Settings\Required;
+```
+
+The `toArray` method has been renamed to `get` on the `Field`, `Location`, and `ConditionalLogic` classes.
+
+```diff
+-$field->toArray();
++$field->get();
+```
+
+The `if` method has been renamed to `where` on both the `Location` and `ConditionalLogic` classes.
 
 ```diff
 use Extended\ACF\Location;
@@ -1241,7 +1273,15 @@ use Extended\ACF\Location;
 +Location::where('post_type', 'post')
 ```
 
-Changelog: [`11.0.0...12.0.0`](https://github.com/vinkla/extended-acf/compare/11.0.0...12.0.0)
+The `field` and `option` helper functions have been removed.
+
+The `setParentKey` methods have been removed.
+
+The conditional logic comparison methods have been removed.
+
+The configuration class and field group class have been removed.
+
+Changelog: [`11.2.0...12.0.0`](https://github.com/vinkla/extended-acf/compare/11.2.0...12.0.0)
 
 </details>
 
@@ -1270,5 +1310,6 @@ The `Wysiwyg` field has been renamed to `WysiwygEditor`.
 ```
 
 Changelog: [`10.0.0...11.0.0`](https://github.com/vinkla/extended-acf/compare/10.0.0...11.0.0)
+
 
 </details>
