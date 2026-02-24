@@ -32,10 +32,6 @@ Extended ACF provides an object-oriented API to register groups and fields with 
 - [Macros](#macros)
 - [Custom Fields](#custom-fields)
 - [Upgrade Guide](#upgrade-guide)
-  - [14](#14)
-  - [13](#13)
-  - [12](#12)
-  - [11](#11)
 
 ## Installation
 
@@ -901,15 +897,17 @@ OpenStreetMap::make('Map')
 
 ## Upgrade Guide
 
-The upgrade guide provides information about the breaking changes in the package, now named `vinkla/extended-acf`. If you have version 12 or lower, you can update by replacing the package name in your `composer.json` file. This ensures that everything works as expected and you receive updates.
-
+This guide covers breaking changes for each major version. If you're upgrading from version 12 or lower, the package has been renamed — update your `composer.json` accordingly:
 
 ```diff
 -"wordplate/acf": "^12.0",
 +"vinkla/extended-acf": "^12.0"
 ```
 
-### 14
+<details>
+<summary><strong>14</strong> — Renamed classes, methods, and traits</summary>
+
+#### Renamed Classes
 
 The `Url` class has been renamed to `URL`.
 
@@ -930,6 +928,8 @@ The `WysiwygEditor` class has been renamed to `WYSIWYGEditor`.
 -WysiwygEditor::make('Content')
 +WYSIWYGEditor::make('Content')
 ```
+
+#### Renamed Methods
 
 The `defaultValue` method has been renamed to `default`.
 
@@ -977,7 +977,7 @@ The `buttonLabel` method has been renamed to `button`.
 
 ```diff
 -Repeater::make('Cats')->buttonLabel('Add Cat')
-+Repeater::make('Cata')->button('Add Cat')
++Repeater::make('Cats')->button('Add Cat')
 ```
 
 The `weekStartsOn` method has been renamed to `firstDayOfWeek`.
@@ -1001,86 +1001,6 @@ The `append` method has been renamed to `suffix`.
 +Number::make('Price')->suffix('€')
 ```
 
-The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
-
-```diff
--TrueFalse::make('Disabled')->stylisedUi(onText: 'Yes')
-+TrueFalse::make('Disabled')->stylized(on: 'Yes')
-```
-
-The `stylisedUi` method has been split into two methods `stylized` and `lazyLoad` on the `Select` field.
-
-```diff
--Select::make('Friends')->stylisedUi()
-+Select::make('Friends')->stylized()
-
--Select::make('Friends')->stylisedUi(true)
-+Select::make('Friends')->lazyLoad()
-```
-
-The `fileSize` method has been split into two methods `minSize` and `maxSize`.
-
-```diff
--Image::make('Background')->fileSize('400 KB', 5)
-+Image::make('Background')->minSize('400 KB')->maxSize(5)
-```
-
-The `height` method has been split into two methods `minHeight` and `maxHeight`.
-
-```diff
--Gallery::make('Carousel')->height(100, 1000)
-+Gallery::make('Carousel')->minHeight(100)->maxHeight(1000)
-```
-
-The `width` method has been split into two methods `minWidth` and `maxWidth`.
-
-```diff
--Image::make('Product Image')->width(100, 1000)
-+Image::make('Product Image')->minWidth(100)->maxWidth(1000)
-```
-
-The `insert` method has been renamed to `prependFiles`.
-
-```diff
--Gallery::make('Downloads')->insert('prepend')
-+Gallery::make('Downloads')->prependFiles()
-```
-
-The `min` and `max` methods has been renamed to `minFiles` and `maxFiles` on the `Gallery` field.
-
-```diff
--Gallery::make('Files')->min(1)->max(10)
-+Gallery::make('Files')->minFiles(1)->maxFiles(10)
-```
-
-The `min` and `max` methods has been renamed to `minPosts` and `maxPosts` on the `Relationship` field.
-
-```diff
--Relationship::make('Posts')->min(1)->max(10)
-+Relationship::make('Posts')->minPosts(1)->maxPosts(10)
-```
-
-The `min` and `max` methods has been renamed to `minRows` and `maxRows` on the `Repeater` field.
-
-```diff
--Repeater::make('Items')->min(1)->max(10)
-+Repeater::make('Items')->minRows(1)->maxRows(10)
-```
-
-The `min` and `max` methods has been renamed to `minLayouts` and `maxLayouts` on the `FlexibleContent` field.
-
-```diff
--FlexibleContent::make('Blocks')->min(1)->max(10)
-+FlexibleContent::make('Blocks')->minLayouts(1)->maxLayouts(10)
-```
-
-The `min` and `max` methods has been renamed to `minInstances` and `maxInstances` on the `Layout` field.
-
-```diff
--Layout::make('Testimonials')->min(1)->max(10)
-+Layout::make('Testimonials')->minInstances(1)->maxInstances(10)
-```
-
 The `mimeTypes` method has been renamed to `acceptedFileTypes`.
 
 ```diff
@@ -1102,13 +1022,6 @@ The `delay` method has been renamed to `lazyLoad`.
 +WYSIWYGEditor::make('Biography')->lazyLoad()
 ```
 
-The `mediaUpload` method has been renamed to `disableMediaUpload`.
-
-```diff
--WysiwygEditor::make('Narrative')->mediaUpload(false)
-+WYSIWYGEditor::make('Narrative')->disableMediaUpload()
-```
-
 The `message` method has been renamed to `body`.
 
 ```diff
@@ -1116,18 +1029,11 @@ The `message` method has been renamed to `body`.
 +Message::make('Heading')->body('Text')
 ```
 
-The `allowArchives` method has been renamed to `disableArchives`.
+The `insert` method has been renamed to `prependFiles`.
 
 ```diff
--PageLink::make('Link')->allowArchives(false)
-+PageLink::make('Link')->disableArchives()
-```
-
-The `addTerm`, `loadTerms` and `saveTerms` methods has been renamed to `create`, `load` and `save`.
-
-```diff
--Taxonomy::make('Category')->addTerm()->loadTerms()->saveTerms()
-+Taxonomy::make('Category')->create()->load()->save()
+-Gallery::make('Downloads')->insert('prepend')
++Gallery::make('Downloads')->prependFiles()
 ```
 
 The `returnFormat` method has been renamed to `format` on all fields.
@@ -1137,49 +1043,132 @@ The `returnFormat` method has been renamed to `format` on all fields.
 +Select::make('Superhero')->format('value')
 ```
 
-The `Instructions` trait has been renamed to `HelperText`.
+#### Methods with Changed Behavior
+
+The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
+
+```diff
+-TrueFalse::make('Disabled')->stylisedUi(onText: 'Yes')
++TrueFalse::make('Disabled')->stylized(on: 'Yes')
+```
+
+The `stylisedUi` method has been split into `stylized` and `lazyLoad` on the `Select` field.
+
+```diff
+-Select::make('Friends')->stylisedUi()
++Select::make('Friends')->stylized()
+
+-Select::make('Friends')->stylisedUi(true)
++Select::make('Friends')->lazyLoad()
+```
+
+The `mediaUpload` method has been renamed to `disableMediaUpload`.
+
+```diff
+-WysiwygEditor::make('Narrative')->mediaUpload(false)
++WYSIWYGEditor::make('Narrative')->disableMediaUpload()
+```
+
+The `allowArchives` method has been renamed to `disableArchives`.
+
+```diff
+-PageLink::make('Link')->allowArchives(false)
++PageLink::make('Link')->disableArchives()
+```
+
+The `addTerm`, `loadTerms` and `saveTerms` methods have been renamed to `create`, `load` and `save`.
+
+```diff
+-Taxonomy::make('Category')->addTerm()->loadTerms()->saveTerms()
++Taxonomy::make('Category')->create()->load()->save()
+```
+
+#### Split Methods (min/max)
+
+The `fileSize` method has been split into `minSize` and `maxSize`.
+
+```diff
+-Image::make('Background')->fileSize('400 KB', 5)
++Image::make('Background')->minSize('400 KB')->maxSize(5)
+```
+
+The `height` method has been split into `minHeight` and `maxHeight`.
+
+```diff
+-Gallery::make('Carousel')->height(100, 1000)
++Gallery::make('Carousel')->minHeight(100)->maxHeight(1000)
+```
+
+The `width` method has been split into `minWidth` and `maxWidth`.
+
+```diff
+-Image::make('Product Image')->width(100, 1000)
++Image::make('Product Image')->minWidth(100)->maxWidth(1000)
+```
+
+The `min` and `max` methods have been renamed to context-specific variants:
+
+| Field | Old | New |
+|---|---|---|
+| `Gallery` | `min` / `max` | `minFiles` / `maxFiles` |
+| `Relationship` | `min` / `max` | `minPosts` / `maxPosts` |
+| `Repeater` | `min` / `max` | `minRows` / `maxRows` |
+| `FlexibleContent` | `min` / `max` | `minLayouts` / `maxLayouts` |
+| `Layout` | `min` / `max` | `minInstances` / `maxInstances` |
+
+```diff
+-Gallery::make('Files')->min(1)->max(10)
++Gallery::make('Files')->minFiles(1)->maxFiles(10)
+
+-Relationship::make('Posts')->min(1)->max(10)
++Relationship::make('Posts')->minPosts(1)->maxPosts(10)
+
+-Repeater::make('Items')->min(1)->max(10)
++Repeater::make('Items')->minRows(1)->maxRows(10)
+
+-FlexibleContent::make('Blocks')->min(1)->max(10)
++FlexibleContent::make('Blocks')->minLayouts(1)->maxLayouts(10)
+
+-Layout::make('Testimonials')->min(1)->max(10)
++Layout::make('Testimonials')->minInstances(1)->maxInstances(10)
+```
+
+#### Renamed Traits
+
+If you use traits in [custom field classes](#custom-fields), update the imports:
+
+| Old | New |
+|---|---|
+| `Instructions` | `HelperText` |
+| `MimeTypes` | `FileTypes` |
+| `CharacterLimit` | `MaxLength` |
+| `Pending` | `Affixable` |
+| `Writable` | `Immutable` |
+| `SubFields` | `Fields` |
 
 ```diff
 -use Extended\ACF\Fields\Settings\Instructions;
 +use Extended\ACF\Fields\Settings\HelperText;
-```
 
-The `MimeTypes` trait has been renamed to `FileTypes`.
-
-```diff
 -use Extended\ACF\Fields\Settings\MimeTypes;
 +use Extended\ACF\Fields\Settings\FileTypes;
-```
 
-The `CharacterLimit` trait has been renamed to `MaxLength`.
-
-```diff
 -use Extended\ACF\Fields\Settings\CharacterLimit;
 +use Extended\ACF\Fields\Settings\MaxLength;
-```
 
-The `Pending` trait has been renamed to `Affixable`.
-
-```diff
 -use Extended\ACF\Fields\Settings\Pending;
 +use Extended\ACF\Fields\Settings\Affixable;
-```
 
-The `Writable` trait has been renamed to `Immutable`.
-
-```diff
 -use Extended\ACF\Fields\Settings\Writable;
 +use Extended\ACF\Fields\Settings\Immutable;
-```
 
-The `SubFields` trait has been renamed to `Fields`.
-
-```diff
 -use Extended\ACF\Fields\Settings\SubFields;
 +use Extended\ACF\Fields\Settings\Fields;
 ```
 
-The `Message` and `ReturnFormat` traits has been removed.
+#### Removed Traits
+
+The `Message` and `ReturnFormat` traits have been removed.
 
 ```diff
 -use Extended\ACF\Fields\Settings\Message;
@@ -1188,9 +1177,12 @@ The `Message` and `ReturnFormat` traits has been removed.
 
 Changelog: [`13.0.0...14.0.0`](https://github.com/vinkla/extended-acf/compare/13.0.0...14.0.0)
 
-### 13
+</details>
 
-If you're upgrading to version 13, you'll also need to update your imports. The namespace has been changed to `Extended\ACF`.
+<details>
+<summary><strong>13</strong> — Changed namespace</summary>
+
+The namespace has been changed from `WordPlate\Acf` to `Extended\ACF`. Update all imports accordingly.
 
 ```diff
 -use WordPlate\Acf\Fields\Text;
@@ -1201,9 +1193,12 @@ If you're upgrading to version 13, you'll also need to update your imports. The 
 
 Changelog: [`12.0.0...13.0.0`](https://github.com/vinkla/extended-acf/compare/12.0.0...13.0.0)
 
-### 12
+</details>
 
-The location query method `if` has been replaced with `where`. Please update your field groups accordingly.
+<details>
+<summary><strong>12</strong> — Renamed location method</summary>
+
+The `if` method on the `Location` class has been renamed to `where`.
 
 ```diff
 use Extended\ACF\Location;
@@ -1214,7 +1209,10 @@ use Extended\ACF\Location;
 
 Changelog: [`11.0.0...12.0.0`](https://github.com/vinkla/extended-acf/compare/11.0.0...12.0.0)
 
-### 11
+</details>
+
+<details>
+<summary><strong>11</strong> — snake_case names, renamed fields</summary>
 
 The field name is now automatically formatted as snake_case instead of kebab-case.
 
@@ -1238,3 +1236,5 @@ The `Wysiwyg` field has been renamed to `WysiwygEditor`.
 ```
 
 Changelog: [`10.0.0...11.0.0`](https://github.com/vinkla/extended-acf/compare/10.0.0...11.0.0)
+
+</details>
