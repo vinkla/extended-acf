@@ -23,7 +23,7 @@ trait HelperText
 
     public function testInstructionsWithMarkdownInsideCode()
     {
-        $field = $this->make('Code Example')->helperText('Use `**bold**` for bold text')->get();
+        $field = $this->make('Code Example')->helperText('Use `**bold**` for bold text')->toArray();
         $this->assertSame('Use <code>**bold**</code> for bold text', $field['instructions']);
     }
 }

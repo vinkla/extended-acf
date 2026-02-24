@@ -25,7 +25,7 @@ class MacroableTest extends TestCase
         });
 
         $field = Text::make('Macroable Macro Title')->translatable();
-        $settings = $field->get('field_macroable_macro');
+        $settings = $field->toArray('field_macroable_macro');
 
         $this->assertTrue($settings['translatable']);
     }
@@ -35,7 +35,7 @@ class MacroableTest extends TestCase
         Text::macro('fieldParam', fn($field) => $field->withSettings(['fieldParam' => true]));
 
         $field = Text::make('Macroable Param Title')->fieldParam();
-        $settings = $field->get('field_macroable_param');
+        $settings = $field->toArray('field_macroable_param');
 
         $this->assertTrue($settings['fieldParam']);
     }
@@ -49,7 +49,7 @@ class MacroableTest extends TestCase
         });
 
         $field = Text::make('Macroable Locale Title')->locale('sv_SE');
-        $settings = $field->get('field_macroable_locale');
+        $settings = $field->toArray('field_macroable_locale');
 
         $this->assertSame('sv_SE', $settings['locale']);
     }
