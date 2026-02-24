@@ -907,6 +907,8 @@ This guide covers breaking changes for each major version. If you're upgrading f
 <details>
 <summary><strong>15</strong> — PHP 8.4, renamed methods, public settings</summary>
 
+#### PHP Version
+
 The minimum PHP version has been bumped to 8.4.
 
 ```diff
@@ -914,7 +916,7 @@ The minimum PHP version has been bumped to 8.4.
 +"php": "^8.4"
 ```
 
-### Renamed Methods
+#### Renamed Methods
 
 The `get` method has been renamed to `toArray` on the `Field`, `Location`, and `ConditionalLogic` classes.
 
@@ -929,7 +931,7 @@ The `get` method has been renamed to `toArray` on the `Field`, `Location`, and `
 +$conditionalLogic->toArray();
 ```
 
-### Changed Visibility
+#### Changed Visibility
 
 The `$settings` property on field classes is now publicly readable using PHP 8.4 asymmetric visibility.
 
@@ -945,9 +947,11 @@ Changelog: [`14.6.2...15.0.0`](https://github.com/vinkla/extended-acf/compare/14
 <details>
 <summary><strong>14</strong> — PHP 8.2, renamed classes, methods, and traits</summary>
 
+#### PHP Version
+
 The minimum PHP version has been bumped to 8.2.
 
-### Renamed Classes
+#### Renamed Classes
 
 The `Url` class has been renamed to `URL`.
 
@@ -969,7 +973,7 @@ The `WysiwygEditor` class has been renamed to `WYSIWYGEditor`.
 +WYSIWYGEditor::make('Content')
 ```
 
-### Renamed Methods
+#### Renamed Methods
 
 The `defaultValue` method has been renamed to `default`.
 
@@ -1083,7 +1087,7 @@ The `returnFormat` method has been renamed to `format` on all fields.
 +Select::make('Superhero')->format('value')
 ```
 
-### Methods with Changed Behavior
+#### Methods with Changed Behavior
 
 The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
 
@@ -1123,7 +1127,7 @@ The `addTerm`, `loadTerms` and `saveTerms` methods have been renamed to `create`
 +Taxonomy::make('Category')->create()->load()->save()
 ```
 
-### Renamed Arguments
+#### Renamed Arguments
 
 The `appearance` argument `$fieldType` has been renamed to `$type`.
 
@@ -1139,7 +1143,7 @@ The `paginated` argument `$rowsPerPage` has been renamed to `$perPage`.
 +Repeater::make('Dogs')->paginated(perPage: 10)
 ```
 
-### Split Methods
+#### Split Methods
 
 The `fileSize` method has been split into `minSize` and `maxSize`.
 
@@ -1189,7 +1193,7 @@ The `min` and `max` methods have been renamed to context-specific variants:
 +Layout::make('Testimonials')->minInstances(1)->maxInstances(10)
 ```
 
-### Renamed Traits
+#### Renamed Traits
 
 If you use traits in [custom field classes](#custom-fields), update the imports:
 
@@ -1222,7 +1226,7 @@ If you use traits in [custom field classes](#custom-fields), update the imports:
 +use Extended\ACF\Fields\Settings\Fields;
 ```
 
-### Removed Traits
+#### Removed Traits
 
 The `Message` and `ReturnFormat` traits have been removed.
 
@@ -1238,7 +1242,7 @@ Changelog: [`13.8.0...14.0.0`](https://github.com/vinkla/extended-acf/compare/13
 <details>
 <summary><strong>13</strong> — Changed namespace</summary>
 
-### Renamed Namespace
+#### Renamed Namespace
 
 The namespace has been changed from `WordPlate\Acf` to `Extended\ACF`. Update all imports accordingly.
 
@@ -1256,9 +1260,11 @@ Changelog: [`12.0.3...13.0.0`](https://github.com/vinkla/extended-acf/compare/12
 <details>
 <summary><strong>12</strong> — PHP 8.0, renamed methods, removed classes</summary>
 
+#### PHP Version
+
 The minimum PHP version has been bumped to 8.0.
 
-### Renamed
+#### Renamed
 
 The `Attributes` namespace has been renamed to `Settings`.
 
@@ -1283,7 +1289,7 @@ use Extended\ACF\Location;
 +Location::where('post_type', 'post')
 ```
 
-### Removed
+#### Removed
 
 The `field` and `option` helper functions have been removed.
 
@@ -1300,7 +1306,7 @@ Changelog: [`11.2.0...12.0.0`](https://github.com/vinkla/extended-acf/compare/11
 <details>
 <summary><strong>11</strong> — snake_case names, renamed fields</summary>
 
-### Changed Behavior
+#### Changed Behavior
 
 The field name is now automatically formatted as snake_case instead of kebab-case.
 
@@ -1309,7 +1315,7 @@ The field name is now automatically formatted as snake_case instead of kebab-cas
 +Text::make('Organization Number') // organization_number
 ```
 
-### Renamed Classes
+#### Renamed Classes
 
 The `Radio` field has been renamed to `RadioButton`.
 
