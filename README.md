@@ -905,27 +905,16 @@ This guide covers breaking changes for each major version. If you're upgrading f
 ```
 
 <details>
-<summary><strong>15</strong> — PHP 8.4, renamed internal methods, macros</summary>
+<summary><strong>15</strong> — PHP 8.4, renamed methods, public settings</summary>
 
-#### Minimum PHP Version
-
-The minimum PHP version has been bumped from 8.2 to 8.4.
+The minimum PHP version has been bumped to 8.4.
 
 ```diff
 -"php": "^8.2"
 +"php": "^8.4"
 ```
 
-If you use `symfony/var-dumper` for the `dump` and `dd` methods, update it to `^8.0`.
-
-```diff
--"symfony/var-dumper": "^7.0"
-+"symfony/var-dumper": "^8.0"
-```
-
-#### Renamed `get` to `toArray`
-
-The `get` method has been renamed to `toArray` on the `Field`, `Location`, and `ConditionalLogic` classes. This only affects you if you called these methods directly in custom code.
+The `get` method has been renamed to `toArray` on the `Field`, `Location`, and `ConditionalLogic` classes.
 
 ```diff
 -$field->get();
@@ -938,21 +927,12 @@ The `get` method has been renamed to `toArray` on the `Field`, `Location`, and `
 +$conditionalLogic->toArray();
 ```
 
-#### Public Read Access to Field Settings
-
-The `$settings` property on field classes is now publicly readable (using PHP 8.4 asymmetric visibility). You can read settings directly but can only set them from within the class.
+The `$settings` property on field classes is now publicly readable using PHP 8.4 asymmetric visibility.
 
 ```diff
--// Previously: $settings was protected, no public read access
-+// Now: $settings is publicly readable
-+$field->settings;
+-protected array $settings;
++public protected(set) array $settings;
 ```
-
-If you have custom field classes that access `$this->settings`, they will continue to work as before.
-
-#### Added Macro Support
-
-The `Field` class now uses the `Macroable` trait, enabling runtime method registration. This is a new feature — see the [Macros](#macros) section for details.
 
 Changelog: [`14.6.2...15.0.0`](https://github.com/vinkla/extended-acf/compare/14.6.2...15.0.0)
 
