@@ -43,7 +43,7 @@ class TextareaTest extends FieldTestCase
 
     public function testRows()
     {
-        $field = Textarea::make('Rows')->rows(10)->get();
+        $field = Textarea::make('Rows')->rows(10)->toArray();
         $this->assertSame(10, $field['rows']);
     }
 }

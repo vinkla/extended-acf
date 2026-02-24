@@ -17,7 +17,7 @@ trait FileTypes
 {
     public function testAcceptedFileTypes()
     {
-        $field = $this->make('Accepted File Types')->acceptedFileTypes(['jpg', 'pdf'])->get();
+        $field = $this->make('Accepted File Types')->acceptedFileTypes(['jpg', 'pdf'])->toArray();
         $this->assertSame('jpg,pdf', $field['mime_types']);
     }
 }

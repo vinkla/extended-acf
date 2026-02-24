@@ -17,7 +17,7 @@ trait Height
 {
     public function testHeight()
     {
-        $field = $this->make('Height')->height(100)->get();
+        $field = $this->make('Height')->height(100)->toArray();
         $this->assertSame(100, $field['height']);
     }
 }

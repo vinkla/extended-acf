@@ -17,7 +17,7 @@ trait Step
 {
     public function testStep()
     {
-        $field = $this->make('Step')->step(5.2)->get();
+        $field = $this->make('Step')->step(5.2)->toArray();
         $this->assertSame(5.2, $field['step']);
     }
 }

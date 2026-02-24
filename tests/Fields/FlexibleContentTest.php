@@ -42,7 +42,7 @@ class FlexibleContentTest extends FieldTestCase
                         Text::make('Title'),
                     ]),
             ])
-            ->get();
+            ->toArray();
 
         $this->assertSame('Image', $field['layouts'][0]['label']);
         $this->assertSame('Title', $field['layouts'][0]['sub_fields'][0]['label']);
@@ -50,13 +50,13 @@ class FlexibleContentTest extends FieldTestCase
 
     public function testMaxLayouts()
     {
-        $field = FlexibleContent::make('Max Layouts')->maxLayouts(10)->get();
+        $field = FlexibleContent::make('Max Layouts')->maxLayouts(10)->toArray();
         $this->assertSame(10, $field['max']);
     }
 
     public function testMinLayouts()
     {
-        $field = FlexibleContent::make('Min Layouts')->minLayouts(5)->get();
+        $field = FlexibleContent::make('Min Layouts')->minLayouts(5)->toArray();
         $this->assertSame(5, $field['min']);
     }
 }

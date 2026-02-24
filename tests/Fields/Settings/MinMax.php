@@ -17,13 +17,13 @@ trait MinMax
 {
     public function testMax()
     {
-        $field = $this->make('Max')->max(10.5)->get();
+        $field = $this->make('Max')->max(10.5)->toArray();
         $this->assertSame(10.5, $field['max']);
     }
 
     public function testMin()
     {
-        $field = $this->make('Min')->min(5.5)->get();
+        $field = $this->make('Min')->min(5.5)->toArray();
         $this->assertSame(5.5, $field['min']);
     }
 }

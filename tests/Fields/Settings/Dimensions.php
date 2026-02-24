@@ -17,25 +17,25 @@ trait Dimensions
 {
     public function testMaxHeight()
     {
-        $field = $this->make('Max Height')->maxHeight(20)->get();
+        $field = $this->make('Max Height')->maxHeight(20)->toArray();
         $this->assertSame(20, $field['max_height']);
     }
 
     public function testMinHeight()
     {
-        $field = $this->make('Min Height')->minHeight(10)->get();
+        $field = $this->make('Min Height')->minHeight(10)->toArray();
         $this->assertSame(10, $field['min_height']);
     }
 
     public function testMaxWidth()
     {
-        $field = $this->make('Max Width')->maxWidth(40)->get();
+        $field = $this->make('Max Width')->maxWidth(40)->toArray();
         $this->assertSame(40, $field['max_width']);
     }
 
     public function testMinWidth()
     {
-        $field = $this->make('Min Width')->minWidth(30)->get();
+        $field = $this->make('Min Width')->minWidth(30)->toArray();
         $this->assertSame(30, $field['min_width']);
     }
 }

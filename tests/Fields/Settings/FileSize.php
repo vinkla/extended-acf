@@ -17,13 +17,13 @@ trait FileSize
 {
     public function testMinSize()
     {
-        $field = $this->make('Min Size')->minSize('400 KB')->get();
+        $field = $this->make('Min Size')->minSize('400 KB')->toArray();
         $this->assertSame('400 KB', $field['min_size']);
     }
 
     public function testMaxSize()
     {
-        $field = $this->make('Max Size')->maxSize(5)->get();
+        $field = $this->make('Max Size')->maxSize(5)->toArray();
         $this->assertSame(5, $field['max_size']);
     }
 }

@@ -17,7 +17,7 @@ trait Endpoint
 {
     public function testEndpoint()
     {
-        $field = $this->make('Endpoint')->endpoint()->get();
+        $field = $this->make('Endpoint')->endpoint()->toArray();
         $this->assertTrue($field['endpoint']);
     }
 }

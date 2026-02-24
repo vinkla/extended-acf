@@ -33,7 +33,7 @@ class OembedTest extends FieldTestCase
 
     public function testWidth()
     {
-        $field = Oembed::make('Width')->width(200)->get();
+        $field = Oembed::make('Width')->width(200)->toArray();
         $this->assertSame(200, $field['width']);
     }
 }
