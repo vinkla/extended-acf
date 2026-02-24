@@ -943,8 +943,6 @@ Changelog: [`14.6.2...15.0.0`](https://github.com/vinkla/extended-acf/compare/14
 
 The minimum PHP version has been bumped to 8.2.
 
-#### Renamed Classes
-
 The `Url` class has been renamed to `URL`.
 
 ```diff
@@ -964,8 +962,6 @@ The `WysiwygEditor` class has been renamed to `WYSIWYGEditor`.
 -WysiwygEditor::make('Content')
 +WYSIWYGEditor::make('Content')
 ```
-
-#### Renamed Methods
 
 The `defaultValue` method has been renamed to `default`.
 
@@ -1079,8 +1075,6 @@ The `returnFormat` method has been renamed to `format` on all fields.
 +Select::make('Superhero')->format('value')
 ```
 
-#### Methods with Changed Behavior
-
 The `stylisedUi` method has been renamed to `stylized` on the `TrueFalse` field.
 
 ```diff
@@ -1119,8 +1113,6 @@ The `addTerm`, `loadTerms` and `saveTerms` methods have been renamed to `create`
 +Taxonomy::make('Category')->create()->load()->save()
 ```
 
-#### Renamed Arguments
-
 The `appearance` argument `$fieldType` has been renamed to `$type`.
 
 ```diff
@@ -1134,8 +1126,6 @@ The `paginated` argument `$rowsPerPage` has been renamed to `$perPage`.
 -Repeater::make('Dogs')->paginated(rowsPerPage: 10)
 +Repeater::make('Dogs')->paginated(perPage: 10)
 ```
-
-#### Split Methods (min/max)
 
 The `fileSize` method has been split into `minSize` and `maxSize`.
 
@@ -1185,8 +1175,6 @@ The `min` and `max` methods have been renamed to context-specific variants:
 +Layout::make('Testimonials')->minInstances(1)->maxInstances(10)
 ```
 
-#### Renamed Traits
-
 If you use traits in [custom field classes](#custom-fields), update the imports:
 
 | Old | New |
@@ -1217,8 +1205,6 @@ If you use traits in [custom field classes](#custom-fields), update the imports:
 -use Extended\ACF\Fields\Settings\SubFields;
 +use Extended\ACF\Fields\Settings\Fields;
 ```
-
-#### Removed Traits
 
 The `Message` and `ReturnFormat` traits have been removed.
 
