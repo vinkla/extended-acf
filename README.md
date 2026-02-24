@@ -29,6 +29,7 @@ Extended ACF provides an object-oriented API to register groups and fields with 
     - [`dd` and `dump`](#dd-and-dump)
     - [`key`](#key)
     - [`withSettings`](#withsettings)
+- [Macros](#macros)
 - [Custom Fields](#custom-fields)
 - [Upgrade Guide](#upgrade-guide)
   - [14](#14)
@@ -800,6 +801,50 @@ class Select extends Field
         return $this;
     }
 }
+```
+
+## Macros
+
+Macros allow you to add custom methods to field classes at runtime. This is useful for adding reusable functionality without creating custom field classes. Register macros on the `Field` class to make them available to all field types. Use the `acf/init` hook to ensure they're available before field groups are registered.
+
+```php
+use Extended\ACF\Fields\Field;
+use Extended\ACF\Location;
+
+add_action('acf/init', function () {
+    Field::macro('translatable', function (Field $field): static {
+        return $field->withSettings(['translatable' => true]);
+    });
+});
+
+add_action('acf/include_fields', function () {
+    register_extended_field_group([
+        'title' => 'About',
+        'fields' => [
+            Text::make('Title')->translatable(),
+            Textarea::make('Description')->translatable(),
+        ],
+        'location' => [
+            Location::where('post_type', 'page'),
+        ],
+    ]);
+});
+```
+
+If you need a macro that only applies to a specific field type, you can check the field instance:
+
+```php
+use BadMethodCallException;
+use Extended\ACF\Fields\Field;
+use Extended\ACF\Fields\Text;
+
+Field::macro('maxLength', function (Field $field, int $length): static {
+    if (!$field instanceof Text) {
+        throw new BadMethodCallException('maxLength only works on Text fields');
+    }
+
+    return $field->withSettings(['maxlength' => $length]);
+});
 ```
 
 ## Custom Fields
