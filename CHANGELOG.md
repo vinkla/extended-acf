@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 15.0.0
+
+- Updated minimum PHP version to 8.4
+- Added macro support for field classes
+- Added `public protected(set)` visibility to field `settings` property
+- Renamed `get` method to `toArray`
+- Updated `symfony/var-dumper` to 8.0
+- Updated `phpunit/phpunit` to ^12.0
+
 ## 14.6.2
 
 - Updated `helperText` to support Markdown inside code elements
