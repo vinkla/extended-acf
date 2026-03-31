@@ -25,6 +25,10 @@ if (!function_exists('register_extended_field_group')) {
      *   title: string,
      *   fields: array,
      *   location: array,
+     *   active?: bool,
+     *   ai_description?: string,
+     *   allow_ai_access?: bool,
+     *   description?: string,
      *   display_title?: string,
      *   hide_on_screen?: array,
      *   instruction_placement?: string,
@@ -32,6 +36,7 @@ if (!function_exists('register_extended_field_group')) {
      *   label_placement?: string,
      *   menu_order?: int,
      *   position?: string,
+     *   show_in_rest?: bool,
      *   style?: string,
      * } $settings
      *
