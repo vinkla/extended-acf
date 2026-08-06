@@ -36,6 +36,25 @@ class Checkbox extends Field
 
     protected ?string $type = 'checkbox';
 
+    /** @param bool $save save custom values to the field's choices */
+    public function create(bool $save = false): static
+    {
+        $this->settings['allow_custom'] = true;
+
+        if ($save) {
+            $this->settings['save_custom'] = true;
+        }
+
+        return $this;
+    }
+
+    public function toggle(): static
+    {
+        $this->settings['toggle'] = true;
+
+        return $this;
+    }
+
     /**
      * @param string $format array, label, value (default)
      * @throws \InvalidArgumentException

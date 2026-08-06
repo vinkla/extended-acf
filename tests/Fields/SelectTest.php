@@ -72,6 +72,13 @@ class SelectTest extends FieldTestCase
         $this->assertTrue($field['ui']);
         $this->assertTrue($field['multiple']);
         $this->assertTrue($field['create_options']);
+        $this->assertArrayNotHasKey('save_options', $field);
+
+        $field = Select::make('Select Create Save')->create(save: true)->toArray();
+        $this->assertTrue($field['ui']);
+        $this->assertTrue($field['multiple']);
+        $this->assertTrue($field['create_options']);
+        $this->assertTrue($field['save_options']);
     }
 
     public function testSave()

@@ -55,11 +55,16 @@ class Select extends Field
         return $this;
     }
 
-    public function create(): static
+    /** @param bool $save save new options to the field's choices */
+    public function create(bool $save = false): static
     {
         $this->settings['ui'] = true;
         $this->settings['multiple'] = true;
         $this->settings['create_options'] = true;
+
+        if ($save) {
+            $this->settings['save_options'] = true;
+        }
 
         return $this;
     }

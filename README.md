@@ -281,6 +281,8 @@ Checkbox::make('Color')
     ->default('forest_green')
     ->format('value') // array, label, value (default)
     ->layout('horizontal') // vertical, horizontal
+    ->create(save: true) // allow custom values, save them to the choices
+    ->toggle() // add a toggle all checkbox
     ->required()
 ```
 
@@ -294,6 +296,7 @@ RadioButton::make('Color')
     ->choices(['Forest Green', 'Sky Blue']) // ['forest_green' => 'Forest Green', 'sky_blue' => 'Sky Blue']
     ->default('forest_green')
     ->format('value') // array, label, value (default)
+    ->create(save: true) // add an other choice, save custom values to the choices
     ->required()
 ```
 
@@ -311,8 +314,7 @@ Select::make('Color')
     ->nullable()
     ->stylized() // stylized checkbox using select2
     ->lazyLoad() // use AJAX to lazy load choices
-    ->create() // allow creation of new options
-    ->save() // save new options to the choices
+    ->create(save: true) // allow creation of new options, save them to the choices
     ->required()
 ```
 

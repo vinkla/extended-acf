@@ -46,7 +46,10 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "15.0-dev"
+            "dev-master": "15.1-dev"
         }
+    },
+    "scripts": {
+        "test": "@php phpunit"
     }
 }

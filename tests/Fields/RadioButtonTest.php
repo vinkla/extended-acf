@@ -50,4 +50,15 @@ class RadioButtonTest extends FieldTestCase
 
         RadioButton::make('Invalid Format')->format('test')->toArray();
     }
+
+    public function testCreate()
+    {
+        $field = RadioButton::make('Radio Button Create')->create()->toArray();
+        $this->assertTrue($field['other_choice']);
+        $this->assertArrayNotHasKey('save_other_choice', $field);
+
+        $field = RadioButton::make('Radio Button Create Save')->create(save: true)->toArray();
+        $this->assertTrue($field['other_choice']);
+        $this->assertTrue($field['save_other_choice']);
+    }
 }

@@ -48,4 +48,21 @@ class CheckboxTest extends FieldTestCase
 
         Checkbox::make('Invalid Format')->format('test')->toArray();
     }
+
+    public function testCreate()
+    {
+        $field = Checkbox::make('Checkbox Create')->create()->toArray();
+        $this->assertTrue($field['allow_custom']);
+        $this->assertArrayNotHasKey('save_custom', $field);
+
+        $field = Checkbox::make('Checkbox Create Save')->create(save: true)->toArray();
+        $this->assertTrue($field['allow_custom']);
+        $this->assertTrue($field['save_custom']);
+    }
+
+    public function testToggle()
+    {
+        $field = Checkbox::make('Checkbox Toggle')->toggle()->toArray();
+        $this->assertTrue($field['toggle']);
+    }
 }

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 15.1.0
+
+- Added `create` and `toggle` methods to checkbox field
+- Added `create` method to radio button field
+- Added `save` argument to `create` method on select field
+
 ## 15.0.0
 
 - Updated minimum PHP version to 8.4

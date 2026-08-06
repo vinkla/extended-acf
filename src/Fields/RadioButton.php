@@ -38,6 +38,18 @@ class RadioButton extends Field
 
     protected ?string $type = 'radio';
 
+    /** @param bool $save save other values to the field's choices */
+    public function create(bool $save = false): static
+    {
+        $this->settings['other_choice'] = true;
+
+        if ($save) {
+            $this->settings['save_other_choice'] = true;
+        }
+
+        return $this;
+    }
+
     /**
      * @param string $format array, label, value (default)
      * @throws \InvalidArgumentException
