@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Extended\ACF\Tests\Fields;
 
 use Error;
+use Extended\ACF\ConditionalLogic;
+use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Text;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
@@ -101,5 +103,48 @@ class FieldTest extends TestCase
         $this->expectException(Error::class);
         $this->expectExceptionMessage('Cannot modify protected(set) property');
         $field->settings = ['label' => 'Modified'];
+    }
+
+    public function testToArrayDoesNotMutateSettings()
+    {
+        $field = Text::make('Immutable Settings')
+            ->conditionalLogic([
+                ConditionalLogic::where('type', '==', 'page'),
+            ]);
+
+        $field->toArray('group');
+
+        $this->assertArrayNotHasKey('key', $field->settings);
+        $this->assertArrayNotHasKey('type', $field->settings);
+        $this->assertInstanceOf(
+            ConditionalLogic::class,
+            $field->settings['conditional_logic'][0],
+        );
+    }
+
+    public function testToArrayAllowsReusedFieldInstances()
+    {
+        $shared = Text::make('Shared', 'shared')
+            ->conditionalLogic([
+                ConditionalLogic::where('enabled', '==', 1),
+            ]);
+
+        $field = Group::make('Reusable Fields')
+            ->fields([
+                Group::make('One')->fields([$shared]),
+                Group::make('Two')->fields([$shared]),
+            ])
+            ->toArray('group');
+
+        $this->assertSame('shared', $field['sub_fields'][0]['sub_fields'][0]['name']);
+        $this->assertSame('shared', $field['sub_fields'][1]['sub_fields'][0]['name']);
+        $this->assertNotSame(
+            $field['sub_fields'][0]['sub_fields'][0]['key'],
+            $field['sub_fields'][1]['sub_fields'][0]['key'],
+        );
+        $this->assertInstanceOf(
+            ConditionalLogic::class,
+            $shared->settings['conditional_logic'][0],
+        );
     }
 }
