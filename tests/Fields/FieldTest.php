@@ -108,26 +108,19 @@ class FieldTest extends TestCase
     public function testToArrayDoesNotMutateSettings()
     {
         $field = Text::make('Immutable Settings')
-            ->conditionalLogic([
-                ConditionalLogic::where('type', '==', 'page'),
-            ]);
+            ->conditionalLogic([ConditionalLogic::where('type', '==', 'page')]);
 
         $field->toArray('group');
 
         $this->assertArrayNotHasKey('key', $field->settings);
         $this->assertArrayNotHasKey('type', $field->settings);
-        $this->assertInstanceOf(
-            ConditionalLogic::class,
-            $field->settings['conditional_logic'][0],
-        );
+        $this->assertInstanceOf(ConditionalLogic::class, $field->settings['conditional_logic'][0]);
     }
 
     public function testToArrayAllowsReusedFieldInstances()
     {
         $shared = Text::make('Shared', 'shared')
-            ->conditionalLogic([
-                ConditionalLogic::where('enabled', '==', 1),
-            ]);
+            ->conditionalLogic([ConditionalLogic::where('enabled', '==', 1)]);
 
         $field = Group::make('Reusable Fields')
             ->fields([
@@ -142,9 +135,16 @@ class FieldTest extends TestCase
             $field['sub_fields'][0]['sub_fields'][0]['key'],
             $field['sub_fields'][1]['sub_fields'][0]['key'],
         );
-        $this->assertInstanceOf(
-            ConditionalLogic::class,
-            $shared->settings['conditional_logic'][0],
-        );
+        $this->assertInstanceOf(ConditionalLogic::class, $shared->settings['conditional_logic'][0]);
+    }
+
+    public function testToArrayThrowsOnReusedInstanceUnderSameParent()
+    {
+        $shared = Text::make('Shared', 'shared');
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The key [group_duplicates_shared] is not unique.');
+
+        Group::make('Duplicates')->fields([$shared, $shared])->toArray('group');
     }
 }

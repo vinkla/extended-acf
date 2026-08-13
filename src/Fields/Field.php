@@ -25,9 +25,6 @@ abstract class Field
     public protected(set) array $settings;
     protected string $keyPrefix = 'field';
 
-    /** @var array<string, string> */
-    private array $generatedKeys = [];
-
     public function __construct(string $label, ?string $name = null)
     {
         $this->settings = [
@@ -68,9 +65,7 @@ abstract class Field
 
     public function dump(...$args): static
     {
-        $settings = $this->cloneRecursively()->toArray();
-
-        dump($settings, ...$args);
+        dump($this->toArray(), ...$args);
 
         return $this;
     }
@@ -78,21 +73,6 @@ abstract class Field
     public function dd(...$args): never
     {
         dd($this->toArray(), ...$args);
-    }
-
-    /** @internal */
-    private function cloneRecursively(): static
-    {
-        $clone = clone $this;
-
-        if (isset($this->settings['sub_fields'])) {
-            $clone->settings['sub_fields'] = array_map(
-                fn(Field $field) => $field->cloneRecursively(),
-                $this->settings['sub_fields'],
-            );
-        }
-
-        return $clone;
     }
 
     /**
@@ -123,8 +103,9 @@ abstract class Field
     /** @internal */
     public function toArray(?string $parentKey = null): array
     {
-        // Export into a new array so builder state on $this->settings is preserved.
-        // This allows the same field instance to be nested under multiple parents.
+        // Export into a new array to keep the builder state on $this->settings
+        // intact, so the same field instance can be nested under multiple
+        // parents without being consumed by the first export.
         $settings = $this->settings;
 
         $key = $settings['key'] ?? $parentKey . '_' . Key::sanitize($settings['name']);
@@ -163,13 +144,7 @@ abstract class Field
             }
         }
 
-        if (!isset($settings['key'])) {
-            $cacheKey = $parentKey ?? '';
-            $settings['key'] = $this->generatedKeys[$cacheKey] ??= Key::generate(
-                $key,
-                $this->keyPrefix,
-            );
-        }
+        $settings['key'] ??= Key::generate($key, $this->keyPrefix);
 
         return $settings;
     }
