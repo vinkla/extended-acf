@@ -65,9 +65,7 @@ abstract class Field
 
     public function dump(...$args): static
     {
-        $settings = $this->cloneRecursively()->toArray();
-
-        dump($settings, ...$args);
+        dump($this->toArray(), ...$args);
 
         return $this;
     }
@@ -75,21 +73,6 @@ abstract class Field
     public function dd(...$args): never
     {
         dd($this->toArray(), ...$args);
-    }
-
-    /** @internal */
-    private function cloneRecursively(): static
-    {
-        $clone = clone $this;
-
-        if (isset($this->settings['sub_fields'])) {
-            $clone->settings['sub_fields'] = array_map(
-                fn(Field $field) => $field->cloneRecursively(),
-                $this->settings['sub_fields'],
-            );
-        }
-
-        return $clone;
     }
 
     /**
@@ -120,44 +103,49 @@ abstract class Field
     /** @internal */
     public function toArray(?string $parentKey = null): array
     {
-        $key = $this->settings['key'] ?? $parentKey . '_' . Key::sanitize($this->settings['name']);
+        // Export into a new array to keep the builder state on $this->settings
+        // intact, so the same field instance can be nested under multiple
+        // parents without being consumed by the first export.
+        $settings = $this->settings;
+
+        $key = $settings['key'] ?? $parentKey . '_' . Key::sanitize($settings['name']);
 
         if (isset($this->type)) {
-            $this->settings['type'] = $this->type;
+            $settings['type'] = $this->type;
         }
 
-        if (isset($this->settings['conditional_logic'])) {
-            $this->settings['conditional_logic'] = array_map(
+        if (isset($settings['conditional_logic'])) {
+            $settings['conditional_logic'] = array_map(
                 fn(ConditionalLogic $rules) => $rules->toArray($parentKey),
-                $this->settings['conditional_logic'],
+                $settings['conditional_logic'],
             );
         }
 
-        if (isset($this->settings['layouts'])) {
-            $this->settings['layouts'] = array_map(
+        if (isset($settings['layouts'])) {
+            $settings['layouts'] = array_map(
                 fn(Layout $layout) => $layout->toArray($key),
-                $this->settings['layouts'],
+                $settings['layouts'],
             );
         }
 
-        if (isset($this->settings['sub_fields'])) {
-            $this->settings['sub_fields'] = array_map(
+        if (isset($settings['sub_fields'])) {
+            $settings['sub_fields'] = array_map(
                 fn(Field $field) => $field->toArray($key),
-                $this->settings['sub_fields'],
+                $settings['sub_fields'],
             );
         }
 
-        if (isset($this->settings['collapsed'], $this->settings['sub_fields'])) {
-            foreach ($this->settings['sub_fields'] as $field) {
-                if ($field['name'] === $this->settings['collapsed']) {
-                    $this->settings['collapsed'] = $field['key'];
+        if (isset($settings['collapsed'], $settings['sub_fields'])) {
+            foreach ($settings['sub_fields'] as $field) {
+                if ($field['name'] === $settings['collapsed']) {
+                    $settings['collapsed'] = $field['key'];
                     break;
                 }
             }
         }
 
-        $this->settings['key'] ??= Key::generate($key, $this->keyPrefix);
+        $settings['key'] ??= Key::generate($key, $this->keyPrefix);
 
-        return $this->settings;
+        return $settings;
     }
 }
