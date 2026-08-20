@@ -46,7 +46,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "15.1-dev"
+            "dev-master": "15.2-dev"
         }
     },
     "scripts": {

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 15.1.1
+
+- Fixed `toArray` method mutating the field settings
+
 ## 15.1.0
 
 - Added `create` and `toggle` methods to checkbox field
